@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.iu</groupId>
 	<artifactId>s5</artifactId>
-	<name>Spring5_ex</name>
+	<name>SIST_Semi_Project_B</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
