@@ -8,7 +8,7 @@
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
 		<property name="username" value="user02"></property>
 		<property name="password" value="user02"></property>
-		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:xe"></property>
+		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1522:xe"></property>
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
 	</bean>
 	
@@ -19,6 +19,8 @@
 		<property name="configLocation" value="classpath:database/config/myBatisConfig.xml"></property>
 	</bean>
 	
+	
+	<!-- aaa -->
 	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"></constructor-arg>
 	</bean>	
