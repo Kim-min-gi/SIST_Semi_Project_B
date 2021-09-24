@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
-	<!-- Test용 주석 -->
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<context:property-placeholder location="/config/*.properties" /> 
+	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<!-- 1. DataSource -->
+	<!-- 1. DataSource -->	
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
-		<property name="username" value="user02"></property>
-		<property name="password" value="user02"></property>
-		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:xe"></property>
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
-	</bean>
+		<property name="username" value="${spring.datasource.username}"></property>
+		<property name="password" value="${spring.datasource.password}"></property>
+		<property name="url" value="${spring.datasource.url}"></property>
+		<property name="driverClassName" value="${spring.datasource.driverClassName}"></property>
+	</bean>	
 	
 	<!-- mapper 파일의 위치 -->
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactoryBean">
