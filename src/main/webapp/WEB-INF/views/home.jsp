@@ -25,10 +25,11 @@
 			
 			</div>
 			<header class="codrops-header">
-				<h1>Grid Loading and Hover Effect <span>Recreating <a href="http://design.samsung.com/">Samsung's</a> grid loading effect</span></h1>	
-				<nav class="codrops-demos">
+			<nav class="codrops-demos">
 				
 				</nav>
+				<h1>Grid Loading and Hover Effect <span>Recreating <a href="http://design.samsung.com/">Samsung's</a> grid loading effect</span></h1>	
+				
 			</header>
 			<section class="grid-wrap">
 				<ul class="grid swipe-down" id="grid">
