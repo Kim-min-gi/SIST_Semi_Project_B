@@ -19,7 +19,7 @@
 		<script src="./resources/js/modernizr.custom.js"></script>
 	</head>
 	<body>
-		<div class="container">
+		<div class="main-container">
 			<!-- Top Navigation -->
 			<div class="codrops-top clearfix">
 			
@@ -71,9 +71,13 @@
 				</a>
 			</section>
 		</div>
+		
+		<c:import url="./temp/boot_footer.jsp"></c:import>
+		
+		
 			<!-- nav -->
 		 
-   			 <script src="./resourcesjs/nav.js"></script>
+   			 <script src="./resources/js/nav.js"></script>
    			 <!-- /container -->
 		<script src="./resources/js/masonry.pkgd.min.js"></script>
 		<script src="./resources/js/imagesloaded.pkgd.min.js"></script>
@@ -89,10 +93,10 @@
 
 			$(window).scroll(function() {
 				            if ($(document).scrollTop() > 50) {
-				                $('.nav').addClass('affix');
+				                $('.navi').addClass('affix');
 				                console.log("OK");
 				            } else {
-				                $('.nav').removeClass('affix');
+				                $('.navi').removeClass('affix');
 				            }
 			});
 			
