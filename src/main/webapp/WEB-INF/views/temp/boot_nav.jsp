@@ -5,7 +5,8 @@
 
 
 <nav class="navi">
-  <div class="con">
+<div class="row">
+  <div class="con col-sm-12 col-md-12">
    <div class="logo">
     <a href="#">얌얌</a>
    </div>
@@ -23,4 +24,5 @@
 	<i></i>
 	</span>
 	</div>
+</div>
 </nav>
