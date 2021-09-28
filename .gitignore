@@ -176,9 +176,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-root-context.xml
 
-*.properties
+
 
 *.properties
 # End of https://www.gitignore.io/api/git,java,maven,windows,eclipse
