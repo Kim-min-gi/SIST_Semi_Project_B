@@ -1,14 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+
+
+
 <nav class="nav">
   <div class="container">
    <div class="logo">
-    <a href="#">Your Logo</a>
+    <a href="#">얌얌</a>
    </div>
  <div id="mainListDiv" class="main_list">
 	<ul class="navlinks">
-	 <li><a href="#">About</a></li>
-	 <li><a href="#">Portfolio</a></li>
-	 <li><a href="#">Services</a></li>
-	 <li><a href="#">Contact</a></li>
+	 <li><a href="#">Login</a></li>
+	 <li><a href="#">Join</a></li>
+	 <li><a href="#">Community</a></li>
+	 <li><a href="#">Request</a></li>
 	 </ul>
  </div>
 	 <span class="navTrigger">
