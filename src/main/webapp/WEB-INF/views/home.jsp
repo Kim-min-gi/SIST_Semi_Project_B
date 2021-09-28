@@ -71,9 +71,13 @@
 				</a>
 			</section>
 		</div>
+		
+		<c:import url="./temp/boot_footer.jsp"></c:import>
+		
+		
 			<!-- nav -->
 		 
-   			 <script src="./resourcesjs/nav.js"></script>
+   			 <script src="./resources/js/nav.js"></script>
    			 <!-- /container -->
 		<script src="./resources/js/masonry.pkgd.min.js"></script>
 		<script src="./resources/js/imagesloaded.pkgd.min.js"></script>

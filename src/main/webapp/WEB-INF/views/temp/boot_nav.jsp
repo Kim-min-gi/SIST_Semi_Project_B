@@ -4,8 +4,8 @@
 
 
 
-<nav class="nav">
-  <div class="container">
+<nav class="navi">
+  <div class="con">
    <div class="logo">
     <a href="#">얌얌</a>
    </div>
