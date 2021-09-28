@@ -19,7 +19,7 @@
 		<script src="./resources/js/modernizr.custom.js"></script>
 	</head>
 	<body>
-		<div class="container">
+		<div class="main-container">
 			<!-- Top Navigation -->
 			<div class="codrops-top clearfix">
 			
@@ -92,10 +92,10 @@
 			
 			$(window).scroll(function() {
 				            if ($(document).scrollTop() > 50) {
-				                $('.nav').addClass('affix');
+				                $('.navi').addClass('affix');
 				                console.log("OK");
 				            } else {
-				                $('.nav').removeClass('affix');
+				                $('.navi').removeClass('affix');
 				            }
 			});
 			
