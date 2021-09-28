@@ -17,6 +17,10 @@
 
 
 
+#test{
+	background-image : url("../img/img2.jpg");
+}
+
 
 body {
 	background: white;
@@ -38,7 +42,7 @@ a:hover, a:focus {
 }
 
 .codrops-header {
-	background-image : url("../img/img2.jpg");
+	
 	margin: 0 auto;
 	text-align: center;
 }
