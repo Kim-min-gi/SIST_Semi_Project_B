@@ -177,8 +177,9 @@ Temporary Items
 .apdisk
 
 
-<<<<<<< HEAD
-=======
+
+
 *.properties
->>>>>>> main
+# End of https://www.gitignore.io/api/git,java,maven,windows,eclipse
+
 # End of https://www.gitignore.io/api/git,java,maven,windows,eclipse
