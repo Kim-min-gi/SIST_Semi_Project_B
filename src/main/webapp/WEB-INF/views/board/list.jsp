@@ -17,14 +17,39 @@
 	
 		<h3> list Page </h3>
 		
-		<div>
-			<p> test </p>
-			<p> test </p>
-			<p> test </p>
-			<p> test </p>
-			<p> test </p>
-			<p> test </p>
-		</div>
+		<table class="table table-hover">
+			<tr>
+				<th class="col-md-6"> 제목 </th>
+				<th class="col-md-2"> 작성자 </th>
+				<th class="col-md-2"> 작성일 </th>
+				<th class="col-md-2"> 조회 </th>
+			</tr>
+			<tr>
+				<td> 테스트테스트 </td>
+				<td> 테스트테스트 </td>
+				<td> 테스트테스트 </td>
+				<td> 테스트테스트 </td>
+			</tr>
+			<tr>
+				<td> 테스트테스트 </td>
+				<td> 테스트테스트 </td>
+				<td> 테스트테스트 </td>
+				<td> 테스트테스트 </td>
+			</tr>
+			<tr>
+				<td> 테스트테스트 </td>
+				<td> 테스트테스트 </td>
+				<td> 테스트테스트 </td>
+				<td> 테스트테스트 </td>
+			</tr>
+			<tr>
+				<td> 테스트테스트 </td>
+				<td> 테스트테스트 </td>
+				<td> 테스트테스트 </td>
+				<td> 테스트테스트 </td>
+			</tr>
+		</table>
+		
 	</div>
 
 	<c:import url="../temp/boot_footer.jsp"></c:import>

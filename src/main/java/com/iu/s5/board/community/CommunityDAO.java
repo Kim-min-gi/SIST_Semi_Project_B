@@ -2,6 +2,8 @@ package com.iu.s5.board.community;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.iu.s5.board.BoardDAO;
@@ -10,6 +12,11 @@ import com.iu.s5.board.BoardDTO;
 @Repository
 public class CommunityDAO implements BoardDAO {
 
+	@Autowired
+	private SqlSession sqlSession;
+	private final String NAMESPACE = "com.iu.s5.board.community.CommunityDAO.";
+	
+	
 	@Override
 	public List<BoardDTO> getList() throws Exception {
 		// TODO Auto-generated method stub
