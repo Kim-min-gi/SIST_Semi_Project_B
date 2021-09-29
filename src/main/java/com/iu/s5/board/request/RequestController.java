@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class RequestController {
 	
 	@GetMapping("list")
-	public ModelAndView getList() {
+	public ModelAndView getList() throws Exception {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("board/list");
 		
