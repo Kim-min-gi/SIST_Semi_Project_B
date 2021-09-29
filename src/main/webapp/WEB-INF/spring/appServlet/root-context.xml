@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<context:property-placeholder location="/config/*.properties" /> 
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 1. DataSource -->	
+	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
+		<property name="username" value="${spring.datasource.username}"></property>
+		<property name="password" value="${spring.datasource.password}"></property>
+		<property name="url" value="${spring.datasource.url}"></property>
+		<property name="driverClassName" value="${spring.datasource.driverClassName}"></property>
+	</bean>	
+	
+	<!-- mapper 파일의 위치 -->
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="mapperLocations" value="classpath:database/mappers/*Mapper.xml"></property>
+		<property name="configLocation" value="classpath:database/config/myBatisConfig.xml"></property>
+	</bean>
+	
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"></constructor-arg>
+	</bean>	
+	
+	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<!-- 파일 한 개당 사이즈 지정(byte 단위) -->
+		<property name="maxUploadSizePerFile" value="1048576"></property>
+		<!-- 전체 파일의 크기(byte 단위) -->
+		<property name="maxUploadSize" value="52428800"></property>
+	</bean>
+	
+</beans>
