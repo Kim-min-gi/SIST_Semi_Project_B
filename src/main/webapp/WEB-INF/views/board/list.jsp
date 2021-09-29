@@ -13,19 +13,32 @@
 
 	<c:import url="../temp/boot_nav.jsp"></c:import>
 
-	<h3> list Page </h3>
+	<div class="container">
 	
-	<div>
-		<p> test </p>
-		<p> test </p>
-		<p> test </p>
-		<p> test </p>
-		<p> test </p>
-		<p> test </p>
+		<h3> list Page </h3>
+		
+		<div>
+			<p> test </p>
+			<p> test </p>
+			<p> test </p>
+			<p> test </p>
+			<p> test </p>
+			<p> test </p>
+		</div>
 	</div>
-	
 
 	<c:import url="../temp/boot_footer.jsp"></c:import>
 
+
+	<script>
+		$(window).scroll(function() {
+				            if ($(document).scrollTop() > 50) {
+				                $('.navi').addClass('affix');
+				                console.log("OK");
+				            } else {
+				                $('.navi').removeClass('affix');
+				            }
+			});
+	 </script>
 </body>
 </html>
