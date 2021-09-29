@@ -10,8 +10,9 @@
 		
 		<typeAlias type="com.iu.s5.board.BoardDTO" alias="BoardDTO"/>
 		<typeAlias type="com.iu.s5.board.community.CommunityDTO" alias="CommunityDTO"/>
-		<typeAlias type="com.iu.s5.request.RequestDTO" alias="RequestDTO"/>
+		<typeAlias type="com.iu.s5.board.request.RequestDTO" alias="RequestDTO"/>
 	
+
 	
   		<typeAlias type="java.lang.Long" alias="Long"/>
   		<typeAlias type="java.util.List" alias="List"/>
