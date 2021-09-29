@@ -14,7 +14,7 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	<dependencies>
-			
+
 			<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 			<dependency>
 			    <groupId>com.fasterxml.jackson.core</groupId>
@@ -22,8 +22,9 @@
 			    <version>2.12.4</version>
 			</dependency>
 			
+
 			
-			
+
 			<!-- mybatis 추가 -->
 			<dependency>
 			    <groupId>org.mybatis</groupId>
