@@ -14,7 +14,7 @@ public class CommunityController {
 	public ModelAndView getList() throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName(null);
+		mv.setViewName("board/list");
 		return mv;
 	}
 	

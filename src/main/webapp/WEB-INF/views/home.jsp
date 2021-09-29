@@ -21,15 +21,21 @@
 	<body>
 		<div class="main-container">
 			<!-- Top Navigation -->
-			<div class="codrops-top clearfix">
 			
-			
-			</div>
 			<header class="codrops-header">
-					<c:import url="./temp/boot_nav.jsp"></c:import>
-				<h1>Grid Loading and Hover Effect <span>Recreating <a href="http://design.samsung.com/">Samsung's</a> grid loading effect</span></h1>	
+				<c:import url="./temp/boot_nav.jsp"></c:import>
+			
 				
 			</header>
+			
+			<div id = "test">
+				
+			
+			</div>
+			
+			
+			
+			
 			<section class="grid-wrap">
 				<ul class="grid swipe-down" id="grid">
 					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>

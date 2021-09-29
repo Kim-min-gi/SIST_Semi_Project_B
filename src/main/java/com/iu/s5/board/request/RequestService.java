@@ -1,4 +1,4 @@
-package com.iu.s5.request;
+package com.iu.s5.board.request;
 
 public class RequestService {
 
