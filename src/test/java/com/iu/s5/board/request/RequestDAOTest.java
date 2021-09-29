@@ -4,7 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class RequestDAOTest {
+import com.iu.s5.JunitTest;
+
+public class RequestDAOTest extends JunitTest{
 
 	@Test
 	public void test() {
