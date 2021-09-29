@@ -12,7 +12,7 @@ public class RequestController {
 	@GetMapping("list")
 	public ModelAndView getList() {
 		ModelAndView mv = new ModelAndView();
-		
+		mv.setViewName("board/list");
 		
 		return mv;
 	}

@@ -6,7 +6,9 @@
   
  <mapper namespace="com.iu.s5.board.request.RequestDAO">
  
- 	<insert id="setInsert">
- 		
+ 	<insert id="setInsert" parameterType="RequestDTO">
+ 		insert into request 
+		values (request_seq.nextval, 'test', 'test', 'test', sysdate, 0, 
+		'test', 'test', 'test', 'test', 'test', 'test', 'N');
  	</insert>
  </mapper>
