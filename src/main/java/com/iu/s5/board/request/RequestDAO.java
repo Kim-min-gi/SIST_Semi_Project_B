@@ -1,5 +1,8 @@
 package com.iu.s5.board.request;
 
-public class RequestDAO {
+import org.springframework.stereotype.Repository;
 
+@Repository
+public class RequestDAO {
+	
 }
