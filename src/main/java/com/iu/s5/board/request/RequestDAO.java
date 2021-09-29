@@ -18,8 +18,7 @@ public class RequestDAO implements BoardDAO {
 
 	@Override
 	public List<BoardDTO> getList() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList(NAMESPACE+"getList");
 	}
 
 	@Override
