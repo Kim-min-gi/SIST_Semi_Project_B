@@ -22,7 +22,7 @@ public class RequestController {
 	
 	@ModelAttribute("board")
 	public String getBoard() {
-		return "Request";
+		return "request";
 	}
 	
 	@GetMapping("list")
