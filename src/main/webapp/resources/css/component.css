@@ -5,6 +5,12 @@
 	max-width: 1260px;
 }
 
+.Explanation > h3{
+	margin-top: 45px;
+	text-align: left;
+	color: #231815;
+}
+
 .grid {
 	margin: 30px auto;
 	padding: 0;

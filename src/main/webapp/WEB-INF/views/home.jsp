@@ -42,6 +42,9 @@
 			
 			
 			<section class="grid-wrap">
+				<div class="Explanation">
+					<h3>추천순</h3>
+				</div>
 				<ul class="grid swipe-down" id="grid">
 					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
 					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
@@ -56,6 +59,9 @@
 			
 			<hr>
 				<section class="grid-wrap">
+				<div class="Explanation">
+					<h3>관리자가 선정한 식당</h3>
+				</div>
 				<ul class="grid swipe-down" id="grid2">
 					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
 					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
