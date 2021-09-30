@@ -27,11 +27,38 @@ public class RequestDAOTest extends JunitTest{
 		
 	}
 	
-	@Test
-	public void getCount() throws Exception {
+	//@Test
+	public void getCountTest() throws Exception {
 		Pager pager = new Pager();
 		Long count = requestDAO.getCount(pager);
 		assertNotNull(count);
+	}
+	
+	//@Test
+	public void setInsertTest() throws Exception {
+		RequestDTO dto = new RequestDTO();
+		dto.setNum(2L);
+		dto.setId("id1");
+		dto.setWriter("inin");
+		dto.setTitle("insert");
+		dto.setContents("test");
+		dto.setHits(0L);
+		dto.setRestName("test");
+		dto.setRestLocation("test");
+		dto.setRestPhone("01010");
+		dto.setRestCategory("test");
+		dto.setRestTime("test");
+		dto.setHoliday("test");
+		dto.setRequestAccept("N");
+		
+		int result = requestDAO.setInsert(dto);
+		assertEquals(1, result);
+		
+	}
+	
+	@Test
+	public void setUpdateTest() {
+		
 	}
 
 }
