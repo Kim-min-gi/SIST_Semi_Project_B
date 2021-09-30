@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.title-area {
+	border-bottom: 1px solid gray;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+.title-category {
+	font-size: 1.5em;
+}
+
+.title-text {
+	margin-top: 10px;
+	font-size: 3em;
+}
+
+
+
+.bottom-right {
+	float: right;
+}

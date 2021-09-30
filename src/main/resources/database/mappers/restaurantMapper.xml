@@ -6,9 +6,10 @@
 
   
  <mapper namespace="com.iu.s5.restaurant.RestaurantsDAO">
+
  
  	<select id="getRestaurants" parameterType="com.iu.s5.restaurant.RestaurantsDTO" resultType="com.iu.s5.restaurant.RestaurantsDTO">
  		SELECT * FROM RESTAURANTS WHERE RESTNUM=#{restNum}
  	</select>
- 
+
  </mapper>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.iu.s5.board.BoardDAO;
 import com.iu.s5.board.BoardDTO;
+import com.iu.s5.util.Pager;
 
 @Repository
 public class CommunityDAO implements BoardDAO {
@@ -17,22 +18,26 @@ public class CommunityDAO implements BoardDAO {
 	private final String NAMESPACE = "com.iu.s5.board.community.CommunityDAO.";
 	
 	
+	public Long getCount() throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getCount");
+	}
+	
 	@Override
-	public List<BoardDTO> getList() throws Exception {
+	public List<BoardDTO> getList(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList(NAMESPACE + "getList", pager);
 	}
 
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne(NAMESPACE + "getSelect", boardDTO);
 	}
 
 	@Override
 	public int setInsert(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert(NAMESPACE + "setInsert", boardDTO);
 	}
 
 	@Override
