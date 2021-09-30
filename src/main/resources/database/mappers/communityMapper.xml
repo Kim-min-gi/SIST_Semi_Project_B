@@ -7,12 +7,21 @@
   
  <mapper namespace="com.iu.s5.board.community.CommunityDAO">
  
+ 	<select id="getCount" resultType="Long">
+ 		SELECT COUNT(NUM) FROM COMMUNITY
+ 	</select>
+ 
  	<select id="getSelect" resultType="CommunityDTO" parameterType="BoardDTO">
  		SELECT * FROM COMMUNITY WHERE NUM = #{num}
  	</select>
  
- 	<select id="getList" resultType="CommunityDTO">
- 		SELECT * FROM COMMUNITY ORDER BY NUM DESC
+ 	<select id="getList" resultType="CommunityDTO" parameterType="Pager">
+ 		SELECT * 
+		FROM (SELECT ROWNUM RN, C.* 
+			FROM (SELECT * FROM COMMUNITY
+				ORDER BY NUM DESC
+			) C)
+		WHERE RN BETWEEN #{startRow} AND #{lastRow}
  	</select>
  
  	<insert id="setInsert" parameterType="CommunityDTO">
