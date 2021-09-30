@@ -13,4 +13,10 @@ a {
 }
 
 
+.pagination>li>a, .pagination>li>span {
+	color: black;
+}
 
+.bottom-right {
+	float: right;
+}
