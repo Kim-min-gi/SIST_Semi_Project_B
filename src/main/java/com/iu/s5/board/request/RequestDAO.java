@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.iu.s5.board.BoardDAO;
 import com.iu.s5.board.BoardDTO;
+import com.iu.s5.util.Pager;
 
 @Repository
 public class RequestDAO implements BoardDAO {
@@ -15,10 +16,15 @@ public class RequestDAO implements BoardDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.iu.s5.board.request.RequestDAO.";
-
+	
+	public Long getCount(Pager pager) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getCount", pager);
+	}
+	
+	
 	@Override
-	public List<BoardDTO> getList() throws Exception {
-		return sqlSession.selectList(NAMESPACE+"getList");
+	public List<BoardDTO> getList(Pager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE+"getList", pager);
 	}
 
 	@Override

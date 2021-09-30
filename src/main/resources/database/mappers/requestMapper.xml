@@ -5,9 +5,16 @@
   	
   
  <mapper namespace="com.iu.s5.board.request.RequestDAO">
- 
- 	<select id="getList" resultType="RequestDTO">
- 		SELECT * FROM REQUEST
+ 	
+ 	<select id="getCount" resultType="Long" parameterType="Pager">
+ 		SELECT COUNT(num) FROM REQUEST
+ 	</select>
+ 	
+ 	<select id="getList" resultType="RequestDTO" parameterType="Pager">
+ 		SELECT * FROM
+		(SELECT ROWNUM R ,RQ.* FROM (
+			(SELECT * FROM REQUEST) RQ))
+		WHERE R BETWEEN #{startNum} AND #{lastNum}
  	</select>
  
  	<insert id="setInsert" parameterType="RequestDTO">

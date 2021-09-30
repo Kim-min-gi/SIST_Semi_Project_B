@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s5.board.BoardDTO;
+import com.iu.s5.util.Pager;
 
 @Controller
 @RequestMapping("/request/**")
@@ -18,11 +19,11 @@ public class RequestController {
 	private RequestService requestService;
 	
 	@GetMapping("list")
-	public ModelAndView getList() throws Exception {
+	public ModelAndView getList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		List<BoardDTO> ar = requestService.getList();
-		
+		List<BoardDTO> ar = requestService.getList(pager);
 		mv.addObject("list", ar);
+		mv.addObject("pager", pager);
 		mv.setViewName("board/list");
 		
 		return mv;
