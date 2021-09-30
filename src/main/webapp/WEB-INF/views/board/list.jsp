@@ -34,6 +34,36 @@
 			</c:forEach>
 		</table>
 		
+		<nav class="text-center">
+		  <ul class="pagination">
+		    <li>
+		      <a href="./list?pn=1" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+   		    <li>
+		      <a href="./list?pn=${pager.startNum-1}" aria-label="Previous">
+		        <span aria-hidden="true">&lt;</span>
+		      </a>
+		    </li>
+
+		    <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="n">
+		    	<li><a href="./list?pn=${n}">${n}</a></li>
+		    </c:forEach>
+
+			<li>
+		      <a href="./list?pn=${pager.lastNum+1}" aria-label="Next">
+		        <span aria-hidden="true">&gt;</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="./list?pn=${pager.totalPage}" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		  </ul>
+		</nav>
+		
 		<a>작성</a>
 	</div>
 

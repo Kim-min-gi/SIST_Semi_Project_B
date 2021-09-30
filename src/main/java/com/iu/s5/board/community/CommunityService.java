@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.iu.s5.board.BoardDTO;
 import com.iu.s5.board.BoardService;
+import com.iu.s5.util.Pager;
 
 @Service
 public class CommunityService implements BoardService {
@@ -15,9 +16,14 @@ public class CommunityService implements BoardService {
 	private CommunityDAO communityDAO;
 	
 	@Override
-	public List<BoardDTO> getList() throws Exception {
+	public List<BoardDTO> getList(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
-		return communityDAO.getList();
+		long totalCount = communityDAO.getCount();
+		
+		pager.makeNum(totalCount);
+		pager.makeRow();
+		
+		return communityDAO.getList(pager);
 	}
 
 	@Override
