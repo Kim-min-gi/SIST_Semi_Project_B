@@ -22,6 +22,10 @@
  		WHERE NUM = #{num}
  	</select>
  	
+ 	<update id="setHitUpdate" parameterType="BoardDTO">
+ 		UPDATE REQUEST SET hits = hits+1 WHERE NUM = #{num}
+ 	</update>
+ 	
  	<insert id="setInsert" parameterType="RequestDTO">
  		insert into request 
 		values (request_seq.nextval, #{id}, #{writer}, #{title}, #{contents}, sysdate, 0, 
@@ -29,10 +33,22 @@
  	</insert>
  	
  	<delete id="setDelete" parameterType="BoardDTO">
- 		
+ 		DELETE FROM REQUEST WHERE NUM = #{num}
  	</delete>
  	
- 	
+ 	<update id="setUpdate" parameterType="RequestDTO">
+ 		UPDATE REQUEST SET
+	 		title=#{title},
+	 		contents = #{contents},
+	 		restName = #{restName},
+	 		restLocation = #{restLocation},
+	 		restPhone = #{restPhone},
+	 		restCategory = #{restCategory},
+	 		restTime = #{restTime},
+	 		holiday = #{holiday},
+	 		requestAccept = #{requestAccept}
+ 		WHERE NUM = #{num}
+ 	</update>
  	
  	
  	

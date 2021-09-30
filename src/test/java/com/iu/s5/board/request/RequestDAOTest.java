@@ -55,5 +55,10 @@ public class RequestDAOTest extends JunitTest{
 		assertEquals(1, result);
 		
 	}
+	
+	@Test
+	public void setUpdateTest() {
+		
+	}
 
 }
