@@ -7,14 +7,14 @@
 <nav class="navi">
   <div class="con">
    <div class="logo">
-    <a href="#">얌얌</a>
+    <a href="${pageContext.request.contextPath}">얌얌</a>
    </div>
  <div id="mainListDiv" class="main_list">
 	<ul class="navlinks">
 	 <li><a href="#">Login</a></li>
 	 <li><a href="#">Join</a></li>
-	 <li><a href="#">Community</a></li>
-	 <li><a href="#">Request</a></li>
+	 <li><a href="${pageContext.request.contextPath}/community/list">Community</a></li>
+	 <li><a href="${pageContext.request.contextPath}/request/list">Request</a></li>
 	 </ul>
  </div>
 	 <span class="navTrigger">

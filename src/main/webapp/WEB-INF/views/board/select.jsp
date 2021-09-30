@@ -20,9 +20,10 @@
 			<div class="title-area"> 
 				<p class="title-category">
 					<c:choose>
-						<c:when test="${dto.category eq 2}"> 분류2 </c:when>
-						<c:when test="${dto.category eq 3}"> 분류3 </c:when>
-						<c:otherwise> 분류1 </c:otherwise>
+						<c:when test="${dto.category eq 1}">자유</c:when>
+						<c:when test="${dto.category eq 2}">식당이야기</c:when>
+						<c:when test="${dto.category eq 3}">음식이야기</c:when>
+						<c:otherwise></c:otherwise>
 					</c:choose>
 				</p>
 				<h3 class="title-text"> ${dto.title} </h3> 
