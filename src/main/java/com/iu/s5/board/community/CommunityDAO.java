@@ -20,19 +20,19 @@ public class CommunityDAO implements BoardDAO {
 	@Override
 	public List<BoardDTO> getList() throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList(NAMESPACE + "getList");
 	}
 
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne(NAMESPACE + "getSelect", boardDTO);
 	}
 
 	@Override
 	public int setInsert(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert(NAMESPACE + "setInsert", boardDTO);
 	}
 
 	@Override
