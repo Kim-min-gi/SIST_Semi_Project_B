@@ -15,7 +15,7 @@
 
 	<div class="container">
 	
-		<h3> list Page </h3>
+		<h3> 커뮤니티 게시판 </h3>
 		
 		<table class="table table-hover">
 			<tr>
@@ -24,32 +24,17 @@
 				<th class="col-md-2"> 작성일 </th>
 				<th class="col-md-2"> 조회 </th>
 			</tr>
-			<tr>
-				<td> 테스트테스트 </td>
-				<td> 테스트테스트 </td>
-				<td> 테스트테스트 </td>
-				<td> 테스트테스트 </td>
-			</tr>
-			<tr>
-				<td> 테스트테스트 </td>
-				<td> 테스트테스트 </td>
-				<td> 테스트테스트 </td>
-				<td> 테스트테스트 </td>
-			</tr>
-			<tr>
-				<td> 테스트테스트 </td>
-				<td> 테스트테스트 </td>
-				<td> 테스트테스트 </td>
-				<td> 테스트테스트 </td>
-			</tr>
-			<tr>
-				<td> 테스트테스트 </td>
-				<td> 테스트테스트 </td>
-				<td> 테스트테스트 </td>
-				<td> 테스트테스트 </td>
-			</tr>
+			<c:forEach items="${list}" var="list">
+				<tr>
+					<td>  <a href="./select?num=${list.num}"> ${list.title} </a> </td>
+					<td> ${list.writer} </td>
+					<td> ${list.regDate} </td>
+					<td> ${list.hits} </td>
+				</tr>
+			</c:forEach>
 		</table>
 		
+		<a>작성</a>
 	</div>
 
 	<c:import url="../temp/boot_footer.jsp"></c:import>

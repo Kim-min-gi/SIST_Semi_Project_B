@@ -6,4 +6,18 @@
 
   
  <mapper namespace="com.iu.s5.board.community.CommunityDAO">
+ 
+ 	<select id="getSelect" resultType="CommunityDTO" parameterType="BoardDTO">
+ 		SELECT * FROM COMMUNITY WHERE NUM = #{num}
+ 	</select>
+ 
+ 	<select id="getList" resultType="CommunityDTO">
+ 		SELECT * FROM COMMUNITY ORDER BY NUM DESC
+ 	</select>
+ 
+ 	<insert id="setInsert" parameterType="CommunityDTO">
+ 		INSERT INTO COMMUNITY (NUM, ID, WRITER, TITLE, CONTENTS, REGDATE, HITS, CATEGORY)
+		VALUES (COMMUNITY_SEQ.NEXTVAL, #{id}, #{writer}, #{title}, #{contents}, CURRENT_DATE, 0, #{category})
+ 	</insert>
+ 
  </mapper>
