@@ -57,7 +57,7 @@ public class RequestDAOTest extends JunitTest{
 	}
 	
 	@Test
-	public void setUpdateTest() {
+	public void setUpdateTest() throws Exception {
 		RequestDTO dto = new RequestDTO();
 		dto.setNum(22L);
 		dto.setId("id1");
