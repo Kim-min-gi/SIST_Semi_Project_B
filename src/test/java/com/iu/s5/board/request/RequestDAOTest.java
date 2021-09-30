@@ -9,18 +9,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.iu.s5.JunitTest;
 import com.iu.s5.board.BoardDTO;
+import com.iu.s5.util.Pager;
 
 public class RequestDAOTest extends JunitTest{
 	
 	@Autowired
 	private RequestDAO requestDAO;
-
-	@Test
+	
+	//@Test
 	public void getListTest() throws Exception {
-		
-		List<BoardDTO> ar = requestDAO.getList();
+		Pager pager = new Pager();
+		Long totalCount = requestDAO.getCount(pager);
+		pager.makeNum(totalCount);
+		pager.makeRow();
+		List<BoardDTO> ar = requestDAO.getList(pager);
 		assertNotNull(ar);
 		
+	}
+	
+	@Test
+	public void getCount() throws Exception {
+		Pager pager = new Pager();
+		Long count = requestDAO.getCount(pager);
+		assertNotNull(count);
 	}
 
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.iu.s5.board.BoardDTO;
 import com.iu.s5.board.BoardService;
+import com.iu.s5.util.Pager;
 
 @Service
 public class RequestService implements BoardService {
@@ -15,12 +16,14 @@ public class RequestService implements BoardService {
 	private RequestDAO requestDAO;
 
 	@Override
-	public List<BoardDTO> getList() throws Exception {
+	public List<BoardDTO> getList(Pager pager) throws Exception {
 		
 		//페이징 처리
+		Long totalCount = requestDAO.getCount(pager);
+		pager.makeNum(totalCount);
+		pager.makeRow();
 		
-		
-		return requestDAO.getList();
+		return requestDAO.getList(pager);
 	}
 
 	@Override
