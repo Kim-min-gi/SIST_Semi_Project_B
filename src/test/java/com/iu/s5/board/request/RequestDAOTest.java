@@ -58,6 +58,23 @@ public class RequestDAOTest extends JunitTest{
 	
 	@Test
 	public void setUpdateTest() {
+		RequestDTO dto = new RequestDTO();
+		dto.setNum(22L);
+		dto.setId("id1");
+		dto.setWriter("inin");
+		dto.setTitle("update");
+		dto.setContents("test");
+		dto.setHits(0L);
+		dto.setRestName("test");
+		dto.setRestLocation("test");
+		dto.setRestPhone("01010");
+		dto.setRestCategory("test");
+		dto.setRestTime("test");
+		dto.setHoliday("test");
+		dto.setRequestAccept("N");
+		
+		int result = requestDAO.setUpdate(dto);
+		assertNotEquals(0, result);
 		
 	}
 
