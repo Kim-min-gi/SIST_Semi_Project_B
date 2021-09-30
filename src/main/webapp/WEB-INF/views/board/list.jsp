@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 
 <c:import url="../temp/boot_head.jsp"></c:import>
+<link rel="stylesheet" type="text/css" href="../resources/css/list.css"/>
 </head>
 <body>
 
@@ -15,24 +16,74 @@
 
 	<div class="container">
 	
-		<h3> 커뮤니티 게시판 </h3>
+		<h3 class="title-text"> 
+			<c:if test="${board eq 'community'}">커뮤니티 </c:if>
+			<c:if test="${board eq 'request'}">요청 </c:if>
+			게시판 
+		</h3>
+			
 		
 		<table class="table table-hover">
 			<tr>
-				<th class="col-md-6"> 제목 </th>
-				<th class="col-md-2"> 작성자 </th>
+				<c:if test="${board eq 'community'}">
+					<th colspan="2" class="col-md-6"> 제목 </th>
+				</c:if>
+				<c:if test="${board eq 'request'}">
+					<th class="col-md-6"> 제목 </th>
+				</c:if>
+				<th class="col-md-3"> 작성자 </th>
 				<th class="col-md-2"> 작성일 </th>
-				<th class="col-md-2"> 조회 </th>
+				<th class="col-md-1"> 조회 </th>
 			</tr>
 			<c:forEach items="${list}" var="list">
 				<tr>
-					<td>  <a href="./select?num=${list.num}"> ${list.title} </a> </td>
+					<c:if test="${board eq 'community'}">
+						<td class="col-md-1"> 
+							<c:choose>
+								<c:when test="${list.category eq 1}"><span class="font-green font-weight-bold">자유</span></c:when>
+								<c:when test="${list.category eq 2}"><span class="font-blue font-weight-bold">식당이야기</span></c:when>
+								<c:when test="${list.category eq 3}"><span class="font-purple font-weight-bold">음식이야기</span></c:when>
+							</c:choose> 
+						</td>
+					</c:if>
+					
+					<td> <a href="./select?num=${list.num}"> ${list.title} </a> </td>
 					<td> ${list.writer} </td>
 					<td> ${list.regDate} </td>
 					<td> ${list.hits} </td>
 				</tr>
 			</c:forEach>
 		</table>
+		
+		<nav class="text-center">
+		  <ul class="pagination">
+		    <li>
+		      <a href="./list?pn=1" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+   		    <li>
+		      <a href="./list?pn=${pager.startNum-1}" aria-label="Previous">
+		        <span aria-hidden="true">&lt;</span>
+		      </a>
+		    </li>
+
+		    <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="n">
+		    	<li><a href="./list?pn=${n}">${n}</a></li>
+		    </c:forEach>
+
+			<li>
+		      <a href="./list?pn=${pager.lastNum+1}" aria-label="Next">
+		        <span aria-hidden="true">&gt;</span>
+		      </a>
+		    </li>
+		    <li>
+		      <a href="./list?pn=${pager.totalPage}" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		  </ul>
+		</nav>
 		
 		<a>작성</a>
 	</div>

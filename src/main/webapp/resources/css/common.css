@@ -3,3 +3,12 @@
 .container {
 	padding-top: 65px;
 }
+
+
+
+.font-weight-bold {font-weight: bold;}
+
+/* color */
+.font-green {color: #2cb870;}
+.font-blue {color: #2c5fb8;}
+.font-purple {color: #c83ae8;}
