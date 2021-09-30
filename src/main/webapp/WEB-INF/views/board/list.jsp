@@ -85,7 +85,12 @@
 		  </ul>
 		</nav>
 		
-		<a>작성</a>
+		<div class="bottom-area">
+			<div class="bottom-right">
+				<a class="btn btn-default" href="./insert">작성</a>
+			</div>
+		</div>
+		
 	</div>
 
 	<c:import url="../temp/boot_footer.jsp"></c:import>

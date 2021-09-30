@@ -25,7 +25,17 @@ public class CommunityController {
 		return "community";
 	}
 	
+	//글작성 폼
+	@GetMapping("insert")
+	public ModelAndView setInsert() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("board/insert");
+		return mv;
+	}
 	
+	
+	//글상세
 	@GetMapping("select")
 	public ModelAndView getSelect(BoardDTO boardDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -38,6 +48,7 @@ public class CommunityController {
 	}
 	
 	
+	//글목록
 	@GetMapping("list")
 	public ModelAndView getList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();

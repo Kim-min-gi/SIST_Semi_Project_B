@@ -11,6 +11,10 @@
  		SELECT COUNT(NUM) FROM COMMUNITY
  	</select>
  
+ 	<update id="setHitsUpdate" parameterType="BoardDTO">
+ 		UPDATE COMMUNITY SET HITS = HITS+1 WHERE NUM = #{num}
+ 	</update>
+ 
  	<select id="getSelect" resultType="CommunityDTO" parameterType="BoardDTO">
  		SELECT * FROM COMMUNITY WHERE NUM = #{num}
  	</select>
