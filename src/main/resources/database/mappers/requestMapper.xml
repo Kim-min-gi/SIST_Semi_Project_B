@@ -16,10 +16,24 @@
 			(SELECT * FROM REQUEST) RQ))
 		WHERE R BETWEEN #{startNum} AND #{lastNum}
  	</select>
- 
+ 	
+ 	<select id="getSelect" parameterType="BoardDTO">
+ 		SELECT * FROM REQUEST
+ 		WHERE NUM = #{num}
+ 	</select>
+ 	
  	<insert id="setInsert" parameterType="RequestDTO">
  		insert into request 
-		values (request_seq.nextval, , #{title}, #{writer}, #{contents}, sysdate, 0, 
-		#{restName}, #{restLocation}, #{restPhone}, #{restCategory}, #{restTime}, #{restHoliday}, #{requestAccept});
+		values (request_seq.nextval, #{id}, #{writer}, #{title}, #{contents}, sysdate, 0, 
+		#{restName}, #{restLocation}, #{restPhone}, #{restCategory}, #{restTime}, #{holiday}, #{requestAccept})
  	</insert>
+ 	
+ 	<delete id="setDelete" parameterType="BoardDTO">
+ 		
+ 	</delete>
+ 	
+ 	
+ 	
+ 	
+ 	
  </mapper>

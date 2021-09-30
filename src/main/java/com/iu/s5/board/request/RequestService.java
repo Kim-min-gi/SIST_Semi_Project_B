@@ -34,8 +34,7 @@ public class RequestService implements BoardService {
 
 	@Override
 	public int setInsert(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return requestDAO.setInsert(boardDTO);
 	}
 
 	@Override
