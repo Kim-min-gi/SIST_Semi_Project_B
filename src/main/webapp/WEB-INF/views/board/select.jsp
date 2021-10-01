@@ -48,6 +48,10 @@
 				<div>
 					<button type="submit" data-board-num="${dto.num}" id="accept" class="btn btn-warning">승인</button>	
 				</div>
+				
+				<div>
+					<button type="submit" data-board-num="${dto.num}" id="reject" class="btn btn-warning">승인 취소</button>	
+				</div>
 			
 			</c:if>
 			<!-- 승인버튼 끝 -->

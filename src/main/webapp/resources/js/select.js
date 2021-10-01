@@ -19,3 +19,19 @@ $('#accept').click(function(){
 	
 })
 
+$('#reject').click(function(){
+	
+	let num = $(this).attr("data-board-num");
+	let accept = 'N';
+	
+	$.post("./accept", {requestAccept:accept, num:num}, function(result){
+		result = result.trim();
+			if(result>0){
+				alert("승인 거절 성공");
+			}else{
+				alert("승인 거절 실패")
+			}
+	})
+	
+})
+
