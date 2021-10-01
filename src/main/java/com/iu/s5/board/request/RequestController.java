@@ -25,6 +25,15 @@ public class RequestController {
 		return "request";
 	}
 	
+	@PostMapping("accept")
+	public ModelAndView setAcceptUpdate(RequestDTO requestDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = requestService.setAcceptUpdate(requestDTO);
+		mv.setViewName("common/ajaxResult");
+		mv.addObject("result", result);
+		return mv;
+	}
+	
 	@GetMapping("list")
 	public ModelAndView getList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();

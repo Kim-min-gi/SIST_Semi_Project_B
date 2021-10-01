@@ -28,7 +28,7 @@
  	</update>
  	
  	<update id="setAcceptUpdate" parameterType="RequestDTO">
- 		UPDATE REQUEST SET requestAccept = ${requestAccpet} WHERE NUM = #{num}
+ 		UPDATE REQUEST SET requestAccept = #{requestAccept} WHERE NUM = #{num}
  	</update>
  	
  	<insert id="setInsert" parameterType="RequestDTO">
