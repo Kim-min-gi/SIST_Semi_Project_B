@@ -40,6 +40,18 @@
 			
 			${dto.contents}
 			
+			
+			<!-- request 승인 버튼 -->
+			<c:if test="${board eq 'request'}">
+			
+				<hr>
+				<div>
+					<button type="button" id="accept" class="btn btn-primary">승인</button>	
+				</div>
+			
+			</c:if>
+			<!-- 승인버튼 끝 -->
+			
 			<div class="article-bottom">
 				<div class="bottom-right">
 					<a class="btn btn-default list-btn" href="./list"> 목록 </a>
@@ -51,6 +63,14 @@
 		
 	</div>
 
+
+<script type="text/javascript">
+$('#accept').click(function(){
+	alert('accept');
+})
+
+
+</script>
 
 	<c:import url="../temp/boot_footer.jsp"></c:import>
 </body>

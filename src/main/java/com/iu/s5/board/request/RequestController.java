@@ -54,10 +54,26 @@ public class RequestController {
 	}
 	
 	@PostMapping("insert")
-	public ModelAndView setInsert(BoardDTO boardDTO) throws Exception {
+	public ModelAndView setInsert(RequestDTO requestDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		int result = requestService.setInsert(boardDTO);
+		int result = requestService.setInsert(requestDTO);
 		mv.setViewName("redirect:./list");
+		
+		return mv;
+	}
+	
+	
+	@GetMapping("update")
+	public ModelAndView setUpdate() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("board/update");
+		return mv;
+	}
+	
+	@PostMapping("update")
+	public ModelAndView setUpdate(RequestDTO requestDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = requestService.setUpdate(requestDTO);
 		
 		return mv;
 	}
