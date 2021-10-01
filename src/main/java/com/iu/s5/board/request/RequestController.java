@@ -36,6 +36,16 @@ public class RequestController {
 		return mv;
 	}
 	
+	@GetMapping("select")
+	public ModelAndView getSelect(BoardDTO boardDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		RequestDTO requestDTO = (RequestDTO)requestService.getSelect(boardDTO);
+		mv.addObject("dto", requestDTO);
+		mv.setViewName("board/select");
+		return mv;
+	}
+	
+	
 	@GetMapping("insert")
 	public ModelAndView setInsert() throws Exception {
 		ModelAndView mv = new ModelAndView();

@@ -12,13 +12,13 @@
  	
  	<select id="getList" resultType="RequestDTO" parameterType="Pager">
  		SELECT * FROM
-		(SELECT ROWNUM R ,RQ.* FROM
-			(SELECT * FROM REQUEST 
-			ORDER BY NUM DEC) RQ)
+		(SELECT ROWNUM R ,RQ.* FROM 
+			(SELECT * FROM REQUEST
+			ORDER BY NUM DESC) RQ)
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
  	</select>
  	
- 	<select id="getSelect" parameterType="BoardDTO">
+ 	<select id="getSelect" parameterType="BoardDTO" resultType="RequestDTO">
  		SELECT * FROM REQUEST
  		WHERE NUM = #{num}
  	</select>

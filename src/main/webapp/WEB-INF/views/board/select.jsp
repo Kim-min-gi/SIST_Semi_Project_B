@@ -18,6 +18,8 @@
 	<!--article  -->
 		<div class="article-wrap"> 
 			<div class="title-area"> 
+			
+			<c:if test="${board eq 'community'}">
 				<p class="title-category">
 					<c:choose>
 						<c:when test="${dto.category eq 1}">자유</c:when>
@@ -26,6 +28,8 @@
 						<c:otherwise></c:otherwise>
 					</c:choose>
 				</p>
+			</c:if>
+			
 				<h3 class="title-text"> ${dto.title} </h3> 
 				<div class="">
 					${dto.writer} 
