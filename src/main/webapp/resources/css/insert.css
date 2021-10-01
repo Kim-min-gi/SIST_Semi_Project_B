@@ -3,3 +3,7 @@
 .form-label {
 	padding-top : 10px; 
 }
+
+.bottom-right {
+	float : right;
+}

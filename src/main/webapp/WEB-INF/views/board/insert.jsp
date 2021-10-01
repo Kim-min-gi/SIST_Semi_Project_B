@@ -12,11 +12,6 @@
 <body>
 <c:import url="../temp/boot_nav.jsp"></c:import>
 
-<!-- include libraries(jQuery, bootstrap) -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
 
 <!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
@@ -105,49 +100,43 @@
 		    <input type="text" class="form-control" name="holiday" id="holiday">
 			</div>
 			
-			
-			
- 
-			
 		</div>
 		<hr>
-		
 		
 		</c:if>
 		<!-- 요청 폼 끝  -->
 		
 		
 		<div class="mb-3">
-		    <label for="contents" class="form-label">Contents</label>
+		    <label for="contents" class="form-label"></label>
   			<textarea class="form-control" cols=""  name="contents" id="contents" rows="10"></textarea>
 		</div>
 	
 	
-	 <button type="submit" class="btn btn-primary">글쓰기</button>
+		<div class="bottom-right">
+			<button type="submit" class="btn btn-default">글쓰기</button>
+		</div>
 	
 	</form>
 	
 	
 	</div>
 	
-
-
-
-
-	
 	<c:import url="../temp/boot_footer.jsp"></c:import>
 	
 	<script>
 		$('#contents').summernote();
-	
+		
 		$(window).scroll(function() {
-				            if ($(document).scrollTop() > 50) {
-				                $('.navi').addClass('affix');
-				                console.log("OK");
-				            } else {
-				                $('.navi').removeClass('affix');
-				            }
-			});
+            if ($(document).scrollTop() > 50) {
+                $('.navi').addClass('affix');
+                console.log("OK");
+            } else {
+                $('.navi').removeClass('affix');
+            }
+	});
+	
+
 	 </script>
 </body>
 </html>
