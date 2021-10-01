@@ -46,7 +46,7 @@
 			
 				<hr>
 				<div>
-					<button type="button" id="accept" class="btn btn-primary">승인</button>	
+					<button type="submit" data-board-num="${dto.num}" id="accept" class="btn btn-warning">승인</button>	
 				</div>
 			
 			</c:if>
@@ -64,11 +64,7 @@
 	</div>
 
 
-<script type="text/javascript">
-$('#accept').click(function(){
-	alert('accept');
-})
-
+<script type="text/javascript" src="../resources/js/select.js">
 
 </script>
 
