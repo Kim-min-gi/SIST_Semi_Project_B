@@ -19,16 +19,22 @@
 		<script src="./resources/js/modernizr.custom.js"></script>
 	</head>
 	<body>
+		<!-- nav -->
+		<c:import url="./temp/boot_nav.jsp"></c:import>
+	
+	
 		<div class="main-container">
 			<!-- Top Navigation -->
 			
-			<header class="codrops-header">
-				<c:import url="./temp/boot_nav.jsp"></c:import>
 			
+			<div id = "searchbar">
 				
-			</header>
-			
-			<div id = "test">
+				<div>
+					<form action="#">
+						<input class="SearchInput" type="text" placeholder="검색">
+						<input class="SearchSubmit" type="submit" value="검색하기">
+					</form>
+				</div>
 				
 			
 			</div>
@@ -37,6 +43,9 @@
 			
 			
 			<section class="grid-wrap">
+				<div class="Explanation">
+					<h3>추천순</h3>
+				</div>
 				<ul class="grid swipe-down" id="grid">
 					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
 					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
@@ -46,25 +55,26 @@
 					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
 					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
 					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-
 				</ul>
 			</section>
+			
+			<hr>
+				<section class="grid-wrap">
+				<div class="Explanation">
+					<h3>관리자가 선정한 식당</h3>
+				</div>
+				<ul class="grid swipe-down" id="grid2">
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+				</ul>
+			</section>
+			<hr>
 			<section class="related">
 				<p>If you enjoyed this demo you might also like:</p>
 				<a href="http://tympanus.net/Development/ThumbnailGridAnimations/">
@@ -81,7 +91,7 @@
 		<c:import url="./temp/boot_footer.jsp"></c:import>
 		
 		
-			<!-- nav -->
+			
 		 
    			 <script src="./resources/js/nav.js"></script>
    			 <!-- /container -->
@@ -95,13 +105,19 @@
 				viewportFactor : 0.4
 			} );
 			
+			new GridScrollFx( document.getElementById( 'grid2' ), {
+				viewportFactor : 0.4
+			} );
+			
 			
 			$(window).scroll(function() {
 				            if ($(document).scrollTop() > 50) {
 				                $('.navi').addClass('affix');
+				                $('#FLogo').addClass('SLogo');
 				                console.log("OK");
 				            } else {
 				                $('.navi').removeClass('affix');
+				                $('#FLogo').removeClass('SLogo');
 				            }
 			});
 			

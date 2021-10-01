@@ -24,17 +24,31 @@ body {
     text-align: center;
 }
 
+
+
+
+.SLogo{
+	width: auto;
+	height : 90px;
+	position: fixed;
+	top:-13px;
+}
+
+
 .navi div.logo {
     float: left;
     width: auto;
-    height: auto;
+    position: fixed;
+    top:-10px;
     padding-left: 3rem;
+    
 }
 
-.navi div.logo a {
-    text-decoration: none;
-    color: #FABE00;
-    font-size: 2.5rem;
+
+.navi div.logo img {
+	display:inline-block;
+	
+   
 }
 
 .navi div.logo a:hover {
