@@ -22,8 +22,7 @@ public class RequestService implements BoardService {
 		Long totalCount = requestDAO.getCount(pager);
 		pager.makeNum(totalCount);
 		pager.makeRow();
-		System.out.println(pager.getStartRow());
-		System.out.println(pager.getLastRow());
+		
 		return requestDAO.getList(pager);
 	}
 
