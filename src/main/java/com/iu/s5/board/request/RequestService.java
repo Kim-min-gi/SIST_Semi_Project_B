@@ -14,7 +14,11 @@ public class RequestService implements BoardService {
 	
 	@Autowired
 	private RequestDAO requestDAO;
-
+	
+	public int setAcceptUpdate(RequestDTO requestDTO) throws Exception {
+		return requestDAO.setAcceptUpdate(requestDTO);
+	}
+	
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
 		
