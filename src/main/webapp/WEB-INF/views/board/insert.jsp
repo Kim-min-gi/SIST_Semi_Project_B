@@ -31,6 +31,12 @@
 		    <input type="text" class="form-control" name="title" id="title" placeholder="제목">
 		</div>
 		
+		<!-- 아이디 나중에 삭제 -->
+		<div class="mb-3">
+		    <label for="id" class="form-label">아이디</label>
+		    <input type="text" class="form-control" name="id" id="id" placeholder="아이디">
+		</div>
+		
 		<div class="mb-3">
 		    <label for="writer" class="form-label">작성자</label>
 		    <input type="text" class="form-control" name="writer" id="writer" placeholder="작성자">
@@ -111,6 +117,16 @@
 		    <label for="contents" class="form-label"></label>
   			<textarea class="form-control" cols=""  name="contents" id="contents" rows="10"></textarea>
 		</div>
+		
+		<!-- 파일 첨부 -->
+		<div class="mb-3">
+			<label for="contents" class="form-label">파일 첨부</label>
+			<button type="button" id="fileAdd" class="btn btn-default">추가</button>
+			
+		
+		
+		</div>
+		
 	
 	
 		<div class="bottom-right">
