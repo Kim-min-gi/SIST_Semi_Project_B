@@ -30,7 +30,7 @@
  	<insert id="setInsert" parameterType="RequestDTO">
  		insert into request 
 		values (request_seq.nextval, #{id}, #{writer}, #{title}, #{contents}, sysdate, 0, 
-		#{restName}, #{restLocation}, #{restPhone}, #{restCategory}, #{restTime}, #{holiday}, #{requestAccept})
+		#{restName}, #{restLocation}, #{restPhone}, #{restCategory}, #{restTime}, #{holiday}, 'n')
  	</insert>
  	
  	<delete id="setDelete" parameterType="BoardDTO">
