@@ -90,13 +90,13 @@
 		
 			<div class="bottom-left">
 				<form action="./list" method="GET">
-				    <div class="input-group">
+				    <div class="form-inline">
 						<select name="kind" class="form-control ">
 							<option value="title">제목</option>
 							<option value="writer">작성자</option>
 						</select>
-				      <input type="text" name="search" class="form-control">
-				      <button type="submit" class="btn btn-default">검색</button>
+				      <input type="text" name="search" class="search-text form-control">
+				      <button type="submit" class="btn btn-default search-btn"><span class="glyphicon glyphicon-search"></span></button>
 				    </div><!-- /input-group -->
 				</form>
 			</div><!-- //bottom-left -->
@@ -105,7 +105,7 @@
 			
 			<div class="bottom-right">
 				<a class="btn btn-default" href="./insert">작성</a>
-			</div>
+			</div><!-- //bottom-right -->
 		</div>
 		
 	</div>
