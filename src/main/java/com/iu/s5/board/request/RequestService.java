@@ -22,13 +22,14 @@ public class RequestService implements BoardService {
 		Long totalCount = requestDAO.getCount(pager);
 		pager.makeNum(totalCount);
 		pager.makeRow();
-		
+		System.out.println(pager.getStartRow());
+		System.out.println(pager.getLastRow());
 		return requestDAO.getList(pager);
 	}
 
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
-		requestDAO.setHitUpdate(boardDTO);
+		requestDAO.setHitsUpdate(boardDTO);
 		return requestDAO.getSelect(boardDTO);
 	}
 
