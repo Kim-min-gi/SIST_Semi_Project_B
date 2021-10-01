@@ -7,7 +7,9 @@
 <nav class="navi">
   <div class="con">
    <div class="logo">
-    <a href="${pageContext.request.contextPath}">얌얌</a>
+   <a href="#">
+    <img id="FLogo" src="${pageContext.request.contextPath}/resources/img/Logo1.png">
+    </a>
    </div>
  <div id="mainListDiv" class="main_list">
 	<ul class="navlinks">

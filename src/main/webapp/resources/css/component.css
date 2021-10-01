@@ -5,6 +5,12 @@
 	max-width: 1260px;
 }
 
+.Explanation > h3{
+	margin-top: 45px;
+	text-align: left;
+	color: #231815;
+}
+
 .grid {
 	margin: 30px auto;
 	padding: 0;
@@ -37,26 +43,7 @@
 	display: block;
 }
 
-/* Title box */
-.title-box h2 {
-	display: block;
-	margin: 7px;
-	padding: 20px;
-	background: #2E3444;
-	color: #D3EEE2;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	font-weight: 300;
-}
 
-.title-box h2 a {
-	display: block;
-	font-weight: 900;
-}
-
-.title-box h2 a:hover {
-	color: #D3EEE2;
-}
 
 /* Anchor and image */
 .grid li > a,
@@ -123,14 +110,14 @@
 }
 
 /* Title */
-.grid li h3 {
+.grid li h3 { /*설명부분*/
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	margin: 0;
 	padding: 20px;
 	width: 100%;
-	background: #BDBDBD;
+	background: #BDBDBD; 
 	color: #000000;
 	text-align: right;
 	text-transform: uppercase;
@@ -162,9 +149,9 @@
 	transform: translate3d(0,-30px,0);
 }
 
-.grid li.shown:hover > a::before {
+.grid li.shown:hover > a::before { /*마우스커서 올릴시*/
 	border-width: 14px;
-	border-color: #2E3444;
+	border-color: #FABE00;
 }
 
 /* Animations */
