@@ -12,9 +12,10 @@
  	
  	<select id="getList" resultType="RequestDTO" parameterType="Pager">
  		SELECT * FROM
-		(SELECT ROWNUM R ,RQ.* FROM (
-			(SELECT * FROM REQUEST) RQ))
-		WHERE R BETWEEN #{startNum} AND #{lastNum}
+		(SELECT ROWNUM R ,RQ.* FROM
+			(SELECT * FROM REQUEST 
+			ORDER BY NUM DEC) RQ)
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
  	</select>
  	
  	<select id="getSelect" parameterType="BoardDTO">
@@ -22,7 +23,7 @@
  		WHERE NUM = #{num}
  	</select>
  	
- 	<update id="setHitUpdate" parameterType="BoardDTO">
+ 	<update id="setHitsUpdate" parameterType="BoardDTO">
  		UPDATE REQUEST SET hits = hits+1 WHERE NUM = #{num}
  	</update>
  	

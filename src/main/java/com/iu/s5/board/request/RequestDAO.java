@@ -49,6 +49,11 @@ public class RequestDAO implements BoardDAO {
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
 		return sqlSession.update(NAMESPACE+"setUpdate", boardDTO);
 	}
+
+	@Override
+	public int setHitsUpdate(BoardDTO boardDTO) throws Exception {
+		return sqlSession.update(NAMESPACE+"setHitsUpdate", boardDTO);
+	}
 	
 	
 	
