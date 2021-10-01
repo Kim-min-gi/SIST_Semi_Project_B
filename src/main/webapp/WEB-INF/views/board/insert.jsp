@@ -8,15 +8,16 @@
 <title>Insert title here</title>
 <c:import url="../temp/boot_head.jsp"></c:import>
 <link href="../resources/css/insert.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-<c:import url="../temp/boot_nav.jsp"></c:import>
-
 
 <!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 	
+</head>
+<body>
+<c:import url="../temp/boot_nav.jsp"></c:import>
+
+
 	<div class="container">
 	<h1>
 	<c:if test="${board eq 'request'}">요청 </c:if>
