@@ -17,6 +17,10 @@ a {
 	color: black;
 }
 
+.bottom-left {
+	float: left;
+}
+
 .bottom-right {
 	float: right;
 }

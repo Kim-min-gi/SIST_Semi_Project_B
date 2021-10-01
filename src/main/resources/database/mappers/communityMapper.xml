@@ -7,8 +7,15 @@
   
  <mapper namespace="com.iu.s5.board.community.CommunityDAO">
  
- 	<select id="getCount" resultType="Long">
- 		SELECT COUNT(NUM) FROM COMMUNITY
+ 	<select id="getCount" resultType="Long" parameterType="Pager">
+ 		SELECT COUNT(NUM) 
+ 		FROM COMMUNITY
+ 		WHERE
+		<choose>
+			<when test="kind == 'writer'"> WRITER </when>
+			<otherwise> TITLE </otherwise>
+		</choose>
+		LIKE '%' || #{search} || '%'
  	</select>
  
  	<update id="setHitsUpdate" parameterType="BoardDTO">
@@ -23,6 +30,12 @@
  		SELECT * 
 		FROM (SELECT ROWNUM RN, C.* 
 			FROM (SELECT * FROM COMMUNITY
+				WHERE
+				<choose>
+					<when test="kind == 'writer'"> WRITER </when>
+					<otherwise> TITLE </otherwise>
+				</choose>
+				LIKE '%' || #{search} || '%'
 				ORDER BY NUM DESC
 			) C)
 		WHERE RN BETWEEN #{startRow} AND #{lastRow}
