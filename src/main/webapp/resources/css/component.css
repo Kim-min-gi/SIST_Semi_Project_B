@@ -11,6 +11,29 @@
 	color: #231815;
 }
 
+/* 최신 커뮤니티 글 div */
+.Communitys{
+	border:1px solid gold; 
+	text-align: center;
+	float: left;
+	margin-left: 328px;
+	width: 590px; /* 448  */
+	height: 297px;
+	
+	
+}
+
+/* 최신리뷰 div */
+.Riviews{
+	border:1px solid red; 
+	text-align: center;
+	float: right;
+	margin-right: 328px;
+	width: 590px;
+	height: 297px;
+	
+}
+
 .grid {
 	margin: 30px auto;
 	padding: 0;
