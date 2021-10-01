@@ -75,6 +75,19 @@
 				</ul>
 			</section>
 			<hr>
+			<div>
+			<div class="Communitys">
+			<h3>첫번째 영역 : 확인해보기</h3>
+				
+			</div>
+			
+			<div class="Riviews">
+			<h3>두번째 영역 : 확인해보기</h3>
+			
+			</div>
+			</div>
+		
+			
 			<section class="related">
 				<p>If you enjoyed this demo you might also like:</p>
 				<a href="http://tympanus.net/Development/ThumbnailGridAnimations/">
