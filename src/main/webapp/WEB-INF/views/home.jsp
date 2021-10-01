@@ -19,6 +19,7 @@
 		<script src="./resources/js/modernizr.custom.js"></script>
 	</head>
 	<body>
+		<!-- nav -->
 		<c:import url="./temp/boot_nav.jsp"></c:import>
 	
 	
@@ -90,7 +91,7 @@
 		<c:import url="./temp/boot_footer.jsp"></c:import>
 		
 		
-			<!-- nav -->
+			
 		 
    			 <script src="./resources/js/nav.js"></script>
    			 <!-- /container -->
