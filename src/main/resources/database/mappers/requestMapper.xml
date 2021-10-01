@@ -16,7 +16,6 @@
 			(SELECT * FROM REQUEST
 			ORDER BY NUM DESC) RQ)
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
-
  	</select>
  	
  	<select id="getSelect" parameterType="BoardDTO" resultType="RequestDTO">
