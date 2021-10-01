@@ -9,7 +9,6 @@
    <div class="logo">
    <a href="#">
     <%-- <img id="FLogo" src="${pageContext.request.contextPath}/resources/img/Logo1.png"> --%>
-    얌얌
     </a>
    </div>
  <div id="mainListDiv" class="main_list">
