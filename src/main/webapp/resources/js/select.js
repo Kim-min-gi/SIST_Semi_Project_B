@@ -27,9 +27,9 @@ $('#reject').click(function(){
 	$.post("./accept", {requestAccept:accept, num:num}, function(result){
 		result = result.trim();
 			if(result>0){
-				alert("승인 거절 성공");
+				alert("승인 취소 성공");
 			}else{
-				alert("승인 거절 실패")
+				alert("승인 취소 실패")
 			}
 	})
 	
