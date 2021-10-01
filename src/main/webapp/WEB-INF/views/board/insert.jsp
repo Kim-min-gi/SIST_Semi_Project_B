@@ -19,130 +19,153 @@
 
 
 	<div class="container">
-	<h1>
-	<c:if test="${board eq 'request'}">요청 </c:if>
-	<c:if test="${board eq 'community'}">커뮤니티 </c:if>
-	글쓰기
-	</h1>
+		<h3 class="title-text">
+			<c:if test="${board eq 'request'}">요청 </c:if>
+			<c:if test="${board eq 'community'}">커뮤니티 </c:if>
+			글쓰기
+		</h3>
 	
-	<form class="col-md-8 mx-auto" action="./insert" method="post" enctype="multipart/form-data">
-	
-		<div class="mb-3">
-			<label for="title" class="form-label">제목</label>
-		    <input type="text" class="form-control" name="title" id="title" placeholder="제목">
-		</div>
+		<div class="form-area">
 		
-		<!-- 아이디 나중에 삭제 -->
-		<div class="mb-3">
-		    <label for="id" class="form-label">아이디</label>
-		    <input type="text" class="form-control" name="id" id="id" placeholder="아이디">
-		</div>
-		
-		<div class="mb-3">
-		    <label for="writer" class="form-label">작성자</label>
-		    <input type="text" class="form-control" name="writer" id="writer" placeholder="작성자">
-		</div>
-		
-		<!-- 요청 폼 -->
-		<c:if test="${board eq 'request'}">
-		<hr>
-		<div>
+				<form class="col-md-10 mx-auto" action="./insert" method="post" enctype="multipart/form-data">
+			
+				<c:if test="${board eq 'request'}">
+					<div class="mb-3">
+						<label for="title" class="form-label">제목</label>
+					    <input type="text" class="form-control" name="title" id="title" placeholder="제목">
+					</div>
+				</c:if>
+				
+								
+				<c:if test="${board eq 'community'}">
+					<div class="form-inline">
+						<div class="form-group title-category-area col-md-2">
+							<select name="category" class="form-control ">
+								<option value="1">자유</option>
+								<option value="2">식당이야기</option>
+								<option value="3">음식이야기</option>
+							</select>
+						</div>
+						<div class="form-group title-area col-md-10">
+					    	<input type="text" class="form-control" name="title" id="title" placeholder="제목">
+					     </div>
+					</div>
+				</c:if>
+				
+				<!-- 아이디 나중에 삭제 -->
+				<div class="mb-3">
+				    <label for="id" class="form-label">아이디</label>
+				    <input type="text" class="form-control" name="id" id="id" placeholder="아이디">
+				</div>
+				
+				<div class="mb-3">
+				    <label for="writer" class="form-label">작성자</label>
+				    <input type="text" class="form-control" name="writer" id="writer" placeholder="작성자">
+				</div>
+
+				
+				<!-- 요청 폼 -->
+				<c:if test="${board eq 'request'}">
+				<hr>
+				<div>
+					<div class="mb-3">
+					<label for="restName" class="form-label">식당 이름</label>
+				    <input type="text" class="form-control" name="restName" id="restName">
+					</div>
+					
+					<div class="mb-3">
+					<label for="restLocation" class="form-label">식당 위치</label>
+				    <input type="text" class="form-control" name="restLocation" id="restLocation">
+					</div>
+					
+					<div class="mb-3">
+					<label for="restPhone" class="form-label">전화번호</label>
+				    <input type="text" class="form-control" name="restPhone" id="restPhone">
+					</div>
+					
+					<!-- 카테고리  -->
+					<div class="mb-3">
+					<label for="" class="form-label">카테고리</label>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="checkbox" name="restCategory" value="korean">
+					  <label class="form-check-label" for="inlineCheckbox1">한식</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="checkbox" name="restCategory" value="western">
+					  <label class="form-check-label" for="inlineCheckbox2">양식</label>
+					</div>
+					
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="checkbox" name="restCategory" value="japanese">
+					  <label class="form-check-label" for="inlineCheckbox2">일식</label>
+					</div>
+					
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="checkbox" name="restCategory" value="chinese">
+					  <label class="form-check-label" for="inlineCheckbox2">중식</label>
+					</div>
+					
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="checkbox" name="restCategory" value="cafe">
+					  <label class="form-check-label" for="inlineCheckbox2">카페,디저트</label>
+					</div>
+					
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="checkbox" name="restCategory" value="extra">
+					  <label class="form-check-label" for="inlineCheckbox2">기타</label>
+					</div>
+					
+					</div>
+					<!-- 카테고리 -->
+					
+					<div class="mb-3">
+					<label for="restTime" class="form-label">영업 시간</label>
+				    <input type="text" class="form-control" name="restTime" id="restTime">
+					</div>
+					
+					<div class="mb-3">
+					<label for="holiday" class="form-label">휴무일</label>
+				    <input type="text" class="form-control" name="holiday" id="holiday">
+					</div>
+				
+			</div>
+			<hr>
+			
+			</c:if>
+			<!-- 요청 폼 끝  -->
+			
+			
 			<div class="mb-3">
-			<label for="restName" class="form-label">식당 이름</label>
-		    <input type="text" class="form-control" name="restName" id="restName">
+			    <label for="contents" class="form-label"></label>
+	  			<textarea class="form-control" cols=""  name="contents" id="contents" rows="10"></textarea>
 			</div>
 			
+			<!-- 파일 첨부 -->
 			<div class="mb-3">
-			<label for="restLocation" class="form-label">식당 위치</label>
-		    <input type="text" class="form-control" name="restLocation" id="restLocation">
-			</div>
+				<label for="contents" class="form-label">파일 첨부</label>
+				<button type="button" id="fileAdd" class="btn btn-default">추가</button>
+				
 			
-			<div class="mb-3">
-			<label for="restPhone" class="form-label">전화번호</label>
-		    <input type="text" class="form-control" name="restPhone" id="restPhone">
-			</div>
-			
-			<!-- 카테고리  -->
-			<div class="mb-3">
-			<label for="" class="form-label">카테고리</label>
-			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" name="restCategory" value="korean">
-			  <label class="form-check-label" for="inlineCheckbox1">한식</label>
-			</div>
-			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" name="restCategory" value="western">
-			  <label class="form-check-label" for="inlineCheckbox2">양식</label>
-			</div>
-			
-			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" name="restCategory" value="japanese">
-			  <label class="form-check-label" for="inlineCheckbox2">일식</label>
-			</div>
-			
-			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" name="restCategory" value="chinese">
-			  <label class="form-check-label" for="inlineCheckbox2">중식</label>
-			</div>
-			
-			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" name="restCategory" value="cafe">
-			  <label class="form-check-label" for="inlineCheckbox2">카페,디저트</label>
-			</div>
-			
-			<div class="form-check form-check-inline">
-			  <input class="form-check-input" type="checkbox" name="restCategory" value="extra">
-			  <label class="form-check-label" for="inlineCheckbox2">기타</label>
-			</div>
 			
 			</div>
-			<!-- 카테고리 -->
-			
-			<div class="mb-3">
-			<label for="restTime" class="form-label">영업 시간</label>
-		    <input type="text" class="form-control" name="restTime" id="restTime">
-			</div>
-			
-			<div class="mb-3">
-			<label for="holiday" class="form-label">휴무일</label>
-		    <input type="text" class="form-control" name="holiday" id="holiday">
-			</div>
-			
-		</div>
-		<hr>
-		
-		</c:if>
-		<!-- 요청 폼 끝  -->
 		
 		
-		<div class="mb-3">
-		    <label for="contents" class="form-label"></label>
-  			<textarea class="form-control" cols=""  name="contents" id="contents" rows="10"></textarea>
-		</div>
 		
-		<!-- 파일 첨부 -->
-		<div class="mb-3">
-			<label for="contents" class="form-label">파일 첨부</label>
-			<button type="button" id="fileAdd" class="btn btn-default">추가</button>
-			
+			<div class="bottom-right">
+				<button type="submit" class="btn btn-default">글쓰기</button>
+			</div>
 		
-		
-		</div>
-		
-	
-	
-		<div class="bottom-right">
-			<button type="submit" class="btn btn-default">글쓰기</button>
-		</div>
-	
-	</form>
-	
+		</form>
+	</div> <!-- //form-area  -->
 	
 	</div>
 	
 	<c:import url="../temp/boot_footer.jsp"></c:import>
 	
 	<script>
-		$('#contents').summernote();
+		$('#contents').summernote({
+			height: 400
+		});
 		
 		$(window).scroll(function() {
             if ($(document).scrollTop() > 50) {
