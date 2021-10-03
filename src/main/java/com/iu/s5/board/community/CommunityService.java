@@ -43,7 +43,7 @@ public class CommunityService implements BoardService {
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return communityDAO.setDelete(boardDTO);
 	}
 
 	@Override

@@ -22,9 +22,9 @@
 			<c:if test="${board eq 'community'}">
 				<p class="title-category">
 					<c:choose>
-						<c:when test="${dto.category eq 1}">자유</c:when>
-						<c:when test="${dto.category eq 2}">식당이야기</c:when>
-						<c:when test="${dto.category eq 3}">음식이야기</c:when>
+						<c:when test="${dto.category eq 1}">[자유]</c:when>
+						<c:when test="${dto.category eq 2}">[식당이야기]</c:when>
+						<c:when test="${dto.category eq 3}">[음식이야기]</c:when>
 						<c:otherwise></c:otherwise>
 					</c:choose>
 				</p>
@@ -32,9 +32,11 @@
 			
 				<h3 class="title-text"> ${dto.title} </h3> 
 				<div class="">
-					${dto.writer} 
-					${dto.regDate} 
-					${dto.hits}
+					<div class="title-top"> ${dto.writer} </div>
+					<div class="title-bottom"> 
+						${dto.regDate} 
+						${dto.hits}
+					</div>
 				</div>
 			</div> 
 			
@@ -57,6 +59,10 @@
 			<!-- 승인버튼 끝 -->
 			
 			<div class="article-bottom">
+				<div class="bottom-left">
+					<a class="btn btn-default list-btn" href="./list"> 수정 </a>
+					<a class="btn btn-default list-btn" href="./delete?num=${dto.num}"> 삭제 </a>
+				</div>
 				<div class="bottom-right">
 					<a class="btn btn-default list-btn" href="./list"> 목록 </a>
 				</div>

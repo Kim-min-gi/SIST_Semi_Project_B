@@ -26,6 +26,16 @@ public class CommunityController {
 		return "community";
 	}
 	
+	@GetMapping("delete")
+	public ModelAndView setDelete(BoardDTO boardDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int result = communityService.setDelete(boardDTO);
+		
+		mv.setViewName("redirect:./list");
+		return mv;
+	}
+	
 	@PostMapping("insert")
 	public ModelAndView setInsert(CommunityDTO communityDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();

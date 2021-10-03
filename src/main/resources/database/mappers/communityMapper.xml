@@ -41,6 +41,10 @@
 		WHERE RN BETWEEN #{startRow} AND #{lastRow}
  	</select>
  
+ 	<delete id="setDelete" parameterType="BoardDTO">
+ 		DELETE FROM COMMUNITY WHERE NUM = #{num}
+ 	</delete>
+ 
  	<insert id="setInsert" parameterType="CommunityDTO">
  		INSERT INTO COMMUNITY (NUM, ID, WRITER, TITLE, CONTENTS, REGDATE, HITS, CATEGORY)
 		VALUES (COMMUNITY_SEQ.NEXTVAL, #{id}, #{writer}, #{title}, #{contents}, CURRENT_DATE, 0, #{category})
