@@ -114,14 +114,9 @@
 
 
 	<script>
-		$(window).scroll(function() {
-				            if ($(document).scrollTop() > 50) {
-				                $('.navi').addClass('affix');
-				                console.log("OK");
-				            } else {
-				                $('.navi').removeClass('affix');
-				            }
-			});
+
+		 $('.navi').addClass('affix');
+
 	 </script>
 	 
 	 <script type="text/javascript" src="../resources/js/list.js"></script>
