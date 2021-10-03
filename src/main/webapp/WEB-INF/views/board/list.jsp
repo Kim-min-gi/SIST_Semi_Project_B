@@ -38,7 +38,7 @@
 			<c:forEach items="${list}" var="list">
 				<tr>
 					<c:if test="${board eq 'community'}">
-						<td class="col-md-1"> 
+						<td id="category" class="col-md-1"> 
 							<c:choose>
 								<c:when test="${list.category eq 1}"><span class="font-green font-weight-bold">자유</span></c:when>
 								<c:when test="${list.category eq 2}"><span class="font-blue font-weight-bold">식당이야기</span></c:when>
@@ -86,9 +86,26 @@
 		</nav>
 		
 		<div class="bottom-area">
+		
+		
+			<div class="bottom-left">
+				<form action="./list" method="GET">
+				    <div class="form-inline">
+						<select name="kind" class="form-control ">
+							<option value="title">제목</option>
+							<option value="writer">작성자</option>
+						</select>
+				      <input type="text" name="search" class="search-text form-control">
+				      <button type="submit" class="btn btn-default search-btn"><span class="glyphicon glyphicon-search"></span></button>
+				    </div><!-- /input-group -->
+				</form>
+			</div><!-- //bottom-left -->
+			
+			
+			
 			<div class="bottom-right">
 				<a class="btn btn-default" href="./insert">작성</a>
-			</div>
+			</div><!-- //bottom-right -->
 		</div>
 		
 	</div>
@@ -106,5 +123,7 @@
 				            }
 			});
 	 </script>
+	 
+	 <script type="text/javascript" src="../resources/js/list.js"></script>
 </body>
 </html>

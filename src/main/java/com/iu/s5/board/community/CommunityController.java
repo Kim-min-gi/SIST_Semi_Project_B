@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,6 +24,16 @@ public class CommunityController {
 	@ModelAttribute("board")
 	public String getBoard() {
 		return "community";
+	}
+	
+	@PostMapping("insert")
+	public ModelAndView setInsert(CommunityDTO communityDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int result = communityService.setInsert(communityDTO);
+		
+		mv.setViewName("redirect:./list");
+		return mv;
 	}
 	
 	//글작성 폼
