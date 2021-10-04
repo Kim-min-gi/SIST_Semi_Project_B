@@ -30,7 +30,7 @@
 			<div id = "searchbar">
 				
 				<div>
-					<form action="#">
+					<form action="search">
 						<input class="SearchInput" type="text" placeholder="검색">
 						<input class="SearchSubmit" type="submit" value="검색하기">
 					</form>
