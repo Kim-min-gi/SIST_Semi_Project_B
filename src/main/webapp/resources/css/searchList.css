@@ -1,7 +1,32 @@
 @charset "UTF-8";
 
+
+.search{
+	width: 1450px;
+	
+	
+}
+
 .searchPart{
-	color:red;
-	margin-top: 150px;
+	border:1px solid gold;
+	text-align: center;
+	height: 150px;
+	
+}
+
+.searchList{
+	display:inline-block;
+	background-color:blue;
+	width: 70%;
+	height: 1500px;
+	
+}
+
+.involvedList{
+	float:right;
+	background-color:gray;
+	margin:0;
+	width:30%;
+	height: 1500px;
 	
 }
