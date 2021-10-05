@@ -179,7 +179,7 @@
             } else {
                 $('.navi').removeClass('affix');
             }
-	});
+		});
 	
 
 	 </script>

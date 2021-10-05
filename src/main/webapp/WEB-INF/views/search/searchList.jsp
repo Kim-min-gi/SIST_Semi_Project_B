@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../temp/boot_head.jsp"></c:import>
+<link rel="stylesheet" type="text/css" href="./resources/css/searchList.css" />
 </head>
 <body>
 <c:import url="../temp/boot_nav.jsp"></c:import>
@@ -14,8 +15,20 @@
 
 
 
-
+<div class="searchPart">
 	<h1>Search Page</h1>
+</div>
 
+
+<c:import url="../temp/boot_footer.jsp"></c:import>
+	
+	<script>
+	
+		
+	$('.navi').addClass('affix');
+	$('#FLogo').addClass('SLogo');
+	
+
+	 </script>
 </body>
 </html>
