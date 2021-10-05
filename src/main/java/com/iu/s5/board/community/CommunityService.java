@@ -27,6 +27,10 @@ public class CommunityService implements BoardService {
 	@Autowired
 	private FileManager fileManager;
 	
+	public List<BoardFileDTO> getFile(BoardDTO boardDTO) throws Exception {
+		return communityDAO.getFile(boardDTO);
+	}
+	
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
 		// TODO Auto-generated method stub

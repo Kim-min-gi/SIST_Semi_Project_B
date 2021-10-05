@@ -31,7 +31,7 @@ public class CommunityDAO implements BoardDAO {
 	@Override
 	public List<BoardFileDTO> getFile(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList(NAMESPACE + "getFile", boardDTO);
 	}
 
 	@Override
