@@ -16,31 +16,36 @@
 		<c:import url="../temp/boot_nav.jsp"></c:import>
 		
 		<div class="container">
+		
+			<h3>
+				약관동의
+			</h3>
+		
 			<div class="form-check">
 		 		<input class="form-check-input checks" type="checkbox" value="" id="flexCheckDefault">
 		  		<label class="form-check-label" for="flexCheckDefault">
-		    		약관1
+		    		약관1(필수)
 		  		</label>
 			</div>
 			
 			<div class="form-check">
 		 		<input class="form-check-input checks" type="checkbox" value="" id="flexCheckDefault">
 		  		<label class="form-check-label" for="flexCheckDefault">
-		    		약관2
+		    		약관2(필수)
 		  		</label>
 			</div>
 			
 			<div class="form-check">
 		 		<input class="form-check-input checks" type="checkbox" value="" id="flexCheckDefault">
 		  		<label class="form-check-label" for="flexCheckDefault">
-		    		약관3
+		    		약관3(필수)
 		  		</label>
 			</div>
 			
 			<div class="form-check">
-		 		<input class="form-check-input checks" type="checkbox" value="" id="flexCheckDefault">
+		 		<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 		  		<label class="form-check-label" for="flexCheckDefault">
-		    		약관4(선택사항)
+		    		약관4(선택)
 		  		</label>
 			</div>
 			

@@ -4,11 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   
-  <mapper namespace="com.iu.s5.member.MemberDAO">
+<mapper namespace="com.iu.s5.member.MemberDAO">
+
+	<select id="getIdCheck" parameterType="MemberDTO" resultType="MemberDTO">
+		SELECT id FROM member WHERE id=#{id}
+	</select>	  	
   	
-  	<insert id="setJoin" parameterType="MemberDTO">
-  		INSERT INTO member (id, pw, name, phone, email, nickName)
-		VALUES(#{id}, #{pw}, #{name}, #{phone}, #{email}, #{nickName});
-  	</insert>
-  	
-  </mapper>
+</mapper>
