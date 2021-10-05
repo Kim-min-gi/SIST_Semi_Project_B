@@ -48,10 +48,13 @@
 			
 				<hr>
 				<div>
-					<button type="submit" data-board-num="${dto.num}" id="accept" class="btn btn-warning">승인</button>	
+				
+				
 				</div>
 				
-				<div>
+				<div class="form-inline">
+					<button type="submit" data-board-num="${dto.num}" id="accept" class="btn btn-warning">승인</button>	
+				
 					<button type="submit" data-board-num="${dto.num}" id="reject" class="btn btn-warning">승인 취소</button>	
 				</div>
 			
