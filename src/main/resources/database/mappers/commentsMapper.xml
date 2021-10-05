@@ -7,14 +7,31 @@
   
  <mapper namespace="com.iu.s5.board.comments.CommentsDAO">
  	
- 	<insert id="setComment"></insert>
+ 	<insert id="setComment" parameterType="CommentsDTO">
+ 		INSERT INTO COMMENTS 
+		VALUES (comments_seq.nextval, #{num}, #{id}, #{writer}, #{contents}, sysdate, #{board})
+ 	</insert>
  	
- 	<select id="getCommentList"></select>
+ 	<select id="getCommentList" parameterType="Map" resultType="CommentsDTO">
+ 		SELECT * FROM
+			(SELECT rowNum R, CM.* FROM
+			    (SELECT * FROM COMMENTS
+			        WHERE BOARD = #{comment.board} AND NUM = #{comments.num}
+			        ORDER BY commentNum DESC) CM)
+		WHERE R BETWEEN #{pager.startRow} AND #{pager.lastRow}
+ 	</select>
  	
- 	<delete id="setCommentDelete"></delete>
+ 	<delete id="setCommentDelete" parameterType="CommentsDTO">
+ 		DELETE COMMENTS WHERE commentNum = #{commentNum}
+ 	</delete>
  	
- 	<update id="setCommentUpdate"></update>
+ 	<update id="setCommentUpdate" parameterType="CommentsDTO">
+ 		UPDATE COMMENTS SET contents = #{contents} WHERE commentNum = #{commentNum} 		
+ 	</update>
  	
- 	<select id="getCommentCount"></select>
+ 	<select id="getCommentCount" parameterType="CommentsDTO">
+ 		SELECT COUNT(commentNum) FROM COMMENTS
+ 		WHERE board = #{board} AND num = #{num}
+ 	</select>
  
  </mapper>
