@@ -30,3 +30,37 @@
 	height: 1500px;
 	
 }
+
+
+.SearchInput{
+	/* width: 500px;
+	height: 40px; */
+	width:600px;
+	padding:10px;
+	border-radius: 25px 0 0 25px;
+	border-style : solid;
+	border-width : 2px;
+	border-color : #FABE00;
+	font-size: 15px;
+	
+} 
+
+.SearchSubmit{
+	background-color:#FABE00;
+	border-style : solid;
+	border-width : 2px;
+	border-color : #FABE00;
+	border-radius: 0 25px 25px 0;
+	width:120px;
+	padding:10px;
+	color: white;
+	font-size:15px;
+	margin-left: -3px;
+	
+}
+
+#searchbar{
+	
+	margin-top: 50px;
+	
+}

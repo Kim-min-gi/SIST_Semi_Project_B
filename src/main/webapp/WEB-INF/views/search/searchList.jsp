@@ -18,11 +18,21 @@
 
 <div class="container search">
 	<div class="searchPart">
-	<h1>Search Page</h1>
+	<div id = "searchbar">
+				
+				<div>
+					<form action="search">
+						<input class="SearchInput" type="text" placeholder="검색">
+						<input class="SearchSubmit" type="submit" value="검색하기">
+					</form>
+				</div>
+				
+			
+			</div>
 	</div>
 	
 	<div class="searchList">
-		<h1>Search List</h1>
+	<h1>search List</h1>
 	
 	</div>
 	
