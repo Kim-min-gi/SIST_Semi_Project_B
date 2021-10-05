@@ -1,12 +1,18 @@
 package com.iu.s5.board.community;
 
+import java.io.File;
 import java.util.List;
+
+import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.iu.s5.board.BoardDTO;
+import com.iu.s5.board.BoardFileDTO;
 import com.iu.s5.board.BoardService;
+import com.iu.s5.util.FileManager;
 import com.iu.s5.util.Pager;
 
 @Service
@@ -14,6 +20,12 @@ public class CommunityService implements BoardService {
 
 	@Autowired
 	private CommunityDAO communityDAO;
+	
+	@Autowired
+	private ServletContext sContext;
+	
+	@Autowired
+	private FileManager fileManager;
 	
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
@@ -35,9 +47,26 @@ public class CommunityService implements BoardService {
 	}
 
 	@Override
-	public int setInsert(BoardDTO boardDTO) throws Exception {
+	public int setInsert(BoardDTO boardDTO, MultipartFile[] files) throws Exception {
 		// TODO Auto-generated method stub
-		return communityDAO.setInsert(boardDTO);
+		int result = communityDAO.setInsert(boardDTO);
+		
+		
+		String realPath = sContext.getRealPath("resources/upload/community/");
+		File file = new File(realPath);
+		
+		for (MultipartFile mf : files) {
+			String fileName = fileManager.fileSave(mf, file);
+			
+			BoardFileDTO boardFileDTO = new BoardFileDTO();
+			boardFileDTO.setFileName(fileName);
+			boardFileDTO.setOriName(mf.getOriginalFilename());
+			boardFileDTO.setNum(boardDTO.getNum());
+			
+			result = communityDAO.setFile(boardFileDTO);
+		}
+		
+		return result;
 	}
 
 	@Override

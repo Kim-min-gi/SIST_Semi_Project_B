@@ -48,7 +48,7 @@ public class CommunityController {
 		}
 		//
 		
-		int result = communityService.setInsert(communityDTO);
+		int result = communityService.setInsert(communityDTO, files);
 		
 		mv.setViewName("redirect:./list");
 		return mv;
