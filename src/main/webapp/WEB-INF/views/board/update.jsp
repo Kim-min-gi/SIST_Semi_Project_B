@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,7 @@
 	
 		<div class="form-area">
 		
-				<form class="col-md-10 mx-auto" action="./insert" method="post" enctype="multipart/form-data">
+				<form class="col-md-10 mx-auto" action="./update" method="post" enctype="multipart/form-data">
 			
 				<c:if test="${board eq 'request'}">
 					<div class="mb-3">
@@ -306,11 +307,11 @@
 						
 						<c:when test="${dto.restCategory eq 'others'}">
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="korean">
+						  <input class="form-check-input ca" type="checkbox" name="restCategory" value="korean">
 						  <label class="form-check-label" for="inlineCheckbox1">한식</label>
 						</div>
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="western">
+						  <input class="form-check-input ca" type="checkbox" name="restCategory" value="western">
 						  <label class="form-check-label" for="inlineCheckbox2">양식</label>
 						</div>
 						
@@ -392,6 +393,20 @@
 	<c:import url="../temp/boot_footer.jsp"></c:import>
 	
 	<script>
+		<c:foreach items="${dto.catecories}" var="t">
+		
+		</c:foreach>
+		
+		let ar = ['korean', 'western'];
+		for(i=0;i<ar.lenth;i++){}
+			$(".ca").each(function(){
+				if($(this).val() == ar[i]{
+					$(this).prop("checked", true);
+				}
+			})
+		
+		}
+	
 		$('#contents').summernote({
 			height: 400
 		});
