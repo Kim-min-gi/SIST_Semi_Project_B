@@ -116,7 +116,7 @@
 					</div>
 					
 					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="restCategory" value="extra">
+					  <input class="form-check-input" type="checkbox" name="restCategory" value="others">
 					  <label class="form-check-label" for="inlineCheckbox2">기타</label>
 					</div>
 					
