@@ -13,16 +13,6 @@ public class RestaurantsController {
 	
 	
 	
-	@GetMapping("/")
-	public ModelAndView main() throws Exception{
-		ModelAndView mv= new ModelAndView();
-		
-		mv.setViewName("home");
-		
-		return mv;
-		
-		
-	}
 	
 	@GetMapping("/search")
 	public ModelAndView search() throws Exception{
