@@ -22,7 +22,7 @@ public class FileManager {
 	//파일 저장
 	public String fileSave(MultipartFile multipartFile, File file) throws Exception {
 		if(!file.exists()) {
-			file.mkdir();
+			file.mkdirs();
 		}
 		
 		//파일명 생성

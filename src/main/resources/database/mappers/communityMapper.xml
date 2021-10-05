@@ -7,6 +7,19 @@
   
  <mapper namespace="com.iu.s5.board.community.CommunityDAO">
  
+ 	<select id="getFile" parameterType="BoardDTO" resultType="BoardFileDTO">
+ 		SELECT * COMMUNITYFILES WHERE NUM = #{num}
+ 	</select>
+ 
+ 	 <delete id="setFileDelete" parameterType="BoardFileDTO">
+ 	 	DELETE COMMUNITYFILES WHERE FILENUM = #{fileNum}
+ 	 </delete>
+ 
+ 	<insert id="setFile" parameterType="BoardFileDTO">
+ 		INSERT INTO COMMUNITYFILES
+ 		VALUES (FILE_SEQ.NEXTVAL, #{num}, #{fileName}, #{oriName})
+ 	</insert>
+ 
  	<select id="getCount" resultType="Long" parameterType="Pager">
  		SELECT COUNT(NUM) 
  		FROM COMMUNITY
@@ -45,9 +58,13 @@
  		DELETE FROM COMMUNITY WHERE NUM = #{num}
  	</delete>
  
+ 
  	<insert id="setInsert" parameterType="CommunityDTO">
+ 		<selectKey order="BEFORE" resultType="Long" keyProperty="num">
+ 			SELECT COMMUNITY_SEQ.NEXTVAL FROM DUAL
+ 		</selectKey>
  		INSERT INTO COMMUNITY (NUM, ID, WRITER, TITLE, CONTENTS, REGDATE, HITS, CATEGORY)
-		VALUES (COMMUNITY_SEQ.NEXTVAL, #{id}, #{writer}, #{title}, #{contents}, CURRENT_DATE, 0, #{category})
+		VALUES (#{num}, #{id}, #{writer}, #{title}, #{contents}, CURRENT_DATE, 0, #{category})
  	</insert>
  
  </mapper>

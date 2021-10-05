@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.iu.s5.board.BoardDAO;
 import com.iu.s5.board.BoardDTO;
+import com.iu.s5.board.BoardFileDTO;
 import com.iu.s5.util.Pager;
 
 @Repository
@@ -18,6 +19,21 @@ public class CommunityDAO implements BoardDAO {
 	private final String NAMESPACE = "com.iu.s5.board.community.CommunityDAO.";
 	
 	
+	
+	
+	
+	@Override
+	public int setFile(BoardFileDTO boardFileDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.insert(NAMESPACE + "setFile", boardFileDTO);
+	}
+
+	@Override
+	public List<BoardFileDTO> getFile(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	@Override
 	public int setHitsUpdate(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
