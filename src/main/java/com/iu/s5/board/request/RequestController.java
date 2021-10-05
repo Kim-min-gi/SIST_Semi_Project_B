@@ -73,17 +73,19 @@ public class RequestController {
 	
 	
 	@GetMapping("update")
-	public ModelAndView setUpdate() throws Exception {
+	public ModelAndView setUpdate(RequestDTO requestDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
+		requestDTO = (RequestDTO)requestService.getSelect(requestDTO);
+		mv.addObject("dto", requestDTO);
 		mv.setViewName("board/update");
 		return mv;
 	}
 	
 	@PostMapping("update")
-	public ModelAndView setUpdate(RequestDTO requestDTO) throws Exception {
+	public ModelAndView setUpdate(RequestDTO requestDTO, Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		int result = requestService.setUpdate(requestDTO);
-		
+		mv.setViewName("redirect:./list");
 		return mv;
 	}
 	
