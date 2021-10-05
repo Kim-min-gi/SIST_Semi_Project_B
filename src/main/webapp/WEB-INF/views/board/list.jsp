@@ -69,7 +69,7 @@
 		    </li>
 
 		    <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="n">
-		    	<li><a href="./list?pn=${n}">${n}</a></li>
+		    	<li><a href="./list?pn=${n}&kind=${pager.kind}&search=${pager.search}">${n}</a></li>
 		    </c:forEach>
 
 			<li>

@@ -34,12 +34,18 @@ body {
 	top:-13px;
 }
 
+.affix #FLogo {
+	width: auto;
+	height : 90px;
+	position: fixed;
+	top:-13px;
+}
 
 .navi div.logo {
     float: left;
     width: auto;
     position: fixed;
-    top:-10px;
+    top:-15px;
     padding-left: 3rem;
     
 }
@@ -356,6 +362,7 @@ body {
 .affix {
     padding: 0;
     background-color: white;
+    border-bottom: 1px solid lightgray;
 }
 
 

@@ -106,6 +106,11 @@
 					</div>
 					
 					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="checkbox" name="restCategory" value="asia">
+					  <label class="form-check-label" for="inlineCheckbox2">아시아</label>
+					</div>
+					
+					<div class="form-check form-check-inline">
 					  <input class="form-check-input" type="checkbox" name="restCategory" value="cafe">
 					  <label class="form-check-label" for="inlineCheckbox2">카페,디저트</label>
 					</div>
