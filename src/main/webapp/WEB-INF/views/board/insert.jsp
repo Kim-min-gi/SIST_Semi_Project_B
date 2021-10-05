@@ -86,39 +86,40 @@
 					<!-- 카테고리  -->
 					<div class="mb-3">
 					<label for="" class="form-label">카테고리</label>
-					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="restCategory" value="korean">
-					  <label class="form-check-label" for="inlineCheckbox1">한식</label>
-					</div>
-					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="restCategory" value="western">
-					  <label class="form-check-label" for="inlineCheckbox2">양식</label>
-					</div>
-					
-					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="restCategory" value="japanese">
-					  <label class="form-check-label" for="inlineCheckbox2">일식</label>
-					</div>
-					
-					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="restCategory" value="chinese">
-					  <label class="form-check-label" for="inlineCheckbox2">중식</label>
-					</div>
-					
-					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="restCategory" value="asia">
-					  <label class="form-check-label" for="inlineCheckbox2">아시아</label>
-					</div>
-					
-					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="restCategory" value="cafe">
-					  <label class="form-check-label" for="inlineCheckbox2">카페,디저트</label>
-					</div>
-					
-					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="restCategory" value="others">
-					  <label class="form-check-label" for="inlineCheckbox2">기타</label>
-					</div>
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="restCategory" value="korean">
+						  <label class="form-check-label" for="inlineRadio1">한식</label>
+						</div>
+						
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="restCategory" value="western">
+						  <label class="form-check-label" for="inlineRadio1">양식</label>
+						</div>
+						
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="restCategory" value="japanese">
+						  <label class="form-check-label" for="inlineRadio1">일식</label>
+						</div>
+						
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="restCategory" value="chinese">
+						  <label class="form-check-label" for="inlineRadio1">중식</label>
+						</div>
+						
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="restCategory" value="asia">
+						  <label class="form-check-label" for="inlineRadio1">아시아</label>
+						</div>
+						
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="restCategory" value="cafe">
+						  <label class="form-check-label" for="inlineRadio1">카페,디저트</label>
+						</div>
+						
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="restCategory" value="others">
+						  <label class="form-check-label" for="inlineRadio1">기타</label>
+						</div>
 					
 					</div>
 					<!-- 카테고리 -->

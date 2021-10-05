@@ -53,6 +53,10 @@
 					</div>
 				</c:if>
 				
+				<div class="mb-3">
+				    <input type="hidden" class="form-control" value="${dto.num}">
+				</div>
+				
 				<!-- 아이디 나중에 삭제 -->
 				<div class="mb-3">
 				    <label for="id" class="form-label">아이디</label>
@@ -81,267 +85,48 @@
 					
 					<div class="mb-3">
 					<label for="restPhone" class="form-label">전화번호</label>
-				    <input type="text" class="form-control" value="restPhone" name="restPhone" id="restPhone">
+				    <input type="text" class="form-control" value="${dto.restPhone}" name="restPhone" id="restPhone">
 					</div>
 					
 					<!-- 카테고리  -->
 					<div class="mb-3">
 					<label for="" class="form-label">카테고리</label>
+				
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="restCategory" value="korean">
+						  <label class="form-check-label" for="inlineRadio1">한식</label>
+						</div>
+						
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="restCategory" value="western">
+						  <label class="form-check-label" for="inlineRadio1">양식</label>
+						</div>
+						
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="restCategory" value="japanese">
+						  <label class="form-check-label" for="inlineRadio1">일식</label>
+						</div>
+						
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="restCategory" value="chinese">
+						  <label class="form-check-label" for="inlineRadio1">중식</label>
+						</div>
+						
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="restCategory" value="asia">
+						  <label class="form-check-label" for="inlineRadio1">아시아</label>
+						</div>
+						
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="restCategory" value="cafe">
+						  <label class="form-check-label" for="inlineRadio1">카페,디저트</label>
+						</div>
+						
+						<div class="form-check form-check-inline">
+						  <input class="form-check-input" type="radio" name="restCategory" value="others">
+						  <label class="form-check-label" for="inlineRadio1">기타</label>
+						</div>
 					
-					<c:choose>
-						<c:when test="${dto.restCategory eq 'korean'}">
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="korean" checked="checked">
-						  <label class="form-check-label" for="inlineCheckbox1">한식</label>
-						</div>
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="western">
-						  <label class="form-check-label" for="inlineCheckbox2">양식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="japanese">
-						  <label class="form-check-label" for="inlineCheckbox2">일식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="chinese">
-						  <label class="form-check-label" for="inlineCheckbox2">중식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="asia">
-						  <label class="form-check-label" for="inlineCheckbox2">아시아</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="cafe">
-						  <label class="form-check-label" for="inlineCheckbox2">카페,디저트</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="others">
-						  <label class="form-check-label" for="inlineCheckbox2">기타</label>
-						</div>
-						</c:when>
-						
-						<c:when test="${dto.restCategory eq 'western'}">
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="korean">
-						  <label class="form-check-label" for="inlineCheckbox1">한식</label>
-						</div>
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="western" checked="checked">
-						  <label class="form-check-label" for="inlineCheckbox2">양식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="japanese">
-						  <label class="form-check-label" for="inlineCheckbox2">일식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="chinese">
-						  <label class="form-check-label" for="inlineCheckbox2">중식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="asia">
-						  <label class="form-check-label" for="inlineCheckbox2">아시아</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="cafe">
-						  <label class="form-check-label" for="inlineCheckbox2">카페,디저트</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="others">
-						  <label class="form-check-label" for="inlineCheckbox2">기타</label>
-						</div>
-						</c:when>
-						
-						<c:when test="${dto.restCategory eq 'japanese'}">
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="korean">
-						  <label class="form-check-label" for="inlineCheckbox1">한식</label>
-						</div>
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="western">
-						  <label class="form-check-label" for="inlineCheckbox2">양식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="japanese" checked="checked">
-						  <label class="form-check-label" for="inlineCheckbox2">일식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="chinese">
-						  <label class="form-check-label" for="inlineCheckbox2">중식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="asia">
-						  <label class="form-check-label" for="inlineCheckbox2">아시아</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="cafe">
-						  <label class="form-check-label" for="inlineCheckbox2">카페,디저트</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="others">
-						  <label class="form-check-label" for="inlineCheckbox2">기타</label>
-						</div>
-						</c:when>
-						
-						<c:when test="${dto.restCategory eq 'chinese'}">
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="korean">
-						  <label class="form-check-label" for="inlineCheckbox1">한식</label>
-						</div>
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="western">
-						  <label class="form-check-label" for="inlineCheckbox2">양식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="japanese">
-						  <label class="form-check-label" for="inlineCheckbox2">일식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="chinese" checked="checked">
-						  <label class="form-check-label" for="inlineCheckbox2">중식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="asia">
-						  <label class="form-check-label" for="inlineCheckbox2">아시아</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="cafe">
-						  <label class="form-check-label" for="inlineCheckbox2">카페,디저트</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="others">
-						  <label class="form-check-label" for="inlineCheckbox2">기타</label>
-						</div>
-						</c:when>
-						
-						<c:when test="${dto.restCategory eq 'asia'}">
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="korean">
-						  <label class="form-check-label" for="inlineCheckbox1">한식</label>
-						</div>
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="western">
-						  <label class="form-check-label" for="inlineCheckbox2">양식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="japanese">
-						  <label class="form-check-label" for="inlineCheckbox2">일식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="chinese">
-						  <label class="form-check-label" for="inlineCheckbox2">중식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="asia" checked="checked">
-						  <label class="form-check-label" for="inlineCheckbox2">아시아</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="cafe">
-						  <label class="form-check-label" for="inlineCheckbox2">카페,디저트</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="others">
-						  <label class="form-check-label" for="inlineCheckbox2">기타</label>
-						</div>
-						</c:when>
-						
-						<c:when test="${dto.restCategory eq 'cafe'}">
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="korean">
-						  <label class="form-check-label" for="inlineCheckbox1">한식</label>
-						</div>
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="western">
-						  <label class="form-check-label" for="inlineCheckbox2">양식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="japanese">
-						  <label class="form-check-label" for="inlineCheckbox2">일식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="chinese">
-						  <label class="form-check-label" for="inlineCheckbox2">중식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="asia">
-						  <label class="form-check-label" for="inlineCheckbox2">아시아</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="cafe" checked="checked">
-						  <label class="form-check-label" for="inlineCheckbox2">카페,디저트</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="others">
-						  <label class="form-check-label" for="inlineCheckbox2">기타</label>
-						</div>
-						</c:when>
-						
-						<c:when test="${dto.restCategory eq 'others'}">
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input ca" type="checkbox" name="restCategory" value="korean">
-						  <label class="form-check-label" for="inlineCheckbox1">한식</label>
-						</div>
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input ca" type="checkbox" name="restCategory" value="western">
-						  <label class="form-check-label" for="inlineCheckbox2">양식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="japanese">
-						  <label class="form-check-label" for="inlineCheckbox2">일식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="chinese">
-						  <label class="form-check-label" for="inlineCheckbox2">중식</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="asia">
-						  <label class="form-check-label" for="inlineCheckbox2">아시아</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="cafe">
-						  <label class="form-check-label" for="inlineCheckbox2">카페,디저트</label>
-						</div>
-						
-						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="others" checked="checked">
-						  <label class="form-check-label" for="inlineCheckbox2">기타</label>
-						</div>
-						</c:when>
-						
-					</c:choose>
 					
 					</div>
 					
@@ -357,6 +142,12 @@
 					<label for="holiday" class="form-label">휴무일</label>
 				    <input type="text" class="form-control" value="${dto.holiday}" name="holiday" id="holiday">
 					</div>
+					
+					<div class="mb-3">
+					<label for="holiday" class="form-label">승인여부</label>
+				    <input type="text" class="form-control" value="${dto.requestAccept}" name="holiday" id="holiday">
+					</div>
+					
 				
 			</div>
 			<hr>
@@ -393,19 +184,6 @@
 	<c:import url="../temp/boot_footer.jsp"></c:import>
 	
 	<script>
-		<c:foreach items="${dto.catecories}" var="t">
-		
-		</c:foreach>
-		
-		let ar = ['korean', 'western'];
-		for(i=0;i<ar.lenth;i++){}
-			$(".ca").each(function(){
-				if($(this).val() == ar[i]{
-					$(this).prop("checked", true);
-				}
-			})
-		
-		}
 	
 		$('#contents').summernote({
 			height: 400
