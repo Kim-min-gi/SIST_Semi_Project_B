@@ -8,7 +8,7 @@
   <div class="con">
    <div class="logo">
    <a href="#">
-    <%-- <img id="FLogo" src="${pageContext.request.contextPath}/resources/img/Logo1.png"> --%>
+     <img id="FLogo" src="${pageContext.request.contextPath}/resources/img/Logo.png"> 
     </a>
    </div>
  <div id="mainListDiv" class="main_list">
