@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s5.board.BoardDTO;
@@ -37,8 +38,15 @@ public class CommunityController {
 	}
 	
 	@PostMapping("insert")
-	public ModelAndView setInsert(CommunityDTO communityDTO) throws Exception {
+	public ModelAndView setInsert(CommunityDTO communityDTO, MultipartFile[] files) throws Exception {
 		ModelAndView mv = new ModelAndView();
+		
+		
+		//fileName test..
+		for (MultipartFile f : files) {
+			System.out.println(f.getOriginalFilename());
+		}
+		//
 		
 		int result = communityService.setInsert(communityDTO);
 		
