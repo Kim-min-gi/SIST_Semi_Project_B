@@ -8,7 +8,7 @@
  <mapper namespace="com.iu.s5.board.community.CommunityDAO">
  
  	<select id="getFile" parameterType="BoardDTO" resultType="BoardFileDTO">
- 		SELECT * COMMUNITYFILES WHERE NUM = #{num}
+ 		SELECT * FROM COMMUNITYFILES WHERE NUM = #{num}
  	</select>
  
  	 <delete id="setFileDelete" parameterType="BoardFileDTO">
@@ -34,9 +34,31 @@
  	<update id="setHitsUpdate" parameterType="BoardDTO">
  		UPDATE COMMUNITY SET HITS = HITS+1 WHERE NUM = #{num}
  	</update>
+ 	
+ 	<resultMap type="CommunityDTO" id="getSelectResult">
+ 		<id column="num" property="num" />
+		<result column="id" property="id" />
+		<result column="writer" property="writer" />
+ 		<result column="title" property="title" />
+		<result column="contents" property="contents" />
+		<result column="regDate" property="regDate" />
+		<result column="hits" property="hits" />
+		<result column="category" property="category" />
+		
+		<collection property="files" javaType="List" ofType="BoardFileDTO">
+			<id column="fileNum" property="fileNum" />
+			<result column="num" property="num" />
+			<result column="fileName" property="fileName" />
+			<result column="oriName" property="oriName" />
+		</collection>
+ 	</resultMap>
  
- 	<select id="getSelect" resultType="CommunityDTO" parameterType="BoardDTO">
- 		SELECT * FROM COMMUNITY WHERE NUM = #{num}
+ 	<select id="getSelect" resultType="CommunityDTO" parameterType="BoardDTO" resultMap="getSelectResult">
+ 		SELECT * 
+ 		FROM COMMUNITY A
+ 		LEFT OUTER JOIN COMMUNITYFILES B
+ 		USING (NUM)
+ 		WHERE NUM = #{num}
  	</select>
  
  	<select id="getList" resultType="CommunityDTO" parameterType="Pager">
