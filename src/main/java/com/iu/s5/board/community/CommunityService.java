@@ -18,7 +18,7 @@ public class CommunityService implements BoardService {
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
-		long totalCount = communityDAO.getCount();
+		long totalCount = communityDAO.getCount(pager);
 		
 		pager.makeNum(totalCount);
 		pager.makeRow();
@@ -29,19 +29,21 @@ public class CommunityService implements BoardService {
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
+		communityDAO.setHitsUpdate(boardDTO);
+		
 		return communityDAO.getSelect(boardDTO);
 	}
 
 	@Override
 	public int setInsert(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return communityDAO.setInsert(boardDTO);
 	}
 
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return communityDAO.setDelete(boardDTO);
 	}
 
 	@Override

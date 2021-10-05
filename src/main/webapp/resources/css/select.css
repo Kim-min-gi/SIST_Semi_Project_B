@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+.container {
+	font-size: 13px;
+}
+
+.article-wrap {
+	margin-bottom: 10px;
+}
+
 .title-area {
 	border-bottom: 1px solid gray;
 	padding-bottom: 20px;
@@ -15,8 +23,26 @@
 	font-size: 3em;
 }
 
+.title-top {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
 
+
+.article-bottom {
+	overflow: hidden;
+	margin-top: 20px;
+}
+
+.bottom-left {
+	float: left;
+}
 
 .bottom-right {
 	float: right;
 }
+
+
+
+
+

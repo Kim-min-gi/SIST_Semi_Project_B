@@ -18,25 +18,54 @@
 	<!--article  -->
 		<div class="article-wrap"> 
 			<div class="title-area"> 
+			
+			<c:if test="${board eq 'community'}">
 				<p class="title-category">
 					<c:choose>
-						<c:when test="${dto.category eq 1}">자유</c:when>
-						<c:when test="${dto.category eq 2}">식당이야기</c:when>
-						<c:when test="${dto.category eq 3}">음식이야기</c:when>
+						<c:when test="${dto.category eq 1}">[자유]</c:when>
+						<c:when test="${dto.category eq 2}">[식당이야기]</c:when>
+						<c:when test="${dto.category eq 3}">[음식이야기]</c:when>
 						<c:otherwise></c:otherwise>
 					</c:choose>
 				</p>
+			</c:if>
+			
 				<h3 class="title-text"> ${dto.title} </h3> 
 				<div class="">
-					${dto.writer} 
-					${dto.regDate} 
-					${dto.hits}
+					<div class="title-top"> ${dto.writer} </div>
+					<div class="title-bottom"> 
+						${dto.regDate} 
+						${dto.hits}
+					</div>
 				</div>
 			</div> 
 			
 			${dto.contents}
 			
+			
+			<!-- request 승인 버튼 -->
+			<c:if test="${board eq 'request'}">
+			
+				<hr>
+				<div>
+				
+				
+				</div>
+				
+				<div class="form-inline">
+					<button type="submit" data-board-num="${dto.num}" id="accept" class="btn btn-warning">승인</button>	
+				
+					<button type="submit" data-board-num="${dto.num}" id="reject" class="btn btn-warning">승인 취소</button>	
+				</div>
+			
+			</c:if>
+			<!-- 승인버튼 끝 -->
+			
 			<div class="article-bottom">
+				<div class="bottom-left">
+					<a class="btn btn-default list-btn" href="./list"> 수정 </a>
+					<a class="btn btn-default list-btn" href="./delete?num=${dto.num}"> 삭제 </a>
+				</div>
 				<div class="bottom-right">
 					<a class="btn btn-default list-btn" href="./list"> 목록 </a>
 				</div>
@@ -47,6 +76,10 @@
 		
 	</div>
 
+
+<script type="text/javascript" src="../resources/js/select.js">
+
+</script>
 
 	<c:import url="../temp/boot_footer.jsp"></c:import>
 </body>

@@ -2,6 +2,8 @@ package com.iu.s5.board.request;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,13 @@ public class RequestService implements BoardService {
 	
 	@Autowired
 	private RequestDAO requestDAO;
-
+	@Autowired
+	private ServletContext servletContext;
+	
+	public int setAcceptUpdate(RequestDTO requestDTO) throws Exception {
+		return requestDAO.setAcceptUpdate(requestDTO);
+	}
+	
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
 		
@@ -28,12 +36,17 @@ public class RequestService implements BoardService {
 
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
-		requestDAO.setHitUpdate(boardDTO);
+		requestDAO.setHitsUpdate(boardDTO);
 		return requestDAO.getSelect(boardDTO);
 	}
 
 	@Override
 	public int setInsert(BoardDTO boardDTO) throws Exception {
+		
+		//파일 삽입
+		
+		
+		
 		return requestDAO.setInsert(boardDTO);
 	}
 

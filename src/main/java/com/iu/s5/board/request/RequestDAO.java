@@ -21,8 +21,8 @@ public class RequestDAO implements BoardDAO {
 		return sqlSession.selectOne(NAMESPACE+"getCount", pager);
 	}
 	
-	public int setHitUpdate(BoardDTO boardDTO) throws Exception {
-		return sqlSession.update(NAMESPACE+"setHitUpdate", boardDTO);
+	public int setAcceptUpdate(RequestDTO requestDTO) throws Exception {
+		return sqlSession.update(NAMESPACE+"setAcceptUpdate", requestDTO);
 	}
 	
 	@Override
@@ -48,6 +48,11 @@ public class RequestDAO implements BoardDAO {
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
 		return sqlSession.update(NAMESPACE+"setUpdate", boardDTO);
+	}
+
+	@Override
+	public int setHitsUpdate(BoardDTO boardDTO) throws Exception {
+		return sqlSession.update(NAMESPACE+"setHitsUpdate", boardDTO);
 	}
 	
 	

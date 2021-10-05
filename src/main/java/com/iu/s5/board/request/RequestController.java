@@ -25,6 +25,15 @@ public class RequestController {
 		return "request";
 	}
 	
+	@PostMapping("accept")
+	public ModelAndView setAcceptUpdate(RequestDTO requestDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = requestService.setAcceptUpdate(requestDTO);
+		mv.setViewName("common/ajaxResult");
+		mv.addObject("result", result);
+		return mv;
+	}
+	
 	@GetMapping("list")
 	public ModelAndView getList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -36,6 +45,16 @@ public class RequestController {
 		return mv;
 	}
 	
+	@GetMapping("select")
+	public ModelAndView getSelect(BoardDTO boardDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		RequestDTO requestDTO = (RequestDTO)requestService.getSelect(boardDTO);
+		mv.addObject("dto", requestDTO);
+		mv.setViewName("board/select");
+		return mv;
+	}
+	
+	
 	@GetMapping("insert")
 	public ModelAndView setInsert() throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -44,10 +63,26 @@ public class RequestController {
 	}
 	
 	@PostMapping("insert")
-	public ModelAndView setInsert(BoardDTO boardDTO) throws Exception {
+	public ModelAndView setInsert(RequestDTO requestDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		int result = requestService.setInsert(boardDTO);
+		int result = requestService.setInsert(requestDTO);
 		mv.setViewName("redirect:./list");
+		
+		return mv;
+	}
+	
+	
+	@GetMapping("update")
+	public ModelAndView setUpdate() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("board/update");
+		return mv;
+	}
+	
+	@PostMapping("update")
+	public ModelAndView setUpdate(RequestDTO requestDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = requestService.setUpdate(requestDTO);
 		
 		return mv;
 	}

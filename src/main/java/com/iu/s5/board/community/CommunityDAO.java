@@ -18,8 +18,14 @@ public class CommunityDAO implements BoardDAO {
 	private final String NAMESPACE = "com.iu.s5.board.community.CommunityDAO.";
 	
 	
-	public Long getCount() throws Exception {
-		return sqlSession.selectOne(NAMESPACE + "getCount");
+	@Override
+	public int setHitsUpdate(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.update(NAMESPACE + "setHitsUpdate", boardDTO);
+	}
+	
+	public Long getCount(Pager pager) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getCount", pager);
 	}
 	
 	@Override
@@ -43,7 +49,7 @@ public class CommunityDAO implements BoardDAO {
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete(NAMESPACE + "setDelete", boardDTO);
 	}
 
 	@Override

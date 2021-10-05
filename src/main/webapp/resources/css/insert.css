@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+.title-text {
+	margin-bottom: 20px;
+}
+
+.form-area {
+	display: flex;
+	justify-content: center;
+}	
+
+.title-category-area {
+	padding: 0 10px 0 0;
+}	
+
+.title-area {
+	padding: 0;
+}
+
+.form-inline .form-control {
+	width: 100%;
+}
+	
+.form-label {
+	padding-top : 10px; 
+}
+
+.bottom-right {
+	float : right;
+}

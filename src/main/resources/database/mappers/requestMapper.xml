@@ -12,24 +12,29 @@
  	
  	<select id="getList" resultType="RequestDTO" parameterType="Pager">
  		SELECT * FROM
-		(SELECT ROWNUM R ,RQ.* FROM (
-			(SELECT * FROM REQUEST) RQ))
-		WHERE R BETWEEN #{startNum} AND #{lastNum}
+		(SELECT ROWNUM R ,RQ.* FROM 
+			(SELECT * FROM REQUEST
+			ORDER BY NUM DESC) RQ)
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
  	</select>
  	
- 	<select id="getSelect" parameterType="BoardDTO">
+ 	<select id="getSelect" parameterType="BoardDTO" resultType="RequestDTO">
  		SELECT * FROM REQUEST
  		WHERE NUM = #{num}
  	</select>
  	
- 	<update id="setHitUpdate" parameterType="BoardDTO">
+ 	<update id="setHitsUpdate" parameterType="BoardDTO">
  		UPDATE REQUEST SET hits = hits+1 WHERE NUM = #{num}
+ 	</update>
+ 	
+ 	<update id="setAcceptUpdate" parameterType="RequestDTO">
+ 		UPDATE REQUEST SET requestAccept = #{requestAccept} WHERE NUM = #{num}
  	</update>
  	
  	<insert id="setInsert" parameterType="RequestDTO">
  		insert into request 
 		values (request_seq.nextval, #{id}, #{writer}, #{title}, #{contents}, sysdate, 0, 
-		#{restName}, #{restLocation}, #{restPhone}, #{restCategory}, #{restTime}, #{holiday}, #{requestAccept})
+		#{restName}, #{restLocation}, #{restPhone}, #{restCategory}, #{restTime}, #{holiday}, 'N')
  	</insert>
  	
  	<delete id="setDelete" parameterType="BoardDTO">

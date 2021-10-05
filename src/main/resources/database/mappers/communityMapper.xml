@@ -7,9 +7,20 @@
   
  <mapper namespace="com.iu.s5.board.community.CommunityDAO">
  
- 	<select id="getCount" resultType="Long">
- 		SELECT COUNT(NUM) FROM COMMUNITY
+ 	<select id="getCount" resultType="Long" parameterType="Pager">
+ 		SELECT COUNT(NUM) 
+ 		FROM COMMUNITY
+ 		WHERE
+		<choose>
+			<when test="kind == 'writer'"> WRITER </when>
+			<otherwise> TITLE </otherwise>
+		</choose>
+		LIKE '%' || #{search} || '%'
  	</select>
+ 
+ 	<update id="setHitsUpdate" parameterType="BoardDTO">
+ 		UPDATE COMMUNITY SET HITS = HITS+1 WHERE NUM = #{num}
+ 	</update>
  
  	<select id="getSelect" resultType="CommunityDTO" parameterType="BoardDTO">
  		SELECT * FROM COMMUNITY WHERE NUM = #{num}
@@ -19,10 +30,20 @@
  		SELECT * 
 		FROM (SELECT ROWNUM RN, C.* 
 			FROM (SELECT * FROM COMMUNITY
+				WHERE
+				<choose>
+					<when test="kind == 'writer'"> WRITER </when>
+					<otherwise> TITLE </otherwise>
+				</choose>
+				LIKE '%' || #{search} || '%'
 				ORDER BY NUM DESC
 			) C)
 		WHERE RN BETWEEN #{startRow} AND #{lastRow}
  	</select>
+ 
+ 	<delete id="setDelete" parameterType="BoardDTO">
+ 		DELETE FROM COMMUNITY WHERE NUM = #{num}
+ 	</delete>
  
  	<insert id="setInsert" parameterType="CommunityDTO">
  		INSERT INTO COMMUNITY (NUM, ID, WRITER, TITLE, CONTENTS, REGDATE, HITS, CATEGORY)

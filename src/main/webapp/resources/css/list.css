@@ -13,4 +13,23 @@ a {
 }
 
 
+.pagination>li>a, .pagination>li>span {
+	color: black;
+}
 
+.bottom-left {
+	float: left;
+}
+
+.search-text {
+	border-radius: 4px 0 0 4px;
+}
+
+.search-btn {
+	margin-left: -5px;
+	border-radius: 0 4px 4px 0;
+}
+
+.bottom-right {
+	float: right;
+}
