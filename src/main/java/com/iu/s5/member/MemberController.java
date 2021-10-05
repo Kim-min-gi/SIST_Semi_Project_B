@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/member/**")
 public class MemberController {
 	
+	//회원가입 전 약관동의 페이지
 	@GetMapping("check")
 	public ModelAndView check() throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -18,4 +19,10 @@ public class MemberController {
 		return mv;
 	}
 	
+	//회원가입 페이지
+	public ModelAndView join() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/join");
+		return mv;
+	}
 }
