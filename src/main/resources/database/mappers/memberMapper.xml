@@ -5,4 +5,10 @@
   
   
   <mapper namespace="com.iu.s5.member.MemberDAO">
+  	
+  	<insert id="setJoin" parameterType="MemberDTO">
+  		INSERT INTO member (id, pw, name, phone, email, nickName)
+		VALUES(#{id}, #{pw}, #{name}, #{phone}, #{email}, #{nickName});
+  	</insert>
+  	
   </mapper>
