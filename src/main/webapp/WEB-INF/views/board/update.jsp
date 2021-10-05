@@ -307,11 +307,11 @@
 						
 						<c:when test="${dto.restCategory eq 'others'}">
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="korean">
+						  <input class="form-check-input ca" type="checkbox" name="restCategory" value="korean">
 						  <label class="form-check-label" for="inlineCheckbox1">한식</label>
 						</div>
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="checkbox" name="restCategory" value="western">
+						  <input class="form-check-input ca" type="checkbox" name="restCategory" value="western">
 						  <label class="form-check-label" for="inlineCheckbox2">양식</label>
 						</div>
 						
@@ -393,6 +393,20 @@
 	<c:import url="../temp/boot_footer.jsp"></c:import>
 	
 	<script>
+		<c:foreach items="${dto.catecories}" var="t">
+		
+		</c:foreach>
+		
+		let ar = ['korean', 'western'];
+		for(i=0;i<ar.lenth;i++){}
+			$(".ca").each(function(){
+				if($(this).val() == ar[i]{
+					$(this).prop("checked", true);
+				}
+			})
+		
+		}
+	
 		$('#contents').summernote({
 			height: 400
 		});
