@@ -63,7 +63,7 @@
 			
 			<div class="article-bottom">
 				<div class="bottom-left">
-					<a class="btn btn-default list-btn" href="./list"> 수정 </a>
+					<a class="btn btn-default list-btn" href="./update?num=${dto.num}"> 수정 </a>
 					<a class="btn btn-default list-btn" href="./delete?num=${dto.num}"> 삭제 </a>
 				</div>
 				<div class="bottom-right">
@@ -77,9 +77,14 @@
 	</div>
 
 
-<script type="text/javascript" src="../resources/js/select.js">
+<script type="text/javascript" src="../resources/js/select.js"></script>
 
-</script>
+	<script>
+
+		 $('.navi').addClass('affix');
+
+	 </script>
+	 
 
 	<c:import url="../temp/boot_footer.jsp"></c:import>
 </body>
