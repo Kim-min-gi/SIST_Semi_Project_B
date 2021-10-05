@@ -6,6 +6,15 @@
 
   
  <mapper namespace="com.iu.s5.board.comments.CommentsDAO">
- 
+ 	
+ 	<insert id="setComment"></insert>
+ 	
+ 	<select id="getCommentList"></select>
+ 	
+ 	<delete id="setCommentDelete"></delete>
+ 	
+ 	<update id="setCommentUpdate"></update>
+ 	
+ 	<select id="getCommentCount"></select>
  
  </mapper>
