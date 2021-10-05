@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s5.board.BoardDTO;
+import com.iu.s5.board.BoardFileDTO;
 import com.iu.s5.util.Pager;
 
 @Controller
@@ -48,7 +49,7 @@ public class CommunityController {
 		}
 		//
 		
-		int result = communityService.setInsert(communityDTO);
+		int result = communityService.setInsert(communityDTO, files);
 		
 		mv.setViewName("redirect:./list");
 		return mv;
@@ -70,6 +71,7 @@ public class CommunityController {
 		ModelAndView mv = new ModelAndView();
 		
 		CommunityDTO communityDTO = (CommunityDTO) communityService.getSelect(boardDTO);
+		List<BoardFileDTO> ar = communityService.getFile(boardDTO);
 		
 		mv.addObject("dto", communityDTO);
 		mv.setViewName("board/select");
