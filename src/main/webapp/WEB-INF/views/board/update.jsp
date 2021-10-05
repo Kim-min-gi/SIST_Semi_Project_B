@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,7 @@
 	
 		<div class="form-area">
 		
-				<form class="col-md-10 mx-auto" action="./insert" method="post" enctype="multipart/form-data">
+				<form class="col-md-10 mx-auto" action="./update" method="post" enctype="multipart/form-data">
 			
 				<c:if test="${board eq 'request'}">
 					<div class="mb-3">
