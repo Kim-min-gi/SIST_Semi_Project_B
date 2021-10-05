@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.iu.s5.board.BoardDAO;
 import com.iu.s5.board.BoardDTO;
+import com.iu.s5.board.BoardFileDTO;
 import com.iu.s5.util.Pager;
 
 @Repository
@@ -53,6 +54,18 @@ public class RequestDAO implements BoardDAO {
 	@Override
 	public int setHitsUpdate(BoardDTO boardDTO) throws Exception {
 		return sqlSession.update(NAMESPACE+"setHitsUpdate", boardDTO);
+	}
+
+	@Override
+	public int setFile(BoardFileDTO boardFileDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<BoardFileDTO> getFile(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

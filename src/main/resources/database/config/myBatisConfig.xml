@@ -9,6 +9,8 @@
 		<typeAlias type="com.iu.s5.member.MemberDTO" alias="MemberDTO"/>
 		
 		<typeAlias type="com.iu.s5.board.BoardDTO" alias="BoardDTO"/>
+		<typeAlias type="com.iu.s5.board.BoardFileDTO" alias="BoardFileDTO"/>
+		
 		<typeAlias type="com.iu.s5.board.community.CommunityDTO" alias="CommunityDTO"/>
 		<typeAlias type="com.iu.s5.board.request.RequestDTO" alias="RequestDTO"/>
 		<typeAlias type="com.iu.s5.board.comments.CommentsDTO" alias="CommentsDTO"/>

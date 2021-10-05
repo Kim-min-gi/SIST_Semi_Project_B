@@ -116,7 +116,7 @@
 					</div>
 					
 					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="restCategory" value="extra">
+					  <input class="form-check-input" type="checkbox" name="restCategory" value="others">
 					  <label class="form-check-label" for="inlineCheckbox2">기타</label>
 					</div>
 					
@@ -149,8 +149,8 @@
 			<div class="mb-3">
 				<label for="contents" class="form-label">파일 첨부</label>
 				<button type="button" id="fileAdd" class="btn btn-default">추가</button>
-				
-			
+			</div>
+			<div id="fileAddArea">
 			
 			</div>
 		
@@ -167,21 +167,17 @@
 	
 	<c:import url="../temp/boot_footer.jsp"></c:import>
 	
+	
+	<script type="text/javascript" src="../resources/js/boardFile.js"></script>
+	
 	<script>
+	
+		$('.navi').addClass('affix');
+	
 		$('#contents').summernote({
 			height: 400
 		});
 		
-		$(window).scroll(function() {
-            if ($(document).scrollTop() > 50) {
-                $('.navi').addClass('affix');
-                console.log("OK");
-            } else {
-                $('.navi').removeClass('affix');
-            }
-	});
-	
-
 	 </script>
 </body>
 </html>
