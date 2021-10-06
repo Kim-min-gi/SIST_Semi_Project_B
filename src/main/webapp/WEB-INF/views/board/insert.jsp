@@ -143,12 +143,12 @@
 			
 			<div class="mb-3">
 			    <label for="contents" class="form-label"></label>
-	  			<textarea class="form-control" cols=""  name="contents" id="contents" rows="10"></textarea>
+	  			<textarea class="form-control" cols=""  name="contents" id="summernote"></textarea>
 			</div>
 			
 			<!-- 파일 첨부 -->
 			<div class="mb-3">
-				<label for="contents" class="form-label">파일 첨부</label>
+				<label for="file" class="form-label">파일 첨부</label>
 				<button type="button" id="fileAdd" class="btn btn-default">추가</button>
 			</div>
 			<div id="fileAddArea">
@@ -169,16 +169,19 @@
 	<c:import url="../temp/boot_footer.jsp"></c:import>
 	
 	
+
 	<script type="text/javascript" src="../resources/js/boardFile.js"></script>
-	
 	<script>
 	
 		$('.navi').addClass('affix');
 	
-		$('#contents').summernote({
-			height: 400
-		});
+		/* $(document).ready(function() {
+			$('#summernote').summernote({
+				height: 400
+			});
+		}); */ 
 		
 	 </script>
+	 	
 </body>
 </html>

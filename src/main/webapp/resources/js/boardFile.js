@@ -3,9 +3,9 @@
  * 게시판 파일 추가 js
  */
  
- let file = '<div class="input-inline f" id="">'+
+ let file = '<div class="input-inline">'+
  				'<div class="col-md-10">'+
-   				'<input type="file" class="form-control" name="files" id="photo"></div>'+
+   				'<input type="file" class="form-control" name="boardFiles"></div>'+
    				'<div class="col-md-2">'+
    				'<button class="btn btn-outline-secondary del" type="button">파일 삭제</button>'+
 				'</div></div>';

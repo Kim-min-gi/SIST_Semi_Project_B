@@ -15,37 +15,57 @@
 	<body>
 		<c:import url="../temp/boot_nav.jsp"></c:import>
 		
-		<div>
+		<div class="container">
+		
+			<h3>
+				약관동의
+			</h3>
+		
 			<div class="form-check">
-		 		<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+		 		<input class="form-check-input checks" type="checkbox" value="" id="flexCheckDefault">
 		  		<label class="form-check-label" for="flexCheckDefault">
-		    		약관1
+		    		약관1(필수)
+		  		</label>
+			</div>
+			
+			<div class="form-check">
+		 		<input class="form-check-input checks" type="checkbox" value="" id="flexCheckDefault">
+		  		<label class="form-check-label" for="flexCheckDefault">
+		    		약관2(필수)
+		  		</label>
+			</div>
+			
+			<div class="form-check">
+		 		<input class="form-check-input checks" type="checkbox" value="" id="flexCheckDefault">
+		  		<label class="form-check-label" for="flexCheckDefault">
+		    		약관3(필수)
 		  		</label>
 			</div>
 			
 			<div class="form-check">
 		 		<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 		  		<label class="form-check-label" for="flexCheckDefault">
-		    		약관2
+		    		약관4(선택)
 		  		</label>
 			</div>
 			
 			<div class="form-check">
-		 		<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-		  		<label class="form-check-label" for="flexCheckDefault">
-		    		약관3
+		 		<input class="form-check-input" type="checkbox" value="" id="checkAll">
+		  		<label class="form-check-label" for="checkAll">
+		    		모두 동의
 		  		</label>
 			</div>
 			
-			<div class="form-check">
-		 		<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-		  		<label class="form-check-label" for="flexCheckDefault">
-		    		약관4
-		  		</label>
-			</div>
+			<button id="btn" class="btn btn-warning">회원가입</button>
 		</div>
 		
+		
 		<c:import url="../temp/boot_footer.jsp"></c:import>
+		
+		<script>
+			$('.navi').addClass('affix');
+		</script>
+		<script type="text/javascript" src="../resources/js/member.js"></script>
 	</body>
 	
 </html>

@@ -11,6 +11,10 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/member/**")
 public class MemberController {
 	
+	@Autowired
+	private MemberService memberService;
+	
+	//회원가입 전 약관동의 페이지
 	@GetMapping("check")
 	public ModelAndView check() throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -18,4 +22,22 @@ public class MemberController {
 		return mv;
 	}
 	
+	//회원가입 페이지
+	@GetMapping("join")
+	public ModelAndView join() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/join");
+		return mv;
+	}
+	
+	@GetMapping("idCheck")
+	public ModelAndView getIdCheck(MemberDTO memberDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		memberDTO = memberService.getIdCheck(memberDTO);
+		System.out.println("ID중복 체크");
+		
+		mv.addObject("dto", memberDTO);
+		mv.setViewName("member/idCheck");
+		return mv;
+	}
 }

@@ -40,8 +40,17 @@
 				</div>
 			</div> 
 			
-			${dto.contents}
+
+			<c:forEach items="${dto.files}" var="list">
+				<div>
+					<a href="./fileDown?fileName=${list.fileName}">${list.oriName}</a> 
+				</div>
+			</c:forEach>
 			
+			
+			<div>
+				${dto.contents}
+			</div>
 			
 			<!-- request 승인 버튼 -->
 			<c:if test="${board eq 'request'}">
