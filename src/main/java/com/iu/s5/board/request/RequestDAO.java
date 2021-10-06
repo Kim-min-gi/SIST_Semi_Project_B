@@ -58,8 +58,7 @@ public class RequestDAO implements BoardDAO {
 
 	@Override
 	public int setFile(BoardFileDTO boardFileDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert(NAMESPACE+"setFile", boardFileDTO);
 	}
 
 	@Override

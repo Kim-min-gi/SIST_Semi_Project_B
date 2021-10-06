@@ -6,6 +6,7 @@ import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.iu.s5.board.BoardDTO;
 import com.iu.s5.board.BoardService;
@@ -41,7 +42,7 @@ public class RequestService implements BoardService {
 	}
 
 	@Override
-	public int setInsert(BoardDTO boardDTO) throws Exception {
+	public int setInsert(BoardDTO boardDTO, MultipartFile [] files) throws Exception {
 		
 		//파일 삽입
 		

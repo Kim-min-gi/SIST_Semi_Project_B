@@ -1,6 +1,9 @@
 package com.iu.s5.board.request;
 
+import java.util.List;
+
 import com.iu.s5.board.BoardDTO;
+import com.iu.s5.board.BoardFileDTO;
 
 public class RequestDTO extends BoardDTO{
 	
@@ -12,7 +15,14 @@ public class RequestDTO extends BoardDTO{
 	private String holiday;
 	private String requestAccept;
 	
+	private List<BoardFileDTO> files;
 	
+	public List<BoardFileDTO> getFiles() {
+		return files;
+	}
+	public void setFiles(List<BoardFileDTO> files) {
+		this.files = files;
+	}
 	public String getRestName() {
 		return restName;
 	}

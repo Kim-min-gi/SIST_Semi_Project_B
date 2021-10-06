@@ -6,19 +6,75 @@
   
  <mapper namespace="com.iu.s5.board.request.RequestDAO">
  	
+ 	
+ 	
+ 	<delete id="setFileDelete" parameterType="BoardFilesDTO">
+ 		DELETE REQUESTFILES WHERE fileNum = #{fileNum}
+ 	</delete>
+ 	
+ 	<select id="getFile" parameterType="BoardDTO" resultType="BoardFilesDTO">
+ 		SELECT * FROM REQUESTFILES WHERE num = #{num}
+ 	</select>
+ 	
+ 	<insert id="setFile" parameterType="BoardFilesDTO">
+ 		INSERT INTO REQUESTFILES
+ 		VALUES(FILES_SEQ.NEXTVAL, #{num}, #{fileName}, #{oriName})
+ 	
+ 	</insert>
+ 	
+ 	
  	<select id="getCount" resultType="Long" parameterType="Pager">
  		SELECT COUNT(num) FROM REQUEST
+ 		
+ 		<if test="kind == 'title'">WHERE title LIKE '%' || #{search} || '%'</if>
+ 		<if test="kind == 'writer'">WHERE writer LIKE '%' || #{search} || '%'</if>
+ 		
  	</select>
  	
  	<select id="getList" resultType="RequestDTO" parameterType="Pager">
- 		SELECT * FROM
-		(SELECT ROWNUM R ,RQ.* FROM 
-			(SELECT * FROM REQUEST
-			ORDER BY NUM DESC) RQ)
+ 		SELECT * 
+ 		FROM (SELECT ROWNUM R ,RQ.* 
+ 			FROM (SELECT * FROM REQUEST
+					WHERE
+					<choose>
+						<when test="kind=='writer'">
+							writer
+						</when>
+						<otherwise>
+							title
+						</otherwise>
+					</choose>
+				LIKE '%' || #{search} || '%'
+				ORDER BY NUM DESC
+			) RQ)
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
  	</select>
  	
- 	<select id="getSelect" parameterType="BoardDTO" resultType="RequestDTO">
+ 	<resultMap type="RequestDTO" id="getSelectResult">
+ 		<id column="num" property="num"/>
+ 		<result column="id" property="id"/>
+ 		<result column="writer" property="writer"/>
+ 		<result column="title" property="title"/>
+ 		<result column="contents" property="contents"/>
+ 		<result column="regDate" property="regDate"/>
+ 		<result column="hits" property="hits"/>
+ 		<result column="restName" property="restName"/>
+ 		<result column="restLoaction" property="restLocation"/>
+ 		<result column="restPhone" property="restPhone"/>
+ 		<result column="restCategory" property="restCategory"/>
+ 		<result column="restTime" property="restTime"/>
+ 		<result column="holiday" property="holiday"/>
+ 		<result column="requestAccept" property="requestAccept"/>
+ 		<!-- Files -->
+ 		<collection property="files" javaType="List" ofType="BoardFilesDTO">
+ 			<id column="fileNum" property="fileNum"/>
+ 			<result column="num" property="num"/>
+ 			<result column="fileName" property="fileName"/>
+ 			<result column="oriName" property="oriName"/>
+ 		</collection>
+ 	</resultMap>
+ 	
+ 	<select id="getSelect" parameterType="BoardDTO" resultMap="getSelectResult">
  		SELECT * FROM REQUEST
  		WHERE NUM = #{num}
  	</select>
