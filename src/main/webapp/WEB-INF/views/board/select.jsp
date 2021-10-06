@@ -43,7 +43,7 @@
 
 			<c:forEach items="${dto.files}" var="list">
 				<div>
-					${list.oriName}
+					<a href="./fileDown?fileName=${list.fileName}">${list.oriName}</a> 
 				</div>
 			</c:forEach>
 			
