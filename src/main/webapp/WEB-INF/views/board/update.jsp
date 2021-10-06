@@ -54,7 +54,7 @@
 				</c:if>
 				
 				<div class="mb-3">
-				    <input type="hidden" class="form-control" value="${dto.num}">
+				    <input type="hidden" class="form-control" value="${dto.num}" name="num">
 				</div>
 				
 				<!-- 아이디 나중에 삭제 -->
@@ -93,37 +93,37 @@
 					<label for="" class="form-label">카테고리</label>
 				
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="restCategory" value="korean">
+						  <input class="form-check-input" type="radio" name="restCategory" value="1">
 						  <label class="form-check-label" for="inlineRadio1">한식</label>
 						</div>
 						
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="restCategory" value="western">
+						  <input class="form-check-input" type="radio" name="restCategory" value="2">
 						  <label class="form-check-label" for="inlineRadio1">양식</label>
 						</div>
 						
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="restCategory" value="japanese">
+						  <input class="form-check-input" type="radio" name="restCategory" value="3">
 						  <label class="form-check-label" for="inlineRadio1">일식</label>
 						</div>
 						
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="restCategory" value="chinese">
+						  <input class="form-check-input" type="radio" name="restCategory" value="4">
 						  <label class="form-check-label" for="inlineRadio1">중식</label>
 						</div>
 						
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="restCategory" value="asia">
+						  <input class="form-check-input" type="radio" name="restCategory" value="5">
 						  <label class="form-check-label" for="inlineRadio1">아시아</label>
 						</div>
 						
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="restCategory" value="cafe">
+						  <input class="form-check-input" type="radio" name="restCategory" value="6">
 						  <label class="form-check-label" for="inlineRadio1">카페,디저트</label>
 						</div>
 						
 						<div class="form-check form-check-inline">
-						  <input class="form-check-input" type="radio" name="restCategory" value="others">
+						  <input class="form-check-input" type="radio" name="restCategory" value="7">
 						  <label class="form-check-label" for="inlineRadio1">기타</label>
 						</div>
 					
@@ -144,8 +144,7 @@
 					</div>
 					
 					<div class="mb-3">
-					<label for="holiday" class="form-label">승인여부</label>
-				    <input type="text" class="form-control" value="${dto.requestAccept}" name="holiday" id="holiday">
+				    <input type="hidden" class="form-control" readonly="readonly" value="${dto.requestAccept}" name="requestAccept" id="requestAccept">
 					</div>
 					
 				
