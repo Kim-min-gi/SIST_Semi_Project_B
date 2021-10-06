@@ -31,8 +31,13 @@ public class MemberController {
 	}
 	
 	@GetMapping("idCheck")
-	public void getIdCheck(MemberDTO memberDTO) throws Exception {
+	public ModelAndView getIdCheck(MemberDTO memberDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
 		memberDTO = memberService.getIdCheck(memberDTO);
 		System.out.println("ID중복 체크");
+		
+		mv.addObject("dto", memberDTO);
+		mv.setViewName("member/idCheck");
+		return mv;
 	}
 }

@@ -11,6 +11,7 @@
 		<title>회원가입</title>
 		
 		<c:import url="../temp/boot_head.jsp"></c:import>
+		<link rel="stylesheet" type="text/css" href="../resources/css/join.css"/>
 	</head>
 	
 	<body>
@@ -61,6 +62,11 @@
 		  		<input type="email" class="form-control put" id="email" aria-describedby=" emailHelp" placeholder="email@email.com">
 		  	</div>
 		  	
+		  	<!-- 회원가입 버튼 -->
+		  	<div class="joinbtn">
+		  		<label class="form-label"></label>
+  				<button id="btn" type="button" class="btn btn-warning">회원가입</button>
+		  	</div>
 		  	
   		</div>>
 		
