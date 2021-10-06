@@ -8,6 +8,11 @@
 
 	<select id="getIdCheck" parameterType="MemberDTO" resultType="MemberDTO">
 		SELECT id FROM member WHERE id=#{id}
-	</select>	  	
+	</select>
+	
+	<insert id="setJoin" parameterType="MemberDTO">
+		INSERT INTO member (id, pw, name, phone, email) 
+		VALUES (#{id}, #{pw}, #{name}, #{phone}, #{email})
+	</insert> 	
   	
 </mapper>

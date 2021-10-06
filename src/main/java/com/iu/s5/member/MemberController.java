@@ -30,6 +30,15 @@ public class MemberController {
 		return mv;
 	}
 	
+	@PostMapping("join")
+	public ModelAndView join(MemberDTO memberDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int result = memberService.setJoin(memberDTO);
+		mv.setViewName("redirect:../");
+		return mv;
+	}
+	
 	@GetMapping("idCheck")
 	public ModelAndView getIdCheck(MemberDTO memberDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
