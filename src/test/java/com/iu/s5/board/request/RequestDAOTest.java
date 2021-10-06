@@ -46,7 +46,7 @@ public class RequestDAOTest extends JunitTest{
 		dto.setRestName("test");
 		dto.setRestLocation("test");
 		dto.setRestPhone("01010");
-		dto.setRestCategory("test");
+		dto.setRestCategory(1L);
 		dto.setRestTime("test");
 		dto.setHoliday("test");
 		dto.setRequestAccept("N");
@@ -68,7 +68,7 @@ public class RequestDAOTest extends JunitTest{
 		dto.setRestName("test");
 		dto.setRestLocation("test");
 		dto.setRestPhone("01010");
-		dto.setRestCategory("test");
+		dto.setRestCategory(1L);
 		dto.setRestTime("test");
 		dto.setHoliday("test");
 		dto.setRequestAccept("N");

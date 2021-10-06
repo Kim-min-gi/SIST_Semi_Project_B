@@ -89,4 +89,19 @@ public class RequestController {
 		return mv;
 	}
 	
+	@GetMapping("delete")
+	public ModelAndView setDelete(RequestDTO requestDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = requestService.setDelete(requestDTO);
+		String message = "삭제에 실패했습니다";
+		if(result>0) {
+			message = "삭제에 성공했습니다";
+		}
+		mv.addObject("msg", message);
+		mv.addObject("url", "./list");
+		
+		mv.setViewName("common/result");
+		return mv;
+	}
+	
 }
