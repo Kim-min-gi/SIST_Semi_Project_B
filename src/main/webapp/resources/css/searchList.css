@@ -16,18 +16,20 @@
 
 .searchList{
 	display:inline-block;
-	background-color:blue;
+	background-color:gray;
 	width: 70%;
 	height: 1500px;
+	text-align: center;
 	
 }
 
 .involvedList{
 	float:right;
-	background-color:gray;
+	background-color:#EAEAEA;
 	margin:0;
 	width:30%;
 	height: 1500px;
+	text-align: center;
 	
 }
 

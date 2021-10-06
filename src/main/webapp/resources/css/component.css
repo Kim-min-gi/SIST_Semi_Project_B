@@ -13,11 +13,12 @@
 
 /* 최신 커뮤니티 글 div */
 .Communitys{
+	
 	border:1px solid gold; 
 	text-align: center;
 	float: left;
-	margin-left: 328px;
-	width: 615px; /* 448  */
+	width:48%;
+	margin-left:10px;
 	height: 297px;
 	
 	
@@ -25,14 +26,23 @@
 
 /* 최신리뷰 div */
 .Riviews{
+	
 	border:1px solid red; 
 	text-align: center;
 	float: right;
-	margin-right: 328px;
-	width: 615px;
+	width:48%;
+	margin-right:10px;
 	height: 297px;
 	
 }
+
+.writingcontainer{
+	
+	padding-bottom: 500px;
+	
+	
+	
+}	
 
 .grid {
 	margin: 30px auto;
