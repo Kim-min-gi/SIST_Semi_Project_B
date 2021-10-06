@@ -28,6 +28,17 @@ public class CommunityController {
 		return "community";
 	}
 	
+	
+	@GetMapping("update")
+	public ModelAndView setUpdate() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("board/update");
+		return mv;
+	}
+	
+	
+	//글 삭제
 	@GetMapping("delete")
 	public ModelAndView setDelete(BoardDTO boardDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -38,18 +49,19 @@ public class CommunityController {
 		return mv;
 	}
 	
+	//글 작성
 	@PostMapping("insert")
-	public ModelAndView setInsert(CommunityDTO communityDTO, MultipartFile[] files) throws Exception {
+	public ModelAndView setInsert(CommunityDTO communityDTO, MultipartFile[] boardFiles) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
 		
 		//fileName test..
-		for (MultipartFile f : files) {
+		for (MultipartFile f : boardFiles) {
 			System.out.println(f.getOriginalFilename());
 		}
 		//
 		
-		int result = communityService.setInsert(communityDTO, files);
+		int result = communityService.setInsert(communityDTO, boardFiles);
 		
 		mv.setViewName("redirect:./list");
 		return mv;
