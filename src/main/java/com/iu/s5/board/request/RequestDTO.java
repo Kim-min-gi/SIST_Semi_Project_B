@@ -7,7 +7,7 @@ public class RequestDTO extends BoardDTO{
 	private String restName;
 	private String restLocation;
 	private String restPhone;
-	private String restCategory;
+	private Long restCategory;
 	private String restTime;
 	private String holiday;
 	private String requestAccept;
@@ -31,10 +31,10 @@ public class RequestDTO extends BoardDTO{
 	public void setRestPhone(String restPhone) {
 		this.restPhone = restPhone;
 	}
-	public String getRestCategory() {
+	public Long getRestCategory() {
 		return restCategory;
 	}
-	public void setRestCategory(String restCategory) {
+	public void setRestCategory(Long restCategory) {
 		this.restCategory = restCategory;
 	}
 	public String getRestTime() {
