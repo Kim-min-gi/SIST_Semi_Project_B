@@ -70,6 +70,29 @@
 			</c:if>
 			<!-- 승인버튼 끝 -->
 			
+			
+			<!-- 댓글 영역 -->
+			<div class="comment-area">
+				<div class="comment-list">
+				</div> <!-- //comment-list -->
+				
+				<div class="comment-write">
+					<div class="comment-writer">작성자영역나중에세션정보로바꿀것\^_^/</div>
+					<textarea class="comment-writebox" rows="2" cols="" placeholder="댓글을 작성해주세요."></textarea>
+				
+					<div class="comment-bottom">
+						<div class="bottom-right">
+							<a class="comment-write-btn" href="#">등록</a>
+						</div>
+					</div>
+				</div> <!-- //comment-write -->
+				
+				
+			</div>
+			<!-- // 댓글 영역 끝 -->
+			
+			
+			<!-- 하단 수정,삭제,목록 부분 -->
 			<div class="article-bottom">
 				<div class="bottom-left">
 					<a class="btn btn-default list-btn" href="./update?num=${dto.num}"> 수정 </a>
@@ -79,8 +102,8 @@
 					<a class="btn btn-default list-btn" href="./list"> 목록 </a>
 				</div>
 			</div>
-		</div>
-		<!-- //article  -->
+			<!-- //하단 수정 삭제 목록 부분 끝 -->
+		</div> <!-- //article  -->
 		
 		
 	</div>
