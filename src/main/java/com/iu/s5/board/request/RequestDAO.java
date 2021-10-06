@@ -18,6 +18,8 @@ public class RequestDAO implements BoardDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.iu.s5.board.request.RequestDAO.";
 	
+	
+	
 	public Long getCount(Pager pager) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"getCount", pager);
 	}
@@ -63,8 +65,7 @@ public class RequestDAO implements BoardDAO {
 
 	@Override
 	public List<BoardFileDTO> getFile(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList(NAMESPACE+"getFile", boardDTO);
 	}
 	
 	
