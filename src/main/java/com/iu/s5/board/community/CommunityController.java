@@ -77,6 +77,16 @@ public class CommunityController {
 	}
 	
 	
+	@GetMapping("fileDown")
+	public ModelAndView fileDown(BoardFileDTO boardFileDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("dto", boardFileDTO);
+		mv.setViewName("fileDownload");
+		return mv;
+	}
+	
+	
 	//글상세
 	@GetMapping("select")
 	public ModelAndView getSelect(BoardDTO boardDTO) throws Exception {
