@@ -53,7 +53,7 @@ public class RequestController {
 		RequestDTO requestDTO = (RequestDTO)requestService.getSelect(boardDTO);
 		List<BoardFileDTO> ar = requestService.getFile(boardDTO);
 		
-		mv.addObject("fileList", ar);
+		mv.addObject("files", ar);
 		mv.addObject("dto", requestDTO);
 		mv.setViewName("board/select");
 		return mv;

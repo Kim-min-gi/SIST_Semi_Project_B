@@ -8,15 +8,15 @@
  	
  	
  	
- 	<delete id="setFileDelete" parameterType="BoardFilesDTO">
+ 	<delete id="setFileDelete" parameterType="BoardFileDTO">
  		DELETE REQUESTFILES WHERE fileNum = #{fileNum}
  	</delete>
  	
- 	<select id="getFile" parameterType="BoardDTO" resultType="BoardFilesDTO">
+ 	<select id="getFile" parameterType="BoardDTO" resultType="BoardFileDTO">
  		SELECT * FROM REQUESTFILES WHERE num = #{num}
  	</select>
  	
- 	<insert id="setFile" parameterType="BoardFilesDTO">
+ 	<insert id="setFile" parameterType="BoardFileDTO">
  		INSERT INTO REQUESTFILES
  		VALUES(FILES_SEQ.NEXTVAL, #{num}, #{fileName}, #{oriName})
  	
@@ -66,7 +66,7 @@
  		<result column="holiday" property="holiday"/>
  		<result column="requestAccept" property="requestAccept"/>
  		<!-- Files -->
- 		<collection property="files" javaType="List" ofType="BoardFilesDTO">
+ 		<collection property="files" javaType="List" ofType="BoardFileDTO">
  			<id column="fileNum" property="fileNum"/>
  			<result column="num" property="num"/>
  			<result column="fileName" property="fileName"/>
