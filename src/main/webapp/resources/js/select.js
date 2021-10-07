@@ -35,3 +35,28 @@ $('#reject').click(function(){
 	
 })
 
+
+
+
+
+
+
+
+/* 댓글 */
+$("#comment-write-btn").click(function() {
+	let id = $("#comment-id").val();
+	let writer = $("#comment-writer").val();
+	let contents = $("#comment-contents").val();
+	
+	$.ajax({
+		type: "POST"
+		, data: {
+			num : boardNum
+			, id : id
+			, writer : writer
+			, contents : contents
+		}, function(result) {
+			console.log(result);
+		}
+	})
+})

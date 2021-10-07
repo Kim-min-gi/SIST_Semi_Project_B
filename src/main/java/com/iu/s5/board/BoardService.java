@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.iu.s5.board.comments.CommentsDTO;
 import com.iu.s5.util.Pager;
 
 
