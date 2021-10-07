@@ -6,10 +6,48 @@
 
   
  <mapper namespace="com.iu.s5.restaurant.RestaurantsDAO">
-
+ 	
+ 	
+ 	
  
- 	<select id="getRestaurants" parameterType="com.iu.s5.restaurant.RestaurantsDTO" resultType="com.iu.s5.restaurant.RestaurantsDTO">
- 		SELECT * FROM RESTAURANTS WHERE RESTNUM=#{restNum}
+ 	<resultMap type="com.iu.s5.restaurant.RestaurantsDTO" id="getRestaurantsResult">
+  		<id column="restNum" property="restNum"/>
+  		<result column="restName" property="restName"/>
+  		<result column="restLocation" property="restLocation"/>
+  		<result column="phone" property="phone"/>
+  		<result column="restCategory" property="restCategory"/>
+  		<result column="restTime" property="restTime"/>
+  		<result column="holiDay" property="holiDay"/>
+  		<result column="hits" property="hits"/>
+  		<result column="likes" property="likes"/>
+  		<result column="starVal" property="starVal"/>
+  		<result column="lat" property="lat"/>
+  		<result column="logt" property="logt"/>
+  		<result column="openFlag" property="openFlag"/>
+  		<!-- 1:N의 관계 , DTO내에 List가 멤버변수로 되어 있을 때 -->
+  		<collection property="files" javaType="List" ofType="com.iu.s5.restaurant.RestaurantsFilesDTO">
+  			<id column="restFileNum" property="restFileNum"/>
+  			<result column="restNum" property="restNum"/>
+  			<result column="fileName" property="fileName"/>
+  			<result column="oriName" property="oriName"/>
+  		</collection>
+  		
+  	</resultMap> 
+
+
+
+ 	<!-- 별점이 높은 순으로 정렬 후 select  -->
+ 	<select id="getRestaurants" resultMap="getRestaurantsResult">
+ 		SELECT * FROM
+		(SELECT * FROM 
+		(SELECT ROWNUM R, RS.* FROM 
+		(SELECT * FROM RESTAURANTS ORDER BY STARVAL DESC)RS) WHERE R BETWEEN 1 AND 8)RSS
+		LEFT JOIN RESTARANTSFILE RF
+		ON (RSS.RESTNUM = RF.RESTNUM)
+		ORDER BY STARVAL DESC
  	</select>
+ 	
+ 	
+ 
 
  </mapper>
