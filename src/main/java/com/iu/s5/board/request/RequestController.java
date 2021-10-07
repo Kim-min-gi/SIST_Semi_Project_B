@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.iu.s5.board.BoardDTO;
 import com.iu.s5.board.BoardFileDTO;
 import com.iu.s5.board.comments.CommentsDTO;
-import com.iu.s5.board.comments.CommentsService;
 import com.iu.s5.util.Pager;
 
 @Controller
