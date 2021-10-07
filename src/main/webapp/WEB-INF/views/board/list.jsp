@@ -29,8 +29,10 @@
 					<th colspan="2" class="col-md-6"> 제목 </th>
 				</c:if>
 				<c:if test="${board eq 'request'}">
-					<th class="col-md-6"> 제목 </th>
+					<th class="col-md-1"> 글번호</th>
+					<th class="col-md-5"> 제목 </th>
 				</c:if>
+				
 				<th class="col-md-3"> 작성자 </th>
 				<th class="col-md-2"> 작성일 </th>
 				<th class="col-md-1"> 조회 </th>
@@ -45,6 +47,10 @@
 								<c:when test="${list.category eq 3}"><span class="font-purple font-weight-bold">음식이야기</span></c:when>
 							</c:choose> 
 						</td>
+					</c:if>
+					
+					<c:if test="${board eq 'request'}">
+						<td>${list.num}</td>
 					</c:if>
 					
 					<td> <a href="./select?num=${list.num}"> ${list.title} </a> </td>
