@@ -1,6 +1,7 @@
 /**
  * select.js
  */
+
  
 //승인 버튼
 $('#accept').click(function(){
@@ -19,6 +20,7 @@ $('#accept').click(function(){
 	
 })
 
+//승인 취소 버튼
 $('#reject').click(function(){
 	
 	let num = $(this).attr("data-board-num");
