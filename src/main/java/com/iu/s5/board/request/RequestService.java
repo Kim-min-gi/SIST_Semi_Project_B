@@ -69,7 +69,11 @@ public class RequestService implements BoardService {
 			boardFileDTO.setNum(boardDTO.getNum());
 			
 			result = requestDAO.setFile(boardFileDTO);
+			System.out.println(boardFileDTO.getFileName());
+			System.out.println(boardFileDTO.getOriName());
+			System.out.println(boardFileDTO.getNum());
 		}
+		
 		return result;
 	}
 

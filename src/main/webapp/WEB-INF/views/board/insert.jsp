@@ -179,7 +179,7 @@
 			$('#summernote').summernote({
 				height: 400
 			});
-		}); */ 
+		}); */
 		
 	 </script>
 	 	
