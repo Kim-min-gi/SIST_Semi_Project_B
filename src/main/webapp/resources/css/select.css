@@ -77,6 +77,8 @@
 }
 
 .comment-write-btn {
+	background-color: transparent;
+	border: none;
 	color: gray;
 	font-size: 14px;
 }

@@ -1,6 +1,7 @@
 package com.iu.s5.board.community;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -35,13 +36,24 @@ public class CommunityService implements BoardService {
 	@Override
 	public int setComment(CommentsDTO commentsDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return communityDAO.setComment(commentsDTO);
 	}
 
 	@Override
 	public List<CommentsDTO> getCommentsList(CommentsDTO commentsDTO, Pager pager) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		long totalCount = communityDAO.getCommentCount(commentsDTO);
+		
+		pager.setPerPage(5L);
+		pager.makeRow();
+		pager.makeNum(totalCount);
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("comments", commentsDTO);
+		map.put("pager", pager);
+		
+		return communityDAO.getCommentList(map);
 	}
 
 	@Override

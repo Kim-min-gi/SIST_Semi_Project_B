@@ -21,37 +21,35 @@ public class CommunityDAO implements BoardDAO {
 	private final String NAMESPACE = "com.iu.s5.board.community.CommunityDAO.";
 	
 	
-	
-	
-	
+
 	@Override
 	public int setComment(CommentsDTO commentsDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert(NAMESPACE + "setComment", commentsDTO);
 	}
 
 	@Override
 	public List<CommentsDTO> getCommentList(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList(NAMESPACE + "getCommentList", map);
 	}
 
 	@Override
 	public int setCommentDelete(CommentsDTO commentsDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete(NAMESPACE + "setCommentDelete", commentsDTO);
 	}
 
 	@Override
 	public int setCommentUpdate(CommentsDTO commentsDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESPACE + "setCommentUpdate", commentsDTO);
 	}
 
 	@Override
 	public Long getCommentCount(CommentsDTO commentsDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne(NAMESPACE + "getCommentCount", commentsDTO);
 	}
 
 	@Override

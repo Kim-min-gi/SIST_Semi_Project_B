@@ -73,7 +73,8 @@
 			
 			<!-- 댓글 영역 -->
 			<div class="comment-area">
-				<div class="comment-list">
+			
+				<div id="comment-list" class="comment-list">
 				</div> <!-- //comment-list -->
 				
 				<div class="comment-write">
@@ -83,7 +84,7 @@
 				
 					<div class="comment-bottom">
 						<div class="bottom-right">
-							<button id="comment-write-btn" class="comment-write-btn">등록</button>
+							<button type="button" id="comment-write-btn" class="comment-write-btn">등록</button>
 						</div>
 					</div>
 				</div> <!-- //comment-write -->

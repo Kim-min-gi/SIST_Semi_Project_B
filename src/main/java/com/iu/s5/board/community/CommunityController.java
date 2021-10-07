@@ -31,13 +31,26 @@ public class CommunityController {
 	}
 	
 	
+	@GetMapping("getCommentList")
+	public ModelAndView getCommentList(CommentsDTO commentsDTO, Pager pager) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		commentsDTO.setBoard("C");
+		
+		List<CommentsDTO> ar = communityService.getCommentsList(commentsDTO, pager);
+		
+		mv.addObject("comments", ar);
+		mv.addObject("pager", pager);
+		mv.setViewName("board/commentList");
+		return mv;
+	}
+	
 	@PostMapping("comment")
 	public ModelAndView setComment(CommentsDTO commentsDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
 		commentsDTO.setBoard("C");
 		int result = communityService.setComment(commentsDTO);
-		
 		return mv;
 	}
 	
