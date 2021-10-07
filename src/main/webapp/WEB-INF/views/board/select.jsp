@@ -77,12 +77,13 @@
 				</div> <!-- //comment-list -->
 				
 				<div class="comment-write">
-					<div class="comment-writer">작성자영역나중에세션정보로바꿀것\^_^/</div>
-					<textarea class="comment-writebox" rows="2" cols="" placeholder="댓글을 작성해주세요."></textarea>
+					<input type="hidden" id="comment-id" value="t1">
+					<div id="comment-writer" class="comment-writer">작성자영역</div>
+					<textarea id="comment-contents" class="comment-writebox" rows="2" cols="" placeholder="댓글을 작성해주세요."></textarea>
 				
 					<div class="comment-bottom">
 						<div class="bottom-right">
-							<a class="comment-write-btn" href="#">등록</a>
+							<a class="comment-write-btn" href="./comment">등록</a>
 						</div>
 					</div>
 				</div> <!-- //comment-write -->
