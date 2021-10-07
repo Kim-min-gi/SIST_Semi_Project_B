@@ -13,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s5.board.BoardDTO;
 import com.iu.s5.board.BoardFileDTO;
+import com.iu.s5.board.comments.CommentsDTO;
+import com.iu.s5.board.comments.CommentsService;
 import com.iu.s5.util.Pager;
 
 @Controller
@@ -23,12 +25,25 @@ public class CommunityController {
 	private CommunityService communityService;
 	
 	
+	
 	@ModelAttribute("board")
 	public String getBoard() {
 		return "community";
 	}
 	
 	
+	@PostMapping("comment")
+	public ModelAndView setComment(CommentsDTO commentsDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		commentsDTO.setBoard("C");
+		int result = communityService.setComment(commentsDTO);
+		
+		return mv;
+	}
+	
+	
+	//글 수정폼
 	@GetMapping("update")
 	public ModelAndView setUpdate() throws Exception {
 		ModelAndView mv = new ModelAndView();

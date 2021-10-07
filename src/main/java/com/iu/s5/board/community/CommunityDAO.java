@@ -1,6 +1,7 @@
 package com.iu.s5.board.community;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.iu.s5.board.BoardDAO;
 import com.iu.s5.board.BoardDTO;
 import com.iu.s5.board.BoardFileDTO;
+import com.iu.s5.board.comments.CommentsDTO;
 import com.iu.s5.util.Pager;
 
 @Repository
@@ -22,6 +24,36 @@ public class CommunityDAO implements BoardDAO {
 	
 	
 	
+	@Override
+	public int setComment(CommentsDTO commentsDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<CommentsDTO> getCommentList(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int setCommentDelete(CommentsDTO commentsDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int setCommentUpdate(CommentsDTO commentsDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Long getCommentCount(CommentsDTO commentsDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	@Override
 	public int setFile(BoardFileDTO boardFileDTO) throws Exception {
 		// TODO Auto-generated method stub
