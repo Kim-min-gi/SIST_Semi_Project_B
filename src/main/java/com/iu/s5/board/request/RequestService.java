@@ -1,6 +1,7 @@
 package com.iu.s5.board.request;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -13,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.iu.s5.board.BoardDTO;
 import com.iu.s5.board.BoardFileDTO;
 import com.iu.s5.board.BoardService;
+import com.iu.s5.board.comments.CommentsDTO;
 import com.iu.s5.util.FileManager;
 import com.iu.s5.util.Pager;
 
@@ -25,6 +27,10 @@ public class RequestService implements BoardService {
 	private ServletContext servletContext;
 	@Autowired
 	private FileManager fileManager;
+	
+	
+
+	
 	
 	public int setAcceptUpdate(RequestDTO requestDTO) throws Exception {
 		return requestDAO.setAcceptUpdate(requestDTO);
@@ -83,7 +89,37 @@ public class RequestService implements BoardService {
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
 		return requestDAO.setUpdate(boardDTO);
 	}
+
+
+	@Override
+	public int setComment(CommentsDTO commentsDTO) throws Exception {
+		return requestDAO.setComment(commentsDTO);
+	}
+
+
+	@Override
+	public List<CommentsDTO> getCommentsList(CommentsDTO commentsDTO, Pager pager) throws Exception {
+		pager.makeRow();
+		pager.makeNum(requestDAO.getCommentCount(commentsDTO));
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("comments", commentsDTO);
+		map.put("pager", pager);
+		return requestDAO.getCommentList(map);
+	}
+
+
+	@Override
+	public int setCommentDelete(CommentsDTO commentsDTO) throws Exception {
+		return requestDAO.setCommentDelete(commentsDTO);
+	}
+
+
+	@Override
+	public int setCommentUpdate(CommentsDTO commentsDTO) throws Exception {
+		return requestDAO.setCommentUpdate(commentsDTO);
+	}
 	
-	
+
 	
 }

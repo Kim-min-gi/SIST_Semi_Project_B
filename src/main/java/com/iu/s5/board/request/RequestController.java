@@ -23,8 +23,6 @@ public class RequestController {
 	
 	@Autowired
 	private RequestService requestService;
-	@Autowired
-	private CommentsService commentsService;
 	
 	@ModelAttribute("board")
 	public String getBoard() {
@@ -33,13 +31,20 @@ public class RequestController {
 	
 	public ModelAndView setCommentDelete(CommentsDTO commentsDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		int result = commentsService.setCommentDelete(commentsDTO);
+		int result = requestService.setCommentDelete(commentsDTO);
 		return mv;
 	}
 	
 	public ModelAndView setCommentUpdate(CommentsDTO commentsDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		int result = commentsService.setCommentUpdate(commentsDTO);
+		int result = requestService.setCommentUpdate(commentsDTO);
+		return mv;
+	}
+	
+	public ModelAndView getCommentList(CommentsDTO commentsDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		commentsDTO.setBoard("r");
+		
 		return mv;
 	}
 	
@@ -47,7 +52,7 @@ public class RequestController {
 	public ModelAndView setComment(CommentsDTO commentsDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		commentsDTO.setBoard("r");
-		int result = commentsService.setComment(commentsDTO);
+		int result = requestService.setComment(commentsDTO);
 		return mv;
 	}
 	

@@ -23,7 +23,7 @@ public class CommentsDAO {
 	}
 	
 	public int setCommentDelete(CommentsDTO commentsDTO) throws Exception {
-		return sqlSession.delete(NAMESPACE+"delete", commentsDTO);
+		return sqlSession.delete(NAMESPACE+"setCommentDelete", commentsDTO);
 	}
 	
 	public int setCommentUpdate(CommentsDTO commentsDTO) throws Exception {
