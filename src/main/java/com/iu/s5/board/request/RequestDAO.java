@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.iu.s5.board.BoardDAO;
 import com.iu.s5.board.BoardDTO;
 import com.iu.s5.board.BoardFileDTO;
-import com.iu.s5.board.comments.CommentsDTO;
+import com.iu.s5.board.CommentsDTO;
 import com.iu.s5.util.Pager;
 
 @Repository

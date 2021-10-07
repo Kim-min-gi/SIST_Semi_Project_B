@@ -13,7 +13,7 @@
 		
 		<typeAlias type="com.iu.s5.board.community.CommunityDTO" alias="CommunityDTO"/>
 		<typeAlias type="com.iu.s5.board.request.RequestDTO" alias="RequestDTO"/>
-		<typeAlias type="com.iu.s5.board.comments.CommentsDTO" alias="CommentsDTO"/>
+		<typeAlias type="com.iu.s5.board.CommentsDTO" alias="CommentsDTO"/>
 	
 		
 		<typeAlias type="com.iu.s5.util.Pager" alias="Pager"/>

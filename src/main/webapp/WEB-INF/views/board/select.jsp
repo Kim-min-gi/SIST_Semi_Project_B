@@ -83,7 +83,7 @@
 				
 					<div class="comment-bottom">
 						<div class="bottom-right">
-							<a class="comment-write-btn" href="./comment">등록</a>
+							<button id="comment-write-btn" class="comment-write-btn">등록</button>
 						</div>
 					</div>
 				</div> <!-- //comment-write -->
@@ -109,13 +109,12 @@
 		
 	</div>
 
-
-<script type="text/javascript" src="../resources/js/select.js"></script>
-
 	<script>
+		let boardNum = "${dto.num}";
 		 $('.navi').addClass('affix');
 	 </script>
 	 
+	 <script type="text/javascript" src="../resources/js/select.js"></script>
 
 	<c:import url="../temp/boot_footer.jsp"></c:import>
 </body>

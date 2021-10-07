@@ -7,6 +7,12 @@
   
  <mapper namespace="com.iu.s5.board.community.CommunityDAO">
  
+ 	<insert id="setComment" parameterType="CommentsDTO">
+ 		INSERT INTO COMMENTS 
+		VALUES (comments_seq.nextval, #{num}, #{id}, #{writer}, #{contents}, sysdate, #{board})
+ 	</insert>
+ 
+ 
  	<select id="getFile" parameterType="BoardDTO" resultType="BoardFileDTO">
  		SELECT * FROM COMMUNITYFILES WHERE NUM = #{num}
  	</select>
