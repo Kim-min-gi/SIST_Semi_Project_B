@@ -43,6 +43,45 @@
 }
 
 
+/* 댓글 */
+.comment-write {
+	margin-top: 20px;
+	border: 2px solid #bfbfbf;
+	border-radius: 5px;
+	padding: 20px 20px 10px 20px;
+}
 
+.comment-writebox {
+	overflow: hidden;
+	width: 100%;
+	border: none;
+	padding: 0;
+	resize: none;
+}
 
+.comment-bottom {
+	overflow: hidden;
+}
 
+.comment-writer {
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.comment-writebox:focus {
+	outline: none;
+}
+
+.comment-writebox:focus::placeholder {
+	color: #e6e6e6;
+}
+
+.comment-write-btn {
+	color: gray;
+	font-size: 14px;
+}
+
+.comment-write-btn:hover {
+	color: gray;
+	text-decoration: none;
+}

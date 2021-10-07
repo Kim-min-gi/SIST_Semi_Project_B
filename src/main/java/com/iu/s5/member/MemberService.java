@@ -14,7 +14,7 @@ public class MemberService {
 	}
 	
 	public int setJoin(MemberDTO memberDTO) throws Exception {
-		return 0;
+		return memberDAO.setJoin(memberDTO);
 	}
 	
 	public MemberDTO getLogin(MemberDTO memberDTO) throws Exception {
