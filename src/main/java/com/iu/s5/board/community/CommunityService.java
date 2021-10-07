@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.iu.s5.board.BoardDTO;
 import com.iu.s5.board.BoardFileDTO;
 import com.iu.s5.board.BoardService;
+import com.iu.s5.board.CommentsDTO;
 import com.iu.s5.util.FileManager;
 import com.iu.s5.util.Pager;
 
@@ -27,6 +28,34 @@ public class CommunityService implements BoardService {
 	@Autowired
 	private FileManager fileManager;
 	
+	
+	
+	
+	
+	@Override
+	public int setComment(CommentsDTO commentsDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<CommentsDTO> getCommentsList(CommentsDTO commentsDTO, Pager pager) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int setCommentDelete(CommentsDTO commentsDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int setCommentUpdate(CommentsDTO commentsDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	public List<BoardFileDTO> getFile(BoardDTO boardDTO) throws Exception {
 		return communityDAO.getFile(boardDTO);
 	}

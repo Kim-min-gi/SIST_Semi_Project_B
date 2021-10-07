@@ -1,4 +1,4 @@
-package com.iu.s5.board.comments;
+package com.iu.s5.board;
 
 import java.sql.Date;
 
