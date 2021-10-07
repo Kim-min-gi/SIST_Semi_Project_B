@@ -18,7 +18,7 @@
  	
  	<insert id="setFile" parameterType="BoardFileDTO">
  		INSERT INTO REQUESTFILES
- 		VALUES(FILES_SEQ.NEXTVAL, #{num}, #{fileName}, #{oriName})
+ 		VALUES(FILE_SEQ.NEXTVAL, #{num}, #{fileName}, #{oriName})
  	
  	</insert>
  	
@@ -75,7 +75,11 @@
  	</resultMap>
  	
  	<select id="getSelect" parameterType="BoardDTO" resultMap="getSelectResult">
- 		SELECT * FROM REQUEST
+ 		SELECT *
+		FROM REQUEST R
+		LEFT JOIN 
+		REQUESTFILES RF
+		USING (NUM)
  		WHERE NUM = #{num}
  	</select>
  	

@@ -19,6 +19,9 @@ public class RequestDAO implements BoardDAO {
 	private final String NAMESPACE = "com.iu.s5.board.request.RequestDAO.";
 	
 	
+	public int setFileDelete(BoardFileDTO boardFileDTO) throws Exception {
+		return sqlSession.delete(NAMESPACE+"setFileDelete", boardFileDTO);
+	}
 	
 	public Long getCount(Pager pager) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"getCount", pager);

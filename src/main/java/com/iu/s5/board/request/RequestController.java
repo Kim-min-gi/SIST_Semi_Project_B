@@ -47,13 +47,21 @@ public class RequestController {
 		return mv;
 	}
 	
+	@GetMapping("fileDown")
+	public ModelAndView fileDown(BoardFileDTO boardFileDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("dto", boardFileDTO);
+		mv.setViewName("fileDownload");
+		return mv;
+	}
+	
+	
 	@GetMapping("select")
 	public ModelAndView getSelect(BoardDTO boardDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		RequestDTO requestDTO = (RequestDTO)requestService.getSelect(boardDTO);
 		List<BoardFileDTO> ar = requestService.getFile(boardDTO);
 		
-		//mv.addObject("fileList", ar);
 		mv.addObject("dto", requestDTO);
 		mv.setViewName("board/select");
 		return mv;
@@ -68,18 +76,10 @@ public class RequestController {
 	}
 	
 	@PostMapping("insert")
-	public ModelAndView setInsert(RequestDTO requestDTO, MultipartFile[] files) throws Exception {
+	public ModelAndView setInsert(RequestDTO requestDTO, MultipartFile[] boardFiles) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		int result = requestService.setInsert(requestDTO, files);
+		int result = requestService.setInsert(requestDTO, boardFiles);
 		
-		//fileName test..
-		for (MultipartFile f : files) {
-			System.out.println(f.getOriginalFilename());
-		}
-		//
-		
-		
-		System.out.println("insert 후");
 		mv.setViewName("redirect:./list");
 		
 		return mv;
