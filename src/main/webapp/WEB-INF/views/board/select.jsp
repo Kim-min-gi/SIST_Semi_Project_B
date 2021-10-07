@@ -112,9 +112,7 @@
 <script type="text/javascript" src="../resources/js/select.js"></script>
 
 	<script>
-
 		 $('.navi').addClass('affix');
-
 	 </script>
 	 
 
