@@ -88,8 +88,12 @@
  	</update>
  	
  	<insert id="setInsert" parameterType="RequestDTO">
+ 		<selectKey order="BEFORE" resultType="Long" keyProperty="num">
+ 			SELECT REQUEST_SEQ.NEXTVAL FROM DUAL
+ 		</selectKey>
+ 	
  		insert into request 
-		values (request_seq.nextval, #{id}, #{writer}, #{title}, #{contents}, sysdate, 0, 
+		values (#{num}, #{id}, #{writer}, #{title}, #{contents}, sysdate, 0, 
 		#{restName}, #{restLocation}, #{restPhone}, #{restCategory}, #{restTime}, #{holiday}, 'N')
  	</insert>
  	
