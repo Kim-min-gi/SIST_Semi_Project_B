@@ -13,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s5.board.BoardDTO;
 import com.iu.s5.board.BoardFileDTO;
+import com.iu.s5.board.comments.CommentsDTO;
+import com.iu.s5.board.comments.CommentsService;
 import com.iu.s5.util.Pager;
 
 @Controller
@@ -21,10 +23,32 @@ public class RequestController {
 	
 	@Autowired
 	private RequestService requestService;
+	@Autowired
+	private CommentsService commentsService;
 	
 	@ModelAttribute("board")
 	public String getBoard() {
 		return "request";
+	}
+	
+	public ModelAndView setCommentDelete(CommentsDTO commentsDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = commentsService.setCommentDelete(commentsDTO);
+		return mv;
+	}
+	
+	public ModelAndView setCommentUpdate(CommentsDTO commentsDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = commentsService.setCommentUpdate(commentsDTO);
+		return mv;
+	}
+	
+	@GetMapping("comment")
+	public ModelAndView setComment(CommentsDTO commentsDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		commentsDTO.setBoard("r");
+		int result = commentsService.setComment(commentsDTO);
+		return mv;
 	}
 	
 	@PostMapping("accept")
