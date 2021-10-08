@@ -11,6 +11,28 @@
  		INSERT INTO COMMENTS 
 		VALUES (comments_seq.nextval, #{num}, #{id}, #{writer}, #{contents}, sysdate, #{board})
  	</insert>
+ 	
+ 	<select id="getCommentList" parameterType="Map" resultType="CommentsDTO">
+ 		SELECT * FROM
+		(SELECT rowNum R, CM.* FROM
+		    (SELECT * FROM COMMENTS
+		        WHERE BOARD = #{comments.board} AND NUM = #{comments.num}
+		        ORDER BY commentNum DESC) CM)
+		WHERE R BETWEEN #{pager.startRow} AND #{pager.lastRow}
+ 	</select>
+ 	
+ 	<delete id="setCommentDelete" parameterType="CommentsDTO">
+ 		DELETE COMMENTS WHERE commentNum = #{commentNum}
+ 	</delete>
+ 	
+ 	<update id="setCommentUpdate" parameterType="CommentsDTO">
+ 		UPDATE COMMENTS SET contents = #{contents} WHERE commentNum = #{commentNum} 		
+ 	</update>
+ 	
+ 	<select id="getCommentCount" parameterType="CommentsDTO" resultType="Long">
+ 		SELECT COUNT(commentNum) FROM COMMENTS
+ 		WHERE board = #{board} AND num = #{num}
+ 	</select>
  
  
  	<select id="getFile" parameterType="BoardDTO" resultType="BoardFileDTO">
