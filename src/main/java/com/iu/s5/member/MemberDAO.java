@@ -20,7 +20,7 @@ public class MemberDAO {
 	}
 	
 	public MemberDTO getLogin(MemberDTO memberDTO) throws Exception {
-		return null;
+		return sqlSession.selectOne(NAMESPACE+"getLogin", memberDTO);
 	}
 	
 	public int setDelete(MemberDTO memberDTO) throws Exception {
