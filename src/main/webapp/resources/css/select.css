@@ -43,9 +43,49 @@
 }
 
 
+
 /* 댓글 */
+.comment-area {
+	margin-top: 25px;
+}
+
+.comment-box {
+	border-bottom: 1px solid lightgray;
+	padding: 10px;
+}
+
+.comment-box:last-child {
+	border: none;
+}
+
+.list-writer {
+	font-size: 14px;
+	font-weight: bold;
+	font-style: normal;
+}
+
+.pagination>li>a, .pagination>li>span {
+	color: black;
+}
+
+.page-link {
+	cursor: pointer;
+}
+
+.list-btn-area {
+	margin-top: 5px;
+	text-align: right;
+}
+
+.list-btn-area > button {
+	background-color: transparent;
+	border: none;
+	color: gray;
+}
+
+
 .comment-write {
-	margin-top: 20px;
+	margin-top: 25px;
 	border: 2px solid #bfbfbf;
 	border-radius: 5px;
 	padding: 20px 20px 10px 20px;
