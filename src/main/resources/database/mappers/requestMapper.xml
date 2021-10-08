@@ -84,7 +84,10 @@
  		<result column="regDate" property="regDate"/>
  		<result column="hits" property="hits"/>
  		<result column="restName" property="restName"/>
- 		<result column="restLoaction" property="restLocation"/>
+ 		<result column="restPostcode" property="restPostcode"/>
+ 		<result column="restAddress" property="restAddress"/>
+ 		<result column="restAddressDt" property="restAddressDt"/>
+ 		<result column="restAdressRf" property="restAddressRf"/>
  		<result column="restPhone" property="restPhone"/>
  		<result column="restCategory" property="restCategory"/>
  		<result column="restTime" property="restTime"/>
@@ -123,7 +126,7 @@
  	
  		insert into request 
 		values (#{num}, #{id}, #{writer}, #{title}, #{contents}, sysdate, 0, 
-		#{restName}, #{restLocation}, #{restPhone}, #{restCategory}, #{restTime}, #{holiday}, 'N')
+		#{restName}, #{restPostcode}, #{restAddress}, #{restAddressDt}, #{restAddressRf}, #{restPhone}, #{restCategory}, #{restTime}, #{holiday}, 'N')
  	</insert>
  	
  	<delete id="setDelete" parameterType="BoardDTO">
@@ -135,7 +138,10 @@
 	 		title=#{title},
 	 		contents = #{contents},
 	 		restName = #{restName},
-	 		restLocation = #{restLocation},
+	 		restPostcode = #{restPostcode},
+	 		restAddress = #{restAddress},
+	 		restAddressDt = #{restAddressDt},
+	 		restAddressRf = #{restAddressRf},
 	 		restPhone = #{restPhone},
 	 		restCategory = #{restCategory},
 	 		restTime = #{restTime},
