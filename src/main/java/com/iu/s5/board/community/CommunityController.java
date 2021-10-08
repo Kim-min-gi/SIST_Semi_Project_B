@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,6 +29,24 @@ public class CommunityController {
 	@ModelAttribute("board")
 	public String getBoard() {
 		return "community";
+	}
+	
+	
+	@PostMapping("setCommentUpdate")
+	@ResponseBody
+	public int setCommentUpdate(CommentsDTO commentsDTO) throws Exception {
+		int result = communityService.setCommentUpdate(commentsDTO);
+		
+		return result;
+	}
+	
+	
+	@GetMapping("setCommentDelete")
+	@ResponseBody
+	public int setCommentDelete(CommentsDTO commentsDTO) throws Exception {
+		int result = communityService.setCommentDelete(commentsDTO);
+
+		return result;
 	}
 	
 	
