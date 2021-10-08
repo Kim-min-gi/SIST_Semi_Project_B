@@ -3,6 +3,8 @@
  */
 
  
+getCommentList(1);
+ 
 //승인 버튼
 $('#accept').click(function(){
 	
@@ -45,13 +47,15 @@ $('#reject').click(function(){
 
 
 /* 댓글 */
+//댓글 작성
 $("#comment-write-btn").click(function() {
 	let id = $("#comment-id").val();
-	let writer = $("#comment-writer").val();
+	let writer = $("#comment-writer").text().trim();
 	let contents = $("#comment-contents").val();
 	
 	$.ajax({
 		type: "POST"
+		, url: "./comment"
 		, data: {
 			num : boardNum
 			, id : id
@@ -62,3 +66,22 @@ $("#comment-write-btn").click(function() {
 		}
 	})
 })
+
+
+//댓글 리스트 출력
+function getCommentList(pn) {
+	$.ajax({
+		type: "GET"
+		, url: "./getCommentList"
+		, data: {
+			num : boardNum
+			, pn : pn
+		}
+		, success: function(result) {
+			result = result.trim();
+			$("#comment-list").html(result);
+		}, error: function(error) {
+			console.log(error);
+		}
+	})
+}
