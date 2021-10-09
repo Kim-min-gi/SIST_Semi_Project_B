@@ -89,7 +89,40 @@
 				
 				</div>
 				</div>
+				
+				<table>
+				<tr> 
+					<th>식당명</th> <th>별점</th>  <th>카테고리</th>
+				</tr>
+					<c:forEach items="${starVal}" var="s">
+						<tr>
+							<td>${s.restName}</td>
+							<td>${s.starVal}</td>
+							<td>${s.restCategory}</td>
+						</tr>
+						
+					</c:forEach>
+				</table>
+				
+				<table>
+					<tr>
+						<th>사진</th>
+					</tr>
+					
+					<c:forEach items="${starVal}" var="s">
+						<c:forEach items="${s.files}" var="f">
+						<tr>
+							<td>${f.fileName}</td>
+						</tr>
+						</c:forEach>
+					</c:forEach>
+					
+					
+				</table>
+				
+				
 			</section>
+			
 			
 			
 		
