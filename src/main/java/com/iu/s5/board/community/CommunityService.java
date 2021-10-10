@@ -59,13 +59,13 @@ public class CommunityService implements BoardService {
 	@Override
 	public int setCommentDelete(CommentsDTO commentsDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return communityDAO.setCommentDelete(commentsDTO);
 	}
 
 	@Override
 	public int setCommentUpdate(CommentsDTO commentsDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return communityDAO.setCommentUpdate(commentsDTO);
 	}
 
 	public List<BoardFileDTO> getFile(BoardDTO boardDTO) throws Exception {

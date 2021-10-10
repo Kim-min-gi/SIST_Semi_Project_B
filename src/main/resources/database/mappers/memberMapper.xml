@@ -13,6 +13,10 @@
 	<insert id="setJoin" parameterType="MemberDTO">
 		INSERT INTO member (id, pw, name, phone, email) 
 		VALUES (#{id}, #{pw}, #{name}, #{phone}, #{email})
-	</insert> 	
+	</insert>
+	
+	<select id="getLogin" parameterType="MemberDTO" resultType="MemberDTO">
+		SELECT * FROM member WHERE id=#{id} AND pw=#{pw}
+	</select>
   	
 </mapper>

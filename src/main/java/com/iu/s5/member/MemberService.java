@@ -18,7 +18,7 @@ public class MemberService {
 	}
 	
 	public MemberDTO getLogin(MemberDTO memberDTO) throws Exception {
-		return null;
+		return memberDAO.getLogin(memberDTO);
 	}
 	
 	public int setDelete(MemberDTO memberDTO) throws Exception {

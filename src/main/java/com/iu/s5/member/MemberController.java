@@ -1,5 +1,7 @@
 package com.iu.s5.member;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,6 +49,29 @@ public class MemberController {
 		
 		mv.addObject("dto", memberDTO);
 		mv.setViewName("member/idCheck");
+		return mv;
+	}
+	
+	@GetMapping("login")
+	public ModelAndView login() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/login");
+		return mv;
+	}
+	
+	@PostMapping("login")
+	public ModelAndView login(MemberDTO memberDTO, HttpSession session) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		memberDTO = memberService.getLogin(memberDTO);
+		
+		if(memberDTO != null) {
+			System.out.println("로그인 성공");
+			session.setAttribute("member", memberDTO);
+		} else {
+			System.out.println("로그인 실패");
+		}
+		
+		mv.setViewName("redirect:../");
 		return mv;
 	}
 }
