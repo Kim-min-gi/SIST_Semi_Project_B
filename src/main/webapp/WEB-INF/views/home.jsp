@@ -50,7 +50,9 @@
 				<ul class="grid swipe-down" id="grid">
 				<c:forEach items="${starVal}" var="s">
 					<c:forEach items="${s.files}" var="f">
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>이름 : ${s.restName} 별점: ${s.starVal} 카테고리 : ${s.restCategory}</h3></a></li>
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>${s.restName} <span>${s.starVal}</span> (${s.restCategory})</h3></a>
+						
+					</li>
 					</c:forEach>
 				</c:forEach>
 				</ul>
@@ -104,11 +106,6 @@
 					</c:forEach>
 				</table>
 				
-			<%-- 	<c:forEach items="${starVal}" var="s">
-					<c:forEach items="${s.files}" var="f">
-					</c:forEach>
-				</c:forEach>
-				 --%>
 				
 			</section>
 			
