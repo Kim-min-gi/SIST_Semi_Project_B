@@ -46,18 +46,18 @@ public class RequestDTO extends BoardDTO{
 		this.restAddress = restAddress;
 	}
 	public String getRestAddressDt() {
-		if(this.restAddressDt == null) {
-			this.restAddressDt = "";
-		}
+//		if(this.restAddressDt == null) {
+//			this.restAddressDt = "";
+//		}
 		return restAddressDt;
 	}
 	public void setRestAddressDt(String restAddressDt) {
 		this.restAddressDt = restAddressDt;
 	}
 	public String getRestAddressRf() {
-		if(this.restAddressRf == null) {
-			this.restAddressRf = "";
-		}
+//		if(this.restAddressRf == null) {
+//			this.restAddressRf = "";
+//		}
 		return restAddressRf;
 	}
 	public void setRestAddressRf(String restAddressRf) {
@@ -76,18 +76,18 @@ public class RequestDTO extends BoardDTO{
 		this.restCategory = restCategory;
 	}
 	public String getRestTime() {
-		if(this.restTime == null) {
-			this.restTime = "";
-		}
+//		if(this.restTime == null) {
+//			this.restTime = "";
+//		}
 		return restTime;
 	}
 	public void setRestTime(String restTime) {
 		this.restTime = restTime;
 	}
 	public String getHoliday() {
-		if(this.holiday == null) {
-			this.holiday = "";
-		}
+//		  if(this.holiday == null) {
+//			  this.holiday = ""; 
+//		  }
 		return holiday;
 	}
 	public void setHoliday(String holiday) {

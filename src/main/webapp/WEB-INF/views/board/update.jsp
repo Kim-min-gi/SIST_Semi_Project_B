@@ -13,7 +13,9 @@
 <!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-	
+
+<!-- 주소 검색 -->	
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>	
 </head>
 <body>
 <c:import url="../temp/boot_nav.jsp"></c:import>
@@ -79,8 +81,17 @@
 					</div>
 					
 					<div class="mb-3">
-					<label for="restLocation" class="form-label">식당 위치</label>
-				    <input type="text" class="form-control" value="${dto.restLocation}" name="restLocation" id="restLocation">
+					<label for="restLocation" class="form-label">식당 위치</label><br>
+				    
+					<input type="text" id="sample3_postcode" value="${dto.restPostcode}" placeholder="우편번호" name="restPostcode">
+					<input type="button" onclick="sample3_execDaumPostcode()" value="우편번호 찾기"><br>
+					<input type="text" id="sample3_address" value="${dto.restAddress}" placeholder="주소" name="restAddress"><br>
+					<input type="text" id="sample3_detailAddress" value="${dto.restAddressDt}" placeholder="상세주소"  name="restAddressDt">
+					<input type="text" id="sample3_extraAddress" value="${dto.restAddressRf}" placeholder="참고항목" name="restAddressRf">
+					
+					<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+					<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+					</div>
 					</div>
 					
 					<div class="mb-3">
@@ -162,13 +173,9 @@
 			
 			<!-- 파일 첨부 -->
 			<div class="mb-3">
-				<label for="contents" class="form-label">파일 첨부</label>
-				<button type="button" id="fileAdd" class="btn btn-default">추가</button>
-				
-			
-			
+				<label for="file" class="form-label">파일 첨부</label>
 			</div>
-		
+			
 		
 		
 			<div class="bottom-right">
@@ -182,6 +189,7 @@
 	
 	<c:import url="../temp/boot_footer.jsp"></c:import>
 	
+	<script type="text/javascript" src="../resources/js/addressSearch.js"></script>
 	<script>
 	
 		$('#contents').summernote({
