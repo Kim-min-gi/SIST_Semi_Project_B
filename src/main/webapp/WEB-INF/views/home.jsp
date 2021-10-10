@@ -48,14 +48,11 @@
 					<h3>추천순</h3>
 				</div>
 				<ul class="grid swipe-down" id="grid">
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+				<c:forEach items="${starVal}" var="s">
+					<c:forEach items="${s.files}" var="f">
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>이름 : ${s.restName} 별점: ${s.starVal} 카테고리 : ${s.restCategory}</h3></a></li>
+					</c:forEach>
+				</c:forEach>
 				</ul>
 			</section>
 			
@@ -92,34 +89,26 @@
 				
 				<table>
 				<tr> 
-					<th>식당명</th> <th>별점</th>  <th>카테고리</th>
+					<th>식당명</th> <th>별점</th> <th>사진</th> <th>카테고리</th>
 				</tr>
 					<c:forEach items="${starVal}" var="s">
 						<tr>
 							<td>${s.restName}</td>
 							<td>${s.starVal}</td>
+							<c:forEach items="${s.files}" var="f">
+							<td>${f.fileName}</td>
+							</c:forEach>
 							<td>${s.restCategory}</td>
 						</tr>
 						
 					</c:forEach>
 				</table>
 				
-				<table>
-					<tr>
-						<th>사진</th>
-					</tr>
-					
-					<c:forEach items="${starVal}" var="s">
-						<c:forEach items="${s.files}" var="f">
-						<tr>
-							<td>${f.fileName}</td>
-						</tr>
-						</c:forEach>
+			<%-- 	<c:forEach items="${starVal}" var="s">
+					<c:forEach items="${s.files}" var="f">
 					</c:forEach>
-					
-					
-				</table>
-				
+				</c:forEach>
+				 --%>
 				
 			</section>
 			
