@@ -51,9 +51,11 @@
 				<c:forEach items="${starVal}" var="s">
 					<c:forEach items="${s.files}" var="f">
 					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>${s.restName} <span>${s.starVal}</span> 
+					<span id="categorys">
 					<c:forEach items="${s.categorysDTOs}" var="ca" begin="0" end="1">	
 						(${ca.categoryName})
 					</c:forEach>
+					</span>
 					</h3></a>
 						
 					</li>
@@ -93,21 +95,7 @@
 				</div>
 				</div>
 				
-				<table>
-				<tr> 
-					<th>식당명</th> <th>별점</th> <th>사진</th>
-				</tr>
-					<c:forEach items="${starVal}" var="s">
-						<tr>
-							<td>${s.restName}</td>
-							<td>${s.starVal}</td>
-							<c:forEach items="${s.files}" var="f">
-							<td>${f.fileName}</td>
-							</c:forEach>
-						</tr>
-						
-					</c:forEach>
-				</table>
+			
 				
 				
 			</section>
