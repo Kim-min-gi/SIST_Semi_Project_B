@@ -17,7 +17,7 @@
 			<c:choose>
 				<c:when test="${not empty member}">
 					<ul class="navlinks">
-						<li><a href="#">MyPage</a></li>
+						<li><a href="${pageContext.request.contextPath}/member/mypage">MyPage</a></li>
 						<li><a href="${pageContext.request.contextPath}/member/logout">Logout</a></li>
 						<li><a href="${pageContext.request.contextPath}/community/list">Community</a></li>
 						<li><a href="${pageContext.request.contextPath}/request/list">Request</a></li>
