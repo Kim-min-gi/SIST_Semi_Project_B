@@ -48,19 +48,24 @@
 					<h3>추천순</h3>
 				</div>
 				<ul class="grid swipe-down" id="grid">
-				<c:forEach items="${starVal}" var="s">
+				<c:forEach items="${starVal}" var="s" varStatus="status">
 					<c:forEach items="${s.files}" var="f">
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>${s.restName} <span>${s.starVal}</span> 
-					<span id="categorys">
-					<c:forEach items="${s.categorysDTOs}" var="ca" begin="0" end="1">	
-						(${ca.categoryName})
-					</c:forEach>
+					<li><a id="sa${status.count}" href="#"><img src="./resources/img/dummy.png" alt="dummy">
+					<span id="res">
+					<h3>${s.restName} <span id="starVal">${s.starVal}</span></h3>
 					</span>
-					</h3></a>
-						
-					</li>
+					<span id="re" class="hide">
+					<c:forEach items="${s.categorysDTOs}" var="ca" begin="0" end="1">	
+					<h3>(${ca.categoryName})</h3>
+					</c:forEach>
+					</span> 
+					</a>
+					
+					
 					</c:forEach>
 				</c:forEach>
+					
+				</li>
 				</ul>
 			</section>
 			
@@ -132,12 +137,30 @@
 				            if ($(document).scrollTop() > 50) {
 				                $('.navi').addClass('affix');
 				                $('#FLogo').addClass('SLogo');
-				                console.log("OK");
+				                
 				            } else {
 				                $('.navi').removeClass('affix');
 				                $('#FLogo').removeClass('SLogo');
 				            }
 			});
+			
+			
+			
+			
+			
+			for(let i=1; i<9; i++){
+				
+							
+				 $('#sa'+i).hover(function(){
+					$(this).children('span#res').addClass('hide');
+					$(this).children('span#re').removeClass('hide');
+				}, function(){
+					$(this).children('span#res').removeClass('hide');
+					$(this).children('span#re').addClass('hide');
+					
+				}); 
+				
+			};
 			
 			
 		

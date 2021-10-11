@@ -162,10 +162,20 @@
 	transition: transform 0.2s, color 0.2s;
 }
 
-.grid li span{
+#starVal{
 	
 	color: #FABE00;
 	
+}
+
+.grid .hide{
+	
+	display: none;
+	
+}
+
+#test1{
+	display: none;
 }
 
 /* Pseudo element for hover effect */
