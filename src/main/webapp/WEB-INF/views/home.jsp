@@ -50,7 +50,11 @@
 				<ul class="grid swipe-down" id="grid">
 				<c:forEach items="${starVal}" var="s">
 					<c:forEach items="${s.files}" var="f">
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>${s.restName} <span>${s.starVal}</span> (${s.restCategory})</h3></a>
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>${s.restName} <span>${s.starVal}</span> 
+					<c:forEach items="${s.categorysDTOs}" var="ca" begin="0" end="1">	
+						(${ca.categoryName})
+					</c:forEach>
+					</h3></a>
 						
 					</li>
 					</c:forEach>
@@ -91,7 +95,7 @@
 				
 				<table>
 				<tr> 
-					<th>식당명</th> <th>별점</th> <th>사진</th> <th>카테고리</th>
+					<th>식당명</th> <th>별점</th> <th>사진</th>
 				</tr>
 					<c:forEach items="${starVal}" var="s">
 						<tr>
@@ -100,7 +104,6 @@
 							<c:forEach items="${s.files}" var="f">
 							<td>${f.fileName}</td>
 							</c:forEach>
-							<td>${s.restCategory}</td>
 						</tr>
 						
 					</c:forEach>

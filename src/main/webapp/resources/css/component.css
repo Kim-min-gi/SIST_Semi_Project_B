@@ -145,14 +145,14 @@
 /* Title */
 .grid li h3 { /*설명부분*/
 	position: absolute;
-	border: 1px solid;
+	border: 0px solid;
 	bottom: 0;
 	left: 0;
 	margin: 0;
 	padding: 20px;
 	width: 100%;
-	background: white; 
-	color: #000000;
+	background: #F6F6F6; 
+	color: #231815;
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 1px;

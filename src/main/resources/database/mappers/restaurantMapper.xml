@@ -6,6 +6,11 @@
 
   
  <mapper namespace="com.iu.s5.restaurant.RestaurantsDAO">
+ 
+ 
+ 
+ 
+ 	
  	
  	
  	
@@ -31,6 +36,12 @@
   			<result column="fileName" property="fileName"/>
   			<result column="oriName" property="oriName"/>
   		</collection>
+  	
+  		<collection property="categorysDTOs" javaType="List" ofType="com.iu.s5.restaurant.RestCategorysDTO">
+  			<id column="categoryNum" property="categoryNum"/>
+  			<result column="categoryName" property="categoryName"/>
+  		</collection>
+  		
   		
   	</resultMap> 
 
@@ -38,6 +49,25 @@
 
  	<!-- 별점이 높은 순으로 정렬 후 select  -->
  	<select id="getRestaurants" resultMap="getRestaurantsResult">
+ 		SELECT *
+		FROM
+		(SELECT ROW_NUMBER() over(PARTITION BY TE.R ORDER BY TE.RESTFILENUM) AS RNUM ,TE.*
+		FROM
+		(SELECT RSS.*,RF.RESTFILENUM,RF.FILENAME,RF.ORINAME,RGS.* FROM
+		(SELECT * FROM
+		(SELECT ROWNUM R, RS.* FROM 
+		(SELECT * FROM RESTAURANTS ORDER BY STARVAL DESC)RS)
+		WHERE R BETWEEN 1 AND 8)RSS
+		LEFT JOIN RESTARANTSFILE RF
+		ON (RSS.RESTNUM = RF.RESTNUM)
+		LEFT JOIN categorys CGS
+		ON (RSS.RESTNUM = CGS.RESTNUM)
+		LEFT JOIN RESTCATEGORYS RGS
+		ON (CGS.CATEGORYNUM = RGS.CATEGORYNUM))TE)
+		WHERE RNUM=1
+ 	</select>
+ 	
+ <!-- 	<select id="getRestaurants" resultMap="getRestaurantsResult">
  		SELECT TB.*
 		FROM
 		(SELECT ROW_NUMBER() over(PARTITION BY TE.R ORDER BY TE.RESTFILENUM) AS RNUM ,TE.*
@@ -49,7 +79,8 @@
 		LEFT JOIN RESTARANTSFILE RF
 		ON (RSS.RESTNUM = RF.RESTNUM))TE)TB
 		WHERE RNUM=1
- 	</select>
+ 	</select> -->
+ 	
  	
  	
  
