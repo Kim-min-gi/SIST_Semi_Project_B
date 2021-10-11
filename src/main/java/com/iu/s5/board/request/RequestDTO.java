@@ -46,18 +46,18 @@ public class RequestDTO extends BoardDTO{
 		this.restAddress = restAddress;
 	}
 	public String getRestAddressDt() {
-//		if(this.restAddressDt == null) {
-//			this.restAddressDt = "";
-//		}
+		if(this.restAddressDt == null) {
+			this.restAddressDt = "";
+		}
 		return restAddressDt;
 	}
 	public void setRestAddressDt(String restAddressDt) {
 		this.restAddressDt = restAddressDt;
 	}
 	public String getRestAddressRf() {
-//		if(this.restAddressRf == null) {
-//			this.restAddressRf = "";
-//		}
+		if(this.restAddressRf == null) {
+			this.restAddressRf = "";
+		}
 		return restAddressRf;
 	}
 	public void setRestAddressRf(String restAddressRf) {
