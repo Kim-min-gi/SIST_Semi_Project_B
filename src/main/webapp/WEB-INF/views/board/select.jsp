@@ -41,7 +41,7 @@
 			</div> 
 			
 
-			<c:forEach items="${dto.files}" var="list">
+			<c:forEach items="${dto.boardFiles}" var="list">
 				<div>
 					<a href="./fileDown?fileName=${list.fileName}">${list.oriName}</a> 
 				</div>
