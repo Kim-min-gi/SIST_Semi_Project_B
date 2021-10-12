@@ -75,6 +75,12 @@
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
  	</select>
  	
+ 	<select id="getCategoryName" parameterType="RequestDTO" resultType="String">
+ 		select categoryname from restcategorys where 
+   			categorynum =
+    			(select restcategory from request where num = #{num})
+ 	</select>
+ 	
  	<resultMap type="RequestDTO" id="getSelectResult">
  		<id column="num" property="num"/>
  		<result column="id" property="id"/>

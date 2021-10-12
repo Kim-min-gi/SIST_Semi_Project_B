@@ -20,7 +20,10 @@ public class RequestDAO implements BoardDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.iu.s5.board.request.RequestDAO.";
 	
-
+	
+	public String getCategoryName(RequestDTO requestDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getCategoryName", requestDTO);
+	}
 	
 	
 	public int setFileDelete(BoardFileDTO boardFileDTO) throws Exception {

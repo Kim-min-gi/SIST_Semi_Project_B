@@ -29,7 +29,9 @@ public class RequestService implements BoardService {
 	private FileManager fileManager;
 	
 	
-
+	public String getCategoryName(RequestDTO requestDTO) throws Exception {
+		return requestDAO.getCategoryName(requestDTO);
+	}
 	
 	
 	public int setAcceptUpdate(RequestDTO requestDTO) throws Exception {
