@@ -124,8 +124,9 @@ public class RequestController {
 	}
 	
 	@PostMapping("update")
-	public ModelAndView setUpdate(RequestDTO requestDTO, Pager pager) throws Exception {
-		ModelAndView mv = new ModelAndView();
+	public ModelAndView setUpdate(RequestDTO requestDTO, ModelAndView mv) throws Exception {
+		//ModelAndView mv = new ModelAndView();
+		System.out.println("update");
 		int result = requestService.setUpdate(requestDTO);
 		mv.setViewName("redirect:./list");
 		return mv;

@@ -192,9 +192,9 @@
 	<script type="text/javascript" src="../resources/js/addressSearch.js"></script>
 	<script>
 	
-		$('#contents').summernote({
+		/* $('#contents').summernote({
 			height: 400
-		});
+		}); */
 		
 		$(window).scroll(function() {
             if ($(document).scrollTop() > 50) {
