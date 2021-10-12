@@ -32,7 +32,46 @@
 	</div>
 	
 	<div class="searchList">
-	<h1>search List</h1>
+		<div class="searchVal">
+			<h2>test</h2>
+		</div>
+	<div class="searchinfo">
+		<ul>
+			<li>
+				<div>
+					<figure>
+						<a>
+						<div>
+						
+						<img>
+						
+						</div>
+						</a>
+						<figcaption>
+							<div class="info">
+							<a>
+								<h2 class="title">title</h2>
+							</a>
+							<strong class="starVal">starVal</strong>
+							<p class="category">
+								<span>Category</span>
+							</p>
+							</div>
+						</figcaption>
+						
+					</figure>
+					
+				</div>
+				
+				<div>
+				</div>
+				
+			</li>
+			
+		</ul>
+	</div>
+	
+
 	
 	</div>
 	

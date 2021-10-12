@@ -7,8 +7,11 @@
 	
 }
 
+.searchVal{
+	text-align: left;
+}
+
 .searchPart{
-	border:1px solid gold;
 	text-align: center;
 	height: 150px;
 	
