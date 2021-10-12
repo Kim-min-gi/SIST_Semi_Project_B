@@ -18,13 +18,13 @@ public class RequestDTO extends BoardDTO{
 	private String holiday; //휴일
 	private String requestAccept; //승인여부
 	
-	private List<BoardFileDTO> files;
+	private List<BoardFileDTO> boardFiles;
 	
-	public List<BoardFileDTO> getFiles() {
-		return files;
+	public List<BoardFileDTO> getBoardFiles() {
+		return boardFiles;
 	}
-	public void setFiles(List<BoardFileDTO> files) {
-		this.files = files;
+	public void setBoardFiles(List<BoardFileDTO> boardFiles) {
+		this.boardFiles = boardFiles;
 	}
 	public String getRestName() {
 		return restName;
