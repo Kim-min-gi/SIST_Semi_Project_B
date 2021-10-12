@@ -1,15 +1,23 @@
 package com.iu.s5;
 
+import java.io.Console;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.iu.s5.restaurant.RestaurantsDTO;
+import com.iu.s5.restaurant.RestaurantsService;
 
 
 
@@ -19,23 +27,34 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 	
-private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	@Autowired
+	private RestaurantsService restaurantsService;
+	
+	
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+	public ModelAndView home() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		List<RestaurantsDTO> ar = restaurantsService.getRestaurants();
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		System.out.println(ar.get(0).getFiles().get(0).getFileName());
 		
-		String formattedDate = dateFormat.format(date);
+		mv.addObject("starVal", ar);
+		mv.setViewName("home");
+		return mv;
+	}
+	
+	@GetMapping("search")
+	public ModelAndView search() throws Exception{
+		ModelAndView mv = new ModelAndView();
 		
-		model.addAttribute("serverTime", formattedDate );
+		mv.setViewName("search/searchList");
 		
-		return "home";
+		return mv;
+		
 	}
 	
 	

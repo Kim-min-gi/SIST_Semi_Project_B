@@ -1,5 +1,7 @@
 package com.iu.s5.restaurant;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -10,8 +12,8 @@ public class RestaurantsDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.iu.s5.restaurant.RestaurantsDAO.";
 	
-	public RestaurantsDTO getRestaurants(RestaurantsDTO restaurantsDTO) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"getRestaurants",restaurantsDTO);
+	public List<RestaurantsDTO> getRestaurants() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getRestaurants");
 	}
 	
 	

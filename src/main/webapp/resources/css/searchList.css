@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+
+.search{
+	width: 1450px;
+	
+	
+}
+
+.searchPart{
+	border:1px solid gold;
+	text-align: center;
+	height: 150px;
+	
+}
+
+.searchList{
+	display:inline-block;
+	background-color:gray;
+	width: 70%;
+	height: 1500px;
+	text-align: center;
+	
+}
+
+.involvedList{
+	float:right;
+	background-color:#EAEAEA;
+	margin:0;
+	width:30%;
+	height: 1500px;
+	text-align: center;
+	
+}
+
+
+.SearchInput{
+	/* width: 500px;
+	height: 40px; */
+	width:600px;
+	padding:10px;
+	border-radius: 25px 0 0 25px;
+	border-style : solid;
+	border-width : 2px;
+	border-color : #FABE00;
+	font-size: 15px;
+	
+} 
+
+.SearchSubmit{
+	background-color:#FABE00;
+	border-style : solid;
+	border-width : 2px;
+	border-color : #FABE00;
+	border-radius: 0 25px 25px 0;
+	width:120px;
+	padding:10px;
+	color: white;
+	font-size:15px;
+	margin-left: -3px;
+	
+}
+
+#searchbar{
+	
+	margin-top: 50px;
+	
+}
