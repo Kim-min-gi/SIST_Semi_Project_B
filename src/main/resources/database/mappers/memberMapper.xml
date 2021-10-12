@@ -22,5 +22,9 @@
 	<delete id="setDelete" parameterType="MemberDTO">
 		DELETE member WHERE id=#{id} AND pw=#{pw}
 	</delete>
+	
+	<update id="setUpdate" parameterType="MemberDTO">
+		UPDATE member SET pw=#{pw}, phone=#{phone}, email=#{email} WHERE id=#{id}
+	</update>
   	
 </mapper>

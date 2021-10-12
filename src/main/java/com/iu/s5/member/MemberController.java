@@ -101,4 +101,26 @@ public class MemberController {
 		return mv;
 	}
 	
+	@GetMapping("update")
+	public ModelAndView setUpdate() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/update");
+		return mv;
+	}
+	
+	@PostMapping("update")
+	public ModelAndView setUpdate(MemberDTO memberDTO, HttpSession session) throws Exception {
+		MemberDTO sessionDTO = (MemberDTO)session.getAttribute("member");
+		
+		memberDTO.setId(sessionDTO.getId());
+		int result = memberService.setUpdate(memberDTO);
+		memberDTO.setName(sessionDTO.getName());
+		session.setAttribute("member", memberDTO);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirect:../");
+		return mv;
+		
+	}
+	
 }

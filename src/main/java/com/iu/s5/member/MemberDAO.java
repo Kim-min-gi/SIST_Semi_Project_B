@@ -28,6 +28,6 @@ public class MemberDAO {
 	}
 	
 	public int setUpdate(MemberDTO memberDTO) throws Exception {
-		return 0;
+		return sqlSession.update(NAMESPACE+"setUpdate", memberDTO);
 	}
 }

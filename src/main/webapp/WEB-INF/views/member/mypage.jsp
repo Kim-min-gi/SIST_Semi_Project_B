@@ -178,8 +178,37 @@
             <section class="resume-section" id="update">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Update Account</h2>
-                    <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
-                    <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p>
+                    
+                    <form id="update-frm" action="update" method="post" class="col-md-6 mx-auto">
+
+						<div class="mb-3">
+	    					<label for="exampleInputPassword1" class="form-label">Password</label>
+	    					<input type="password" class="form-control put pw" id="pw1" value="${member.pw}" name="pw">
+	  					</div>
+
+					 	<div class="mb-3">
+					    	<label for="exampleInputPassword1" class="form-label">Password 확인</label>
+					    	<input type="password" class="form-control put pw" id="pw2" name="pwCheck" placeholder="password를 한번더 입력하세요">
+					  	<div id="warnPw" style="color:red;"></div>
+
+
+					  	<div class="mb-3">
+					   		<label for="text" class="form-label">Phone</label>
+					   		<input type="tel" class="form-control put" id="phone" name="phone" value="${member.phone}" placeholder="01012345678">
+					 	</div>
+
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Email</label>
+							<input type="email" class="form-control put" id="email" name="email" value="${member.email}" aria-describedby="emailHelp"  placeholder="email@email.com">
+						</div>
+
+	   					<div class="mb-3 my-4">
+	    					<label class="form-label"></label>
+	  						<button id="btn" type="submit" class="btn btn-primary">Update</button>
+  						</div>
+
+                    </form>
+                    
                 </div>
             </section>
             <hr class="m-0" />
