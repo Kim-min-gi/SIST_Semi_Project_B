@@ -73,7 +73,7 @@
 		<result column="hits" property="hits" />
 		<result column="category" property="category" />
 		
-		<collection property="files" javaType="List" ofType="BoardFileDTO">
+		<collection property="boardFiles" javaType="List" ofType="BoardFileDTO">
 			<id column="fileNum" property="fileNum" />
 			<result column="num" property="num" />
 			<result column="fileName" property="fileName" />
