@@ -74,4 +74,21 @@ public class MemberController {
 		mv.setViewName("redirect:../");
 		return mv;
 	}
+	
+	@GetMapping("logout")
+	public ModelAndView logout(HttpSession session) throws Exception {
+		session.invalidate();
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirect:../");
+		return mv;
+	}
+	
+	@GetMapping("mypage")
+	public ModelAndView mypage() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/mypage");
+		return mv;
+	}
+	
 }
