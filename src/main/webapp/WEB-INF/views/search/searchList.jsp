@@ -22,8 +22,8 @@
 				
 				<div>
 					<form action="search">
-						<input class="SearchInput" type="text" placeholder="검색">
-						<input class="SearchSubmit" type="submit" value="검색하기" name="search">
+						<input class="SearchInput" type="text" placeholder="검색" name="search">
+						<input class="SearchSubmit" type="submit" value="검색하기">
 					</form>
 				</div>
 				
