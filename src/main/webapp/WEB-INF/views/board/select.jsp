@@ -47,12 +47,16 @@
 				</div>
 			</c:forEach>
 			
+			<!-- request: 가게 정보 영역 -->
+			<c:if test=""></c:if>
+			<!-- 가게 정보 영역 끝  -->
+			
 			
 			<div>
 				${dto.contents}
 			</div>
 			
-			<!-- request 승인 버튼 -->
+			<!-- request: 승인 버튼 -->
 			<c:if test="${board eq 'request'}">
 			
 				<hr>
