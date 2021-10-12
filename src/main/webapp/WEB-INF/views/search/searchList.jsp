@@ -23,7 +23,7 @@
 				<div>
 					<form action="search">
 						<input class="SearchInput" type="text" placeholder="검색">
-						<input class="SearchSubmit" type="submit" value="검색하기">
+						<input class="SearchSubmit" type="submit" value="검색하기" name="search">
 					</form>
 				</div>
 				
@@ -41,18 +41,18 @@
 				<div>
 					<figure>
 						<a>
-						<div>
+						<div class="RestImg">
 						
-						<img>
+						<img src="./resources/img/dummy.png">
 						
 						</div>
 						</a>
-						<figcaption>
+						<figcaption class="fig">
 							<div class="info">
-							<a>
-								<h2 class="title">title</h2>
+							<a class="titleA">
+								<h3 class="title">title</h3>
 							</a>
-							<strong class="starVal">starVal</strong>
+							<h3 class="starVal">starVal</h3>
 							<p class="category">
 								<span>Category</span>
 							</p>

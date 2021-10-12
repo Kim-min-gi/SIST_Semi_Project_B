@@ -21,8 +21,12 @@
 	display:inline-block;
 	width: 70%;
 	height: 1500px;
-	text-align: center;
 	
+	
+}
+
+input:focus{
+	outline:none;
 }
 
 .involvedList{
@@ -67,4 +71,29 @@
 	
 	margin-top: 50px;
 	
+}
+
+
+
+.searchinfo div{
+	display: inline-block;
+}
+
+
+.fig{
+	text-align: center;
+}
+
+.titleA{
+	float: left;
+}
+
+.starVal{
+	float: left;
+	margin-left: 10px;
+}
+
+.RestImg{
+	
+	display: inline-block;
 }
