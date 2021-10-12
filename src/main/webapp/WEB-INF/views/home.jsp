@@ -152,11 +152,11 @@
 				
 							
 				 $('#sa'+i).hover(function(){
-					$(this).children('span#res').addClass('hide');
-					$(this).children('span#re').removeClass('hide');
+					$(this).children('span#res').fadeOut(200);
+					$(this).children('span#re').fadeIn(200).removeClass('hide');
 				}, function(){
-					$(this).children('span#res').removeClass('hide');
-					$(this).children('span#re').addClass('hide');
+					$(this).children('span#res').fadeIn(200);
+					$(this).children('span#re').fadeOut(200).addClass('hide');
 					
 				}); 
 				
