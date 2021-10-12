@@ -15,6 +15,9 @@
 		<typeAlias type="com.iu.s5.board.request.RequestDTO" alias="RequestDTO"/>
 		<typeAlias type="com.iu.s5.board.CommentsDTO" alias="CommentsDTO"/>
 	
+		<typeAlias type="com.iu.s5.review.ReviewDTO" alias="ReviewDTO"/>
+		<typeAlias type="com.iu.s5.review.ReviewFilesDTO" alias="ReviewFilesDTO"/>
+	
 		
 		<typeAlias type="com.iu.s5.util.Pager" alias="Pager"/>
 	
