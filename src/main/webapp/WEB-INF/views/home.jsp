@@ -70,6 +70,29 @@
 			</section>
 			
 			<hr>
+			
+			<section class="grid-wrap">
+			<div class="Explanation">
+					<h3>카테고리별 추천 식당</h3>
+				</div>
+			<ul class="grid swipe-down" id="grid3">
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+				</ul>
+			
+			</section>
+				
+				
+				
+			<hr>
+			
+			
 				<section class="grid-wrap">
 				<div class="Explanation">
 					<h3>관리자가 선정한 식당</h3>
@@ -86,9 +109,15 @@
 				</ul>
 				
 				
-				<hr>
 				
-				<div class="writingcontainer">
+			</section>
+			
+			<hr>
+			
+			
+			<section class="grid-wrap">
+			
+			<div class="writingcontainer">
 				<div class="Communitys">
 				<h3>첫번째 영역 : 커뮤니티 게시판 최신순</h3>
 					
@@ -99,15 +128,11 @@
 				
 				</div>
 				</div>
-				
 			
-				
-				
 			</section>
 			
 			
 			
-		
 			
 		
 		
@@ -129,6 +154,10 @@
 			} );
 			
 			new GridScrollFx( document.getElementById( 'grid2' ), {
+				viewportFactor : 0.4
+			} );
+			
+			new GridScrollFx( document.getElementById( 'grid3' ), {
 				viewportFactor : 0.4
 			} );
 			
