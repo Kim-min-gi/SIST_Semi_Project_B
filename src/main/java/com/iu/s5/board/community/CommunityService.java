@@ -92,7 +92,7 @@ public class CommunityService implements BoardService {
 	}
 
 	@Override
-	public int setInsert(BoardDTO boardDTO, MultipartFile[] files) throws Exception {
+	public int setInsert(BoardDTO boardDTO, MultipartFile[] boardFiles) throws Exception {
 		// TODO Auto-generated method stub
 		int result = communityDAO.setInsert(boardDTO);
 		
@@ -100,7 +100,7 @@ public class CommunityService implements BoardService {
 		String realPath = sContext.getRealPath("resources/upload/community/");
 		File file = new File(realPath);
 		
-		for (MultipartFile mf : files) {
+		for (MultipartFile mf : boardFiles) {
 			String fileName = fileManager.fileSave(mf, file);
 			
 			BoardFileDTO boardFileDTO = new BoardFileDTO();

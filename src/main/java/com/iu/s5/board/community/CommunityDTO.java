@@ -7,16 +7,18 @@ import com.iu.s5.board.BoardFileDTO;
 
 public class CommunityDTO extends BoardDTO {
 	
-	private List<BoardFileDTO> files;
+	private List<BoardFileDTO> boardFiles;
 	
 	
 
-	public List<BoardFileDTO> getFiles() {
-		return files;
+	
+
+	public List<BoardFileDTO> getBoardFiles() {
+		return boardFiles;
 	}
 
-	public void setFiles(List<BoardFileDTO> files) {
-		this.files = files;
+	public void setBoardFiles(List<BoardFileDTO> boardFiles) {
+		this.boardFiles = boardFiles;
 	}
 
 	private int category; //글분류 1--기본, 2-- , 3-- ,
