@@ -24,7 +24,7 @@ public class MemberDAO {
 	}
 	
 	public int setDelete(MemberDTO memberDTO) throws Exception {
-		return 0;
+		return sqlSession.delete(NAMESPACE+"setDelete", memberDTO);
 	}
 	
 	public int setUpdate(MemberDTO memberDTO) throws Exception {

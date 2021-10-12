@@ -22,7 +22,7 @@ public class MemberService {
 	}
 	
 	public int setDelete(MemberDTO memberDTO) throws Exception {
-		return 0;
+		return memberDAO.setDelete(memberDTO);
 	}
 	
 	public int setUpdate(MemberDTO memberDTO) throws Exception {

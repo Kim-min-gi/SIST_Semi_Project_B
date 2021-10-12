@@ -91,4 +91,14 @@ public class MemberController {
 		return mv;
 	}
 	
+	@GetMapping("delete")
+	public ModelAndView setDelete(HttpSession session) throws Exception {
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		int result = memberService.setDelete(memberDTO);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirect:./logout");
+		return mv;
+	}
+	
 }

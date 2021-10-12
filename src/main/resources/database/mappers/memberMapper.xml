@@ -18,5 +18,9 @@
 	<select id="getLogin" parameterType="MemberDTO" resultType="MemberDTO">
 		SELECT * FROM member WHERE id=#{id} AND pw=#{pw}
 	</select>
+	
+	<delete id="setDelete" parameterType="MemberDTO">
+		DELETE member WHERE id=#{id} AND pw=#{pw}
+	</delete>
   	
 </mapper>
