@@ -40,8 +40,17 @@
 				</div>
 			</div> 
 			
-			${dto.contents}
+
+			<c:forEach items="${dto.files}" var="list">
+				<div>
+					<a href="./fileDown?fileName=${list.fileName}">${list.oriName}</a> 
+				</div>
+			</c:forEach>
 			
+			
+			<div>
+				${dto.contents}
+			</div>
 			
 			<!-- request 승인 버튼 -->
 			<c:if test="${board eq 'request'}">
@@ -61,25 +70,52 @@
 			</c:if>
 			<!-- 승인버튼 끝 -->
 			
+			
+			<!-- 댓글 영역 -->
+			<div class="comment-area">
+			
+				<div id="comment-list" class="comment-list">
+				</div> <!-- //comment-list -->
+				
+				<div class="comment-write">
+					<input type="hidden" id="comment-id" value="t1">
+					<div id="comment-writer" class="comment-writer">작성자영역</div>
+					<textarea id="comment-contents" class="comment-writebox" rows="2" cols="" placeholder="댓글을 작성해주세요."></textarea>
+				
+					<div class="comment-bottom">
+						<div class="bottom-right">
+							<button type="button" id="comment-write-btn" class="comment-write-btn">등록</button>
+						</div>
+					</div>
+				</div> <!-- //comment-write -->
+				
+				
+			</div>
+			<!-- // 댓글 영역 끝 -->
+			
+			
+			<!-- 하단 수정,삭제,목록 부분 -->
 			<div class="article-bottom">
 				<div class="bottom-left">
-					<a class="btn btn-default list-btn" href="./list"> 수정 </a>
+					<a class="btn btn-default list-btn" href="./update?num=${dto.num}"> 수정 </a>
 					<a class="btn btn-default list-btn" href="./delete?num=${dto.num}"> 삭제 </a>
 				</div>
 				<div class="bottom-right">
 					<a class="btn btn-default list-btn" href="./list"> 목록 </a>
 				</div>
 			</div>
-		</div>
-		<!-- //article  -->
+			<!-- //하단 수정 삭제 목록 부분 끝 -->
+		</div> <!-- //article  -->
 		
 		
 	</div>
 
-
-<script type="text/javascript" src="../resources/js/select.js">
-
-</script>
+	<script>
+		let boardNum = "${dto.num}";
+		 $('.navi').addClass('affix');
+	 </script>
+	 
+	 <script type="text/javascript" src="../resources/js/select.js"></script>
 
 	<c:import url="../temp/boot_footer.jsp"></c:import>
 </body>

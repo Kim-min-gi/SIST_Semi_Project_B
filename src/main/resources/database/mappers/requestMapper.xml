@@ -6,20 +6,108 @@
   
  <mapper namespace="com.iu.s5.board.request.RequestDAO">
  	
+ 	<insert id="setComment" parameterType="CommentsDTO">
+ 		INSERT INTO COMMENTS 
+		VALUES (comments_seq.nextval, #{num}, #{id}, #{writer}, #{contents}, sysdate, #{board})
+ 	</insert>
+ 	
+ 	<select id="getCommentList" parameterType="Map" resultType="CommentsDTO">
+ 		SELECT * FROM
+			(SELECT rowNum R, CM.* FROM
+			    (SELECT * FROM COMMENTS
+			        WHERE BOARD = #{comment.board} AND NUM = #{comments.num}
+			        ORDER BY commentNum DESC) CM)
+		WHERE R BETWEEN #{pager.startRow} AND #{pager.lastRow}
+ 	</select>
+ 	
+ 	<delete id="setCommentDelete" parameterType="CommentsDTO">
+ 		DELETE COMMENTS WHERE commentNum = #{commentNum}
+ 	</delete>
+ 	
+ 	<update id="setCommentUpdate" parameterType="CommentsDTO">
+ 		UPDATE COMMENTS SET contents = #{contents} WHERE commentNum = #{commentNum} 		
+ 	</update>
+ 	
+ 	<select id="getCommentCount" parameterType="CommentsDTO">
+ 		SELECT COUNT(commentNum) FROM COMMENTS
+ 		WHERE board = #{board} AND num = #{num}
+ 	</select>
+ 	
+ 	<delete id="setFileDelete" parameterType="BoardFileDTO">
+ 		DELETE REQUESTFILES WHERE fileNum = #{fileNum}
+ 	</delete>
+ 	
+ 	<select id="getFile" parameterType="BoardDTO" resultType="BoardFileDTO">
+ 		SELECT * FROM REQUESTFILES WHERE num = #{num}
+ 	</select>
+ 	
+ 	<insert id="setFile" parameterType="BoardFileDTO">
+ 		INSERT INTO REQUESTFILES
+ 		VALUES(FILE_SEQ.NEXTVAL, #{num}, #{fileName}, #{oriName})
+ 	
+ 	</insert>
+ 	
+ 	
  	<select id="getCount" resultType="Long" parameterType="Pager">
  		SELECT COUNT(num) FROM REQUEST
+ 		
+ 		<if test="kind == 'title'">WHERE title LIKE '%' || #{search} || '%'</if>
+ 		<if test="kind == 'writer'">WHERE writer LIKE '%' || #{search} || '%'</if>
+ 		
  	</select>
  	
  	<select id="getList" resultType="RequestDTO" parameterType="Pager">
- 		SELECT * FROM
-		(SELECT ROWNUM R ,RQ.* FROM 
-			(SELECT * FROM REQUEST
-			ORDER BY NUM DESC) RQ)
+ 		SELECT * 
+ 		FROM (SELECT ROWNUM R ,RQ.* 
+ 			FROM (SELECT * FROM REQUEST
+					WHERE
+					<choose>
+						<when test="kind=='writer'">
+							writer
+						</when>
+						<otherwise>
+							title
+						</otherwise>
+					</choose>
+				LIKE '%' || #{search} || '%'
+				ORDER BY NUM DESC
+			) RQ)
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
  	</select>
  	
- 	<select id="getSelect" parameterType="BoardDTO" resultType="RequestDTO">
- 		SELECT * FROM REQUEST
+ 	<resultMap type="RequestDTO" id="getSelectResult">
+ 		<id column="num" property="num"/>
+ 		<result column="id" property="id"/>
+ 		<result column="writer" property="writer"/>
+ 		<result column="title" property="title"/>
+ 		<result column="contents" property="contents"/>
+ 		<result column="regDate" property="regDate"/>
+ 		<result column="hits" property="hits"/>
+ 		<result column="restName" property="restName"/>
+ 		<result column="restPostcode" property="restPostcode"/>
+ 		<result column="restAddress" property="restAddress"/>
+ 		<result column="restAddressDt" property="restAddressDt"/>
+ 		<result column="restAdressRf" property="restAddressRf"/>
+ 		<result column="restPhone" property="restPhone"/>
+ 		<result column="restCategory" property="restCategory"/>
+ 		<result column="restTime" property="restTime"/>
+ 		<result column="holiday" property="holiday"/>
+ 		<result column="requestAccept" property="requestAccept"/>
+ 		<!-- Files -->
+ 		<collection property="files" javaType="List" ofType="BoardFileDTO">
+ 			<id column="fileNum" property="fileNum"/>
+ 			<result column="num" property="num"/>
+ 			<result column="fileName" property="fileName"/>
+ 			<result column="oriName" property="oriName"/>
+ 		</collection>
+ 	</resultMap>
+ 	
+ 	<select id="getSelect" parameterType="BoardDTO" resultMap="getSelectResult">
+ 		SELECT *
+		FROM REQUEST R
+		LEFT JOIN 
+		REQUESTFILES RF
+		USING (NUM)
  		WHERE NUM = #{num}
  	</select>
  	
@@ -32,9 +120,13 @@
  	</update>
  	
  	<insert id="setInsert" parameterType="RequestDTO">
+ 		<selectKey order="BEFORE" resultType="Long" keyProperty="num">
+ 			SELECT REQUEST_SEQ.NEXTVAL FROM DUAL
+ 		</selectKey>
+ 	
  		insert into request 
-		values (request_seq.nextval, #{id}, #{writer}, #{title}, #{contents}, sysdate, 0, 
-		#{restName}, #{restLocation}, #{restPhone}, #{restCategory}, #{restTime}, #{holiday}, 'N')
+		values (#{num}, #{id}, #{writer}, #{title}, #{contents}, sysdate, 0, 
+		#{restName}, #{restPostcode}, #{restAddress}, #{restAddressDt}, #{restAddressRf}, #{restPhone}, #{restCategory}, #{restTime}, #{holiday}, 'N')
  	</insert>
  	
  	<delete id="setDelete" parameterType="BoardDTO">
@@ -46,7 +138,10 @@
 	 		title=#{title},
 	 		contents = #{contents},
 	 		restName = #{restName},
-	 		restLocation = #{restLocation},
+	 		restPostcode = #{restPostcode},
+	 		restAddress = #{restAddress},
+	 		restAddressDt = #{restAddressDt},
+	 		restAddressRf = #{restAddressRf},
 	 		restPhone = #{restPhone},
 	 		restCategory = #{restCategory},
 	 		restTime = #{restTime},
