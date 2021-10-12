@@ -89,8 +89,10 @@ public class RequestController {
 		ModelAndView mv = new ModelAndView();
 		RequestDTO requestDTO = (RequestDTO)requestService.getSelect(boardDTO);
 		List<BoardFileDTO> ar = requestService.getFile(boardDTO);
+		String category = requestService.getCategoryName(requestDTO);
 		
 		mv.addObject("dto", requestDTO);
+		mv.addObject("category", category);
 		mv.setViewName("board/select");
 		return mv;
 	}
