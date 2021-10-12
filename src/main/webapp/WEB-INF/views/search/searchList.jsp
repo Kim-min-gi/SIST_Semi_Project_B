@@ -33,7 +33,7 @@
 	
 	<div class="searchList">
 		<div class="searchVal">
-			<h2>test</h2>
+			<h2>${param.search}으로 검색한 결과</h2>
 		</div>
 	<div class="searchinfo">
 		<ul>

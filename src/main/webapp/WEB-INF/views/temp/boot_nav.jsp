@@ -8,7 +8,7 @@
 	<div class="con">
    
 		<div class="logo">
-			<a href="#">
+			<a href="${pageContext.request.contextPath}/">
 				<img id="FLogo" src="${pageContext.request.contextPath}/resources/img/Logo.png"> 
 			</a>
 		</div>
