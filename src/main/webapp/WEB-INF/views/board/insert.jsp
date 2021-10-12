@@ -249,7 +249,6 @@
 		                }
 		            }
 		        }).open();
-		        self.close();
 		    }
 		</script>
 	 	

@@ -263,7 +263,6 @@
 		                }
 		            }
 		        }).open();
-		        self.close();
 		    }
 		</script>
 	 

@@ -76,18 +76,18 @@ public class RequestDTO extends BoardDTO{
 		this.restCategory = restCategory;
 	}
 	public String getRestTime() {
-//		if(this.restTime == null) {
-//			this.restTime = "";
-//		}
+		if(this.restTime == null) {
+			this.restTime = "";
+		}
 		return restTime;
 	}
 	public void setRestTime(String restTime) {
 		this.restTime = restTime;
 	}
 	public String getHoliday() {
-//		  if(this.holiday == null) {
-//			  this.holiday = ""; 
-//		  }
+		  if(this.holiday == null) {
+			  this.holiday = ""; 
+		  }
 		return holiday;
 	}
 	public void setHoliday(String holiday) {
