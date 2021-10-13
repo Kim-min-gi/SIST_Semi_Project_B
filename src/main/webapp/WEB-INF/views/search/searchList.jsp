@@ -35,6 +35,7 @@
 		<div class="searchVal">
 			<h2>${param.search}으로 검색한 결과</h2>
 		</div>
+		<hr>
 	<div class="searchinfo">
 		<ul>
 			<li>
