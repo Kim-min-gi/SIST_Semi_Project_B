@@ -66,7 +66,7 @@
 			  	<!-- 회원가입 버튼 -->
 			  	<div class="mb-3">
 			  		<label class="form-label"></label>
-	  				<button id="sign" type="submit" class="btn btn-warning">회원가입</button>
+	  				<button id="sign" type="button" class="btn btn-warning">회원가입</button>
 			  	</div>
 			</form>
 		  	

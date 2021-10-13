@@ -37,7 +37,16 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 		
 		int result = memberService.setJoin(memberDTO);
-		mv.setViewName("redirect:../");
+		
+		String message = "회원가입 실패";
+		if(result>0) {
+			message = "회원 가입 성공";
+		}
+
+		mv.addObject("msg", message);
+		mv.addObject("url", "../");
+		mv.setViewName("common/result");
+		
 		return mv;
 	}
 	
