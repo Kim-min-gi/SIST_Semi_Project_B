@@ -6,4 +6,14 @@
 
   
  <mapper namespace="com.iu.s5.review.ReviewDAO">
+ 
+ 	<delete id="setDelete" parameterType="ReviewDTO">
+ 		DELETE FROM REVIEW WHERE REVIEWNUM = #{reviewNum}
+ 	</delete>
+ 
+ 	<insert id="setInsert" parameterType="ReviewDTO">
+ 		INSERT INTO REVIEW (REVIEWNUM, RESTNUM, ID, WRITER, CONTENTS, RATING, REGDATE)
+		VALUES(REVIEW_SEQ.NEXTVAL, #{restNum}, #{id}, #{writer}, #{contents}, #{rating}, CURRENT_DATE)
+ 	</insert>
+ 
  </mapper>
