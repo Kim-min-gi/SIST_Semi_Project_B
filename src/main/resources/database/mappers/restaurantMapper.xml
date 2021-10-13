@@ -130,6 +130,26 @@
 		
  	</select>
  	
+ 	<select id="getSearchCount" parameterType="com.iu.s5.restaurant.SearchsDTO" resultType="Long">
+ 		SELECT COUNT(*) COUNT
+		FROM
+		(SELECT ROW_NUMBER() over(PARTITION BY TB.RESTNUM ORDER BY TB.RESTFILENUM) AS RNUM,TB.*
+		FROM
+		(SELECT * 
+		FROM RESTAURANTS RS
+		LEFT JOIN RESTARANTSFILE RF
+		ON(RS.RESTNUM = RF.RESTNUM)
+		LEFT JOIN CATEGORYS CGS
+		ON (RS.RESTNUM = CGS.RESTNUM)
+		LEFT JOIN RESTCATEGORYS RGS
+		ON (CGS.CATEGORYNUM = RGS.CATEGORYNUM)
+		LEFT JOIN SEARCHS SES
+		ON (RGS.CATEGORYNUM= SES.CATEGORYNUM)
+		WHERE SES.SEARCH==#{search} OR RS.RESTNAME LIKE '%' || #{search} || '%')TB)
+		WHERE RNUM=1
+ 	
+ 	</select>
+ 	
  	
  	
  <!-- 	<select id="getRestaurants" resultMap="getRestaurantsResult">

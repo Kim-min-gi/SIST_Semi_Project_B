@@ -25,5 +25,8 @@ public class RestaurantsDAO {
 		return sqlSession.selectList(NAMESPACE+"getCategorys",restaurantsDTO);
 	}
 	
+	public Long getSearchCount(SearchsDTO searchsDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getSearchCount", searchsDTO);
+	}
 
 }

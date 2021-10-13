@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s5.restaurant.RestaurantsDTO;
 import com.iu.s5.restaurant.RestaurantsService;
+import com.iu.s5.restaurant.SearchsDTO;
 
 
 
@@ -47,8 +48,9 @@ public class HomeController {
 	}
 	
 	@GetMapping("search")
-	public ModelAndView search() throws Exception{
+	public ModelAndView search(SearchsDTO searchsDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
 		
 		mv.setViewName("search/searchList");
 		
