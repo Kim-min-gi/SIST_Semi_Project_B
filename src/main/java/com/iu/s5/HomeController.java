@@ -39,8 +39,7 @@ public class HomeController {
 	public ModelAndView home() throws Exception {
 		ModelAndView mv = new ModelAndView();
 		List<RestaurantsDTO> ar = restaurantsService.getRestaurants();
-		
-		System.out.println(ar.get(0).getFiles().get(0).getFileName());
+	
 		
 		mv.addObject("starVal", ar);
 		mv.setViewName("home");

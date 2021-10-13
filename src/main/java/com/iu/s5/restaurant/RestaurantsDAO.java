@@ -17,5 +17,13 @@ public class RestaurantsDAO {
 	}
 	
 	
+	public List<RestaurantsDTO> getSearchList(SearchsDTO searchsDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getSearchList",searchsDTO);
+	}
+	
+	public List<RestCategorysDTO> getCategorys(RestaurantsDTO restaurantsDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getCategorys",restaurantsDTO);
+	}
+	
 
 }
