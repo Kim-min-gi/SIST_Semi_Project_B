@@ -54,19 +54,95 @@
 							</a>
 							<h3 class="starVal">starVal</h3>
 							<p class="category">
-								<span>Category</span>
+								<span><h4>Category</h4></span>
 							</p>
 							</div>
 						</figcaption>
-						
 					</figure>
-					
-				</div>
-				
-				<div>
 				</div>
 				
 			</li>
+			
+			<li>
+				<div>
+					<figure>
+						<a>
+						<div class="RestImg">
+						
+						<img src="./resources/img/dummy.png">
+						
+						</div>
+						</a>
+						<figcaption class="fig">
+							<div class="info">
+							<a class="titleA">
+								<h3 class="title">title2</h3>
+							</a>
+							<h3 class="starVal">starVal2</h3>
+							<p class="category">
+								<span><h4>Category2</h4></span>
+							</p>
+							</div>
+						</figcaption>
+					</figure>
+				</div>
+				
+			</li>
+			
+			<li>
+				<div>
+					<figure>
+						<a>
+						<div class="RestImg">
+						
+						<img src="./resources/img/dummy.png">
+						
+						</div>
+						</a>
+						<figcaption class="fig">
+							<div class="info">
+							<a class="titleA">
+								<h3 class="title">title3</h3>
+							</a>
+							<h3 class="starVal">starVal3</h3>
+							<p class="category">
+								<span><h4>Category3</h4></span>
+							</p>
+							</div>
+						</figcaption>
+					</figure>
+				</div>
+				
+			</li>
+			
+			<li>
+				<div>
+					<figure>
+						<a>
+						<div class="RestImg">
+						
+						<img src="./resources/img/dummy.png">
+						
+						</div>
+						</a>
+						<figcaption class="fig">
+							<div class="info">
+							<a class="titleA">
+								<h3 class="title">title4</h3>
+							</a>
+							<h3 class="starVal">starVal4</h3>
+							<p class="category">
+								<span><h4>Category4</h4></span>
+							</p>
+							</div>
+						</figcaption>
+					</figure>
+				</div>
+				
+			</li>
+			
+			
+			
 			
 		</ul>
 	</div>

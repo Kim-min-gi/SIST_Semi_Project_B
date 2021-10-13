@@ -1,6 +1,13 @@
 @charset "UTF-8";
 
 
+
+.container{
+	
+	margin-bottom: 100px;
+}
+
+
 .search{
 	width: 1450px;
 	
@@ -74,11 +81,22 @@ input:focus{
 }
 
 
+.searchinfo{
+	
+	margin-top: 30px;
+}
 
 .searchinfo div{
 	display: inline-block;
 }
+.searchinfo ul{
+	list-style: none;
+}
 
+.searchinfo li{
+	margin-left: 80px;
+	float: left;
+}
 
 .fig{
 	text-align: center;
@@ -89,6 +107,7 @@ input:focus{
 }
 
 .starVal{
+	color:#FABE00;
 	float: left;
 	margin-left: 10px;
 }
