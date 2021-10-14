@@ -1,8 +1,11 @@
 /**
  * 
  */
+ 
+let obj = $('#newFile').val();
 
-$('#newFile').change(function Check(obj) {
+function Check() {
+	
         // 선택파일의 경로를 분리하여 확장자를 구합니다.
         pathpoint = obj.lastIndexOf('.');
         filepoint = obj.substring(pathpoint+1,obj.length);
@@ -14,11 +17,10 @@ $('#newFile').change(function Check(obj) {
         {
             F.preview.src = obj; 
         }
-        alert('파일 임시 로딩');
+        alert(obj);
     }
-)
 
-$('#fileCheck').submit( function fileCheck(obj) {
+function fileCheck() {
         // 선택파일의 경로를 분리하여 확장자를 구합니다.
         pathpoint = obj.lastIndexOf('.');
         filepoint = obj.substring(pathpoint+1,obj.length);
@@ -77,6 +79,5 @@ $('#fileCheck').submit( function fileCheck(obj) {
         
          alert('파일 체크 끝');
     }
-)
 
    
