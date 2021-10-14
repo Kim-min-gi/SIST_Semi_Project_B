@@ -14,6 +14,11 @@ public class ReviewDAO {
 	private final String NAMESPACE = "com.iu.s5.review.ReviewDAO.";
 	
 	
+	//식당별 평균 평점
+	public float getRatingAvg(ReviewDTO reviewDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getRatingAvg", reviewDTO);
+	}
+	
 	//리뷰 보기
 	public void getReviewList() throws Exception {
 	}

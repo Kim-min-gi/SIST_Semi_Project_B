@@ -15,6 +15,29 @@ public class ReviewDAOTest extends JunitTest {
 	private ReviewDAO reviewDAO;
 	
 	@Test
+	public void getRatingAvg() throws Exception {
+		ReviewDTO reviewDTO = new ReviewDTO();
+		
+		reviewDTO.setRestNum(1L);
+		
+		float avg = reviewDAO.getRatingAvg(reviewDTO);
+		
+		System.out.println(avg);
+	}
+	
+	
+//	@Test
+	public void setDeleteTest() throws Exception {
+		ReviewDTO reviewDTO = new ReviewDTO();
+		
+		reviewDTO.setReviewNum(2L);
+		int result = reviewDAO.setDelete(reviewDTO);
+		
+		assertEquals(1, result);
+	}
+	
+	
+//	@Test
 	public void setInsertTest() throws Exception {
 		ReviewDTO reviewDTO = new ReviewDTO();
 		
