@@ -64,7 +64,32 @@
 				    <input type="text" class="form-control" name="writer" id="writer" placeholder="작성자">
 				</div>
 
+				<!-- ------------------------- community area --------------------------- -->
 				
+				<c:if test="${board eq 'community'}">
+				
+					<div class="mb-3">
+					    <label for="contents" class="form-label"></label>
+			  			<textarea class="form-control" cols=""  name="contents" id="summernote"></textarea>
+					</div>
+					
+						<div class="mb-3">
+							<label for="boardFiles" class="form-label">파일 첨부</label>
+							<button type="button" id="fileAdd" class="btn btn-default">추가</button>
+						</div>
+						<div id="fileAddArea">
+					
+					</div>
+			
+			
+				<div class="bottom-right">
+					<button type="submit" class="btn btn-default">글쓰기</button>
+				</div>
+				</c:if>
+			<!-- ------------------------- community area 끝 --------------------------- -->
+				
+			
+			<!-- ------------------------- request area ---------------------------- -->	
 				<!-- 요청 폼 -->
 				<c:if test="${board eq 'request'}">
 				<hr>
@@ -144,10 +169,7 @@
 					</div>
 				
 			</div>
-			<hr>
-			
-			</c:if>
-			<!-- 요청 폼 끝  -->
+			<hr><!-- 요청 폼 끝  -->
 			
 			
 			<div class="mb-3">
@@ -155,21 +177,26 @@
 	  			<textarea class="form-control" cols=""  name="contents" id="summernote"></textarea>
 			</div>
 			
-			<!-- 파일 첨부 -->
-			<div class="mb-3">
-				<label for="boardFiles" class="form-label">파일 첨부</label>
-				<button type="button" id="fileAdd" class="btn btn-default">추가</button>
-			</div>
-			<div id="fileAddArea">
 			
-			</div>
-		
-		
-		
+			<div class="input-inline">
+				<div class="mb-3">
+					<label for="boardFiles" class="form-label">파일 첨부</label>
+				</div>
+ 				<div class="col-md-10">
+	   				<input type="file" class="form-control" name="boardFiles" id="newFile" ></div>
+	   				<div class="col-md-2">
+	   				<button class="btn btn-outline-secondary del" type="button">파일 삭제</button>
+					</div>
+				</div>
+			
 			<div class="bottom-right">
-				<button type="submit" class="btn btn-default">글쓰기</button>
+				<button type="submit" class="btn btn-default" id="fileCheck">글쓰기</button>
 			</div>
 		
+			</c:if>
+			
+			<!-- ------------------------- request area 끝 ---------------------------- -->
+			
 		</form>
 	</div> <!-- //form-area  -->
 	
@@ -180,7 +207,7 @@
 	
 
 	<script type="text/javascript" src="../resources/js/boardFile.js"></script>
-	
+	<script type="text/javascript" src="../resources/js/imageSize.js"></script>
 	<script>
 	
 		$('.navi').addClass('affix');
@@ -251,6 +278,6 @@
 		        }).open();
 		    }
 		</script>
-	 	
+		
 </body>
 </html>
