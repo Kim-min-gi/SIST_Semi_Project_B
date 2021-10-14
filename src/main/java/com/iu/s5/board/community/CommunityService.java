@@ -23,7 +23,7 @@ public class CommunityService implements BoardService {
 	@Autowired
 	private CommunityDAO communityDAO;
 	
-	@Autowired
+	//@Autowired
 	private ServletContext sContext;
 	
 	@Autowired

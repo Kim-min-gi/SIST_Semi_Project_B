@@ -109,7 +109,7 @@
 		ON (CGS.CATEGORYNUM = RGS.CATEGORYNUM)
 		LEFT JOIN SEARCHS SES
 		ON (RGS.CATEGORYNUM= SES.CATEGORYNUM)
-		WHERE SES.SEARCH==#{search} OR RS.RESTNAME LIKE '%' || #{search} || '%')TB)
+		WHERE SES.SEARCH=#{search} OR RS.RESTNAME LIKE '%' || #{search} || '%')TB)
 		WHERE RNUM=1
  		
  	</select>
@@ -126,10 +126,12 @@
 		ON (RS.RESTNUM = CGS.RESTNUM)
 		LEFT JOIN RESTCATEGORYS RGS
 		ON (CGS.CATEGORYNUM = RGS.CATEGORYNUM)
-		WHERE RS.RESTNUM = #{restNum};
+		WHERE RS.RESTNUM = #{restNum}
 		
  	</select>
  	
+ 	
+ 	<!-- searchList pager를 위한 Count -->
  	<select id="getSearchCount" parameterType="com.iu.s5.restaurant.SearchsDTO" resultType="Long">
  		SELECT COUNT(*) COUNT
 		FROM
@@ -145,7 +147,7 @@
 		ON (CGS.CATEGORYNUM = RGS.CATEGORYNUM)
 		LEFT JOIN SEARCHS SES
 		ON (RGS.CATEGORYNUM= SES.CATEGORYNUM)
-		WHERE SES.SEARCH==#{search} OR RS.RESTNAME LIKE '%' || #{search} || '%')TB)
+		WHERE SES.SEARCH=#{search} OR RS.RESTNAME LIKE '%' || #{search} || '%')TB)
 		WHERE RNUM=1
  	
  	</select>

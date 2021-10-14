@@ -23,7 +23,7 @@ public class RequestService implements BoardService {
 	
 	@Autowired
 	private RequestDAO requestDAO;
-	@Autowired
+	//@Autowired
 	private ServletContext servletContext;
 	@Autowired
 	private FileManager fileManager;
