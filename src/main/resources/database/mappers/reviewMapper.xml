@@ -7,6 +7,10 @@
   
  <mapper namespace="com.iu.s5.review.ReviewDAO">
  
+ 	<select id="getRatingAvg" parameterType="ReviewDTO" resultType="Float">
+ 		SELECT AVG(RATING) FROM REVIEW WHERE RESTNUM = #{restNum}
+ 	</select>
+ 
  	<delete id="setDelete" parameterType="ReviewDTO">
  		DELETE FROM REVIEW WHERE REVIEWNUM = #{reviewNum}
  	</delete>
