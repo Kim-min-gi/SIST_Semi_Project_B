@@ -7,6 +7,15 @@
   
  <mapper namespace="com.iu.s5.review.ReviewDAO">
  
+ 	<insert id="setReviewFile" parameterType="ReviewFilesDTO">
+ 		INSERT INTO REVIEWFILES (REVIEWFILESNUM, REVIEWNUM, FILENAME, ORINAME)
+ 		VALUES (REVIEWFILES_SEQ.NEXTVAL, #{reviewNum}, #{fileName}, #{oriName})
+ 	</insert>
+ 
+ 	<select id="getReviewList" parameterType="Map" resultType="List">
+ 		SELECT * FROM REVIEW
+ 	</select>
+ 
  	<select id="getRatingAvg" parameterType="ReviewDTO" resultType="Float">
  		SELECT AVG(RATING) FROM REVIEW WHERE RESTNUM = #{restNum}
  	</select>
@@ -16,8 +25,11 @@
  	</delete>
  
  	<insert id="setInsert" parameterType="ReviewDTO">
+ 		<selectKey order="BEFORE" resultType="Long" keyProperty="reviewNum">
+ 			SELECT REVIEW_SEQ.NEXTVAL FROM DUAL
+ 		</selectKey>
  		INSERT INTO REVIEW (REVIEWNUM, RESTNUM, ID, WRITER, CONTENTS, RATING, REGDATE)
-		VALUES(REVIEW_SEQ.NEXTVAL, #{restNum}, #{id}, #{writer}, #{contents}, #{rating}, CURRENT_DATE)
+		VALUES(reviewNum, #{restNum}, #{id}, #{writer}, #{contents}, #{rating}, CURRENT_DATE)
  	</insert>
  
  </mapper>
