@@ -23,7 +23,7 @@
 				회원가입			
 			</h3>
 			
-			<form id="accInfos" action="join" method="post" class="col-md-6 mx-auto">
+			<form id="accInfos" action="join" method="post" enctype="multipart/form-data" class="col-md-6 mx-auto">
 				<!-- id -->
 				<div class="mb-3">
 					<label for="text" class="form-label">ID</label>
@@ -63,6 +63,12 @@
 			  		<input type="email" class="form-control accInfo" id="email" name="email" aria-describedby=" emailHelp" placeholder="email@email.com">
 			  	</div>
 			  	
+			  	<!-- File -->
+			  	<div class="mb-3" id="file">
+			  		<label for="photo" class="form-label">Photo</label>
+			  		<input type="file" class="form-control put" id="photo" name="photo" aria-describedby="emailHelp">
+			  	</div>
+			  	
 			  	<!-- 회원가입 버튼 -->
 			  	<div class="mb-3">
 			  		<label class="form-label"></label>
@@ -79,6 +85,7 @@
 		</script>
 		
 		<script type="text/javascript" src="../resources/js/join.js"></script>
+		<script type="text/javascript" src="../resources/js/file.js"></script>
 	</body>
 	
 </html>

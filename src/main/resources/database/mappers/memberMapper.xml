@@ -26,5 +26,10 @@
 	<update id="setUpdate" parameterType="MemberDTO">
 		UPDATE member SET pw=#{pw}, phone=#{phone}, email=#{email} WHERE id=#{id}
 	</update>
+	
+	<insert id="setFileInsert" parameterType="MemberFilesDTO">
+		INSERT INTO memberFiles (num, id, fileName, oriName)
+		VALUES (files_seq.nextval, #{id}, #{fileName}, #{oriName})
+	</insert>
   	
 </mapper>
