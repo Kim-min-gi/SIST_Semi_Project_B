@@ -7,6 +7,7 @@
 	<typeAliases>
 	
 		<typeAlias type="com.iu.s5.member.MemberDTO" alias="MemberDTO"/>
+		<typeAlias type="com.iu.s5.member.MemberFilesDTO" alias="MemberFilesDTO"/>
 		
 		<typeAlias type="com.iu.s5.board.BoardDTO" alias="BoardDTO"/>
 		<typeAlias type="com.iu.s5.board.BoardFileDTO" alias="BoardFileDTO"/>
@@ -15,10 +16,15 @@
 		<typeAlias type="com.iu.s5.board.request.RequestDTO" alias="RequestDTO"/>
 		<typeAlias type="com.iu.s5.board.CommentsDTO" alias="CommentsDTO"/>
 	
+		<typeAlias type="com.iu.s5.review.ReviewDTO" alias="ReviewDTO"/>
+		<typeAlias type="com.iu.s5.review.ReviewFilesDTO" alias="ReviewFilesDTO"/>
+	
 		
 		<typeAlias type="com.iu.s5.util.Pager" alias="Pager"/>
 		
   		<typeAlias type="java.lang.Long" alias="Long"/>
+  		<typeAlias type="java.lang.Integer" alias="Integer"/>
+  		<typeAlias type="java.lang.Float" alias="Float"/>
   		<typeAlias type="java.util.List" alias="List"/>
   		<typeAlias type="java.util.Map" alias="Map"/>
   		<typeAlias type="java.lang.String" alias="String"/>

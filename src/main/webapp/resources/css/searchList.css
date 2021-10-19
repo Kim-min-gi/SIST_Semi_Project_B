@@ -7,8 +7,11 @@
 	
 }
 
+.searchVal{
+	text-align: left;
+}
+
 .searchPart{
-	border:1px solid gold;
 	text-align: center;
 	height: 150px;
 	
@@ -16,7 +19,6 @@
 
 .searchList{
 	display:inline-block;
-	background-color:gray;
 	width: 70%;
 	height: 1500px;
 	text-align: center;
