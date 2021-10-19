@@ -116,3 +116,7 @@ input:focus{
 	
 	display: inline-block;
 }
+
+.category{
+	display: inline-block;
+}
