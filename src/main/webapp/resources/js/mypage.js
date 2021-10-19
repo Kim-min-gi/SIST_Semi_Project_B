@@ -30,5 +30,13 @@ window.addEventListener('DOMContentLoaded', event => {
             }
         });
     });
+    
+    const del = document.getElementById("del");
+    del.addEventListener('click', function() {
+		let result = confirm('계정을 삭제 하시겠습니까?');
+		if(result) {
+			location.href="./delete";
+		}
+	});
 
 });

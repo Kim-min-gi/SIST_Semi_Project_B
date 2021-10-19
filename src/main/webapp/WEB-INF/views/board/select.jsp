@@ -41,18 +41,73 @@
 			</div> 
 			
 
-			<c:forEach items="${dto.files}" var="list">
+			<c:forEach items="${dto.boardFiles}" var="list">
 				<div>
 					<a href="./fileDown?fileName=${list.fileName}">${list.oriName}</a> 
 				</div>
 			</c:forEach>
+			
+			<!-- request: 가게 정보 영역 -->
+			<c:if test="${board eq 'request'}">
+				<div class="info-area">
+					<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">항목</th>
+							<th scope="col">식당 정보</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<tr>
+							<th scope="row">상호명</th>
+							<th>${dto.restName}</th>
+						</tr>
+						
+						<tr>
+							<th scope="row">우편번호</th>
+							<th>${dto.restPostcode}</th>
+						</tr>
+						
+						<tr>
+							<th scope="row">주소</th>
+							<th>${dto.restAddress} ${dto.restAddressDt} ${dto.restAddressRf}</th>
+						</tr>
+						
+						<tr>
+							<th scope="row">전화번호</th>
+							<th>${dto.restPhone}</th>
+						</tr>
+						
+						<tr>
+							<th scope="row">식당 분류</th>
+							<th>${category}</th>
+						</tr>
+						
+						<tr>
+							<th scope="row">영업시간</th>
+							<th>${dto.restTime}</th>
+						</tr>
+						
+						<tr>
+							<th scope="row">휴일</th>
+							<th>${dto.holiday}</th>
+						</tr>
+					
+					</tbody>
+					</table>
+				
+				</div>
+			</c:if>
+			
+			<!-- 가게 정보 영역 끝  -->
 			
 			
 			<div>
 				${dto.contents}
 			</div>
 			
-			<!-- request 승인 버튼 -->
+			<!-- request: 승인 버튼 -->
 			<c:if test="${board eq 'request'}">
 			
 				<hr>

@@ -157,7 +157,7 @@
 			
 			<!-- 파일 첨부 -->
 			<div class="mb-3">
-				<label for="file" class="form-label">파일 첨부</label>
+				<label for="boardFiles" class="form-label">파일 첨부</label>
 				<button type="button" id="fileAdd" class="btn btn-default">추가</button>
 			</div>
 			<div id="fileAddArea">
@@ -249,7 +249,6 @@
 		                }
 		            }
 		        }).open();
-		        self.close();
 		    }
 		</script>
 	 	

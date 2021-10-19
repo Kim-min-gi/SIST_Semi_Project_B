@@ -75,6 +75,12 @@
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
  	</select>
  	
+ 	<select id="getCategoryName" parameterType="RequestDTO" resultType="String">
+ 		select categoryname from restcategorys where 
+   			categorynum =
+    			(select restcategory from request where num = #{num})
+ 	</select>
+ 	
  	<resultMap type="RequestDTO" id="getSelectResult">
  		<id column="num" property="num"/>
  		<result column="id" property="id"/>
@@ -94,7 +100,7 @@
  		<result column="holiday" property="holiday"/>
  		<result column="requestAccept" property="requestAccept"/>
  		<!-- Files -->
- 		<collection property="files" javaType="List" ofType="BoardFileDTO">
+ 		<collection property="boardFiles" javaType="List" ofType="BoardFileDTO">
  			<id column="fileNum" property="fileNum"/>
  			<result column="num" property="num"/>
  			<result column="fileName" property="fileName"/>

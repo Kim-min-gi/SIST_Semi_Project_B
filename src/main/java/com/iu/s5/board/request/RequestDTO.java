@@ -18,13 +18,13 @@ public class RequestDTO extends BoardDTO{
 	private String holiday; //휴일
 	private String requestAccept; //승인여부
 	
-	private List<BoardFileDTO> files;
+	private List<BoardFileDTO> boardFiles;
 	
-	public List<BoardFileDTO> getFiles() {
-		return files;
+	public List<BoardFileDTO> getBoardFiles() {
+		return boardFiles;
 	}
-	public void setFiles(List<BoardFileDTO> files) {
-		this.files = files;
+	public void setBoardFiles(List<BoardFileDTO> boardFiles) {
+		this.boardFiles = boardFiles;
 	}
 	public String getRestName() {
 		return restName;
@@ -76,18 +76,18 @@ public class RequestDTO extends BoardDTO{
 		this.restCategory = restCategory;
 	}
 	public String getRestTime() {
-//		if(this.restTime == null) {
-//			this.restTime = "";
-//		}
+		if(this.restTime == null) {
+			this.restTime = "";
+		}
 		return restTime;
 	}
 	public void setRestTime(String restTime) {
 		this.restTime = restTime;
 	}
 	public String getHoliday() {
-//		  if(this.holiday == null) {
-//			  this.holiday = ""; 
-//		  }
+		  if(this.holiday == null) {
+			  this.holiday = ""; 
+		  }
 		return holiday;
 	}
 	public void setHoliday(String holiday) {

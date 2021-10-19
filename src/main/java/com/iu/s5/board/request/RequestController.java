@@ -89,8 +89,10 @@ public class RequestController {
 		ModelAndView mv = new ModelAndView();
 		RequestDTO requestDTO = (RequestDTO)requestService.getSelect(boardDTO);
 		List<BoardFileDTO> ar = requestService.getFile(boardDTO);
+		String category = requestService.getCategoryName(requestDTO);
 		
 		mv.addObject("dto", requestDTO);
+		mv.addObject("category", category);
 		mv.setViewName("board/select");
 		return mv;
 	}
@@ -124,8 +126,9 @@ public class RequestController {
 	}
 	
 	@PostMapping("update")
-	public ModelAndView setUpdate(RequestDTO requestDTO, Pager pager) throws Exception {
-		ModelAndView mv = new ModelAndView();
+	public ModelAndView setUpdate(RequestDTO requestDTO, ModelAndView mv) throws Exception {
+		//ModelAndView mv = new ModelAndView();
+		System.out.println("update");
 		int result = requestService.setUpdate(requestDTO);
 		mv.setViewName("redirect:./list");
 		return mv;

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -33,11 +34,25 @@ public class MemberController {
 	}
 	
 	@PostMapping("join")
-	public ModelAndView join(MemberDTO memberDTO) throws Exception {
+	public ModelAndView join(MemberDTO memberDTO, MultipartFile photo, HttpSession session) throws Exception {
+		
 		ModelAndView mv = new ModelAndView();
 		
-		int result = memberService.setJoin(memberDTO);
-		mv.setViewName("redirect:../");
+		String original = photo.getOriginalFilename();
+		String name = photo.getName();
+		long size = photo.getSize();
+		
+		int result = memberService.setJoin(memberDTO, photo, session);
+		
+		String message = "회원가입 실패";
+		if(result>0) {
+			message = "회원 가입 성공";
+		}
+
+		mv.addObject("msg", message);
+		mv.addObject("url", "../");
+		mv.setViewName("common/result");
+		
 		return mv;
 	}
 	
@@ -89,6 +104,38 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("member/mypage");
 		return mv;
+	}
+	
+	@GetMapping("delete")
+	public ModelAndView setDelete(HttpSession session) throws Exception {
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		int result = memberService.setDelete(memberDTO);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirect:./logout");
+		return mv;
+	}
+	
+	@GetMapping("update")
+	public ModelAndView setUpdate() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/update");
+		return mv;
+	}
+	
+	@PostMapping("update")
+	public ModelAndView setUpdate(MemberDTO memberDTO, HttpSession session) throws Exception {
+		MemberDTO sessionDTO = (MemberDTO)session.getAttribute("member");
+		
+		memberDTO.setId(sessionDTO.getId());
+		int result = memberService.setUpdate(memberDTO);
+		memberDTO.setName(sessionDTO.getName());
+		session.setAttribute("member", memberDTO);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirect:../");
+		return mv;
+		
 	}
 	
 }
