@@ -5,6 +5,9 @@
   	
   
  <mapper namespace="com.iu.s5.board.request.RequestDAO">
+ 
+ 
+ 	
  	
  	<insert id="setComment" parameterType="CommentsDTO">
  		INSERT INTO COMMENTS 
