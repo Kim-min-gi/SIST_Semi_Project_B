@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.iu.s5.util.Pager;
+
 @Service
 public class RestaurantsService {
 	
@@ -16,7 +18,7 @@ public class RestaurantsService {
 	}
 	
 	
-	public List<RestaurantsDTO> getSearchList(SearchsDTO searchsDTO) throws Exception{
+	public List<RestaurantsDTO> getSearchList(SearchsDTO searchsDTO,Pager pager) throws Exception{
 		
 		
 		//카테고리도 찾아 작업 뒤 return해주기. 여기서 말고? controller에서 하는건?
@@ -27,7 +29,7 @@ public class RestaurantsService {
 		
 		
 		
-		return restaurantsDAO.getSearchList(searchsDTO);
+		return restaurantsDAO.getSearchList(searchsDTO,pager);
 		
 		
 	}

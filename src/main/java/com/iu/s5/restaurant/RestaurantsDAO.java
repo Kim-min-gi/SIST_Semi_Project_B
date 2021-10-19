@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.iu.s5.util.Pager;
+
 @Repository
 public class RestaurantsDAO {
 	@Autowired
@@ -17,7 +19,7 @@ public class RestaurantsDAO {
 	}
 	
 	
-	public List<RestaurantsDTO> getSearchList(SearchsDTO searchsDTO) throws Exception{
+	public List<RestaurantsDTO> getSearchList(SearchsDTO searchsDTO,Pager pager) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getSearchList",searchsDTO);
 	}
 	
