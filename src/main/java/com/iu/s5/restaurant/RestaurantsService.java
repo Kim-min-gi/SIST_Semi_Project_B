@@ -22,24 +22,19 @@ public class RestaurantsService {
 	public List<RestaurantsDTO> getSearchList(SearchsDTO searchsDTO,Pager pager) throws Exception{
 		
 		
-		//카테고리도 찾아 작업 뒤 return해주기. 여기서 말고? controller에서 하는건?
-		/*
-		 * List<RestaurantsDTO> ar = restaurantsDAO.getSearchList(searchsDTO, pager);
-		 * HashMap<String, Object> map = new HashMap<String, Object>();
-		 * 
-		 * 
-		 * map.put("searchList", ar); map.put("categorys", ca);
-		 */
-		
+		pager.setPerPage(10L);
+		pager.makeRow();
+		pager.makeNum(restaurantsDAO.getSearchCount(searchsDTO));
 		//map.put("pager", pager);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("search", searchsDTO);
+		map.put("pager", pager);
 		
 		
 		
 		
-		
-		
-		
-		return restaurantsDAO.getSearchList(searchsDTO,pager);
+		return restaurantsDAO.getSearchList(map);
 		
 		
 	}

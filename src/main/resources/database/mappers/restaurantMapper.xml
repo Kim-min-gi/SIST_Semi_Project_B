@@ -94,8 +94,12 @@
   	</resultMap> 
  	
  	<!-- searchList 부분 결과값 : 식당넘버(카테고리를 찾기위함), 식당명, 별점, 사진파일  -->
- 	<select id="getSearchList" parameterType="com.iu.s5.restaurant.SearchsDTO" resultMap="getSearchResult">
+ 	<select id="getSearchList" parameterType="Map" resultMap="getSearchResult">
  		SELECT RESTNUM, RESTNAME,STARVAL,FILENAME
+		FROM
+		(SELECT rownum R,RST.*
+		FROM
+		(SELECT *
 		FROM
 		(SELECT ROW_NUMBER() over(PARTITION BY TB.RESTNUM ORDER BY TB.RESTFILENUM) AS RNUM,TB.*
 		FROM
@@ -109,8 +113,9 @@
 		ON (CGS.CATEGORYNUM = RGS.CATEGORYNUM)
 		LEFT JOIN SEARCHS SES
 		ON (RGS.CATEGORYNUM= SES.CATEGORYNUM)
-		WHERE SES.SEARCH=#{search} OR RS.RESTNAME LIKE '%' || #{search} || '%')TB)
-		WHERE RNUM=1
+		WHERE SES.SEARCH=#{search.search} OR RS.RESTNAME LIKE '%' || #{search.search} || '%')TB)
+		WHERE RNUM=1) RST)
+        WHERE R BETWEEN #{pager.startRow} AND #{pager.lastRow}
  		
  	</select>
  	

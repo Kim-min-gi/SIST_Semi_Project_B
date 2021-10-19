@@ -1,6 +1,7 @@
 package com.iu.s5.restaurant;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,8 @@ public class RestaurantsDAO {
 	}
 	
 	
-	public List<RestaurantsDTO> getSearchList(SearchsDTO searchsDTO,Pager pager) throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getSearchList",searchsDTO);
+	public List<RestaurantsDTO> getSearchList(Map<String, Object> map) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getSearchList",map);
 	}
 	
 	public List<RestCategorysDTO> getCategorys(RestaurantsDTO restaurantsDTO) throws Exception{
