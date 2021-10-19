@@ -18,6 +18,8 @@
 	
 		<typeAlias type="com.iu.s5.review.ReviewDTO" alias="ReviewDTO"/>
 		<typeAlias type="com.iu.s5.review.ReviewFilesDTO" alias="ReviewFilesDTO"/>
+		
+		<typeAlias type="com.iu.s5.select.RestaurantsDTO" alias="RestaurantsDTO"/>
 	
 		
 		<typeAlias type="com.iu.s5.util.Pager" alias="Pager"/>
