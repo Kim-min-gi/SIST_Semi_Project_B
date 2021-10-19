@@ -31,5 +31,9 @@
 		INSERT INTO memberFiles (num, id, fileName, oriName)
 		VALUES (files_seq.nextval, #{id}, #{fileName}, #{oriName})
 	</insert>
+	
+	<select id="getFile" parameterType="MemberDTO" resultType="MemberFilesDTO">
+		SELECT * FROM memberFiles WHERE id=#{id}
+	</select>
   	
 </mapper>

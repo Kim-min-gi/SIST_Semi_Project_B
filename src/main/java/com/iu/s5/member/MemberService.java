@@ -67,4 +67,7 @@ public class MemberService {
 		return memberDAO.setUpdate(memberDTO);
 	}
 	
+	public MemberFilesDTO getFile(MemberDTO memberDTO) throws Exception {
+		return memberDAO.getFile(memberDTO);
+	}
 }
