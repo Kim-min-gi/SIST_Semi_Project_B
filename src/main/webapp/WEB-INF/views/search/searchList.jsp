@@ -70,43 +70,6 @@
 				
 			</li>
 			</c:forEach>
-		
-		
-		
-		
-		
-		<%-- <c:forEach items="${searchList}" var="search">
-			<li>
-				<div>
-					<figure>
-						<a>
-						<div class="RestImg">
-						
-						<img src="./resources/img/dummy.png">
-						
-						</div>
-						</a>
-						<figcaption class="fig">
-							<div class="info">
-							<a class="titleA">
-								<h3 class="title">${search.restName}</h3>
-							</a>
-							<h3 class="starVal">${search.starVal}</h3>
-							<p class="category">
-								<span><h4>Category</h4></span>
-							</p>
-							</div>
-						</figcaption>
-					</figure>
-				</div>
-				
-			</li>
-			</c:forEach> --%>
-			
-			
-			
-			
-			
 		</ul>
 	</div>
 	
@@ -119,7 +82,21 @@
 		<h1>involved List</h1>
 	</div>
 	
+	
+	<div class="pagination">
+  <a href="#">&laquo;</a>
+  <a href="#">&lt;</a>
+  <a class="active" href="#">1</a>
+  <a href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">&gt;</a>
+  <a href="#">&raquo;</a>
 </div>
+	
+</div>
+
 
 
 <c:import url="../temp/boot_footer.jsp"></c:import>

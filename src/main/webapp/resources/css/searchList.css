@@ -120,3 +120,25 @@ input:focus{
 .category{
 	display: inline-block;
 }
+
+.pagination {
+  display: inline-block;
+  padding-left: 300px;
+  
+}
+
+.pagination a {
+  font-size:20px;
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius:50%;
+}
+
+.pagination a.active {
+  background-color: tomato;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: silver;}
