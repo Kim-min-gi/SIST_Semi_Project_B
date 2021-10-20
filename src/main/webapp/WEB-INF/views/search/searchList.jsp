@@ -84,13 +84,13 @@
 	
 	
 	<div class="pagination">
-  <a href="#">&laquo;</a>
-  <a href="#">&lt;</a>
+  <a href="./search?search=${param.search}">&laquo;</a>
+  <a href="./search?search=${param.search}&pn=${pager.startNum-1}">&lt;</a>
   <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="n">
-	<a href="#">${n}</a>
+	<a href="./search?search=${param.search}&pn=${n}">${n}</a>
 	</c:forEach>
-  <a href="#">&gt;</a>
-  <a href="#">&raquo;</a>
+  <a href="./search?search=${param.search}&pn=${pager.startNum+1}">&gt;</a>
+  <a href="./search?search=${param.search}&pn=${pager.totalPage}">&raquo;</a>
 </div>
 	
 </div>
