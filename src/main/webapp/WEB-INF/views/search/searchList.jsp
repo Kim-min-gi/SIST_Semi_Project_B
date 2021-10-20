@@ -42,7 +42,7 @@
 			<li>
 				<div>
 					<figure>
-						<a>
+						<a href="#">  <!-- 상세 페이지 구현시 주소 바꾸기 -->
 						<div class="RestImg">
 						
 						<img src="./resources/img/dummy.png">
@@ -51,7 +51,7 @@
 						</a>
 						<figcaption class="fig">
 							<div class="info">
-							<a class="titleA">
+							<a class="titleA" href="#">  <!-- 상세 페이지 구현시 주소 바꾸기 -->
 								<h3 class="title">${map.key.restName}</h3>
 							</a>
 							<h3 class="starVal">${map.key.starVal}</h3>
