@@ -76,7 +76,7 @@ public class HomeController {
 		mv.addObject("searchList", ar);
 		mv.addObject("map", map);
 		//mv.addObject("categorys", ca);
-		//pager mv.addObject("pager",pager)
+		mv.addObject("pager",pager);
 		mv.setViewName("search/searchList");
 		
 		return mv;
