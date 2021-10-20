@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.iu.s5.board.BoardDTO;
 import com.iu.s5.board.BoardFileDTO;
 import com.iu.s5.board.CommentsDTO;
+import com.iu.s5.restaurant.RestaurantsDTO;
 import com.iu.s5.util.Pager;
 
 @Controller
@@ -27,6 +28,8 @@ public class RequestController {
 	public String getBoard() {
 		return "request";
 	}
+	
+	
 	
 	public ModelAndView setCommentDelete(CommentsDTO commentsDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
