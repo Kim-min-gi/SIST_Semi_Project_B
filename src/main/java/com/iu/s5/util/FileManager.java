@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Component
 public class FileManager {
-	@Autowired
+	//@Autowired
 	private ServletContext servletContext;
 	
 	//파일 삭제

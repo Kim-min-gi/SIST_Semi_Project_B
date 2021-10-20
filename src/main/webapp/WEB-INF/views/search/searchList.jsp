@@ -22,7 +22,7 @@
 				
 				<div>
 					<form action="search">
-						<input class="SearchInput" type="text" placeholder="검색">
+						<input class="SearchInput" type="text" placeholder="검색" name="search">
 						<input class="SearchSubmit" type="submit" value="검색하기">
 					</form>
 				</div>
@@ -35,39 +35,41 @@
 		<div class="searchVal">
 			<h2>${param.search}으로 검색한 결과</h2>
 		</div>
+		<hr>
 	<div class="searchinfo">
 		<ul>
+		<c:forEach items="${map}" var="map">
 			<li>
 				<div>
 					<figure>
-						<a>
-						<div>
+						<a href="#">  <!-- 상세 페이지 구현시 주소 바꾸기 -->
+						<div class="RestImg">
 						
-						<img>
+						<img src="./resources/img/dummy.png">
 						
 						</div>
 						</a>
-						<figcaption>
+						<figcaption class="fig">
 							<div class="info">
-							<a>
-								<h2 class="title">title</h2>
+							<a class="titleA" href="#">  <!-- 상세 페이지 구현시 주소 바꾸기 -->
+								<h3 class="title">${map.key.restName}</h3>
 							</a>
-							<strong class="starVal">starVal</strong>
-							<p class="category">
-								<span>Category</span>
-							</p>
+							<h3 class="starVal">${map.key.starVal}</h3>
+							<br>
+							<h5>
+							<c:forEach items="${map.value}" var="categorys">
+								${categorys.categoryName}
+							</c:forEach>
+							</h5>
+							
+							
 							</div>
 						</figcaption>
-						
 					</figure>
-					
-				</div>
-				
-				<div>
 				</div>
 				
 			</li>
-			
+			</c:forEach>
 		</ul>
 	</div>
 	
@@ -80,7 +82,19 @@
 		<h1>involved List</h1>
 	</div>
 	
+	
+	<div class="pagination">
+  <a href="./search?search=${param.search}">&laquo;</a>
+  <a href="./search?search=${param.search}&pn=${pager.startNum-1}">&lt;</a>
+  <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="n">
+	<a href="./search?search=${param.search}&pn=${n}">${n}</a>
+	</c:forEach>
+  <a href="./search?search=${param.search}&pn=${pager.startNum+1}">&gt;</a>
+  <a href="./search?search=${param.search}&pn=${pager.totalPage}">&raquo;</a>
 </div>
+	
+</div>
+
 
 
 <c:import url="../temp/boot_footer.jsp"></c:import>
