@@ -12,6 +12,8 @@ public class MemberDTO {
 	private String email;
 	private String nickName;
 	
+	private MemberFilesDTO memberFilesDTO;
+	
 	public String getId() {
 		return id;
 	}
@@ -59,6 +61,13 @@ public class MemberDTO {
 	}
 	public void setNickName(String nickName) {
 		this.nickName = nickName;
+	}
+	
+	public MemberFilesDTO getMemberFilesDTO() {
+		return memberFilesDTO;
+	}
+	public void setMemberFilesDTO(MemberFilesDTO memberFilesDTO) {
+		this.memberFilesDTO = memberFilesDTO;
 	}
 	
 	

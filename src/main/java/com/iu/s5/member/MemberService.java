@@ -17,6 +17,12 @@ public class MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
 	
+	@Autowired
+	private HttpSession session;
+	
+	@Autowired
+	private ServletContext servletContext;
+	
 	public MemberDTO getIdCheck(MemberDTO memberDTO) throws Exception {
 		return memberDAO.getIdCheck(memberDTO);
 	}
@@ -27,8 +33,8 @@ public class MemberService {
 		
 		if(photo != null) {
 			
-			ServletContext sContext = session.getServletContext();
-			String realPath = sContext.getRealPath("/resources/upload/member");
+			//ServletContext sContext = this.session.getServletContext();
+			String realPath = this.servletContext.getRealPath("/resources/upload/member/");
 			System.out.println("RealPath : " + realPath);
 			
 			File file = new File(realPath);
@@ -60,6 +66,14 @@ public class MemberService {
 	}
 	
 	public int setDelete(MemberDTO memberDTO) throws Exception {
+		
+		String realPath = servletContext.getRealPath("/resources/upload/member/");
+		
+		MemberFilesDTO memberFilesDTO = memberDAO.getFile(memberDTO);
+		
+		File file = new File(realPath, memberFilesDTO.getFileName());
+		file.delete();
+		
 		return memberDAO.setDelete(memberDTO);
 	}
 	
