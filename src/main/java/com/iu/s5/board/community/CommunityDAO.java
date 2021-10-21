@@ -52,6 +52,8 @@ public class CommunityDAO implements BoardDAO {
 		return sqlSession.selectOne(NAMESPACE + "getCommentCount", commentsDTO);
 	}
 
+	
+	
 	@Override
 	public int setFile(BoardFileDTO boardFileDTO) throws Exception {
 		// TODO Auto-generated method stub

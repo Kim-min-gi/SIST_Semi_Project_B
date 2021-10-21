@@ -96,6 +96,7 @@ public class CommunityService implements BoardService {
 		// TODO Auto-generated method stub
 		int result = communityDAO.setInsert(boardDTO);
 		
+
 		
 		String realPath = sContext.getRealPath("resources/upload/community/");
 		File file = new File(realPath);
