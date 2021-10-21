@@ -15,6 +15,7 @@ import com.iu.s5.board.BoardDTO;
 import com.iu.s5.board.BoardFileDTO;
 import com.iu.s5.board.BoardService;
 import com.iu.s5.board.CommentsDTO;
+import com.iu.s5.restaurant.RestaurantsDTO;
 import com.iu.s5.util.FileManager;
 import com.iu.s5.util.Pager;
 
@@ -23,10 +24,11 @@ public class RequestService implements BoardService {
 	
 	@Autowired
 	private RequestDAO requestDAO;
-	@Autowired
+	//@Autowired
 	private ServletContext servletContext;
 	@Autowired
 	private FileManager fileManager;
+	
 	
 	
 	public String getCategoryName(RequestDTO requestDTO) throws Exception {

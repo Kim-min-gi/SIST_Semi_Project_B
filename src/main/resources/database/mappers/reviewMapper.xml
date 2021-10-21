@@ -7,6 +7,28 @@
   
  <mapper namespace="com.iu.s5.review.ReviewDAO">
  
+ 	<insert id="setReviewFile" parameterType="ReviewFilesDTO">
+ 		INSERT INTO REVIEWFILES (REVIEWFILESNUM, REVIEWNUM, FILENAME, ORINAME)
+ 		VALUES (REVIEWFILES_SEQ.NEXTVAL, #{reviewNum}, #{fileName}, #{oriName})
+ 	</insert>
+ 	
+ 	<select id="getReviewCount" parameterType="ReviewDTO" resultType="Long">
+ 		SELECT COUNT(REVIEWNUM) FROM REVIEW WHERE RESTNUM = #{restNum}
+ 	</select>
+ 	
+ 	<select id="getReviewFile" parameterType="ReviewDTO" resultType="ReviewFilesDTO">
+ 		SELECT * FROM REVIEWFILES WHERE REVIEWNUM = #{reviewNum}
+ 	</select>
+ 
+ 	<select id="getReviewList" parameterType="Map" resultType="ReviewDTO">
+ 		SELECT * FROM
+		(SELECT ROWNUM RN, RV.* FROM
+			(SELECT * FROM REVIEW
+			WHERE RESTNUM = #{reviews.restNum}) 
+		RV)
+		WHERE RN BETWEEN #{pager.startRow} AND #{pager.lastRow}
+ 	</select>
+ 
  	<select id="getRatingAvg" parameterType="ReviewDTO" resultType="Float">
  		SELECT AVG(RATING) FROM REVIEW WHERE RESTNUM = #{restNum}
  	</select>
@@ -16,8 +38,11 @@
  	</delete>
  
  	<insert id="setInsert" parameterType="ReviewDTO">
+ 		<selectKey order="BEFORE" resultType="Long" keyProperty="reviewNum">
+ 			SELECT REVIEW_SEQ.NEXTVAL FROM DUAL
+ 		</selectKey>
  		INSERT INTO REVIEW (REVIEWNUM, RESTNUM, ID, WRITER, CONTENTS, RATING, REGDATE)
-		VALUES(REVIEW_SEQ.NEXTVAL, #{restNum}, #{id}, #{writer}, #{contents}, #{rating}, CURRENT_DATE)
+		VALUES(reviewNum, #{restNum}, #{id}, #{writer}, #{contents}, #{rating}, CURRENT_DATE)
  	</insert>
  
  </mapper>

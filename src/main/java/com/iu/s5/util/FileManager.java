@@ -1,8 +1,11 @@
 package com.iu.s5.util;
 
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.UUID;
 
+import javax.imageio.ImageIO;
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Component
 public class FileManager {
-	@Autowired
+	//@Autowired
 	private ServletContext servletContext;
 	
 	//파일 삭제
