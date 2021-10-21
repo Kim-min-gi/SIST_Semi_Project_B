@@ -48,7 +48,7 @@
 							</select>
 						</div>
 						<div class="form-group title-area col-md-10">
-					    	<input type="text" class="form-control" value="${dto.title} name="title" id="title">
+					    	<input type="text" class="form-control" value="${dto.title}" name="title" id="title">
 					     </div>
 					</div>
 				</c:if>
@@ -167,13 +167,23 @@
 	  			<textarea class="form-control" cols="" name="contents" id="contents" rows="10">${dto.contents}</textarea>
 			</div>
 			
+			
+			<!-- 기존 파일... -->
+			<div>
+				<c:forEach items="${dto.boardFiles}" var="f">
+					<input type="file" class="form-control" name="boardFile" value=""> 
+					<div>
+						${f.oriName} <span class="fileDelete" data-files-num="${f.fileNum}" data-files-name="${f.fileName}"> X </span>
+					</div>
+				</c:forEach>
+			</div>
+			
 			<!-- 파일 첨부 -->
 			<div class="mb-3">
 				<label for="contents" class="form-label">파일 첨부</label>
 				<button type="button" id="fileAdd" class="btn btn-default">추가</button>
-				
-			
-			
+			</div>
+			<div id="fileAddArea">
 			</div>
 		
 		
@@ -189,23 +199,26 @@
 	
 	<c:import url="../temp/boot_footer.jsp"></c:import>
 	
+	<script type="text/javascript" src="../resources/js/boardFile.js"></script>
 	<script type="text/javascript" src="../resources/js/addressSearch.js"></script>
+	
 	<script>
 	
-		/* $('#contents').summernote({
-			height: 400
-		}); */
-		
-		$(window).scroll(function() {
-            if ($(document).scrollTop() > 50) {
-                $('.navi').addClass('affix');
-                console.log("OK");
-            } else {
-                $('.navi').removeClass('affix');
-            }
-	});
+		$('.navi').addClass('affix');
 	
-
+		 $('#contents').summernote({
+			height: 400
+		}); 
+		
+		//파일 개수 전달
+		setCount('${dto.boardFiles.size()}');
+		
+		//파일 삭제 버튼 누르면
+		$(".fileDelete").click(function() {
+			$(this).parent().remove();
+			fileCount--;
+		})
+		
 	 </script>
 	 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 		<script>

@@ -78,8 +78,7 @@
 							<button type="button" id="fileAdd" class="btn btn-default">추가</button>
 						</div>
 						<div id="fileAddArea">
-					
-					</div>
+						</div>
 			
 			
 				<div class="bottom-right">
@@ -215,11 +214,11 @@
 	
 		$('.navi').addClass('affix');
 	
-		/* $(document).ready(function() {
+		 $(document).ready(function() {
 			$('#summernote').summernote({
 				height: 400
 			});
-		}); */
+		}); 
 		
 	 </script>
 	 

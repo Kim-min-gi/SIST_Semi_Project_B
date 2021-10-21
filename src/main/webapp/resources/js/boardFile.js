@@ -5,7 +5,7 @@
  
  let file = '<div class="input-inline">'+
  				'<div class="col-md-10">'+
-   				'<input type="file" class="form-control" name="boardFiles"></div>'+
+   				'<input type="file" class="form-control" name="boardFile"></div>'+
    				'<div class="col-md-2">'+
    				'<button class="btn btn-outline-secondary del" type="button">파일 삭제</button>'+
 				'</div></div>';
@@ -15,6 +15,10 @@
 const TOTLACOUNT = 5;
 
 let fileCount = 0;
+ 
+function setCount(fileSize) {
+	fileCount = fileSize;
+}
  
  
 //파일 추가

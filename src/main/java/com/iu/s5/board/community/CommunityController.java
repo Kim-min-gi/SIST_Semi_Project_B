@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,7 +32,7 @@ public class CommunityController {
 		return "community";
 	}
 	
-	
+	//댓글 수정
 	@PostMapping("setCommentUpdate")
 	@ResponseBody
 	public int setCommentUpdate(CommentsDTO commentsDTO) throws Exception {
@@ -41,6 +42,7 @@ public class CommunityController {
 	}
 	
 	
+	//댓글 삭제
 	@GetMapping("setCommentDelete")
 	@ResponseBody
 	public int setCommentDelete(CommentsDTO commentsDTO) throws Exception {
@@ -50,6 +52,7 @@ public class CommunityController {
 	}
 	
 	
+	//댓글 목록 리스트
 	@GetMapping("getCommentList")
 	public ModelAndView getCommentList(CommentsDTO commentsDTO, Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -64,6 +67,7 @@ public class CommunityController {
 		return mv;
 	}
 	
+	//댓글 작성
 	@PostMapping("comment")
 	public ModelAndView setComment(CommentsDTO commentsDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -74,11 +78,25 @@ public class CommunityController {
 	}
 	
 	
-	//글 수정폼
-	@GetMapping("update")
+	//글 수정
+	@PostMapping("update")
 	public ModelAndView setUpdate() throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
+		
+		
+		return mv;
+	}
+	
+	
+	//글 수정폼
+	@GetMapping("update")
+	public ModelAndView setUpdate(CommunityDTO communityDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		communityDTO = (CommunityDTO) communityService.getSelect(communityDTO);
+		
+		mv.addObject("dto", communityDTO);
 		mv.setViewName("board/update");
 		return mv;
 	}
@@ -97,7 +115,7 @@ public class CommunityController {
 	
 	//글 작성
 	@PostMapping("insert")
-	public ModelAndView setInsert(CommunityDTO communityDTO, MultipartFile[] boardFiles) throws Exception {
+	public ModelAndView setInsert(CommunityDTO communityDTO, @RequestParam("boardFile") MultipartFile[] boardFiles) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
 		
@@ -123,6 +141,7 @@ public class CommunityController {
 	}
 	
 	
+	//글상세-파일다운로드
 	@GetMapping("fileDown")
 	public ModelAndView fileDown(BoardFileDTO boardFileDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();

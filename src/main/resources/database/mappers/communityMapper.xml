@@ -40,7 +40,7 @@
  	</select>
  
  	 <delete id="setFileDelete" parameterType="BoardFileDTO">
- 	 	DELETE COMMUNITYFILES WHERE FILENUM = #{fileNum}
+ 	 	DELETE COMMUNITYFILES WHERE NUM = #{num}
  	 </delete>
  
  	<insert id="setFile" parameterType="BoardFileDTO">
@@ -103,6 +103,8 @@
 			) C)
 		WHERE RN BETWEEN #{startRow} AND #{lastRow}
  	</select>
+ 
+
  
  	<delete id="setDelete" parameterType="BoardDTO">
  		DELETE FROM COMMUNITY WHERE NUM = #{num}
