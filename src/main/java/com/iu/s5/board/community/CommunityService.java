@@ -23,7 +23,7 @@ public class CommunityService implements BoardService {
 	@Autowired
 	private CommunityDAO communityDAO;
 	
-	//@Autowired
+	@Autowired
 	private ServletContext sContext;
 	
 	@Autowired
@@ -55,6 +55,8 @@ public class CommunityService implements BoardService {
 		
 		return communityDAO.getCommentList(map);
 	}
+	
+	
 
 	@Override
 	public int setCommentDelete(CommentsDTO commentsDTO) throws Exception {
@@ -98,7 +100,7 @@ public class CommunityService implements BoardService {
 		
 
 		
-		String realPath = sContext.getRealPath("resources/upload/community/");
+		String realPath = sContext.getRealPath("/resources/upload/community/");
 		File file = new File(realPath);
 		
 		for (MultipartFile mf : boardFiles) {
@@ -109,7 +111,10 @@ public class CommunityService implements BoardService {
 			boardFileDTO.setOriName(mf.getOriginalFilename());
 			boardFileDTO.setNum(boardDTO.getNum());
 			
-			result = communityDAO.setFile(boardFileDTO);
+			//파일 이름 공백 아닐 때만 db에 저장
+			if (mf.getOriginalFilename() != "") {
+				result = communityDAO.setFile(boardFileDTO);
+			}
 		}
 		
 		return result;
@@ -124,9 +129,50 @@ public class CommunityService implements BoardService {
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return communityDAO.setUpdate(boardDTO);
 	}
 
+	/* 수정 -- 게시글 , 파일 한꺼번에 */
+	/* boardDTO - 게시글 수정
+	 * boardFiles - 파일 추가 
+	 * removeFileName - 삭제할 파일 */
+	public int setUpdate(BoardDTO boardDTO, MultipartFile[] boardFiles) throws Exception {
+		/* 글 내용 수정 */
+		int result = communityDAO.setUpdate(boardDTO);
+		
+		/* 파일 추가 */
+		String realPath = sContext.getRealPath("/resources/upload/community/");
+		File file = new File(realPath);
+		
+		for (MultipartFile mf : boardFiles) {
+			String fileName = fileManager.fileSave(mf, file);
+			
+			BoardFileDTO boardFileDTO = new BoardFileDTO();
+			boardFileDTO.setFileName(fileName);
+			boardFileDTO.setOriName(mf.getOriginalFilename());
+			boardFileDTO.setNum(boardDTO.getNum());
+			
+			//파일 이름 공백 아닐 때만 db에 저장
+			if (mf.getOriginalFilename() != "") {
+				result = communityDAO.setFile(boardFileDTO);
+			}
+		}
+		/* 파일 추가 끝 */
+		return result;
+	}
 	
-	
+	/* 파일 삭제 */
+	public int setFileDelete(List<BoardFileDTO> boardFileDTOs) throws Exception {
+		String realPath = sContext.getRealPath("/resources/upload/community/");
+		int result = 0;
+		
+		for (BoardFileDTO bf : boardFileDTOs) {
+			File file = new File(realPath, bf.getFileName());
+			fileManager.fileDelete(file);
+			
+			result = communityDAO.setFileDelete(bf);
+		}
+		
+		return result;
+	}
 }

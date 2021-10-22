@@ -19,14 +19,14 @@ public class RestaurantsDAOtest extends JunitTest {
 	//@Test
 	public void getSearchListTest() throws Exception{
 		
-		SearchsDTO searchsDTO = new SearchsDTO();
-		
-		searchsDTO.setSearch("갈비");
-		
-		List<RestaurantsDTO> ar = restaurantsDAO.getSearchList(searchsDTO);
-			
-		
-		assertEquals(true, ar.isEmpty());
+//		SearchsDTO searchsDTO = new SearchsDTO();
+//		
+//		searchsDTO.setSearch("갈비");
+//		
+//		List<RestaurantsDTO> ar = restaurantsDAO.getSearchList(searchsDTO);
+//			
+//		
+//		assertEquals(true, ar.isEmpty());
 				
 	}
 	

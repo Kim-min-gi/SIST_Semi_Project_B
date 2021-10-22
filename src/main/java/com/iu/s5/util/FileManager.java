@@ -35,8 +35,12 @@ public class FileManager {
 		
 		file = new File(file, fileName);
 		
-		//저장
-		multipartFile.transferTo(file);
+		//파일 이름 공백 아닐때만 저장
+		if (multipartFile.getOriginalFilename() != "") {
+			System.out.println(multipartFile.getOriginalFilename());
+			multipartFile.transferTo(file);
+		}
+		
 		
 		return fileName;
 		
