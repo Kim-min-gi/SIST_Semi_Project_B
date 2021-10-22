@@ -40,12 +40,14 @@ public class FileDownload extends AbstractView {
 		response.setContentLength((int) file.length()); //파일크기
 		
 		//다운로드 시 파일 이름 설정
+		String oriFileName = boardFileDTO.getOriName();
 		String fileName = boardFileDTO.getFileName();
-		String downName = fileName.substring(fileName.lastIndexOf("_")+1); //확장자
+		String downName = fileName.substring(fileName.lastIndexOf(".")+1); //확장자
 		
-		response.setContentType("application/octet-stream; charset=UTF-8");
-		response.setHeader("Content-Disposition", "attachment;fileName=\""+downName+"\"");
-		response.setHeader("Content-Transfer-Encoding", "binary");
+//		System.out.println("or:"+oriFileName);
+		
+		oriFileName = new String(oriFileName.getBytes("UTF-8"), "ISO-8859-1");
+		response.setHeader("Content-Disposition", "attachment; fileName=\""+oriFileName);
 		
 		//클라이언트에 전송
 		FileInputStream fi = new FileInputStream(file);
@@ -57,5 +59,4 @@ public class FileDownload extends AbstractView {
 		os.close();
 		fi.close();
 	}
-	
 }
