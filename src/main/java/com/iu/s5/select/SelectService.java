@@ -12,7 +12,7 @@ public class SelectService {
 	private SelectDAO selectDAO;
 	
 	//식당 상세 페이지
-	public RestaurantsDTO getSelectRT(RestaurantsDTO restaurantsDTO) throws Exception {
+	public com.iu.s5.select.RestaurantsDTO getSelectRT(com.iu.s5.select.RestaurantsDTO restaurantsDTO) throws Exception {
 		return selectDAO.getSelectRT(restaurantsDTO);
 	}
 
