@@ -15,7 +15,7 @@ public class SelectDAO {
 	
 	
 	//식당상세페이지
-	public RestaurantsDTO getSelectRT(RestaurantsDTO restaurantsDTO) throws Exception {
+	public com.iu.s5.select.RestaurantsDTO getSelectRT(com.iu.s5.select.RestaurantsDTO restaurantsDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"getSelectRT", restaurantsDTO);
 	}
 
