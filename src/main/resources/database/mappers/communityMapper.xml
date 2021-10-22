@@ -40,7 +40,7 @@
  	</select>
  
  	 <delete id="setFileDelete" parameterType="BoardFileDTO">
- 	 	DELETE COMMUNITYFILES WHERE NUM = #{num}
+ 	 	DELETE COMMUNITYFILES WHERE FILENUM = #{fileNum}
  	 </delete>
  
  	<insert id="setFile" parameterType="BoardFileDTO">
@@ -104,8 +104,6 @@
 		WHERE RN BETWEEN #{startRow} AND #{lastRow}
  	</select>
  
-
- 
  	<delete id="setDelete" parameterType="BoardDTO">
  		DELETE FROM COMMUNITY WHERE NUM = #{num}
  	</delete>
@@ -118,5 +116,11 @@
  		INSERT INTO COMMUNITY (NUM, ID, WRITER, TITLE, CONTENTS, REGDATE, HITS, CATEGORY)
 		VALUES (#{num}, #{id}, #{writer}, #{title}, #{contents}, CURRENT_DATE, 0, #{category})
  	</insert>
+ 	
+ 	<update id="setUpdate" parameterType="CommunityDTO">
+ 		UPDATE COMMUNITY 
+		SET TITLE = #{title}, CONTENTS = #{contents}, CATEGORY = #{category}
+		WHERE NUM = #{num}
+ 	</update>
  
  </mapper>

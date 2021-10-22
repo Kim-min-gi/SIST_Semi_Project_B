@@ -59,6 +59,12 @@ public class CommunityDAO implements BoardDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.insert(NAMESPACE + "setFile", boardFileDTO);
 	}
+	
+	@Override
+	public int setFileDelete(BoardFileDTO boardFileDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.delete(NAMESPACE + "setFileDelete", boardFileDTO);
+	}
 
 	@Override
 	public List<BoardFileDTO> getFile(BoardDTO boardDTO) throws Exception {
@@ -103,7 +109,7 @@ public class CommunityDAO implements BoardDAO {
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESPACE + "setUpdate", boardDTO);
 	}
 
 	

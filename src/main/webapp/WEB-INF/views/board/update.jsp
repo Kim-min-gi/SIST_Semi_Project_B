@@ -171,7 +171,6 @@
 			<!-- 기존 파일... -->
 			<div>
 				<c:forEach items="${dto.boardFiles}" var="f">
-					<input type="file" class="form-control" name="boardFile" value=""> 
 					<div>
 						${f.oriName} <span class="fileDelete" data-files-num="${f.fileNum}" data-files-name="${f.fileName}"> X </span>
 					</div>
@@ -185,7 +184,8 @@
 			</div>
 			<div id="fileAddArea">
 			</div>
-		
+			<div id="fileRemoveArea">
+			</div>
 		
 		
 			<div class="bottom-right">
@@ -215,8 +215,18 @@
 		
 		//파일 삭제 버튼 누르면
 		$(".fileDelete").click(function() {
+			let fileNum = $(this).attr('data-files-num');
+			let fileName = $(this).attr('data-files-name');
+			
 			$(this).parent().remove();
 			fileCount--;
+			
+			let removeFile = "<input type='hidden' name='removeFileNum' value='"+fileNum+"'>";
+			removeFile += "<input type='hidden' name='removeFileName' value='"+fileName+"'>";
+			$("#fileRemoveArea").append(removeFile);
+			
+			
+
 		})
 		
 	 </script>

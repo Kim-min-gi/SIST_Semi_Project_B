@@ -18,7 +18,7 @@ public interface BoardDAO {
 	
 	/* 파일 */
 	public int setFile(BoardFileDTO boardFileDTO) throws Exception; //파일 저장
-//	public int setFileDelete(BoardFileDTO boardFileDTO) throws Exception; //파일 삭제
+	public int setFileDelete(BoardFileDTO boardFileDTO) throws Exception; //파일 삭제
 	public List<BoardFileDTO> getFile(BoardDTO boardDTO) throws Exception; //파일 불러오기
 	
 	
