@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.iu.s5.board.community.CommunityDTO;
 import com.iu.s5.util.Pager;
 
 @Repository
@@ -30,6 +31,10 @@ public class RestaurantsDAO {
 	
 	public Long getSearchCount(SearchsDTO searchsDTO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getSearchCount", searchsDTO);
+	}
+	
+	public List<CommunityDTO> getCommunity() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getCommunity");
 	}
 
 }

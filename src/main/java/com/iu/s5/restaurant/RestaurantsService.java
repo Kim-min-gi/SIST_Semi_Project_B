@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.iu.s5.board.community.CommunityDTO;
 import com.iu.s5.util.Pager;
 
 @Service
@@ -43,6 +44,10 @@ public class RestaurantsService {
 		
 		return restaurantsDAO.getCategorys(restaurantsDTO);
 		
+	}
+	
+	public List<CommunityDTO> getCommunity() throws Exception{
+		return restaurantsDAO.getCommunity();
 	}
 	
 

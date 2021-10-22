@@ -119,8 +119,9 @@
 			
 			<div class="writingcontainer">
 				<div class="Communitys">
-				<h3>첫번째 영역 : 커뮤니티 게시판 최신순</h3>
-					
+				<c:forEach items="${Community}" var="c">
+						<h3>제목 : ${c.title} 작정자 : ${c.writer}</h3>
+					</c:forEach>
 				</div>
 				
 				<div class="Riviews">
