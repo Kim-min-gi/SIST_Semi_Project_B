@@ -17,9 +17,10 @@ public class SelectController {
 	
 		//식당 상세페이지
 		@GetMapping("select")
-		public ModelAndView getSelectRT(RestaurantsDTO restaurantsDTO) throws Exception {
+		public ModelAndView getSelectRT(com.iu.s5.select.RestaurantsDTO restaurantsDTO) throws Exception {
 			ModelAndView mv = new ModelAndView();
 			restaurantsDTO = selectService.getSelectRT(restaurantsDTO);
+			System.out.println(restaurantsDTO.getRestNum());
 			mv.addObject("dto", restaurantsDTO);
 			mv.setViewName("restaurants/select");
 			return mv;

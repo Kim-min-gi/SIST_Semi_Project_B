@@ -33,11 +33,20 @@
   			<id column="categoryNum" property="categoryNum"/>
   			<result column="categoryName" property="categoryName"/>
   		</collection>
+  		
  	
  	</resultMap>
  	
  	<select id="getSelectRT" parameterType="RestaurantsDTO" resultMap="getSelectRTResult">
-	 		SELECT * FROM RESTAURANTS WHERE restNum = #{restNum}
+	 		SELECT * FROM
+		    RESTAURANTS R
+		    LEFT JOIN RESTAURANTSFILE RF
+		        ON R.RESTNUM = RF.RESTNUM
+		    LEFT JOIN CATEGORYS C
+		        ON R.RESTNUM = C.RESTNUM
+		    LEFT JOIN RESTCATEGORYS RC
+       			ON C.CATEGORYNUM = RC.CATEGORYNUM
+		    WHERE R.restNum = #{restNum}
  	</select>
  	
  
