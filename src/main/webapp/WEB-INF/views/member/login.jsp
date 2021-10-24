@@ -18,7 +18,6 @@
 	
 		<div class="container">
 			
-			<h3>로그인</h3>
 			<!-- 로그인 모달창 버튼 -->
 			<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
 				로그인
