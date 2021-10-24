@@ -119,9 +119,21 @@
 			
 			<div class="writingcontainer">
 				<div class="Communitys">
+				<div class="title1">
+					<h3>최신 커뮤니티글</h3>  <a href="${pageContext.request.contextPath}/community/list">더보기</a> 
+				</div>
+				<div class="Commu">
 				<c:forEach items="${Community}" var="c">
-						<h3>제목 : ${c.title} 작정자 : ${c.writer}</h3>
+						<div  class="title2">
+						<h3>제목 : <a href="${pageContext.request.contextPath}/community/select?num=${c.num}">${c.title}</a></h3> 
+						</div>
+						<div class="writer">
+						<h3>작정자 : ${c.writer}</h3>
+						</div>
 					</c:forEach>
+					
+					</div>
+				
 				</div>
 				
 				<div class="Riviews">
