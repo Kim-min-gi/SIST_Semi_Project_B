@@ -7,8 +7,46 @@
   
  <mapper namespace="com.iu.s5.select.SelectDAO">
  	
- 	<select id="getSelectRT" parameterType="RestaurantsDTO">
-	 		SELECT * FROM RESTAURANTS WHERE restNum = #{restNum}
+ 	<resultMap type="RestaurantsDTO" id="getSelectRTResult">
+ 		<id column="restNum" property="restNum"/>
+  		<result column="restName" property="restName"/>
+  		<result column="restLocation" property="restLocation"/>
+  		<result column="phone" property="phone"/>
+  		<result column="restCategory" property="restCategory"/>
+  		<result column="restTime" property="restTime"/>
+  		<result column="holiDay" property="holiDay"/>
+  		<result column="hits" property="hits"/>
+  		<result column="likes" property="likes"/>
+  		<result column="starVal" property="starVal"/>
+  		<result column="lat" property="lat"/>
+  		<result column="logt" property="logt"/>
+  		<result column="openFlag" property="openFlag"/>
+  		
+  		<collection property="files" javaType="List" ofType="com.iu.s5.select.RestaurantsFilesDTO">
+  			<id column="restFileNum" property="restFileNum"/>
+  			<result column="restNum" property="restNum"/>
+  			<result column="fileName" property="fileName"/>
+  			<result column="oriName" property="oriName"/>
+  		</collection>
+  	
+  		<collection property="categorysDTOs" javaType="List" ofType="com.iu.s5.select.RestCategorysDTO">
+  			<id column="categoryNum" property="categoryNum"/>
+  			<result column="categoryName" property="categoryName"/>
+  		</collection>
+  		
+ 	
+ 	</resultMap>
+ 	
+ 	<select id="getSelectRT" parameterType="RestaurantsDTO" resultMap="getSelectRTResult">
+	 		SELECT * FROM
+		    RESTAURANTS R
+		    LEFT JOIN RESTAURANTSFILE RF
+		        ON R.RESTNUM = RF.RESTNUM
+		    LEFT JOIN CATEGORYS C
+		        ON R.RESTNUM = C.RESTNUM
+		    LEFT JOIN RESTCATEGORYS RC
+       			ON C.CATEGORYNUM = RC.CATEGORYNUM
+		    WHERE R.restNum = #{restNum}
  	</select>
  	
  

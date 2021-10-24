@@ -15,9 +15,14 @@
 		VALUES (#{id}, #{pw}, #{name}, #{phone}, #{email})
 	</insert>
 	
-	<select id="getLogin" parameterType="MemberDTO" resultType="MemberDTO">
-		SELECT * FROM member WHERE id=#{id} AND pw=#{pw}
-	</select>
+	<select id="getLogin" parameterType="MemberDTO" resultMap="getLoginResult">
+  		SELECT *
+		FROM member M
+		     INNER JOIN
+		     memberFiles MF
+		USING (id)     
+		WHERE id=#{id} AND pw=#{pw}
+  	</select>
 	
 	<delete id="setDelete" parameterType="MemberDTO">
 		DELETE member WHERE id=#{id} AND pw=#{pw}
@@ -31,5 +36,24 @@
 		INSERT INTO memberFiles (num, id, fileName, oriName)
 		VALUES (files_seq.nextval, #{id}, #{fileName}, #{oriName})
 	</insert>
+	
+	<select id="getFile" parameterType="MemberDTO" resultType="MemberFilesDTO">
+		SELECT * FROM memberFiles WHERE id=#{id}
+	</select>
+	
+	<resultMap type="MemberDTO" id="getLoginResult">
+  		<id column="id" property="id"/>
+  		<result column="pw" property="pw"/>
+  		<result column="name" property="name"/>
+  		<result column="email" property="email"/>
+  		<result column="phone" property="phone"/>
+
+  		<!-- 1:1 관계 ,DTO내에 다른 DTO 하나가 멤버변수로 선언 -->
+  		<association property="memberFilesDTO" javaType="MemberFilesDTO">
+  			<id column="num" property="num"/>
+  			<result column="fileName" property="fileName"/>
+  			<result column="oriName" property="oriName"/>
+  		</association>
+  	</resultMap>
   	
 </mapper>

@@ -34,4 +34,8 @@ public class MemberDAO {
 	public int setFileInsert(MemberFilesDTO memberFilesDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"setFileInsert", memberFilesDTO);
 	}
+	
+	public MemberFilesDTO getFile(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getFile", memberDTO);
+	}
 }

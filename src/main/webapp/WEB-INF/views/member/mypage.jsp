@@ -29,7 +29,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
                 <span class="d-block d-lg-none">Clarence Taylor</span>
-                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../resources/img/profile.jpg" alt="profile"/></span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../resources/upload/member/${member.memberFilesDTO.fileName}" alt="profile"/></span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             
@@ -50,6 +50,7 @@
             <!-- About-->
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
+                    
                     <h1 class="mb-0">
                         Clarence
                         <span class="text-primary">Taylor</span>
@@ -136,6 +137,7 @@
             <section class="resume-section" id="skills">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Skills</h2>
+                    
                     <div class="subheading mb-3">Programming Languages & Tools</div>
                     <ul class="list-inline dev-icons">
                         <li class="list-inline-item"><i class="fab fa-html5"></i></li>
@@ -175,6 +177,7 @@
             <hr class="m-0" />
             
             <!-- Update Account -->
+            
             <section class="resume-section" id="update">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Update Account</h2>

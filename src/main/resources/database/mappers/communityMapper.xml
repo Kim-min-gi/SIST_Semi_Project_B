@@ -116,5 +116,11 @@
  		INSERT INTO COMMUNITY (NUM, ID, WRITER, TITLE, CONTENTS, REGDATE, HITS, CATEGORY)
 		VALUES (#{num}, #{id}, #{writer}, #{title}, #{contents}, CURRENT_DATE, 0, #{category})
  	</insert>
+ 	
+ 	<update id="setUpdate" parameterType="CommunityDTO">
+ 		UPDATE COMMUNITY 
+		SET TITLE = #{title}, CONTENTS = #{contents}, CATEGORY = #{category}
+		WHERE NUM = #{num}
+ 	</update>
  
  </mapper>
