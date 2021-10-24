@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.s5.board.community.CommunityDTO;
 import com.iu.s5.restaurant.RestCategorysDTO;
 import com.iu.s5.restaurant.RestaurantsDTO;
 import com.iu.s5.restaurant.RestaurantsService;
@@ -43,9 +44,11 @@ public class HomeController {
 	public ModelAndView home() throws Exception {
 		ModelAndView mv = new ModelAndView();
 		List<RestaurantsDTO> ar = restaurantsService.getRestaurants();
+		List<CommunityDTO> cr = restaurantsService.getCommunity();
 	
 		
 		mv.addObject("starVal", ar);
+		mv.addObject("Community", cr);
 		mv.setViewName("home");
 		return mv;
 	}

@@ -61,7 +61,73 @@ input:focus{
 	margin-left: -3px;
 	
 }
+
+.title1{
+	display: block;
+}
+
+.Commu{
+	
+	padding-top:50px;
+	
+}
+
+.title1 > a{
+	float: right;
+	font-size: 15px;
+	padding: 10px;
+}
+
+.title1 > a:link, a:visited{
+	color: gray;
+}
+
+.title1 > a:hover{
+	color: gray;
+}
  
+.title1 > h3{
+	font-size: 15px;
+	float: left;
+	padding-left: 10px;
+}
+
+
+.title2{
+	float:left;
+	display:inline;
+	width: 50%;
+	padding-left: 10px;
+}
+
+.title2 > h3 > a:link, a:visited{
+	color: gray;
+}
+
+.title2 > h3 > a:hover{
+	color: gray;
+	text-decoration: none;
+}
+
+.writer{
+	float:right;
+	display:inline;
+	width: 50%;
+	padding-right: 10px;
+}
+
+
+.title2 > h3{
+	
+	text-align:left;
+	font-size: 15px;
+}
+
+.writer  > h3{
+	
+	font-size: 15px;
+	text-align:right;
+}
 
 body {
 	background: white;
