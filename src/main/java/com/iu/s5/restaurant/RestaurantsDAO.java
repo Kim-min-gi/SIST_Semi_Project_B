@@ -36,5 +36,9 @@ public class RestaurantsDAO {
 	public List<CommunityDTO> getCommunity() throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getCommunity");
 	}
+	
+	public List<CommunityDTO> getSearchCommunity(SearchsDTO searchsDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getSearchCommunity", searchsDTO);
+	}
 
 }

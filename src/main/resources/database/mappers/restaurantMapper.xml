@@ -158,7 +158,7 @@
  	</select>
  	
  	
- 	
+ 	<!-- 메인화면 커뮤니티 최신글 5개  -->
  	<select id="getCommunity" resultType="CommunityDTO">
  		SELECT * FROM
 		(SELECT rownum R, C.*
@@ -167,21 +167,15 @@
 		WHERE R BETWEEN 1 AND 5
  	</select>
  	
- 	
- <!-- 	<select id="getRestaurants" resultMap="getRestaurantsResult">
- 		SELECT TB.*
-		FROM
-		(SELECT ROW_NUMBER() over(PARTITION BY TE.R ORDER BY TE.RESTFILENUM) AS RNUM ,TE.*
-		FROM
-		(SELECT * FROM
-		(SELECT * FROM 
-		(SELECT ROWNUM R, RS.* FROM 
-		(SELECT * FROM RESTAURANTS ORDER BY STARVAL DESC)RS) WHERE R BETWEEN 1 AND 8)RSS
-		LEFT JOIN RESTARANTSFILE RF
-		ON (RSS.RESTNUM = RF.RESTNUM))TE)TB
-		WHERE RNUM=1
- 	</select> -->
- 	
+ 	<!-- 커뮤니티 검색결과   -->
+ 	<select id="getSearchCommunity" parameterType="com.iu.s5.restaurant.SearchsDTO" resultType="CommunityDTO">
+ 			SELECT * FROM
+			(SELECT rownum R, S.*
+			FROM
+			(SELECT * FROM COMMUNITY WHERE TITLE LIKE '%'|| #{search} ||'%') S)
+			WHERE R BETWEEN 1 AND 10
+ 	</select>
+
  	
  	
  

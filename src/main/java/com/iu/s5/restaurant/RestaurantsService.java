@@ -50,5 +50,9 @@ public class RestaurantsService {
 		return restaurantsDAO.getCommunity();
 	}
 	
+	public List<CommunityDTO> getSearchCommunity(SearchsDTO searchsDTO) throws Exception{
+		return restaurantsDAO.getSearchCommunity(searchsDTO);
+	}
+	
 
 }
