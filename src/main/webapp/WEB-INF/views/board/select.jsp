@@ -129,6 +129,10 @@
 			<!-- 댓글 영역 -->
 			<div class="comment-area">
 			
+				<div id="comment-info">
+					<strong>댓글</strong>
+				</div>
+			
 				<div id="comment-list" class="comment-list">
 				</div> <!-- //comment-list -->
 				

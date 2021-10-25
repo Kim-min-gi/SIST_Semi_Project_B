@@ -73,12 +73,13 @@ public class CommunityController {
 	
 	//댓글 작성
 	@PostMapping("comment")
-	public ModelAndView setComment(CommentsDTO commentsDTO) throws Exception {
-		ModelAndView mv = new ModelAndView();
+	@ResponseBody
+	public int setComment(CommentsDTO commentsDTO) throws Exception {
+//		ModelAndView mv = new ModelAndView();
 		
 		commentsDTO.setBoard("C");
 		int result = communityService.setComment(commentsDTO);
-		return mv;
+		return result;
 	}
 	
 	
