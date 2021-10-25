@@ -2,6 +2,8 @@
 
 .container {
 	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, minmax(100px, auto));
 }
 
 .img-wrapper {
@@ -16,10 +18,38 @@
 	background-color: gray;
 }
 
+.info-title-name {
+	display: inline-block;
+	padding-top: 10px;
+	padding-left: 10px;
+	font-size: 30px;
+}
+
+.info-title-star {
+	display: inline-block;
+	padding-top: 10px;
+	padding-left: 10px;
+	font-size: 30px;
+	color: #FABE00;
+}
+
+.info-title-icon {
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
 .info-review{
 	grid-column : 3/4;
 	grid-row : 2/3;
 	background-color: fuchsia;
+}
+
+.info-review-write {
+	display: inline-block;
+}
+
+.info-review-heart {
+	display: inline-block;
 }
 
 .info-detail {
@@ -32,6 +62,9 @@
 	grid-column : 3/4;
 	grid-row : 3/4;
 	background-color: red;
+	
 }
+
+
 
 
