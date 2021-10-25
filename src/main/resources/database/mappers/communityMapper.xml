@@ -94,11 +94,16 @@
 		FROM (SELECT ROWNUM RN, C.* 
 			FROM (SELECT * FROM COMMUNITY
 				WHERE
-				<choose>
-					<when test="kind == 'writer'"> WRITER </when>
-					<otherwise> TITLE </otherwise>
-				</choose>
-				LIKE '%' || #{search} || '%'
+				<if test="kind != 'category'">
+					<choose>
+						<when test="kind == 'writer'"> WRITER </when>
+						<otherwise> TITLE </otherwise>
+					</choose>
+					LIKE '%' || #{search} || '%'
+				</if>
+				<if test="kind == 'category'">
+					CATEGORY = #{search}
+				</if>
 				ORDER BY NUM DESC
 			) C)
 		WHERE RN BETWEEN #{startRow} AND #{lastRow}

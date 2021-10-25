@@ -46,13 +46,26 @@
 
 /* 댓글 */
 .comment-area {
-	margin-top: 25px;
+	margin-top: 80px;
+	padding-top: 10px;
+}
+
+#comment-info {
+	border-bottom: 1px solid gray;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+}
+
+#comment-info strong {
+	font-size: 18px;
 }
 
 .comment-box {
 	border-bottom: 1px solid lightgray;
 	padding: 10px;
 }
+
+
 
 .comment-box:last-child {
 	border: none;

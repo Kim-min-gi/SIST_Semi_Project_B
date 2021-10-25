@@ -141,8 +141,11 @@ $("#comment-write-btn").click(function() {
 			, id : id
 			, writer : writer
 			, contents : contents
-		}, function(result) {
-			console.log(result);
+		}, success: function(result) {
+			alert('댓글이 등록되었습니다.');
+			
+			$("#comment-contents").val('');
+			getCommentList(1);
 		}
 	})
 })

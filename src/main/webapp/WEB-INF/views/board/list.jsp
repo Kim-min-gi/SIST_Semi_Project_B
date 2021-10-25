@@ -41,11 +41,13 @@
 				<tr>
 					<c:if test="${board eq 'community'}">
 						<td id="category" class="col-md-1"> 
-							<c:choose>
-								<c:when test="${list.category eq 1}"><span class="font-green font-weight-bold">자유</span></c:when>
-								<c:when test="${list.category eq 2}"><span class="font-blue font-weight-bold">식당이야기</span></c:when>
-								<c:when test="${list.category eq 3}"><span class="font-purple font-weight-bold">음식이야기</span></c:when>
-							</c:choose> 
+							<a href="./list?kind=category&search=${list.category}">
+								<c:choose>
+									<c:when test="${list.category eq 1}"><span class="font-green font-weight-bold">자유</span></c:when>
+									<c:when test="${list.category eq 2}"><span class="font-blue font-weight-bold">식당이야기</span></c:when>
+									<c:when test="${list.category eq 3}"><span class="font-purple font-weight-bold">음식이야기</span></c:when>
+								</c:choose> 
+							</a>
 						</td>
 					</c:if>
 					
