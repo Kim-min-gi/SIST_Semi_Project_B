@@ -11,9 +11,22 @@
  		INSERT INTO REVIEWFILES (REVIEWFILESNUM, REVIEWNUM, FILENAME, ORINAME)
  		VALUES (REVIEWFILES_SEQ.NEXTVAL, #{reviewNum}, #{fileName}, #{oriName})
  	</insert>
+ 	
+ 	<select id="getReviewCount" parameterType="ReviewDTO" resultType="Long">
+ 		SELECT COUNT(REVIEWNUM) FROM REVIEW WHERE RESTNUM = #{restNum}
+ 	</select>
+ 	
+ 	<select id="getReviewFile" parameterType="ReviewDTO" resultType="ReviewFilesDTO">
+ 		SELECT * FROM REVIEWFILES WHERE REVIEWNUM = #{reviewNum}
+ 	</select>
  
- 	<select id="getReviewList" parameterType="Map" resultType="List">
- 		SELECT * FROM REVIEW
+ 	<select id="getReviewList" parameterType="Map" resultType="ReviewDTO">
+ 		SELECT * FROM
+		(SELECT ROWNUM RN, RV.* FROM
+			(SELECT * FROM REVIEW
+			WHERE RESTNUM = #{reviews.restNum}) 
+		RV)
+		WHERE RN BETWEEN #{pager.startRow} AND #{pager.lastRow}
  	</select>
  
  	<select id="getRatingAvg" parameterType="ReviewDTO" resultType="Float">

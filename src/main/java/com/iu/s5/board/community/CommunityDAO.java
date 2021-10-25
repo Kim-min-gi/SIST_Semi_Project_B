@@ -52,10 +52,18 @@ public class CommunityDAO implements BoardDAO {
 		return sqlSession.selectOne(NAMESPACE + "getCommentCount", commentsDTO);
 	}
 
+	
+	
 	@Override
 	public int setFile(BoardFileDTO boardFileDTO) throws Exception {
 		// TODO Auto-generated method stub
 		return sqlSession.insert(NAMESPACE + "setFile", boardFileDTO);
+	}
+	
+	@Override
+	public int setFileDelete(BoardFileDTO boardFileDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.delete(NAMESPACE + "setFileDelete", boardFileDTO);
 	}
 
 	@Override
@@ -101,7 +109,7 @@ public class CommunityDAO implements BoardDAO {
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESPACE + "setUpdate", boardDTO);
 	}
 
 	

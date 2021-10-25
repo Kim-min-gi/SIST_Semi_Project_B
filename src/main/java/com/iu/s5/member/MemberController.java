@@ -100,8 +100,12 @@ public class MemberController {
 	}
 	
 	@GetMapping("mypage")
-	public ModelAndView mypage() throws Exception {
+	public ModelAndView mypage(HttpSession session) throws Exception {
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		MemberFilesDTO memberFilesDTO = memberService.getFile(memberDTO);
+		
 		ModelAndView mv = new ModelAndView();
+		//mv.addObject("files", memberFilesDTO);
 		mv.setViewName("member/mypage");
 		return mv;
 	}

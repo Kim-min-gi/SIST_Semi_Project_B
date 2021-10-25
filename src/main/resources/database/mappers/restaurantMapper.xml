@@ -159,6 +159,15 @@
  	
  	
  	
+ 	<select id="getCommunity" resultType="CommunityDTO">
+ 		SELECT * FROM
+		(SELECT rownum R, C.*
+		FROM
+		(SELECT * FROM COMMUNITY ORDER BY NUM DESC)C)
+		WHERE R BETWEEN 1 AND 5
+ 	</select>
+ 	
+ 	
  <!-- 	<select id="getRestaurants" resultMap="getRestaurantsResult">
  		SELECT TB.*
 		FROM
