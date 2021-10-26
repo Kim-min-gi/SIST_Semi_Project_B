@@ -94,14 +94,15 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 		memberDTO = memberService.getLogin(memberDTO);
 		
+		String message = "로그인 실패";
 		if(memberDTO != null) {
-			System.out.println("로그인 성공");
+			message = "로그인 성공";
 			session.setAttribute("member", memberDTO);
-		} else {
-			System.out.println("로그인 실패");
 		}
 		
-		mv.setViewName("redirect:../");
+		mv.addObject("msg", message);
+		mv.addObject("url", "../");
+		mv.setViewName("common/result");
 		return mv;
 	}
 	

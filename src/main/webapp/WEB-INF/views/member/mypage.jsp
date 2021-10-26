@@ -77,6 +77,13 @@
                 
                     <h2 class="mb-5">리뷰내역</h2>
                     
+                    <ul class="grid swipe-down" id="grid2">
+						<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+						<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+						<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+						<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					</ul>
+                    
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Senior Web Developer</h3>
@@ -207,7 +214,9 @@
                     <h2 class="mb-5">Delete Account</h2>
                     <ul class="fa-ul mb-0">
                         <li>
-                        	<h3>탈퇴 진행을 원하시면 <a href="#" id="del">여기</a>를 눌러주세요.</h3>
+                        	<h4>탈퇴 진행을 원하시면
+                        		<a href="./delete">여기</a> 를 눌러주세요..
+                        	</h4>
                         </li>
                     </ul>
                 </div>
@@ -223,7 +232,7 @@
 			$('.navi').addClass('affix');
 		</script>
 		
-		<script type="text/javascript" src="../resources/js/mypage.js"></script>
+		<script type="text/javascript" src="./resources/js/mypage.js?ver=123"></script>
 		
 	</body>
 
