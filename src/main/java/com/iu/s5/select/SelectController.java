@@ -20,8 +20,9 @@ public class SelectController {
 		public ModelAndView getSelectRT(com.iu.s5.select.RestaurantsDTO restaurantsDTO) throws Exception {
 			ModelAndView mv = new ModelAndView();
 			restaurantsDTO = selectService.getSelectRT(restaurantsDTO);
-			System.out.println(restaurantsDTO.getRestNum());
+			String category = selectService.getCategoryName(restaurantsDTO);
 			mv.addObject("dto", restaurantsDTO);
+			mv.addObject("category", category);
 			mv.setViewName("restaurants/select");
 			return mv;
 		}

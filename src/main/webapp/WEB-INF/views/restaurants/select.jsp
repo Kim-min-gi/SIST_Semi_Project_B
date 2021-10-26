@@ -26,7 +26,7 @@
 	<!-- 이미지 슬라이드 영역  -->
 	<div class="img-wrapper">
 		<div class="img-slider">
-		
+			
 			
 			 <div>1</div>
 		    <div>2</div>
@@ -94,7 +94,9 @@
 						
 						<tr>
 							<th scope="row">식당 분류</th>
-							<th>${category}</th>
+							<th>
+								${category}
+							</th>
 						</tr>
 						
 						<tr>
@@ -112,8 +114,8 @@
 	
 	<!-- 지도 영역 -->
 	<div class="info-map">
-		<div id="map-area" data-address = "${dto.restAddress}">
-		
+		<div class="info-map-area">
+			<div id="map-area" data-address = "${dto.restAddress}" style="width:100%;height:300px;"></div>
 		</div>
 	</div><!-- //지도 영역 -->
 	
@@ -121,7 +123,9 @@
 </div>
 <!-- 식당 정보 영역 끝 -->
 
+
 <c:import url="../temp/boot_footer.jsp"></c:import>
+
 <script>
 $('.img-slider').slick({
 	  dots: true,
@@ -160,7 +164,7 @@ $('.img-slider').slick({
 	});
 </script>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	af51861377cde9d3407dc84913b62a9c&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=af51861377cde9d3407dc84913b62a9c&libraries=services"></script>
 <script type="text/javascript" src="../resources/js/map.js"></script> 		
 
 

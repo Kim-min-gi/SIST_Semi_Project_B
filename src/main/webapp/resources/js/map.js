@@ -14,9 +14,10 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 // 주소-좌표 변환 객체를 생성합니다
 var geocoder = new kakao.maps.services.Geocoder();
 
-// 주소로 좌표를 검색합니다
+//식당 주소
 let address = $('#map-area').attr("data-address");
 
+// 주소로 좌표를 검색합니다
 geocoder.addressSearch(address, function(result, status) {
 
     // 정상적으로 검색이 완료됐으면 
@@ -32,7 +33,7 @@ geocoder.addressSearch(address, function(result, status) {
 
         // 인포윈도우로 장소에 대한 설명을 표시합니다
         var infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+            content: '<div style="width:150px;text-align:center;padding:6px 0;">여기!</div>'
         });
         infowindow.open(map, marker);
 
