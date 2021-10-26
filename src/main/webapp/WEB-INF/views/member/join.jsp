@@ -29,7 +29,6 @@
 					<label for="text" class="form-label">ID</label>
 					<input type="text" class="form-control accInfo" id="id" name="id"> 
 		    		
-		    		<button type="button" id="idCheck">ID중복확인</button>
 					<div id="idResult"></div>   
 				</div>
 				
