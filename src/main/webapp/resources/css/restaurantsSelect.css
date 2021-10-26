@@ -1,6 +1,10 @@
 @charset "UTF-8";
 
 .container {
+	font-size: 13px;
+}
+
+.info-container {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(3, minmax(100px, auto));
@@ -62,3 +66,31 @@
 }
 
 
+/* 리뷰 디자인 */
+.review-area {
+	margin: 50px 0 50px 0;
+}
+
+.review-info {
+	padding-bottom: 5px;
+	border-bottom: 1px solid gray;
+}
+
+.review-info strong {
+	font-size: 18px;
+}
+
+.review-box {
+	display: flex;
+	padding: 20px;
+	border-bottom: 1px solid lightgray;
+}
+
+.profile {
+	width: 100px;
+	height: 100px;
+}
+
+.content-area {
+	margin-left: 10px;
+}
