@@ -20,12 +20,31 @@
  		SELECT * FROM REVIEWFILES WHERE REVIEWNUM = #{reviewNum}
  	</select>
  
- 	<select id="getReviewList" parameterType="Map" resultType="ReviewDTO">
+ 	<resultMap type="ReviewDTO" id="getReviewListResult">
+ 		<id column="reviewNum" property="reviewNum" />
+ 		<result column="restNum" property="restNum" />
+ 		<result column="id" property="id" />
+ 		<result column="writer" property="writer" />
+ 		<result column="contents" property="contents" />
+ 		<result column="rating" property="rating" />
+ 		<result column="regDate" property="regDate" />
+ 		
+ 		<collection property="reviewFiles" javaType="List" ofType="ReviewFilesDTO">
+ 			<id column="reviewFilesNum" property="reviewFilesNum" />
+ 			<result column="reviewNum" property="reviewNum" />
+ 			<result column="fileName" property="fileName" />
+ 			<result column="oriName" property="oriName" />
+ 		</collection>
+ 	</resultMap>
+ 
+ 	<select id="getReviewList" parameterType="Map" resultType="ReviewDTO" resultMap="getReviewListResult">
  		SELECT * FROM
 		(SELECT ROWNUM RN, RV.* FROM
 			(SELECT * FROM REVIEW
 			WHERE RESTNUM = #{reviews.restNum}) 
-		RV)
+		RV ORDER BY REVIEWNUM DESC) RR LEFT OUTER JOIN 
+		REVIEWFILES RF
+		USING (REVIEWNUM)
 		WHERE RN BETWEEN #{pager.startRow} AND #{pager.lastRow}
  	</select>
  
@@ -42,7 +61,7 @@
  			SELECT REVIEW_SEQ.NEXTVAL FROM DUAL
  		</selectKey>
  		INSERT INTO REVIEW (REVIEWNUM, RESTNUM, ID, WRITER, CONTENTS, RATING, REGDATE)
-		VALUES(reviewNum, #{restNum}, #{id}, #{writer}, #{contents}, #{rating}, CURRENT_DATE)
+		VALUES(#{reviewNum}, #{restNum}, #{id}, #{writer}, #{contents}, #{rating}, CURRENT_DATE)
  	</insert>
  
  </mapper>

@@ -62,14 +62,14 @@
 		
 		<!-- 리뷰, 찜 버튼 영역 -->
 		<div class="info-review">
-			<div class="info-review-write">
-			<i class="fas fa-edit fa-5x"></i>
-			<div>리뷰쓰기</div>
+			<div class="info-review-write" data-toggle="modal" data-target="#writeModal">
+				<i class="fas fa-edit fa-5x"></i>
+				<div>리뷰쓰기</div>
 			</div>
 			
 			<div class="info-review-heart">
-			<i class="far fa-heart fa-5x"></i>
-			<div>찜하기</div>
+				<i class="far fa-heart fa-5x"></i>
+				<div>찜하기</div>
 			</div>
 		</div><!--// 리뷰, 찜 버튼 영역 -->
 		
@@ -134,6 +134,50 @@
 </div>
 <!-- 식당 정보 영역 끝 -->
 
+<div class="modal fade" id="writeModal" tabindex="-1" role="dialog" aria-labelledby="writeModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="writeModalLabel">리뷰 작성</h4>
+      </div>
+      <div class="modal-body">
+      	<!-- form -->
+        <form action="./setReview?restNum=${dto.restNum}" method="post"  id="reviewForm" enctype="multipart/form-data">
+          <div class="form-group rating-group">
+            
+          	<!--  <input type="checkbox" name="rating" id="rating1" value="1" class="rating-check">
+          	<label for="rating1"></label>
+          	<input type="checkbox" name="rating" id="rating2" value="2" class="rating-check">
+          	<label for="rating2"></label>
+          	<input type="checkbox" name="rating" id="rating3" value="3" class="rating-check">
+          	<label for="rating3"></label>
+          	<input type="checkbox" name="rating" id="rating4" value="4" class="rating-check">
+          	<label for="rating4"></label>
+          	<input type="checkbox" name="rating" id="rating5" value="5" class="rating-check">
+          	<label for="rating5"></label> -->
+          	<input type="text" name="rating">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">내용</label>
+            <textarea rows="10" name="contents" class="form-control review-contents" id="review-contents"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="photo" class="control-label">사진</label>
+			<button type="button" id="fileAdd" class="btn btn-default">추가</button>
+			<div id="fileAddArea">
+			</div>
+          </div>
+        </form> 
+        <!-- //form -->
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">X</button> -->
+        <button id="writeBtn" type="button" class="btn btn-primary">리뷰 작성</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <c:import url="../temp/boot_footer.jsp"></c:import>
 
@@ -178,11 +222,30 @@ $('.img-slider').slick({
 <script>
 	let restNum = "${dto.restNum}";
 	$('.navi').addClass('affix');
+	
+	//show.bs.modal -- modal 창이 열릴 때 실행되는 이벤트 
+	$('#writeModal').on('show.bs.modal', function (event) {
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  console.log(button);
+		  var recipient = button.data('whatever') // Extract info from data-* attributes
+		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+		  var modal = $(this)
+		  modal.find('.modal-title').text('리뷰 작성 ' + recipient)
+		  modal.find('.modal-body input').val(recipient)
+	});
+	
+	
+	$("#writeBtn").on('click', function() {
+		console.log("${dto.restNum}");
+		$("#reviewForm").submit();
+	})
 </script>
 
 <script type="text/javascript" src="../resources/js/restaurantsSelect.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=af51861377cde9d3407dc84913b62a9c&libraries=services"></script>
-<script type="text/javascript" src="../resources/js/map.js"></script> 		
+<script type="text/javascript" src="../resources/js/map.js"></script>
+<script type="text/javascript" src="../resources/js/boardFile.js"></script> 		
 
 
 
