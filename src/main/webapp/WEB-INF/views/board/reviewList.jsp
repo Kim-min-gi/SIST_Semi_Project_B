@@ -16,11 +16,20 @@
 			</div>
 			
 			<div class="content-bottom">
-				<div>☆☆☆☆☆</div>
-				<div>${reviewList.contents}</div>
-				<div class="review-img">
-	
+				<div class="review-rate">
+					<c:forEach begin="1" end="${reviewList.rating}">
+						<span class="star"></span>
+					</c:forEach>
 				</div>
+				<div>${reviewList.contents}</div>
+				<c:if test="${not empty reviewList.reviewFiles[0].reviewFilesNum}">
+					<div class="review-img">
+						<c:forEach items="${reviewList.reviewFiles}" var="list">
+							<img src="${pageContext.request.contextPath}/resources/upload/review/${list.fileName}"> 
+						</c:forEach>
+					</div>
+				</c:if>
+					
 			</div>
 		</div>
 		
@@ -29,5 +38,14 @@
 			
 		</div>
 	</div>
-
+	
 </c:forEach>
+
+
+<c:if test="${pager.lastNum != pager.pn}">
+	<div>
+		<span class="moreReview" data-review-pn="${pager.pn+1}"> 더보기 </span>
+	</div>
+</c:if>
+
+
