@@ -18,6 +18,10 @@
 	
 		<div class="container">
 			
+			<h3>
+				얌얌에 오신걸 환영합니다!
+			</h3>
+			
 			<!-- 로그인 모달창 버튼 -->
 			<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
 				로그인
@@ -47,7 +51,7 @@
 									<input type="password" class="form-control" id="pw" placeholder="비밀번호를 입력하세요" name="pw" required>
 								</div>
 								<button type="submit" class="btn btn-warning" style="margin-left:63%;">로그인</button>
-								<button type="button" class="btn btn-secondary">회원가입</button>
+								<button type="button" class="btn btn-secondary" onclick="location.href='./check'">회원가입</button>
 								<button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
 							</form>
 						</div>
@@ -68,6 +72,10 @@
 		</div>
 	
 		<c:import url="../temp/boot_footer.jsp"></c:import>
+		
+		<script>
+			$('.navi').addClass('affix');
+		</script>
 		
 	<body>
 		

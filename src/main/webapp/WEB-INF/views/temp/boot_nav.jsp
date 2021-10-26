@@ -27,7 +27,6 @@
 				<c:otherwise>
 					<ul class="navlinks">
 						<li><a href="${pageContext.request.contextPath}/member/login">Login</a></li>
-						<li><a href="${pageContext.request.contextPath}/member/check">Join</a></li>
 						<li><a href="${pageContext.request.contextPath}/community/list">Community</a></li>
 						<li><a href="${pageContext.request.contextPath}/request/list">Request</a></li>
 					</ul>
