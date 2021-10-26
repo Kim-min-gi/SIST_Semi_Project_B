@@ -6,20 +6,27 @@
 
   
  <mapper namespace="com.iu.s5.select.SelectDAO">
+ 
+ 	<select id="getCategoryName" parameterType="RestaurantsDTO" resultType="String">
+ 		select categoryname from restcategorys where 
+   			categorynum =
+    			(select categoryNum from categorys where restNum = #{restNum})
+ 	</select>
+ 
  	
  	<resultMap type="RestaurantsDTO" id="getSelectRTResult">
  		<id column="restNum" property="restNum"/>
   		<result column="restName" property="restName"/>
-  		<result column="restLocation" property="restLocation"/>
-  		<result column="phone" property="phone"/>
-  		<result column="restCategory" property="restCategory"/>
+  		<result column="restPostcode" property="restPostcode"/>
+  		<result column="restAddress" property="restAddress"/>
+  		<result column="restAddressDT" property="restAddressDT"/>
+  		<result column="restAddressRF" property="restAddressRF"/>
+  		<result column="restPhone" property="restPhone"/>
   		<result column="restTime" property="restTime"/>
   		<result column="holiDay" property="holiDay"/>
   		<result column="hits" property="hits"/>
   		<result column="likes" property="likes"/>
   		<result column="starVal" property="starVal"/>
-  		<result column="lat" property="lat"/>
-  		<result column="logt" property="logt"/>
   		<result column="openFlag" property="openFlag"/>
   		
   		<collection property="files" javaType="List" ofType="com.iu.s5.select.RestaurantsFilesDTO">

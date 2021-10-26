@@ -13,6 +13,11 @@ public class SelectDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.iu.s5.select.SelectDAO.";
 	
+	//카테고리명 호출
+	public String getCategoryName(com.iu.s5.select.RestaurantsDTO restaurantsDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getCategoryName", restaurantsDTO);
+	}
+	
 	
 	//식당상세페이지
 	public com.iu.s5.select.RestaurantsDTO getSelectRT(com.iu.s5.select.RestaurantsDTO restaurantsDTO) throws Exception {
