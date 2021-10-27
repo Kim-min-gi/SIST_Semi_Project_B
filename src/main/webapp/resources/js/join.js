@@ -10,7 +10,19 @@ $('#id').blur(function() {
 
 	});
  });
+ 
+ $('#nickName').blur(function() {
+	let nickName =$('#nickName').val();
+	$.get('./nickNameCheckAjax?nickName='+nickName, function(data2){
+		data2 = data2.trim();
+		if(data2=='1'){
+			$('#nickNameResult').html('사용 가능');
+		}else {
+			$('#nickNameResult').html('사용 불가능');
+		}
 
+	});
+ });
 
  $("#sign").click(function(){
 

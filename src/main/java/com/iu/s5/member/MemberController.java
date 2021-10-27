@@ -82,6 +82,32 @@ public class MemberController {
 		return mv;
 	}
 	
+	@GetMapping("nickNameCheck")
+	public ModelAndView getNickNameCheck(MemberDTO memberDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		memberDTO = memberService.getNickNameCheck(memberDTO);
+		System.out.println("ID중복 체크");
+		
+		mv.addObject("dto", memberDTO);
+		mv.setViewName("member/nickNameCheck");
+		return mv;
+	}
+	
+	@GetMapping("nickNameCheckAjax")
+	public ModelAndView getNickNameCheckAjax(MemberDTO memberDTO) throws Exception {
+		System.out.println(memberDTO.getNickName());
+		memberDTO = memberService.getNickNameCheck(memberDTO);
+		
+		int result = 0;
+		if(memberDTO==null) {
+			result = 1;
+		}
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("common/ajaxResult");
+		mv.addObject("result", result);
+		return mv;
+	}
+	
 	@GetMapping("login")
 	public ModelAndView login() throws Exception {
 		ModelAndView mv = new ModelAndView();

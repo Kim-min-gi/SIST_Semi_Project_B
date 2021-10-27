@@ -27,6 +27,10 @@ public class MemberService {
 		return memberDAO.getIdCheck(memberDTO);
 	}
 	
+	public MemberDTO getNickNameCheck(MemberDTO memberDTO) throws Exception {
+		return memberDAO.getNickNameCheck(memberDTO);
+	}
+	
 	public int setJoin(MemberDTO memberDTO, MultipartFile photo, HttpSession session) throws Exception {
 		
 		int result = memberDAO.setJoin(memberDTO);
