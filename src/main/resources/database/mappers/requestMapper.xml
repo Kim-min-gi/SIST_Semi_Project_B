@@ -31,7 +31,7 @@
  		UPDATE COMMENTS SET contents = #{contents} WHERE commentNum = #{commentNum} 		
  	</update>
  	
- 	<select id="getCommentCount" parameterType="CommentsDTO">
+ 	<select id="getCommentCount" parameterType="CommentsDTO" resultType="Long">
  		SELECT COUNT(commentNum) FROM COMMENTS
  		WHERE board = #{board} AND num = #{num}
  	</select>
