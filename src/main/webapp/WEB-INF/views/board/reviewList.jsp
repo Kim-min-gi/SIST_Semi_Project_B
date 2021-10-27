@@ -49,7 +49,7 @@
 
 <c:if test="${pager.lastNum != pager.pn}">
 	<div class="more-area">
-		<span class="moreReview" data-review-pn="${pager.pn+1}"> ↓ 리뷰 더보기 ↓ </span>
+		<span class="moreReview" data-review-filter="${filter}" data-review-pn="${pager.pn+1}"> ↓ 리뷰 더보기 ↓ </span>
 	</div>
 </c:if>
 

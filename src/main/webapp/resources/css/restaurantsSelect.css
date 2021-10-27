@@ -76,12 +76,22 @@
 }
 
 .review-info {
+	display: flex;
 	padding-bottom: 5px;
 	border-bottom: 1px solid gray;
 }
 
 .review-info strong {
 	font-size: 18px;
+}
+
+.review-info .right-area {
+	margin-left: auto;
+	font-size: 18px;
+}
+
+.review-info #search-filter {
+	border: none;
 }
 
 .review-box {
