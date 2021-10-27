@@ -19,6 +19,11 @@ public class ReviewDAO {
 		return sqlSession.insert(NAMESPACE + "setReviewFile", reviewFilesDTO);
 	}
 	
+	/* 리뷰 파일 삭제 */
+	public int setReviewFileDelete(ReviewFilesDTO reviewFilesDTO) throws Exception {
+		return sqlSession.delete(NAMESPACE + "setReviewFileDelete", reviewFilesDTO);
+	}
+	
 	
 	//식당별 평균 평점
 	public float getRatingAvg(ReviewDTO reviewDTO) throws Exception {
@@ -37,7 +42,7 @@ public class ReviewDAO {
 	
 	//리뷰 수정
 	public int setUpdate(ReviewDTO reviewDTO) throws Exception {
-		return 0;
+		return sqlSession.update(NAMESPACE + "setUpdate", reviewDTO);
 	}
 	
 	//리뷰 삭제

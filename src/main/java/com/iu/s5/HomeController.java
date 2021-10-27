@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s5.board.community.CommunityDTO;
+import com.iu.s5.restaurant.CategoryDTO;
 import com.iu.s5.restaurant.RestCategorysDTO;
 import com.iu.s5.restaurant.RestaurantsDTO;
 import com.iu.s5.restaurant.RestaurantsService;
@@ -42,11 +43,29 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home() throws Exception {
+		
+		CategoryDTO categoryDTO = new CategoryDTO();
+		categoryDTO.setCategoryNum(1);
 		ModelAndView mv = new ModelAndView();
 		List<RestaurantsDTO> ar = restaurantsService.getRestaurants();
 		List<CommunityDTO> cr = restaurantsService.getCommunity();
-	
+		List<RestaurantsDTO> rc1= restaurantsService.getrecommend(categoryDTO);
+		categoryDTO.setCategoryNum(2);
+		List<RestaurantsDTO> rc2= restaurantsService.getrecommend(categoryDTO);
+		categoryDTO.setCategoryNum(3);
+		List<RestaurantsDTO> rc3= restaurantsService.getrecommend(categoryDTO);
+		categoryDTO.setCategoryNum(4);
+		List<RestaurantsDTO> rc4= restaurantsService.getrecommend(categoryDTO);
+		categoryDTO.setCategoryNum(5);
+		List<RestaurantsDTO> rc5= restaurantsService.getrecommend(categoryDTO);
 		
+		
+		
+		mv.addObject("reco1", rc1);
+		mv.addObject("reco2", rc2);
+		mv.addObject("reco3", rc3);
+		mv.addObject("reco4", rc4);
+		mv.addObject("reco5", rc5);
 		mv.addObject("starVal", ar);
 		mv.addObject("Community", cr);
 		mv.setViewName("home");
@@ -57,14 +76,14 @@ public class HomeController {
 	public ModelAndView search(SearchsDTO searchsDTO,Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<RestaurantsDTO> ar = restaurantsService.getSearchList(searchsDTO, pager);
-		
+		List<CommunityDTO> cr = restaurantsService.getSearchCommunity(searchsDTO);
 		HashMap<Object, Object> map = new HashMap<Object, Object>();
 		
 		
-		System.out.println("ar Size: "+ar.size());
 		
 		
 		
+		//RestNum을 가져와 카테고리를 가져오는 일
 		  for(int i=0;i<ar.size();i++) { 
 			  List<RestCategorysDTO> ca = restaurantsService.getCategorys(ar.get(i)); 
 			
@@ -78,7 +97,7 @@ public class HomeController {
 		
 		mv.addObject("searchList", ar);
 		mv.addObject("map", map);
-		//mv.addObject("categorys", ca);
+		mv.addObject("community", cr);
 		mv.addObject("pager",pager);
 		mv.setViewName("search/searchList");
 		

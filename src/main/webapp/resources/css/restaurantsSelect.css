@@ -129,8 +129,23 @@
 }
 
 
-.moreReview {
+.more-area {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.more-area .moreReview {
 	cursor: pointer;
+	font-size: 16px;
+}
+
+.list-btn-area {
+	margin-left: auto;
+}
+
+.list-btn-area button {
+	background-color: transparent;
+	border: none;
 }
 
 /* 리뷰 - 모달 */
@@ -164,4 +179,14 @@
 
 .review-contents {
 	resize: none;
+}
+
+.review-write-btn {
+	background-color: #231815;
+	border-color: #231815;
+	color: white;
+}
+
+.review-write-btn:hover {
+	color: white;
 }
