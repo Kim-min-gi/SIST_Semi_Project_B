@@ -120,10 +120,10 @@ public class SelectController {
 		
 		//리뷰 리스트 출력
 		@GetMapping("getReviewList")
-		public ModelAndView getReview(ReviewDTO reviewDTO, Pager pager) throws Exception {
+		public ModelAndView getReview(ReviewDTO reviewDTO, Pager pager, @RequestParam("filter") String filter) throws Exception {
 			ModelAndView mv = new ModelAndView();
 			//리뷰
-			List<ReviewDTO> ar = reviewService.getReviewList(reviewDTO, pager);
+			List<ReviewDTO> ar = reviewService.getReviewList(reviewDTO, pager, filter);
 			
 			for (ReviewDTO test : ar) {
 				System.out.println(test.getReviewNum());
@@ -131,6 +131,7 @@ public class SelectController {
 			
 			mv.addObject("reviews", ar);
 			mv.addObject("pager", pager);
+			mv.addObject("filter", filter);
 			mv.setViewName("board/reviewList");
 			return mv;
 		}

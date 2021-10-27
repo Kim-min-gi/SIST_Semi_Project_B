@@ -2,7 +2,7 @@
  * 
  */
 $(function() {
-	getReviewList(1);
+	getReviewList(1, "newest");
 	
 	
 })
@@ -31,13 +31,14 @@ $(function() {
 /* ---------------- 리뷰 ------------------ */
 
 /* 리뷰 리스트 출력 */
-function getReviewList(pn) {
+function getReviewList(pn, filter) {
 	$.ajax({
 		type: "GET"
 		, url: "./getReviewList"
 		, data: {
-			restNum : restNum, 
-			pn : pn
+			restNum : restNum
+			, filter : filter
+			, pn : pn
 		}
 		, success: function(result) {
 			$("#review-list").append(result);
@@ -45,22 +46,23 @@ function getReviewList(pn) {
 	})
 }
 
+/* 필터 */
+$("#search-filter").on('change', function() {
+	$("#review-list").html('');
+	getReviewList(1, $(this).val());
+});
 
 
 /* 리뷰 더보기 버튼.. */
 $("#review-list").on('click', '.moreReview', function() {
 	let pn = $(this).attr('data-review-pn');
+	let filter = $(this).attr('data-review-filter');
 	
-	getReviewList(pn);
+	getReviewList(pn, filter);
 	$(this).remove();
 })
 
 
-
-/* 리뷰 수정 */
-$("#review-list").on('click', '.update', function() {
-	
-});
 
 
 /* 리뷰 삭제 */
