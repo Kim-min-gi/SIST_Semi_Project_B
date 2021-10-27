@@ -22,107 +22,162 @@
 
 <!-- 식당 정보 영역 -->
 <div class="container">
+	<div class="info-container">
+		<!-- 이미지 슬라이드 영역  -->
+		<div class="img-wrapper">
+			<div class="img-slider">
+				
+				
+				 <div>1</div>
+			    <div>2</div>
+			    <div>3</div>
+			    <div>4</div>
+			    <div>5</div>
+			    <div>6</div>
+			    <div>7</div>
+			    <div>8</div>
+			    <div>9</div>
+			    <div>10</div>
+			</div>
+		</div>
+		
+		<!-- //이미지 슬라이드 영역  -->
+		
+		<!-- 식당 이름 영역 -->
+		<div class="info-title">
+			<div class="info-title-name">
+				${dto.restName}
+			</div>
+			<div class="info-title-star">
+				${dto.starVal}
+			</div>
+			
+			<div class="info-title-icon">
+				<i class="fas fa-eye fa-lg"></i>
+				${dto.hits}
+				<i class="fas fa-heart fa-lg"></i>
+				${dto.likes}
+			</div>
+		</div><!--// 식당 이름 영역 -->
+		
+		<!-- 리뷰, 찜 버튼 영역 -->
+		<div class="info-review">
+			<div class="info-review-write" data-toggle="modal" data-target="#writeModal">
+				<i class="fas fa-edit fa-5x"></i>
+				<div>리뷰쓰기</div>
+			</div>
+			
+			<div class="info-review-heart">
+				<i class="far fa-heart fa-5x"></i>
+				<div>찜하기</div>
+			</div>
+		</div><!--// 리뷰, 찜 버튼 영역 -->
+		
+		<!-- 식당 정보 영역 -->
+		<div class="info-detail">
+			<table class="table">
+						<tbody>
+							<tr>
+								<th scope="row">우편번호</th>
+								<th>${dto.restPostcode}</th>
+							</tr>
+							
+							<tr>
+								<th scope="row">주소</th>
+								<th>${dto.restAddress}  ${dto.restAddressDT} ${dto.restAddressRF}</th>
+							</tr>
+							
+							<tr>
+								<th scope="row">전화번호</th>
+								<th>${dto.restPhone}</th>
+							</tr>
+							
+							<tr>
+								<th scope="row">식당 분류</th>
+								<th>
+									${category}
+								</th>
+							</tr>
+							
+							<tr>
+								<th scope="row">영업시간</th>
+								<th>${dto.restTime}</th>
+							</tr>
+							
+							<tr>
+								<th scope="row">휴일</th>
+								<th>${dto.holiDay}</th>
+							</tr>
+						</tbody>
+						</table>
+		</div><!-- //식당 정보 영역 -->
+		
+		<!-- 지도 영역 -->
+		<div class="info-map">
+			<div class="info-map-area">
+				<div id="map-area" data-address = "${dto.restAddress}" style="width:100%;height:300px;"></div>
+			</div>
+		</div><!-- //지도 영역 -->
+	</div>	
 
-	<!-- 이미지 슬라이드 영역  -->
-	<div class="img-wrapper">
-		<div class="img-slider">
-			
-			
-			 <div>1</div>
-		    <div>2</div>
-		    <div>3</div>
-		    <div>4</div>
-		    <div>5</div>
-		    <div>6</div>
-		    <div>7</div>
-		    <div>8</div>
-		    <div>9</div>
-		    <div>10</div>
-		</div>
-	</div>
-	
-	<!-- //이미지 슬라이드 영역  -->
-	
-	<!-- 식당 이름 영역 -->
-	<div class="info-title">
-		<div class="info-title-name">
-			${dto.restName}
-		</div>
-		<div class="info-title-star">
-			${dto.starVal}
+
+	<!-- 리뷰 -->
+	<div class="review-area">
+		<div class="review-info">
+			<strong>리뷰</strong>
 		</div>
 		
-		<div class="info-title-icon">
-			<i class="fas fa-eye fa-lg"></i>
-			${dto.hits}
-			<i class="fas fa-heart fa-lg"></i>
-			${dto.likes}
+		<div id="review-list" class="review-list">
 		</div>
-	</div><!--// 식당 이름 영역 -->
-	
-	<!-- 리뷰, 찜 버튼 영역 -->
-	<div class="info-review">
-		<div class="info-review-write">
-		<i class="fas fa-edit fa-5x"></i>
-		<div>리뷰쓰기</div>
-		</div>
-		
-		<div class="info-review-heart">
-		<i class="far fa-heart fa-5x"></i>
-		<div>찜하기</div>
-		</div>
-	</div><!--// 리뷰, 찜 버튼 영역 -->
-	
-	<!-- 식당 정보 영역 -->
-	<div class="info-detail">
-		<table class="table">
-					<tbody>
-						<tr>
-							<th scope="row">우편번호</th>
-							<th>${dto.restPostcode}</th>
-						</tr>
-						
-						<tr>
-							<th scope="row">주소</th>
-							<th>${dto.restAddress}  ${dto.restAddressDT} ${dto.restAddressRF}</th>
-						</tr>
-						
-						<tr>
-							<th scope="row">전화번호</th>
-							<th>${dto.restPhone}</th>
-						</tr>
-						
-						<tr>
-							<th scope="row">식당 분류</th>
-							<th>
-								${category}
-							</th>
-						</tr>
-						
-						<tr>
-							<th scope="row">영업시간</th>
-							<th>${dto.restTime}</th>
-						</tr>
-						
-						<tr>
-							<th scope="row">휴일</th>
-							<th>${dto.holiDay}</th>
-						</tr>
-					</tbody>
-					</table>
-	</div><!-- //식당 정보 영역 -->
-	
-	<!-- 지도 영역 -->
-	<div class="info-map">
-		<div class="info-map-area">
-			<div id="map-area" data-address = "${dto.restAddress}" style="width:100%;height:300px;"></div>
-		</div>
-	</div><!-- //지도 영역 -->
-	
+	</div> <!-- //리뷰 -->
 
 </div>
 <!-- 식당 정보 영역 끝 -->
 
+<div class="modal fade" id="writeModal" tabindex="-1" role="dialog" aria-labelledby="writeModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="writeModalLabel">리뷰 작성</h4>
+      </div>
+      <div class="modal-body">
+      	<!-- form -->
+        <form action="./setReview?restNum=${dto.restNum}" method="post"  id="reviewForm" enctype="multipart/form-data">
+          <div class="form-group rating-group">
+            
+          	<!--  <input type="checkbox" name="rating" id="rating1" value="1" class="rating-check">
+          	<label for="rating1"></label>
+          	<input type="checkbox" name="rating" id="rating2" value="2" class="rating-check">
+          	<label for="rating2"></label>
+          	<input type="checkbox" name="rating" id="rating3" value="3" class="rating-check">
+          	<label for="rating3"></label>
+          	<input type="checkbox" name="rating" id="rating4" value="4" class="rating-check">
+          	<label for="rating4"></label>
+          	<input type="checkbox" name="rating" id="rating5" value="5" class="rating-check">
+          	<label for="rating5"></label> -->
+          	<input type="text" name="rating">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">내용</label>
+            <textarea rows="10" name="contents" class="form-control review-contents" id="review-contents"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="photo" class="control-label">사진</label>
+			<button type="button" id="fileAdd" class="btn btn-default">추가</button>
+			<div id="fileAddArea">
+			</div>
+          </div>
+        </form> 
+        <!-- //form -->
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">X</button> -->
+        <button id="writeBtn" type="button" class="btn btn-primary">리뷰 작성</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <c:import url="../temp/boot_footer.jsp"></c:import>
 
@@ -164,13 +219,36 @@ $('.img-slider').slick({
 	});
 </script>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=af51861377cde9d3407dc84913b62a9c&libraries=services"></script>
-<script type="text/javascript" src="../resources/js/map.js"></script> 		
-
-
 <script>
+	let restNum = "${dto.restNum}";
 	$('.navi').addClass('affix');
+	
+	//show.bs.modal -- modal 창이 열릴 때 실행되는 이벤트 
+	$('#writeModal').on('show.bs.modal', function (event) {
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  console.log(button);
+		  var recipient = button.data('whatever') // Extract info from data-* attributes
+		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+		  var modal = $(this)
+		  modal.find('.modal-title').text('리뷰 작성 ' + recipient)
+		  modal.find('.modal-body input').val(recipient)
+	});
+	
+	
+	$("#writeBtn").on('click', function() {
+		console.log("${dto.restNum}");
+		$("#reviewForm").submit();
+	})
 </script>
+
+<script type="text/javascript" src="../resources/js/restaurantsSelect.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=af51861377cde9d3407dc84913b62a9c&libraries=services"></script>
+<script type="text/javascript" src="../resources/js/map.js"></script>
+<script type="text/javascript" src="../resources/js/boardFile.js"></script> 		
+
+
+
 
 </body>
 </html>

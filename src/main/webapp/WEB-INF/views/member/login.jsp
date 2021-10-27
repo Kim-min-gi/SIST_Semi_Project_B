@@ -18,30 +18,65 @@
 	
 		<div class="container">
 			
-			<h3>로그인</h3>
+			<h3>
+				얌얌에 오신걸 환영합니다!
+			</h3>
 			
-			<form id="accLogin" action="login" method="post" class="col-md-6 mx-auto">
+			<!-- 로그인 모달창 버튼 -->
+			<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
+				로그인
+			</button>
 			
-				<div class="mb-3">
-					<label for="text" class="form-label">ID</label>
-					<input type="text" name="id" class="form-control put" id="id">
+			<!-- 로그인 모달창 기능 -->
+			<div class="modal" id="myModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+					
+						<!-- Modal header -->
+						<div class="modal-header">
+							<h3 class="modal-title">로그인</h3>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						
+						<!-- Modal body -->
+						<div class="modal-body">
+							<form id="accLogin" action="login" method="post" class="was-validated">
+								<div class="form-group">
+									<label for="id">아이디</label>
+									<input type="text" class="form-control" id="id" placeholder="아이디를 입력하세요" name="id" required>
+								</div>
+								
+								<div class="form-group">
+									<label for="userPw">비밀번호</label>
+									<input type="password" class="form-control" id="pw" placeholder="비밀번호를 입력하세요" name="pw" required>
+								</div>
+								<button type="submit" class="btn btn-warning" style="margin-left:63%;">로그인</button>
+								<button type="button" class="btn btn-secondary" onclick="location.href='./check'">회원가입</button>
+								<button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
+							</form>
+						</div>
+						
+						
+						
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<button type="button" class="btn btn-warning" data-dismiss="modal">닫기</button>
+						</div>
+						
+					</div>
 				</div>
+			</div>
 				
-				<div class="mb-3">
-					<label for="exampleInputPassword1" class="form-label">Password</label>
-					<input type="password" name="pw" class="form-control put pw" id="pw1">
-				</div>
-				
-				<div class="mb-3 my-4">
-					<label class="form-label"></label>
-					<button id="btn" type="submit" class="btn btn-warning">Login</button>
-				</div>
 			
-			</form>
 			
 		</div>
 	
 		<c:import url="../temp/boot_footer.jsp"></c:import>
+		
+		<script>
+			$('.navi').addClass('affix');
+		</script>
+		
 	<body>
 		
 	</body>

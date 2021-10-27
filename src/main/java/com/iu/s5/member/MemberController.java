@@ -67,6 +67,21 @@ public class MemberController {
 		return mv;
 	}
 	
+	@GetMapping("idCheckAjax")
+	public ModelAndView getIdCheckAjax(MemberDTO memberDTO) throws Exception {
+		System.out.println(memberDTO.getId());
+		memberDTO = memberService.getIdCheck(memberDTO);
+		
+		int result = 0;
+		if(memberDTO==null) {
+			result = 1;
+		}
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("common/ajaxResult");
+		mv.addObject("result", result);
+		return mv;
+	}
+	
 	@GetMapping("login")
 	public ModelAndView login() throws Exception {
 		ModelAndView mv = new ModelAndView();
