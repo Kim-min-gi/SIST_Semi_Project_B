@@ -31,7 +31,7 @@ public class ReviewService {
 		return reviewDAO.getRatingAvg(reviewDTO);
 	}
 	
-	public List<ReviewDTO> getReviewList(ReviewDTO reviewDTO, Pager pager) throws Exception {
+	public List<ReviewDTO> getReviewList(ReviewDTO reviewDTO, Pager pager, String filter) throws Exception {
 		long totalCount = reviewDAO.getReviewCount(reviewDTO);
 		
 		pager.setPerPage(3L);
@@ -42,6 +42,7 @@ public class ReviewService {
 		
 		map.put("reviews", reviewDTO);
 		map.put("pager", pager);
+		map.put("filter", filter);
 		
 		return reviewDAO.getReviewList(map);
 	}

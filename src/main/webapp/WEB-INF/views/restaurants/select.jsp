@@ -124,7 +124,17 @@
 	<!-- 리뷰 -->
 	<div class="review-area">
 		<div class="review-info">
-			<strong>리뷰</strong>
+			<div class="left-area">
+				<strong>리뷰</strong>
+			</div>
+			<div class="right-area">
+				<div class="search">
+					<select name="filter" id="search-filter">
+						<option value="newest">최신순</option>
+						<option value="oldest">오래된순</option>
+					</select>
+				</div>
+			</div>
 		</div>
 		
 		<div id="review-list" class="review-list">
@@ -166,7 +176,7 @@
             <textarea rows="10" name="contents" class="form-control review-contents" id="review-contents"></textarea>
           </div>
           <div class="form-group">
-            <label for="photo" class="control-label">사진</label>
+            <label for="photo" class="control-label">사진 (5장까지 첨부 가능)</label>
 			<button type="button" id="fileAdd" class="btn btn-default">추가</button>
 			<div id="fileAddArea">
 			</div>
