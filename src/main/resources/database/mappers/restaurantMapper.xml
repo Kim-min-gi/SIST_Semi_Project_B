@@ -173,7 +173,7 @@
 			(SELECT rownum R, S.*
 			FROM
 			(SELECT * FROM COMMUNITY WHERE TITLE LIKE '%'|| #{search} ||'%') S)
-			WHERE R BETWEEN 1 AND 10
+			WHERE R BETWEEN 1 AND 15
  	</select>
 
  	

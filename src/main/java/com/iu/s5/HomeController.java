@@ -61,7 +61,7 @@ public class HomeController {
 		HashMap<Object, Object> map = new HashMap<Object, Object>();
 		
 		
-		System.out.println("ar Size: "+ar.size());
+		
 		
 		
 		//RestNum을 가져와 카테고리를 가져오는 일

@@ -75,16 +75,94 @@
 			<div class="Explanation">
 					<h3>카테고리별 추천 식당</h3>
 				</div>
-			<ul class="grid swipe-down" id="grid3">
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-				</ul>
+				<!-- slide -->
+				<div id="slider-wrap">
+					    <ul id="slider">
+					        <li class="sliderli">
+					        		<div id="kinds">
+					        			<h3>일식</h3>
+					        		</div>
+					        		<div id="recommend">
+					        		   <img class="recoImg" src="./resources/img/dummy.png">
+									</div>
+									<div id="infomation">
+										   <a href="#"><h3>title</h3></a>
+								           <h4>starVal</h4>
+								           <h4>categorys</h4>
+									</div>
+									
+					        		<div id="recommend">
+					        		   <img class="recoImg" src="./resources/img/dummy.png">
+									</div>
+									<div id="infomation">
+										   <a href="#"><h3>title</h3></a>
+								           <h4>starVal</h4>
+								           <h4>categorys</h4>
+									</div>
+									
+									<div id="recommend">
+					        		   <img class="recoImg" src="./resources/img/dummy.png">
+									</div>
+									<div id="infomation">
+										   <a href="#"><h3>title</h3></a>
+								           <h4>starVal</h4>
+								           <h4>categorys</h4>
+									</div>
+								
+					    		
+					        </li>
+					
+					        <li class="sliderli">
+					            <div id="kinds">
+					        			<h3>중식</h3>
+					        		</div>
+					        		<div id="recommend">
+					        		   <img class="recoImg" src="./resources/img/dummy.png">
+									</div>
+									<div id="infomation">
+										   <a href="#"><h3>title</h3></a>
+								           <h4>starVal</h4>
+								           <h4>categorys</h4>
+									</div>
+					           
+					        </li>
+					
+					        <li class="sliderli">
+					            <div>
+					                <h3>Slide #3</h3>
+					                <span>Sub-title #3</span>
+					            </div>
+					           
+					        </li>
+					
+					        <li class="sliderli">
+					            <div>
+					                <h3>Slide #4</h3>
+					                <span>Sub-title #4</span>
+					            </div>
+					           
+					        </li>
+					
+					        <li class="sliderli">
+					            <div>
+					                <h3>Slide #5</h3>
+					                <span>Sub-title #5</span>
+					            </div>
+					           
+					        </li>
+					    </ul>
+					
+					    <div class="slider-btns" id="next"><span>▶</span></div>
+					    <div class="slider-btns" id="previous"><span>◀</span></div>
+					
+					    <div id="slider-pagination-wrap">
+					        <ul>
+					        </ul>
+					    </div>
+					</div>
+				<!-- slide finish  -->
+				
+				
 			
 			</section>
 				
@@ -153,8 +231,8 @@
 		
 		
 			
-		 
-   			 <script src="./resources/js/nav.js"></script>
+		<script src="./resources/js/slide.js"></script>
+   	    <script src="./resources/js/nav.js"></script>
    			 <!-- /container -->
 		<script src="./resources/js/masonry.pkgd.min.js"></script>
 		<script src="./resources/js/imagesloaded.pkgd.min.js"></script>
@@ -170,10 +248,7 @@
 				viewportFactor : 0.4
 			} );
 			
-			new GridScrollFx( document.getElementById( 'grid3' ), {
-				viewportFactor : 0.4
-			} );
-			
+		
 			
 			$(window).scroll(function() {
 				            if ($(document).scrollTop() > 50) {

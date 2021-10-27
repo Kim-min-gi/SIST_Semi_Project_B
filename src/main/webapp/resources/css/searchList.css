@@ -157,3 +157,33 @@ input:focus{
 }
 
 .pagination a:hover:not(.active) {background-color: silver;}
+
+.Ctitle{
+	padding: 15px;
+	
+}
+
+
+.Ctitle > h4{
+	text-align: left;
+	
+
+}
+
+
+.Ctitle > h4 > a{
+	color: black;
+}
+
+.Ctitle > h4 > a:link{
+	color: black; text-decoration: none;
+}
+
+.Ctitle > h4 > a:visited{
+	color: black; text-decoration: none;
+}
+
+.Ctitle > h4 > a:hover{
+	color: black; text-decoration: none;
+}
+
