@@ -146,17 +146,19 @@
         <form action="./setReview?restNum=${dto.restNum}" method="post"  id="reviewForm" enctype="multipart/form-data">
           <div class="form-group rating-group">
             
-          	<!--  <input type="checkbox" name="rating" id="rating1" value="1" class="rating-check">
+          	<input type="checkbox" name="ratingC" id="rating1" data-value="1" class="rating-check">
           	<label for="rating1"></label>
-          	<input type="checkbox" name="rating" id="rating2" value="2" class="rating-check">
+          	<input type="checkbox" name="ratingC" id="rating2" data-value="2" class="rating-check">
           	<label for="rating2"></label>
-          	<input type="checkbox" name="rating" id="rating3" value="3" class="rating-check">
+          	<input type="checkbox" name="ratingC" id="rating3" data-value="3" class="rating-check">
           	<label for="rating3"></label>
-          	<input type="checkbox" name="rating" id="rating4" value="4" class="rating-check">
+          	<input type="checkbox" name="ratingC" id="rating4" data-value="4" class="rating-check">
           	<label for="rating4"></label>
-          	<input type="checkbox" name="rating" id="rating5" value="5" class="rating-check">
-          	<label for="rating5"></label> -->
-          	<input type="text" name="rating">
+          	<input type="checkbox" name="ratingC" id="rating5" data-value="5" class="rating-check">
+          	<label for="rating5"></label>
+          	<input class="testtest" type="hidden" name="rating">
+          	
+          	
           </div>
           <div class="form-group">
             <label for="message-text" class="control-label">내용</label>
@@ -168,6 +170,7 @@
 			<div id="fileAddArea">
 			</div>
           </div>
+          
         </form> 
         <!-- //form -->
       </div>
@@ -237,9 +240,30 @@ $('.img-slider').slick({
 	
 	
 	$("#writeBtn").on('click', function() {
+		$(".testtest").val("2");
+		
 		console.log("${dto.restNum}");
 		$("#reviewForm").submit();
 	})
+	
+	$(".rating-check").change(function() {
+		$checked = $(this);
+		
+		setRating($checked);
+	})
+	
+	/*몇점 체크했는지 확인하고 체크박스 채워주기 ..*/
+	function setRating($checked) {
+		console.log($checked);
+		let checkedVal = $checked.attr('data-value');
+		
+		let ckItems = $(".rating-check");
+		
+		ckItems.each(function() {
+			console.log($(this).attr('data-value'));
+		})
+
+	}
 </script>
 
 <script type="text/javascript" src="../resources/js/restaurantsSelect.js"></script>
