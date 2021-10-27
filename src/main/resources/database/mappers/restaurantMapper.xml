@@ -18,7 +18,10 @@
  	<resultMap type="com.iu.s5.restaurant.RestaurantsDTO" id="getRestaurantsResult">
   		<id column="restNum" property="restNum"/>
   		<result column="restName" property="restName"/>
-  		<result column="restLocation" property="restLocation"/>
+  		<result column="restPostcode" property="restPostcode"/>
+  		<result column="restAddress" property="restAddress"/>
+  		<result column="restAddressDT" property="restAddressDT"/>
+  		<result column="restAddressRF" property="restAddressRF"/>
   		<result column="phone" property="phone"/>
   		<result column="restCategory" property="restCategory"/>
   		<result column="restTime" property="restTime"/>
@@ -72,7 +75,10 @@
  	<resultMap type="com.iu.s5.restaurant.RestaurantsDTO" id="getSearchResult">
   		<id column="restNum" property="restNum"/>
   		<result column="restName" property="restName"/>
-  		<result column="restLocation" property="restLocation"/>
+  		<result column="restPostcode" property="restPostcode"/>
+  		<result column="restAddress" property="restAddress"/>
+  		<result column="restAddressDT" property="restAddressDT"/>
+  		<result column="restAddressRF" property="restAddressRF"/>
   		<result column="phone" property="phone"/>
   		<result column="restCategory" property="restCategory"/>
   		<result column="restTime" property="restTime"/>
@@ -176,6 +182,20 @@
 			WHERE R BETWEEN 1 AND 15
  	</select>
 
+
+
+	<select id="getrecommend" parameterType="com.iu.s5.restaurant.CategoryDTO" resultMap="getRestaurantsResult">
+	 		SELECT *
+			FROM
+			(SELECT * 
+			FROM RESTAURANTS RS
+			LEFT JOIN RESTAURANTSFILE RF
+			ON(RS.RESTNUM = RF.RESTNUM)
+			LEFT JOIN categorys CGS
+			ON (RS.RESTNUM = CGS.RESTNUM)
+			ORDER BY STARVAL DESC)
+			WHERE CATEGORYNUM = #{categoryNum}
+	 	</select>
  	
  	
  

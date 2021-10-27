@@ -55,7 +55,7 @@
 					<h3>${s.restName} <span id="starVal">${s.starVal}</span></h3>
 					</span>
 					<span id="re" class="hide">
-					<c:forEach items="${s.categorysDTOs}" var="ca" begin="0" end="1">	
+					<c:forEach items="${s.categorysDTOs}" var="ca" begin="0" end="0">	
 					<h3>(${ca.categoryName})</h3>
 					</c:forEach>
 					</span> 
@@ -80,74 +80,91 @@
 					    <ul id="slider">
 					        <li class="sliderli">
 					        		<div id="kinds">
-					        			<h3>일식</h3>
+					        			<h3>한식</h3>
 					        		</div>
+					        		<c:forEach items="${reco1}" begin="0" end="2"  var="re">
+					        		
 					        		<div id="recommend">
 					        		   <img class="recoImg" src="./resources/img/dummy.png">
 									</div>
 									<div id="infomation">
-										   <a href="#"><h3>title</h3></a>
-								           <h4>starVal</h4>
-								           <h4>categorys</h4>
+										   <a href="#"><h3>${re.restName}</h3></a>
+								           <h3>${re.starVal}</h3>
+								           <h4>${re.restAddress}</h4>
 									</div>
-									
-					        		<div id="recommend">
-					        		   <img class="recoImg" src="./resources/img/dummy.png">
-									</div>
-									<div id="infomation">
-										   <a href="#"><h3>title</h3></a>
-								           <h4>starVal</h4>
-								           <h4>categorys</h4>
-									</div>
-									
-									<div id="recommend">
-					        		   <img class="recoImg" src="./resources/img/dummy.png">
-									</div>
-									<div id="infomation">
-										   <a href="#"><h3>title</h3></a>
-								           <h4>starVal</h4>
-								           <h4>categorys</h4>
-									</div>
-								
+					        		
+					        		</c:forEach>
+					        		
 					    		
 					        </li>
 					
 					        <li class="sliderli">
 					            <div id="kinds">
-					        			<h3>중식</h3>
+					        			<h3>양식</h3>
 					        		</div>
+					        		<c:forEach items="${reco2}" begin="0" end="2"  var="re">
 					        		<div id="recommend">
 					        		   <img class="recoImg" src="./resources/img/dummy.png">
 									</div>
 									<div id="infomation">
-										   <a href="#"><h3>title</h3></a>
-								           <h4>starVal</h4>
-								           <h4>categorys</h4>
+										   <a href="#"><h3>${re.restName}</h3></a>
+								           <h3>${re.starVal}</h3>
+								           <h4>${re.restAddress}</h4>
 									</div>
+										</c:forEach>
 					           
 					        </li>
 					
 					        <li class="sliderli">
-					            <div>
-					                <h3>Slide #3</h3>
-					                <span>Sub-title #3</span>
-					            </div>
+					         	 <div id="kinds">
+					        			<h3>일식</h3>
+					        		</div>
+					         		<c:forEach items="${reco3}" begin="0" end="2"  var="re">
+					        		<div id="recommend">
+					        		   <img class="recoImg" src="./resources/img/dummy.png">
+									</div>
+									<div id="infomation">
+										   <a href="#"><h3>${re.restName}</h3></a>
+								           <h3>${re.starVal}</h3>
+								           <h4>${re.restAddress}</h4>
+									</div>
+										</c:forEach>
 					           
 					        </li>
 					
 					        <li class="sliderli">
-					            <div>
-					                <h3>Slide #4</h3>
-					                <span>Sub-title #4</span>
-					            </div>
+					        	<div id="kinds">
+					        			<h3>중식</h3>
+					        		</div>
+					        		<c:forEach items="${reco4}" begin="0" end="2"  var="re">
+					        		<div id="recommend">
+					        		   <img class="recoImg" src="./resources/img/dummy.png">
+									</div>
+									<div id="infomation">
+										   <a href="#"><h3>${re.restName}</h3></a>
+								           <h3>${re.starVal}</h3>
+								           <h4>${re.restAddress}</h4>
+									</div>
+										</c:forEach>
+					           
 					           
 					        </li>
 					
 					        <li class="sliderli">
-					            <div>
-					                <h3>Slide #5</h3>
-					                <span>Sub-title #5</span>
-					            </div>
+					        	<div id="kinds">
+					        			<h3>아시아</h3>
+					        		</div>
+					        		<c:forEach items="${reco5}" begin="0" end="2"  var="re">
+					        		<div id="recommend">
+					        		   <img class="recoImg" src="./resources/img/dummy.png">
+									</div>
+									<div id="infomation">
+										   <a href="#"><h3>${re.restName}</h3></a>
+								           <h3>${re.starVal}</h3>
+								           <h4>${re.restAddress}</h4>
+									</div>
+										</c:forEach>
+					           
 					           
 					        </li>
 					    </ul>
