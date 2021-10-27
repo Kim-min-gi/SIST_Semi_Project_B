@@ -138,13 +138,13 @@
 	position: relative;
 	display: inline-block;
 	z-index: 15;
-	/*opacity: 0.01;*/
+	opacity: 0.01;
 	cursor: pointer;
-	/*display: none;*/
+	display: none;
 	width: 30px;
 	height: 30px;
 }
-/*
+
 .rating-group .rating-check + label {
 	position: relative;
 	display: inline-block;
@@ -156,7 +156,7 @@
 	background-color: #f0f0f0;
 	background-size: 30px 30px;
 	cursor: pointer;
-}*/
+}
 
 .rating-group .rating-check:checked + label {
 	background-color: #FABE00;
