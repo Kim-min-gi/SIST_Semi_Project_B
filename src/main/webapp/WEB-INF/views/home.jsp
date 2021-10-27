@@ -50,7 +50,7 @@
 				<ul class="grid swipe-down" id="grid">
 				<c:forEach items="${starVal}" var="s" varStatus="status">
 					<c:forEach items="${s.files}" var="f">
-					<li><a id="sa${status.count}" href="./restaurants/select?restNum=${s.restNum}"><img src="./resources/img/dummy.png" alt="dummy">
+					<li><a id="sa${status.count}" href="./restaurants/select?restNum=${s.restNum}"><img class="reimg" src="./resources/img/dummy.png" alt="dummy">
 					<span id="res">
 					<h3>${s.restName} <span id="starVal">${s.starVal}</span></h3>
 					</span>
@@ -222,8 +222,11 @@
 						<div  class="title2">
 						<h3>제목 : <a href="${pageContext.request.contextPath}/community/select?num=${c.num}">${c.title}</a></h3> 
 						</div>
-						<div class="writer">
-						<h3>작정자 : ${c.writer}</h3>
+						<div  class="cdate">
+						<h3>${c.regDate}</h3>
+						</div>
+						<div  class="writer">
+						<h3>조회수 : ${c.hits}</h3>
 						</div>
 					</c:forEach>
 					

@@ -48,6 +48,13 @@ input:focus{
 	
 } 
 
+.reimg{
+	width: auto;
+	height: auto;
+	max-height: 380px;
+	max-width: 300px;
+}
+
 .SearchSubmit{
 	background-color:#FABE00;
 	border-style : solid;
@@ -92,12 +99,37 @@ input:focus{
 	padding-left: 10px;
 }
 
+.cdate{
+	
+	float : right;
+	padding-right: 10px;
+	
+}
+
+.cdate > h3 {
+	
+	font-size: 15px;
+	text-align:right;
+	
+}
+
+	
+
 
 .title2{
 	float:left;
 	display:inline;
 	width: 50%;
 	padding-left: 10px;
+}
+
+.title2 > h3{
+	 width : 280px;
+	 text-overflow: ellipsis;
+	 white-space  : nowrap;
+	 overflow     : hidden;
+	 text-align:left;
+	 font-size: 15px; 
 }
 
 .title2 > h3 > a:link, a:visited{
@@ -109,18 +141,11 @@ input:focus{
 	text-decoration: none;
 }
 
+
 .writer{
-	float:right;
-	display:inline;
-	width: 50%;
-	padding-right: 10px;
-}
 
-
-.title2 > h3{
-	
-	text-align:left;
-	font-size: 15px;
+	float: right;
+	padding-right: 30px;
 }
 
 .writer  > h3{
@@ -128,6 +153,10 @@ input:focus{
 	font-size: 15px;
 	text-align:right;
 }
+
+
+
+
 
 body {
 	background: white;
@@ -318,6 +347,26 @@ section {
 	text-overflow: ellipsis;
 	/* white-space  : nowrap; */ /* 줄바꿈 하지 않기 */
 	overflow     : hidden; 
+}
+
+#infomation > a{
+	color: #231815;
+}
+
+#infomation > a:link{
+	color: #231815; text-decoration: none;
+}
+
+#infomation > a:visited{
+	color: #231815; text-decoration: none;
+}
+
+#infomation > a:hover{
+	color: #231815; text-decoration: none;
+}
+
+#infomation > h3{
+	color: #FABE00;
 }
 
 

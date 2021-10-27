@@ -172,18 +172,25 @@ input:focus{
 
 
 .Ctitle > h4 > a{
-	color: black;
+	color: #6B66FF;
 }
 
 .Ctitle > h4 > a:link{
-	color: black; text-decoration: none;
+	color: #6B66FF; text-decoration: none;
 }
 
 .Ctitle > h4 > a:visited{
-	color: black; text-decoration: none;
+	color: #6B66FF; text-decoration: none;
 }
 
 .Ctitle > h4 > a:hover{
-	color: black; text-decoration: none;
+	color: #6B66FF; text-decoration: none;
+}
+
+.cctitle{
+	width: 350px;
+	text-overflow: ellipsis;
+	white-space  : nowrap;
+	overflow     : hidden; 
 }
 
