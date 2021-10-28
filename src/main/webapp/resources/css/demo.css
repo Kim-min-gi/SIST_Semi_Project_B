@@ -364,10 +364,19 @@ section {
 	text-overflow: ellipsis;
 	/* white-space  : nowrap; */ /* 줄바꿈 하지 않기 */
 	overflow     : hidden; 
+	
 }
 
 #infomation > a{
 	color: #231815;
+	
+}
+
+#infomation > a > h3{
+	width : 110px;
+	text-overflow: ellipsis;
+	overflow     : hidden;  
+	
 }
 
 #infomation > a:link{
@@ -411,7 +420,7 @@ section {
 #kinds {
     float:left;
     top: 20px;
-    left: 35px;
+
 }   
 
 #slider-wrap ul#slider li>div h3 {
