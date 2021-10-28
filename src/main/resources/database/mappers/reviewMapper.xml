@@ -41,7 +41,7 @@
  		</collection>
  	</resultMap>
  
- 	<select id="getReviewList" parameterType="Map" resultType="ReviewDTO" resultMap="getReviewListResult">
+ 	<select id="getReviewList" parameterType="Map" resultMap="getReviewListResult">
  		SELECT * FROM
 		(SELECT ROWNUM RN, RV.* FROM
 			(SELECT * FROM REVIEW

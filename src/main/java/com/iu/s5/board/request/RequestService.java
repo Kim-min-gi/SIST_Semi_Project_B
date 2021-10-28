@@ -103,6 +103,8 @@ public class RequestService implements BoardService {
 
 	@Override
 	public List<CommentsDTO> getCommentsList(CommentsDTO commentsDTO, Pager pager) throws Exception {
+		
+		pager.setPerPage(5L);
 		pager.makeRow();
 		pager.makeNum(requestDAO.getCommentCount(commentsDTO));
 		
