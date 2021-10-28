@@ -6,9 +6,8 @@
 //
 // Scripts
 // 
-    const delId = document.getElementsByClassName("delId");
+    const delId = document.getElementById("delId");
     delId.addEventListener('click', function() {
-		alert('test');
 		let result = confirm('계정을 삭제 하시겠습니까?');
 		if(result) {
 			location.href="./delete";

@@ -46,9 +46,11 @@ public class SelectController {
 			ModelAndView mv = new ModelAndView();
 			restaurantsDTO = selectService.getSelectRT(restaurantsDTO);
 			String category = selectService.getCategoryName(restaurantsDTO);
-
+			List<ReviewFilesDTO> images = selectService.getReviewFiles(restaurantsDTO);
+			
 			mv.addObject("dto", restaurantsDTO);
 			mv.addObject("category", category);
+			mv.addObject("imgs", images);
 			mv.setViewName("restaurants/select");
 			return mv;
 		}

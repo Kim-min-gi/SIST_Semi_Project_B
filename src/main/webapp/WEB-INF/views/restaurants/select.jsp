@@ -69,17 +69,20 @@
 		</div><!--// 식당 이름 영역 -->
 		
 		<!-- 리뷰, 찜 버튼 영역 -->
-		<div class="info-review">
-			<div class="info-review-write" data-toggle="modal" data-target="#writeModal">
-				<i class="fas fa-edit fa-5x"></i>
-				<div>리뷰쓰기</div>
-			</div>
-			
-			<div class="info-review-heart">
-				<i class="far fa-heart fa-5x"></i>
-				<div>찜하기</div>
-			</div>
-		</div><!--// 리뷰, 찜 버튼 영역 -->
+		<c:if test="${not empty member}">
+			<div class="info-review">
+				<div class="info-review-write" data-toggle="modal" data-target="#writeModal">
+					<i class="fas fa-edit fa-5x"></i>
+					<div>리뷰쓰기</div>
+				</div>
+				
+				<div class="info-review-heart">
+					<i class="far fa-heart fa-5x"></i>
+					<div>찜하기</div>
+				</div>
+			</div><!--// 리뷰, 찜 버튼 영역 -->
+		</c:if>
+
 		
 		<!-- 식당 정보 영역 -->
 		<div class="info-detail">

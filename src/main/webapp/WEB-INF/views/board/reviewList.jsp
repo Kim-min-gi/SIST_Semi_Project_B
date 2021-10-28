@@ -5,8 +5,9 @@
 
 <c:forEach items="${reviews}" var="reviewList">
 	<div class="review-box">
+		<!-- 구현해야해여 ... 프로필사진  -->
 		<div class="profile">
-			프사
+			
 		</div>
 		<div class="content-area">
 			

@@ -11322,9 +11322,11 @@ p.lead {
   padding-right: 1rem;
 }
 #sideNav .navbar-nav .nav-item .nav-link {
+	
   font-weight: 800;
   letter-spacing: 0.05rem;
   text-transform: uppercase;
+  font-size: small;
 }
 #sideNav .navbar-toggler:focus {
   outline-color: #d48a6e;
