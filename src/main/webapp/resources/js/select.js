@@ -135,7 +135,6 @@ function getCommentList(pn) {
 	})
 }
 
-
 /*승인 버튼 */
 
 //승인 버튼

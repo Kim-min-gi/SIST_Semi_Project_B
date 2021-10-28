@@ -13,9 +13,6 @@
 <!-- fontawesome 아이콘 -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> <!--CDN 링크 -->
 
-<!-- slick 이미지 슬라이드 -->
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 <body>
 <c:import url="../temp/boot_nav.jsp"></c:import>
@@ -24,23 +21,31 @@
 <div class="container">
 	<div class="info-container">
 		<!-- 이미지 슬라이드 영역  -->
-		<div class="img-wrapper">
-			<div class="img-slider">
-				
-				
-				 <div>1</div>
-			    <div>2</div>
-			    <div>3</div>
-			    <div>4</div>
-			    <div>5</div>
-			    <div>6</div>
-			    <div>7</div>
-			    <div>8</div>
-			    <div>9</div>
-			    <div>10</div>
-			</div>
-		</div>
+		<div id="slider-wrap">
+		    <ul id="slider">
+		        <li>
+		            <img src="https://fakeimg.pl/350x200/960a96/000?text=11111">
+		        </li>
 		
+		        <li>
+		            <img src="https://fakeimg.pl/350x200/D27328/000?text=22222">
+		        </li>
+		
+		        <li>
+		            <img src="https://fakeimg.pl/350x200/FF607F/000?text=33333">
+		        </li>
+		
+		        
+		    </ul>
+		
+		    <div class="slider-btns" id="next"><span>▶</span></div>
+		    <div class="slider-btns" id="previous"><span>◀</span></div>
+		
+		    <div id="slider-pagination-wrap">
+		        <ul>
+		        </ul>
+		    </div>
+		</div>
 		<!-- //이미지 슬라이드 영역  -->
 		
 		<!-- 식당 이름 영역 -->
@@ -253,43 +258,6 @@
 
 <c:import url="../temp/boot_footer.jsp"></c:import>
 
-<script>
-$('.img-slider').slick({
-	  dots: true,
-	  infinite: false,
-	  speed: 300,
-	  slidesToShow: 4,
-	  slidesToScroll: 4,
-	  responsive: [
-	    {
-	      breakpoint: 1024,
-	      settings: {
-	        slidesToShow: 3,
-	        slidesToScroll: 3,
-	        infinite: true,
-	        dots: true
-	      }
-	    },
-	    {
-	      breakpoint: 600,
-	      settings: {
-	        slidesToShow: 2,
-	        slidesToScroll: 2
-	      }
-	    },
-	    {
-	      breakpoint: 480,
-	      settings: {
-	        slidesToShow: 1,
-	        slidesToScroll: 1
-	      }
-	    }
-	    // You can unslick at a given breakpoint now by adding:
-	    // settings: "unslick"
-	    // instead of a settings object
-	  ]
-	});
-</script>
 
 <script>
 	const mSession = "${member}"; //멤버 세션

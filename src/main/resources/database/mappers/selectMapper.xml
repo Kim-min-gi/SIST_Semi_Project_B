@@ -7,6 +7,15 @@
   
  <mapper namespace="com.iu.s5.select.SelectDAO">
  
+ 	<select id="getReviewFiles" parameterType="RestaurantsDTO" resultType="com.iu.s5.review.ReviewFilesDTO">
+ 		select * from reviewfiles 
+   			 where reviewnum = 
+	       		 (select reviewnum from review 
+	       		 	where restNum = #{restNum}
+	       		 )
+ 	
+ 	</select>
+ 	
  	<select id="getCategoryName" parameterType="RestaurantsDTO" resultType="String">
  		select categoryname from restcategorys where 
    			categorynum =
