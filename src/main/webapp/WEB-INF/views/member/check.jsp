@@ -10,6 +10,8 @@
 		<title>약관동의</title>
 		
 		<c:import url="../temp/boot_head.jsp"></c:import>
+		
+		<link rel="stylesheet" type="text/css" href="../resources/css/check.css" />
 	</head>
 	
 	<body>
@@ -23,35 +25,35 @@
 		
 			<div class="form-check">
 		 		<input class="form-check-input checks" type="checkbox" value="" id="flexCheckDefault">
-		  		<label class="form-check-label" for="flexCheckDefault">
+		  		<label class="form-check-label terms" for="flexCheckDefault">
 		    		약관1(필수)
 		  		</label>
 			</div>
 			
 			<div class="form-check">
 		 		<input class="form-check-input checks" type="checkbox" value="" id="flexCheckDefault">
-		  		<label class="form-check-label" for="flexCheckDefault">
+		  		<label class="form-check-label terms" for="flexCheckDefault">
 		    		약관2(필수)
 		  		</label>
 			</div>
 			
 			<div class="form-check">
 		 		<input class="form-check-input checks" type="checkbox" value="" id="flexCheckDefault">
-		  		<label class="form-check-label" for="flexCheckDefault">
+		  		<label class="form-check-label terms" for="flexCheckDefault">
 		    		약관3(필수)
 		  		</label>
 			</div>
 			
 			<div class="form-check">
 		 		<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-		  		<label class="form-check-label" for="flexCheckDefault">
+		  		<label class="form-check-label terms" for="flexCheckDefault">
 		    		약관4(선택)
 		  		</label>
 			</div>
 			
 			<div class="form-check">
 		 		<input class="form-check-input" type="checkbox" value="" id="checkAll">
-		  		<label class="form-check-label" for="checkAll">
+		  		<label class="form-check-label terms" for="checkAll">
 		    		모두 동의
 		  		</label>
 			</div>
