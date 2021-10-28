@@ -18,7 +18,7 @@
  		SELECT * FROM
 			(SELECT rowNum R, CM.* FROM
 			    (SELECT * FROM COMMENTS
-			        WHERE BOARD = #{comment.board} AND NUM = #{comments.num}
+			        WHERE BOARD = #{comments.board} AND NUM = #{comments.num}
 			        ORDER BY commentNum DESC) CM)
 		WHERE R BETWEEN #{pager.startRow} AND #{pager.lastRow}
  	</select>
