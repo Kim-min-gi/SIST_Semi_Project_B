@@ -49,10 +49,10 @@ input:focus{
 } 
 
 .reimg{
-	width: auto;
-	height: auto;
-	max-height: 380px;
-	max-width: 300px;
+	width: 340px;
+	height: 340px;
+	/* max-height: 380px;
+	max-width: 300px; */
 }
 
 .SearchSubmit{
@@ -329,10 +329,10 @@ section {
 }
 
 .recoImg{
-	width: auto;
-	height: auto;
-	max-width: 300px;
-	max-height: 300px;
+	
+	width: 245px;
+	height: 280px;
+	
 }
 
  #infomation{
