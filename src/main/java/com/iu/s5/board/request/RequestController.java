@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,34 +31,46 @@ public class RequestController {
 	}
 	
 	
-	
-	public ModelAndView setCommentDelete(CommentsDTO commentsDTO) throws Exception {
-		ModelAndView mv = new ModelAndView();
+	@GetMapping("setCommentDelete")
+	@ResponseBody
+	public int setCommentDelete(CommentsDTO commentsDTO) throws Exception {
 		int result = requestService.setCommentDelete(commentsDTO);
-		return mv;
+		return result;
 	}
 	
-	public ModelAndView setCommentUpdate(CommentsDTO commentsDTO) throws Exception {
-		ModelAndView mv = new ModelAndView();
+	
+	@PostMapping("setCommentUpdate")
+	@ResponseBody
+	public int setCommentUpdate(CommentsDTO commentsDTO) throws Exception {
 		int result = requestService.setCommentUpdate(commentsDTO);
-		return mv;
+		return result;
 	}
 	
-	public ModelAndView getCommentList(CommentsDTO commentsDTO) throws Exception {
+	@GetMapping("getCommentList")
+	public ModelAndView getCommentList(CommentsDTO commentsDTO, Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		commentsDTO.setBoard("r");
+		commentsDTO.setBoard("R");
+		
+		List<CommentsDTO> ar = requestService.getCommentsList(commentsDTO, pager);
+		
+		mv.addObject("comments", ar);
+		mv.addObject("pager", pager);
+		mv.setViewName("board/commentList");
 		
 		return mv;
 	}
 	
-	@GetMapping("comment")
-	public ModelAndView setComment(CommentsDTO commentsDTO) throws Exception {
-		ModelAndView mv = new ModelAndView();
-		commentsDTO.setBoard("r");
+	
+	@PostMapping("comment")
+	@ResponseBody
+	public int setComment(CommentsDTO commentsDTO) throws Exception {
+//		ModelAndView mv = new ModelAndView();
+		commentsDTO.setBoard("R");
 		int result = requestService.setComment(commentsDTO);
-		return mv;
+		return result;
 	}
 	
+	//승인 여부 결정
 	@PostMapping("accept")
 	public ModelAndView setAcceptUpdate(RequestDTO requestDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
