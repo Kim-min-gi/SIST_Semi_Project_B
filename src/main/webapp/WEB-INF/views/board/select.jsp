@@ -125,17 +125,21 @@
 				<div id="comment-list" class="comment-list">
 				</div> <!-- //comment-list -->
 				
-				<div class="comment-write">
-					<input type="hidden" id="comment-id" value="${dto.id}">
-					<div id="comment-writer" class="comment-writer">${dto.id}</div>
-					<textarea id="comment-contents" class="comment-writebox" rows="2" cols="" placeholder="댓글을 작성해주세요."></textarea>
 				
-					<div class="comment-bottom">
-						<div class="bottom-right">
-							<button type="button" id="comment-write-btn" class="comment-write-btn">등록</button>
+				<c:if test="${not empty member}">
+					<div class="comment-write">
+						<input type="hidden" id="comment-id" value="${dto.id}">
+						<div id="comment-writer" class="comment-writer">${dto.id}</div>
+						<textarea id="comment-contents" class="comment-writebox" rows="2" cols="" placeholder="댓글을 작성해주세요."></textarea>
+					
+						<div class="comment-bottom">
+							<div class="bottom-right">
+								<button type="button" id="comment-write-btn" class="comment-write-btn">등록</button>
+							</div>
 						</div>
-					</div>
-				</div> <!-- //comment-write -->
+					</div> <!-- //comment-write -->
+				</c:if>
+
 				
 				
 			</div>
