@@ -38,26 +38,26 @@
 		<hr>
 	<div class="searchinfo">
 		<ul>
-		<c:forEach items="${map}" var="map">
+		<c:forEach items="${map}" var="map1">
 			<li>
 				<div>
 					<figure>
-						<a href="#">  <!-- 상세 페이지 구현시 주소 바꾸기 -->
+						<a href="./restaurants/select?restNum=${map1.key.restNum}">  <!-- 상세 페이지 구현시 주소 바꾸기 -->
 						<div class="RestImg">
-						
-						<img src="./resources/img/dummy.png">
-						
+						 <c:forEach items="${map1.key.files}" begin="0" end="0"  var="f">
+						<img class="seimg" src="./resources/img/${f.fileName}">
+						</c:forEach> 
 						</div>
 						</a>
 						<figcaption class="fig">
 							<div class="info">
-							<a class="titleA" href="#">  <!-- 상세 페이지 구현시 주소 바꾸기 -->
-								<h3 class="title">${map.key.restName}</h3>
+							<a class="titleA" href="./restaurants/select?restNum=${map1.key.restNum}">  <!-- 상세 페이지 구현시 주소 바꾸기 -->
+								<h3 class="title">${map1.key.restName}</h3>
 							</a>
-							<h3 class="starVal">${map.key.starVal}</h3>
+							<h3 class="starVal">${map1.key.starVal}</h3>
 							<br>
 							<h5>
-							<c:forEach items="${map.value}" var="categorys">
+							<c:forEach items="${map1.value}" var="categorys">
 								${categorys.categoryName}
 							</c:forEach>
 							</h5>

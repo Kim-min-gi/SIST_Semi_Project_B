@@ -14,6 +14,11 @@
 	
 }
 
+.seimg{
+	width: 300px;
+	height: 380px;
+}
+
 .searchVal{
 	text-align: left;
 }
@@ -27,7 +32,8 @@
 .searchList{
 	display:inline-block;
 	width: 70%;
-	height: 1500px;
+	height: 2000px;
+	padding-bottom: 300px;
 	
 	
 }
@@ -138,7 +144,8 @@ input:focus{
 
 .pagination {
   display: inline-block;
-  padding-left: 300px;
+  padding-left: 350px;
+  
   
 }
 
