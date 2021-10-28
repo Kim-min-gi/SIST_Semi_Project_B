@@ -72,7 +72,7 @@
 			  	
 			  	<!-- File -->
 			  	<div class="mb-3" id="file">
-			  		<label for="photo" class="form-label">Photo</label>
+			  		<label for="photo" class="form-label">Profile(선택사항)</label>
 			  		<input type="file" class="form-control put" id="photo" name="photo" aria-describedby="emailHelp">
 			  	</div>
 			  	
