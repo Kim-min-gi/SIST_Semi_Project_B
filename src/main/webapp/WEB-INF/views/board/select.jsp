@@ -63,32 +63,26 @@
 							<th scope="row">상호명</th>
 							<th>${dto.restName}</th>
 						</tr>
-						
 						<tr>
 							<th scope="row">우편번호</th>
 							<th>${dto.restPostcode}</th>
 						</tr>
-						
 						<tr>
 							<th scope="row">주소</th>
 							<th>${dto.restAddress} ${dto.restAddressDt} ${dto.restAddressRf}</th>
 						</tr>
-						
 						<tr>
 							<th scope="row">전화번호</th>
 							<th>${dto.restPhone}</th>
 						</tr>
-						
 						<tr>
 							<th scope="row">식당 분류</th>
 							<th>${category}</th>
 						</tr>
-						
 						<tr>
 							<th scope="row">영업시간</th>
 							<th>${dto.restTime}</th>
 						</tr>
-						
 						<tr>
 							<th scope="row">휴일</th>
 							<th>${dto.holiday}</th>
