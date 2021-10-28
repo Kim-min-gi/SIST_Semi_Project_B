@@ -108,6 +108,8 @@ public class SelectController {
 			
 			int result = reviewService.setUpdate(reviewDTO, boardFiles);
 			
+			mv.addObject("restNum", reviewDTO.getRestNum());
+			mv.setViewName("redirect:./select");
 			return mv;
 		}
 		

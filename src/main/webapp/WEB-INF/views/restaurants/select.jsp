@@ -216,7 +216,7 @@
       </div>
       <div class="modal-body">
       	<!-- form -->
-        <form action="./setReviewUpdate" method="post"  id="reviewUpdateForm" enctype="multipart/form-data">
+        <form action="./setReviewUpdate?restNum=${dto.restNum}" method="post"  id="reviewUpdateForm" enctype="multipart/form-data">
           <input class="reviewNum" type="hidden" name="reviewNum">
           <div class="form-group rating-group">
             
