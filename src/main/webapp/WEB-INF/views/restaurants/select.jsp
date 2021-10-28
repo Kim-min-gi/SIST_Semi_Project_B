@@ -24,6 +24,9 @@
 		<div id="slider-wrap">
 		    <ul id="slider">
 		        <li>
+		        	<c:forEach items="dto.files" var="f">
+		        		
+		        	</c:forEach>
 		            <img src="https://fakeimg.pl/350x200/960a96/000?text=11111">
 		        </li>
 		
