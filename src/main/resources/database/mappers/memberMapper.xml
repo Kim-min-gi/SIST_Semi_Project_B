@@ -10,9 +10,13 @@
 		SELECT id FROM member WHERE id=#{id}
 	</select>
 	
+	<select id="getNickNameCheck" parameterType="MemberDTO" resultType="MemberDTO">
+		SELECT nickName FROM member WHERE nickName=#{nickName}
+	</select>
+	
 	<insert id="setJoin" parameterType="MemberDTO">
-		INSERT INTO member (id, pw, name, phone, email) 
-		VALUES (#{id}, #{pw}, #{name}, #{phone}, #{email})
+		INSERT INTO member (id, pw, name, phone, email, nickName) 
+		VALUES (#{id}, #{pw}, #{name}, #{phone}, #{email}, #{nickName})
 	</insert>
 	
 	<select id="getLogin" parameterType="MemberDTO" resultMap="getLoginResult">
@@ -45,8 +49,9 @@
   		<id column="id" property="id"/>
   		<result column="pw" property="pw"/>
   		<result column="name" property="name"/>
-  		<result column="email" property="email"/>
   		<result column="phone" property="phone"/>
+  		<result column="email" property="email"/>
+  		<result column="nickName" property="nickName"/>
 
   		<!-- 1:1 관계 ,DTO내에 다른 DTO 하나가 멤버변수로 선언 -->
   		<association property="memberFilesDTO" javaType="MemberFilesDTO">

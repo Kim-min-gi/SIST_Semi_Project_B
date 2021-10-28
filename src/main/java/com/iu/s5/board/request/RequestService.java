@@ -24,7 +24,7 @@ public class RequestService implements BoardService {
 	
 	@Autowired
 	private RequestDAO requestDAO;
-	//@Autowired
+	@Autowired
 	private ServletContext servletContext;
 	@Autowired
 	private FileManager fileManager;
@@ -103,6 +103,8 @@ public class RequestService implements BoardService {
 
 	@Override
 	public List<CommentsDTO> getCommentsList(CommentsDTO commentsDTO, Pager pager) throws Exception {
+		
+		pager.setPerPage(5L);
 		pager.makeRow();
 		pager.makeNum(requestDAO.getCommentCount(commentsDTO));
 		

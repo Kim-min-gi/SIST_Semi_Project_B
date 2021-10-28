@@ -21,31 +21,37 @@
         <!-- Core theme CSS (includes Bootstrap)-->
 		<c:import url="../temp/boot_head.jsp"></c:import>
 		<link rel="stylesheet" type="text/css" href="../resources/css/mypage.css"/>
+		
+		<!-- 찜내역 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="keywords" content="grid loading, swipe, effect, slide, masonry, web design, tutorial" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="../resources/css/component.css" />
+		<script src="../resources/js/modernizr.custom.js"></script>
 	</head>
 	
 	<body>
 	
 		<!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#about">
-                <span class="d-block d-lg-none">Clarence Taylor</span>
-                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../resources/upload/member/${member.memberFilesDTO.fileName}" alt="profile"/></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+           	<a class="navbar-brand js-scroll-trigger" href="#about">
+                <span class="d-block d-lg-none">${member.nickName }</span>
+                <span class="d-none d-lg-block">
+                	<img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../resources/upload/member/${member.memberFilesDTO.fileName}" alt="profile"/>
+                </span>
+            </a><br>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><br>
             
-            <!-- 네비바 -->
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
                 	<li class="nav-item"><a class="nav-link js-scroll-trigger" href="../">홈으로</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">개인 정보</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#reviews">리뷰 내역</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">수정중</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">수정중</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#wishlist">찜 내역</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#update">계정 수정</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#delete">계정 삭제</a></li>
                 </ul>
             </div>
         </nav>
+        
         <!-- Page Content-->
         <div class="container-fluid p-0">
         
@@ -55,8 +61,8 @@
                 <div class="resume-section-content">
                 
                     <h1 class="mb-0">
-                        환영합니다!
-                        <span class="text-primary">${member.name}</span>
+                        환영합니다
+                        <span class="text-primary">${member.nickName} 님 😀</span>
                     </h1>
                     
                     <div class="subheading mb-5">
@@ -64,18 +70,25 @@
                         이메일 : <a href="mailto:name@email.com">${member.email}</a>
                     </div>
                     
-                    <p class="lead mb-5">자기소개글! 추후 자기소개글 입력 가능하도록 변경</p>
+                    <p class="lead mb-5">블라블라</p>
                     
                 </div>
             </section>
             <hr class="m-0" />
             
             
-            <!-- Reviews -->
-            <section class="resume-section" id="reviews">
+            <!-- wishlist -->
+            <section class="resume-section" id="wishlist">
                 <div class="resume-section-content">
                 
-                    <h2 class="mb-5">리뷰내역</h2>
+                    <h2 class="mb-5">찜 내역</h2>
+                    
+                    <ul class="grid swipe-down" id="grid2">
+						<li><a href="#"><img src="../resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+						<li><a href="#"><img src="../resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+						<li><a href="#"><img src="../resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+						<li><a href="#"><img src="../resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
+					</ul>
                     
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
@@ -91,75 +104,6 @@
             </section>
             <hr class="m-0" />
             
-            
-            
-            <!-- Education-->
-            <section class="resume-section" id="education">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Education</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">University of Colorado Boulder</h3>
-                            <div class="subheading mb-3">Bachelor of Science</div>
-                            <div>Computer Science - Web Development Track</div>
-                            <p>GPA: 3.23</p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">August 2006 - May 2010</span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">James Buchanan High School</h3>
-                            <div class="subheading mb-3">Technology Magnet Program</div>
-                            <p>GPA: 3.56</p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">August 2002 - May 2006</span></div>
-                    </div>
-                </div>
-            </section>
-            <hr class="m-0" />
-            
-            <!-- Skills-->
-            <section class="resume-section" id="skills">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Skills</h2>
-                    
-                    <div class="subheading mb-3">Programming Languages & Tools</div>
-                    <ul class="list-inline dev-icons">
-                        <li class="list-inline-item"><i class="fab fa-html5"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-angular"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-react"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-node-js"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-sass"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-less"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-wordpress"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-gulp"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-grunt"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-npm"></i></li>
-                    </ul>
-                    <div class="subheading mb-3">Workflow</div>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Mobile-First, Responsive Design
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Cross Browser Testing & Debugging
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Cross Functional Teams
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Agile Development & Scrum
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <hr class="m-0" />
             
             <!-- Update Account -->
             
@@ -207,7 +151,9 @@
                     <h2 class="mb-5">Delete Account</h2>
                     <ul class="fa-ul mb-0">
                         <li>
-                        	<h3>탈퇴 진행을 원하시면 <a href="#" id="del">여기</a>를 눌러주세요.</h3>
+                        	<h4>탈퇴 진행을 원하시면
+                        		<a href="./delete">여기</a> 를 눌러주세요..
+                        	</h4>
                         </li>
                     </ul>
                 </div>
@@ -223,7 +169,19 @@
 			$('.navi').addClass('affix');
 		</script>
 		
-		<script type="text/javascript" src="../resources/js/mypage.js"></script>
+		<script type="text/javascript" src="./resources/js/mypage.js?ver=123"></script>
+		
+		<!-- 찜내역 -->
+		<script src="../resources/js/masonry.pkgd.min.js"></script>
+		<script src="../resources/js/imagesloaded.pkgd.min.js"></script>
+		<script src="../resources/js/classie.js"></script>
+		<script src="../resources/js/colorfinder-1.1.js"></script>
+		<script src="../resources/js/gridScrollFx.js"></script>
+		<script>
+			new GridScrollFx( document.getElementById( 'grid2' ), {
+				viewportFactor : 0.4
+			} );
+		</script>
 		
 	</body>
 

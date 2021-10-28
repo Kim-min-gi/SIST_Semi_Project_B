@@ -50,6 +50,7 @@
 			  		<input type="text" class="form-control accInfo" id="name" name="name">
 			  	</div>
 			  	
+			  	
 			  	<!-- phone -->
 			  	<div class="mb-3">
 			  		<label for="text" class="form-label">Phone</label>
@@ -60,6 +61,13 @@
 			  	<div class="mb-3">
 			  		<label for="exampleInputEmail1" class="form-label">Email</label>
 			  		<input type="email" class="form-control accInfo" id="email" name="email" aria-describedby=" emailHelp" placeholder="email@email.com">
+			  	</div>
+			  	
+			  	<!-- nickName -->
+			  	<div class="mb-3">
+			  		<label for="text" class="form-label">Nick name</label>
+			  		<input type="text" class="form-control accInfo" id="nickName" name="nickName">
+			  		<div id="nickNameResult"></div> 
 			  	</div>
 			  	
 			  	<!-- File -->

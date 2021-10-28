@@ -33,7 +33,7 @@
 	
 	<div class="searchList">
 		<div class="searchVal">
-			<h2>${param.search}으로 검색한 결과</h2>
+			<h2>${param.search}(으)로 검색한 결과</h2>
 		</div>
 		<hr>
 	<div class="searchinfo">
@@ -79,7 +79,7 @@
 	
 	
 	<div class="involvedList">
-		<h3>${param.search}로 커뮤니티 검색</h3>
+		<h3>${param.search}(으)로 커뮤니티 검색</h3>
 		<c:forEach items="${community}" var="c">
 		<div class="Ctitle">
 			<h4 class="cctitle" >제목 : <a href="${pageContext.request.contextPath}/community/select?num=${c.num}">${c.title}</a></h4>

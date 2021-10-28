@@ -182,7 +182,7 @@
 					<label for="boardFiles" class="form-label">파일 첨부</label>
 				</div>
  				<div class="col-md-10">
-	   				<input type="file" class="form-control" name="boardFiles" id="newFile" onchange="Check();" ></div>
+	   				<input type="file" class="form-control" name="boardFile" id="newFile" onchange="Check();" ></div>
 	   				<div class="col-md-2">
 	   				<button class="btn btn-outline-secondary del" type="button">파일 삭제</button>
 				</div>

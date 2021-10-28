@@ -15,6 +15,10 @@ public class MemberDAO {
 		return sqlSession.selectOne(NAMESPACE+"getIdCheck", memberDTO);
 	}
 	
+	public MemberDTO getNickNameCheck(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getNickNameCheck", memberDTO);
+	}
+	
 	public int setJoin(MemberDTO memberDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"setJoin", memberDTO);
 	}
