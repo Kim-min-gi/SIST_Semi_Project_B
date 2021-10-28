@@ -51,7 +51,7 @@ public class RequestController {
 	public ModelAndView getCommentList(CommentsDTO commentsDTO, Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		commentsDTO.setBoard("R");
-		
+		System.out.println(commentsDTO.getBoard());
 		List<CommentsDTO> ar = requestService.getCommentsList(commentsDTO, pager);
 		
 		mv.addObject("comments", ar);
