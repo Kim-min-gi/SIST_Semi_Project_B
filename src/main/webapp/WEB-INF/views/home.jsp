@@ -85,7 +85,9 @@
 					        		<c:forEach items="${reco1}" begin="0" end="2"  var="re">
 					        		
 					        		<div id="recommend">
-					        		   <img class="recoImg" src="./resources/img/dummy.png">
+					        		  <c:forEach items="${re.files}" var="f">
+					        		   <img class="recoImg" src="./resources/img/${f.fileName}">
+					        		   </c:forEach>
 									</div>
 									<div id="infomation">
 										   <a href="#"><h3>${re.restName}</h3></a>
@@ -104,7 +106,9 @@
 					        		</div>
 					        		<c:forEach items="${reco2}" begin="0" end="2"  var="re">
 					        		<div id="recommend">
-					        		   <img class="recoImg" src="./resources/img/dummy.png">
+					        		<c:forEach items="${re.files}" var="f">
+					        		   <img class="recoImg" src="./resources/img/${f.fileName}">
+					        		   </c:forEach>
 									</div>
 									<div id="infomation">
 										   <a href="#"><h3>${re.restName}</h3></a>
@@ -121,7 +125,9 @@
 					        		</div>
 					         		<c:forEach items="${reco3}" begin="0" end="2"  var="re">
 					        		<div id="recommend">
-					        		   <img class="recoImg" src="./resources/img/dummy.png">
+					        		  <c:forEach items="${re.files}" var="f">
+					        		   <img class="recoImg" src="./resources/img/${f.fileName}">
+					        		   </c:forEach>
 									</div>
 									<div id="infomation">
 										   <a href="#"><h3>${re.restName}</h3></a>
@@ -138,7 +144,9 @@
 					        		</div>
 					        		<c:forEach items="${reco4}" begin="0" end="2"  var="re">
 					        		<div id="recommend">
-					        		   <img class="recoImg" src="./resources/img/dummy.png">
+					        		  <c:forEach items="${re.files}" var="f">
+					        		   <img class="recoImg" src="./resources/img/${f.fileName}">
+					        		   </c:forEach>
 									</div>
 									<div id="infomation">
 										   <a href="#"><h3>${re.restName}</h3></a>
@@ -156,7 +164,9 @@
 					        		</div>
 					        		<c:forEach items="${reco5}" begin="0" end="2"  var="re">
 					        		<div id="recommend">
-					        		   <img class="recoImg" src="./resources/img/dummy.png">
+					        		   <c:forEach items="${re.files}" var="f">
+					        		   <img class="recoImg" src="./resources/img/${f.fileName}">
+					        		   </c:forEach>
 									</div>
 									<div id="infomation">
 										   <a href="#"><h3>${re.restName}</h3></a>
