@@ -56,12 +56,12 @@
 				<!-- 아이디 나중에 삭제 -->
 				<div class="mb-3">
 				    <label for="id" class="form-label">아이디</label>
-				    <input type="text" class="form-control" name="id" id="id" placeholder="아이디">
+				    <input type="text" class="form-control" name="id" id="id" placeholder="아이디" value="${member.id}" readonly="readonly">
 				</div>
 				
 				<div class="mb-3">
 				    <label for="writer" class="form-label">작성자</label>
-				    <input type="text" class="form-control" name="writer" id="writer" placeholder="작성자">
+				    <input type="text" class="form-control" name="writer" id="writer" placeholder="작성자" value="${member.id}" readonly="readonly">
 				</div>
 
 				<!-- ------------------------- community area --------------------------- -->

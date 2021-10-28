@@ -125,17 +125,21 @@
 				<div id="comment-list" class="comment-list">
 				</div> <!-- //comment-list -->
 				
-				<div class="comment-write">
-					<input type="hidden" id="comment-id" value="t1">
-					<div id="comment-writer" class="comment-writer">작성자영역</div>
-					<textarea id="comment-contents" class="comment-writebox" rows="2" cols="" placeholder="댓글을 작성해주세요."></textarea>
 				
-					<div class="comment-bottom">
-						<div class="bottom-right">
-							<button type="button" id="comment-write-btn" class="comment-write-btn">등록</button>
+				<c:if test="${not empty member}">
+					<div class="comment-write">
+						<input type="hidden" id="comment-id" value="${dto.id}">
+						<div id="comment-writer" class="comment-writer">${dto.id}</div>
+						<textarea id="comment-contents" class="comment-writebox" rows="2" cols="" placeholder="댓글을 작성해주세요."></textarea>
+					
+						<div class="comment-bottom">
+							<div class="bottom-right">
+								<button type="button" id="comment-write-btn" class="comment-write-btn">등록</button>
+							</div>
 						</div>
-					</div>
-				</div> <!-- //comment-write -->
+					</div> <!-- //comment-write -->
+				</c:if>
+
 				
 				
 			</div>
@@ -144,10 +148,12 @@
 			
 			<!-- 하단 수정,삭제,목록 부분 -->
 			<div class="article-bottom">
-				<div class="bottom-left">
-					<a class="btn btn-default list-btn" href="./update?num=${dto.num}"> 수정 </a>
-					<a class="btn btn-default list-btn" href="./delete?num=${dto.num}"> 삭제 </a>
-				</div>
+				<c:if test="${member.id == dto.id}">
+					<div class="bottom-left">
+						<a class="btn btn-default list-btn" href="./update?num=${dto.num}"> 수정 </a>
+						<a class="btn btn-default list-btn" href="./delete?num=${dto.num}"> 삭제 </a>
+					</div>
+				</c:if>
 				<div class="bottom-right">
 					<a class="btn btn-default list-btn" href="./list"> 목록 </a>
 				</div>

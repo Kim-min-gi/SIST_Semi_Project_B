@@ -10,10 +10,13 @@
 			<div>${list.contents}</div>
 		</div>
 		<!-- 로그인한 회원과 글 쓴 회원이 같을 경우 -->
-		<div class="list-btn-area">
-			<button type="button" class="update" data-comment-num="${list.commentNum}">수정</button>
-			<button type="button" class="delete" data-comment-num="${list.commentNum}">삭제</button>
-		</div>
+		<c:if test="${member.id == list.id}">
+			<div class="list-btn-area">
+				<button type="button" class="update" data-comment-num="${list.commentNum}">수정</button>
+				<button type="button" class="delete" data-comment-num="${list.commentNum}">삭제</button>
+			</div>
+		</c:if>
+		
 	</div>
 </c:forEach>
 
