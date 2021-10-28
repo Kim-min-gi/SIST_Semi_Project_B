@@ -28,13 +28,13 @@
 /* 최신리뷰 div */
 .Riviews{
 	
-	border:1px solid red; 
+	border:3px solid #EAEAEA;
+	border-top:3px solid #FABE00; 
 	text-align: center;
-	float: right;
+	float: left;
 	width:48%;
-	margin-right:10px;
+	margin-left:10px;
 	height: 297px;
-	
 }
 
 .writingcontainer{

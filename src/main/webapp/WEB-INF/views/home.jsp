@@ -15,7 +15,8 @@
 		<link rel="stylesheet" type="text/css" href="./resources/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="./resources/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="./resources/css/component.css" />
-		
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> <!--CDN 링크 -->
+
 		<c:import url="./temp/boot_head.jsp"></c:import>
 		<script src="./resources/js/modernizr.custom.js"></script>
 	</head>
@@ -223,6 +224,7 @@
 			<section class="grid-wrap">
 			
 			<div class="writingcontainer">
+			
 				<div class="Communitys">
 				<div class="title1">
 					<h3>최신 커뮤니티글</h3>  <a href="${pageContext.request.contextPath}/community/list">더보기</a> 
@@ -230,13 +232,13 @@
 				<div class="Commu">
 				<c:forEach items="${Community}" var="c">
 						<div  class="title2">
-						<h3>제목 : <a href="${pageContext.request.contextPath}/community/select?num=${c.num}">${c.title}</a></h3> 
+						<h3><a href="${pageContext.request.contextPath}/community/select?num=${c.num}">${c.title}</a></h3> 
 						</div>
 						<div  class="cdate">
 						<h3>${c.regDate}</h3>
 						</div>
-						<div  class="writer">
-						<h3>조회수 : ${c.hits}</h3>
+						<div  class="hits">
+						<h3><i class="fas fa-eye fa-lg"></i> : ${c.hits}</h3>
 						</div>
 					</c:forEach>
 					
@@ -245,10 +247,30 @@
 				</div>
 				
 				<div class="Riviews">
-				<h3>두번째 영역 : 리뷰글 최신순</h3>
+				<div class="title1">
+				<h3>최신 리뷰들</h3> 
+				</div>
+				<div class="Commu">
+				<c:forEach items="${review}" begin="0" end="4" var="r" >
+						<div  class="title2">
+						<h3><a href="${pageContext.request.contextPath}/restaurants/select?restNum=${r.restNum}">${r.contents}</a></h3> 
+						</div>
+						<div  class="cdate">
+						<h3>${r.regDate}</h3>
+						</div>
+						<div  class="starValue">
+						<c:forEach begin="1" end="${r.rating}">
+						<span class="star"></span>
+						</c:forEach>
+						</div>
+					</c:forEach>
+					
+					</div>
+					
+					</div>
 				
 				</div>
-				</div>
+				
 			
 			</section>
 			

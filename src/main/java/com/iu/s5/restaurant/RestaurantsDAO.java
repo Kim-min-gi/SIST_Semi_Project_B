@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.iu.s5.board.community.CommunityDTO;
+import com.iu.s5.review.ReviewDTO;
 import com.iu.s5.util.Pager;
 
 @Repository
@@ -43,6 +44,11 @@ public class RestaurantsDAO {
 	
 	public List<RestaurantsDTO> getrecommend(CategoryDTO categoryDTO) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getrecommend", categoryDTO);
+	}
+	
+	public List<ReviewDTO> getReview() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getReview");
+		
 	}
 	
 

@@ -196,6 +196,12 @@
 			ORDER BY STARVAL DESC)
 			WHERE CATEGORYNUM = #{categoryNum}
 	 	</select>
+	 	
+	 	
+	 <select id="getReview" resultType="ReviewDTO">
+	 	SELECT * FROM REVIEW 
+		ORDER BY REVIEWNUM DESC	
+	 </select>
  	
  	
  

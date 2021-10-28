@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.iu.s5.board.community.CommunityDTO;
+import com.iu.s5.review.ReviewDTO;
 import com.iu.s5.util.Pager;
 
 @Service
@@ -56,6 +57,10 @@ public class RestaurantsService {
 	
 	public List<RestaurantsDTO> getrecommend(CategoryDTO categoryDTO) throws Exception{
 		return restaurantsDAO.getrecommend(categoryDTO);
+	}
+	
+	public List<ReviewDTO> getReview() throws Exception{
+		return restaurantsDAO.getReview();
 	}
 	
 

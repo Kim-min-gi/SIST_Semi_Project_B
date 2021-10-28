@@ -23,6 +23,7 @@ import com.iu.s5.restaurant.RestCategorysDTO;
 import com.iu.s5.restaurant.RestaurantsDTO;
 import com.iu.s5.restaurant.RestaurantsService;
 import com.iu.s5.restaurant.SearchsDTO;
+import com.iu.s5.review.ReviewDTO;
 import com.iu.s5.util.Pager;
 
 
@@ -49,6 +50,7 @@ public class HomeController {
 		ModelAndView mv = new ModelAndView();
 		List<RestaurantsDTO> ar = restaurantsService.getRestaurants();
 		List<CommunityDTO> cr = restaurantsService.getCommunity();
+		List<ReviewDTO> rv = restaurantsService.getReview();
 		List<RestaurantsDTO> rc1= restaurantsService.getrecommend(categoryDTO);
 		categoryDTO.setCategoryNum(2);
 		List<RestaurantsDTO> rc2= restaurantsService.getrecommend(categoryDTO);
@@ -68,6 +70,7 @@ public class HomeController {
 		mv.addObject("reco5", rc5);
 		mv.addObject("starVal", ar);
 		mv.addObject("Community", cr);
+		mv.addObject("review", rv);
 		mv.setViewName("home");
 		return mv;
 	}
