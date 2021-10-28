@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 
 <html>
@@ -40,8 +39,8 @@
                 	<img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../resources/upload/member/${member.memberFilesDTO.fileName}" alt="profile"/>
                 </span>
             </a><br>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><br>
             
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><br><br><br>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
                 	<li class="nav-item"><a class="nav-link js-scroll-trigger" href="../">홈으로</a></li>
@@ -62,7 +61,7 @@
                 
                     <h1 class="mb-0">
                         환영합니다
-                        <span class="text-primary">${member.nickName} 님 😀</span>
+                        <span class="text-primary">${member.name} 님 😀</span>
                     </h1>
                     
                     <div class="subheading mb-5">
@@ -152,7 +151,7 @@
                     <ul class="fa-ul mb-0">
                         <li>
                         	<h4>탈퇴 진행을 원하시면
-                        		<a href="./delete">여기</a> 를 눌러주세요..
+                        		<button type="button" id="delId">여기</button> 를 눌러주세요..
                         	</h4>
                         </li>
                     </ul>
@@ -169,7 +168,7 @@
 			$('.navi').addClass('affix');
 		</script>
 		
-		<script type="text/javascript" src="./resources/js/mypage.js?ver=123"></script>
+		<script type="text/javascript" src="../resources/js/mypage.js"></script>
 		
 		<!-- 찜내역 -->
 		<script src="../resources/js/masonry.pkgd.min.js"></script>
