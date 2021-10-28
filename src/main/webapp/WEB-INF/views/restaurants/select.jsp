@@ -124,7 +124,17 @@
 	<!-- 리뷰 -->
 	<div class="review-area">
 		<div class="review-info">
-			<strong>리뷰</strong>
+			<div class="left-area">
+				<strong>리뷰</strong>
+			</div>
+			<div class="right-area">
+				<div class="search">
+					<select name="filter" id="search-filter">
+						<option value="newest">최신순</option>
+						<option value="oldest">오래된순</option>
+					</select>
+				</div>
+			</div>
 		</div>
 		
 		<div id="review-list" class="review-list">
@@ -134,6 +144,7 @@
 </div>
 <!-- 식당 정보 영역 끝 -->
 
+<!-- 리뷰 작성 모달 -->
 <div class="modal fade" id="writeModal" tabindex="-1" role="dialog" aria-labelledby="writeModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -156,16 +167,16 @@
           	<label for="rating4"></label>
           	<input type="checkbox" name="ratingC" id="rating5" data-value="5" class="rating-check">
           	<label for="rating5"></label>
-          	<input class="testtest" type="hidden" name="rating">
+          	<input class="rating" type="hidden" name="rating">
           	
           	
           </div>
           <div class="form-group">
-            <label for="message-text" class="control-label">내용</label>
+            <label for="message-text" class="control-label">음식점 리뷰를 작성해주세요!</label>
             <textarea rows="10" name="contents" class="form-control review-contents" id="review-contents"></textarea>
           </div>
           <div class="form-group">
-            <label for="photo" class="control-label">사진</label>
+            <label for="photo" class="control-label">사진 (5장까지 첨부 가능)</label>
 			<button type="button" id="fileAdd" class="btn btn-default">추가</button>
 			<div id="fileAddArea">
 			</div>
@@ -176,11 +187,69 @@
       </div>
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-default" data-dismiss="modal">X</button> -->
-        <button id="writeBtn" type="button" class="btn btn-primary">리뷰 작성</button>
+        <button id="writeBtn" type="button" class="btn review-write-btn">리뷰 작성</button>
       </div>
     </div>
   </div>
 </div>
+<!-- 리뷰 작성 모달 끝 -->
+
+
+<!-- 리뷰 수정 모달 -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="updateModal">리뷰 수정</h4>
+      </div>
+      <div class="modal-body">
+      	<!-- form -->
+        <form action="./setReviewUpdate" method="post"  id="reviewUpdateForm" enctype="multipart/form-data">
+          <input class="reviewNum" type="hidden" name="reviewNum">
+          <div class="form-group rating-group">
+            
+          	<input type="checkbox" name="ratingC" id="rating1" data-value="1" class="rating-check">
+          	<label for="rating1"></label>
+          	<input type="checkbox" name="ratingC" id="rating2" data-value="2" class="rating-check">
+          	<label for="rating2"></label>
+          	<input type="checkbox" name="ratingC" id="rating3" data-value="3" class="rating-check">
+          	<label for="rating3"></label>
+          	<input type="checkbox" name="ratingC" id="rating4" data-value="4" class="rating-check">
+          	<label for="rating4"></label>
+          	<input type="checkbox" name="ratingC" id="rating5" data-value="5" class="rating-check">
+          	<label for="rating5"></label>
+          	<input class="rating" type="hidden" name="rating">
+          	
+          	
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">음식점 리뷰를 작성해주세요!</label>
+            <textarea rows="10" name="contents" class="form-control review-contents" id="review-contents"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="photo" class="control-label">사진</label>
+			<button type="button" id="updateFileAdd" class="btn btn-default">추가</button>
+			<div id="oldFileArea">
+			</div>
+			<div id="updateFileAddArea">
+			</div>
+			<div id="removeFileArea">
+			</div>
+          </div>
+          
+        </form> 
+        <!-- //form -->
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">X</button> -->
+        <button id="updateBtn" type="button" class="btn review-update-btn">리뷰 수정</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 리뷰 수정 모달 끝 -->
+
 
 <c:import url="../temp/boot_footer.jsp"></c:import>
 
@@ -223,47 +292,15 @@ $('.img-slider').slick({
 </script>
 
 <script>
+	const mSession = "${member}"; //멤버 세션
+
+	console.log('mSession:'+mSession);
+
 	let restNum = "${dto.restNum}";
+	
 	$('.navi').addClass('affix');
 	
-	//show.bs.modal -- modal 창이 열릴 때 실행되는 이벤트 
-	$('#writeModal').on('show.bs.modal', function (event) {
-		  var button = $(event.relatedTarget) // Button that triggered the modal
-		  console.log(button);
-		  var recipient = button.data('whatever') // Extract info from data-* attributes
-		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-		  var modal = $(this)
-		  modal.find('.modal-title').text('리뷰 작성 ' + recipient)
-		  modal.find('.modal-body input').val(recipient)
-	});
 	
-	
-	$("#writeBtn").on('click', function() {
-		$(".testtest").val("2");
-		
-		console.log("${dto.restNum}");
-		$("#reviewForm").submit();
-	})
-	
-	$(".rating-check").change(function() {
-		$checked = $(this);
-		
-		setRating($checked);
-	})
-	
-	/*몇점 체크했는지 확인하고 체크박스 채워주기 ..*/
-	function setRating($checked) {
-		console.log($checked);
-		let checkedVal = $checked.attr('data-value');
-		
-		let ckItems = $(".rating-check");
-		
-		ckItems.each(function() {
-			console.log($(this).attr('data-value'));
-		})
-
-	}
 </script>
 
 <script type="text/javascript" src="../resources/js/restaurantsSelect.js"></script>

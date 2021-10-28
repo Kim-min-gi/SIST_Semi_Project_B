@@ -1,10 +1,12 @@
 package com.iu.s5.select;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,13 +15,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.s5.board.BoardFileDTO;
+import com.iu.s5.member.MemberDTO;
 import com.iu.s5.restaurant.RestaurantsDTO;
 import com.iu.s5.restaurant.RestaurantsService;
 import com.iu.s5.review.ReviewDTO;
+import com.iu.s5.review.ReviewFilesDTO;
 import com.iu.s5.review.ReviewService;
 import com.iu.s5.util.Pager;
 
@@ -51,12 +58,12 @@ public class SelectController {
 		//리뷰 등록
 		@PostMapping("setReview")
 		public ModelAndView setReview(ReviewDTO reviewDTO,
-				@RequestParam("boardFile") MultipartFile[] reviewFiles, HttpServletRequest request) throws Exception {
+				@RequestParam("boardFile") MultipartFile[] reviewFiles, HttpSession session) throws Exception {
 			ModelAndView mv = new ModelAndView();
 			
-			//ㄴ ㅏ중에 멤버 세션으로 바꿔놓기
-			reviewDTO.setId("t1");
-			reviewDTO.setWriter("t1");
+			MemberDTO memberDTO = (MemberDTO) session.getAttribute("member");
+			reviewDTO.setId(memberDTO.getId());
+			reviewDTO.setWriter(memberDTO.getName());
 			
 			System.out.println(reviewDTO.getRating());
 			
@@ -67,16 +74,64 @@ public class SelectController {
 			return mv;
 		}
 		
+		@PostMapping("setReviewUpdate")
+		public ModelAndView setReviewUpdate(ReviewDTO reviewDTO, 
+				@RequestParam("boardFile") MultipartFile[] boardFiles, HttpServletRequest request) throws Exception {
+			ModelAndView mv = new ModelAndView();
+			
+			System.out.println(reviewDTO.getReviewNum());
+			
+			//삭제할 파일
+			String removeFileNum[] = request.getParameterValues("removeFileNum");
+			String removeFileName[] = request.getParameterValues("removeFileName");
+			
+			//삭제할 파일이 있으면
+			if (removeFileNum != null) {
+				
+				List<ReviewFilesDTO> reviewFilesDTOs = new ArrayList<ReviewFilesDTO>();
+				for (int i = 0; i < removeFileNum.length; i++) {
+					ReviewFilesDTO reviewFileDTO = new ReviewFilesDTO();
+					
+					reviewFileDTO.setReviewFilesNum(Long.parseLong(removeFileNum[i]));
+					reviewFileDTO.setFileName(removeFileName[i]); 
+					
+					reviewFilesDTOs.add(reviewFileDTO);
+				}
+				
+				reviewService.setReviewFileDelete(reviewFilesDTOs);
+			}
+			
+			int result = reviewService.setUpdate(reviewDTO, boardFiles);
+			
+			return mv;
+		}
+		
+		//리뷰 삭제
+		@PostMapping("setReviewDelete")
+		@ResponseBody
+		public int setDelete(ReviewDTO reviewDTO) throws Exception {
+//			ModelAndView mv = new ModelAndView();
+			
+			int result = reviewService.setDelete(reviewDTO);
+			
+			return result;
+		}
+		
 		
 		//리뷰 리스트 출력
 		@GetMapping("getReviewList")
-		public ModelAndView getReview(ReviewDTO reviewDTO, Pager pager) throws Exception {
+		public ModelAndView getReview(ReviewDTO reviewDTO, Pager pager, @RequestParam("filter") String filter) throws Exception {
 			ModelAndView mv = new ModelAndView();
 			//리뷰
-			List<ReviewDTO> ar = reviewService.getReviewList(reviewDTO, pager);
+			List<ReviewDTO> ar = reviewService.getReviewList(reviewDTO, pager, filter);
+			
+			for (ReviewDTO test : ar) {
+				System.out.println(test.getReviewNum());
+			}
 			
 			mv.addObject("reviews", ar);
 			mv.addObject("pager", pager);
+			mv.addObject("filter", filter);
 			mv.setViewName("board/reviewList");
 			return mv;
 		}
