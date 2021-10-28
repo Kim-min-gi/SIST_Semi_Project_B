@@ -38,7 +38,7 @@ $('#id').blur(function() {
 	if(result){
 			$("#accInfos").submit();
 		}else {
-			alert('필수 입력');	
+			alert('빈칸을 입력해 주십시오');	
 			$(t).focus();
 		}
 });

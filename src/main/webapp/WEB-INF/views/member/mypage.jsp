@@ -113,29 +113,35 @@
                     <form id="update-frm" action="update" method="post" class="col-md-6 mx-auto">
 
 						<div class="mb-3">
-	    					<label for="exampleInputPassword1" class="form-label">Password</label>
+	    					<label for="exampleInputPassword1" class="form-label">변경될 암호</label>
 	    					<input type="password" class="form-control put pw" id="pw1" value="${member.pw}" name="pw">
 	  					</div>
 
 					 	<div class="mb-3">
-					    	<label for="exampleInputPassword1" class="form-label">Password 확인</label>
+					    	<label for="exampleInputPassword1" class="form-label">변경될 암호 재입력</label>
 					    	<input type="password" class="form-control put pw" id="pw2" name="pwCheck" placeholder="password를 한번더 입력하세요">
 					  	<div id="warnPw" style="color:red;"></div>
 
 
 					  	<div class="mb-3">
-					   		<label for="text" class="form-label">Phone</label>
+					   		<label for="text" class="form-label">휴대폰 번호</label>
 					   		<input type="tel" class="form-control put" id="phone" name="phone" value="${member.phone}" placeholder="01012345678">
 					 	</div>
 
 						<div class="mb-3">
-							<label for="exampleInputEmail1" class="form-label">Email</label>
+							<label for="exampleInputEmail1" class="form-label">이메일</label>
 							<input type="email" class="form-control put" id="email" name="email" value="${member.email}" aria-describedby="emailHelp"  placeholder="email@email.com">
 						</div>
 
-	   					<div class="mb-3 my-4">
+  						<div class="mb-3">
+					  		<label for="text" class="form-label">닉네임</label>
+					  		<input type="text" class="form-control put" id="nickName" name="nickName" value="${member.nickName }">
+					  		<div id="nickNameResult"></div> 
+					  	</div>
+  						
+					  	<div class="mb-3 my-4">
 	    					<label class="form-label"></label>
-	  						<button id="btn" type="submit" class="btn btn-primary">Update</button>
+	  						<button id="btn" type="submit" class="btn btn-primary">수정</button>
   						</div>
 
                     </form>
