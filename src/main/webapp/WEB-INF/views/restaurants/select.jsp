@@ -23,14 +23,8 @@
 		<!-- 이미지 슬라이드 영역  -->
 		<div id="slider-wrap">
 		    <ul id="slider">
-		    	<!-- <c:forEach items=" ${imgs}" var="i">
-		    		<li>
-		    			<div>
-		    			<img alt="" src="./resource/upload/review/${i.fileName}">
-		    			</div>
-		    			
-		    		</li>
-		    	</c:forEach> -->
+		    
+	
 		    	
 		    	
 		        <li>
