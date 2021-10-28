@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -109,7 +110,7 @@ public class RequestController {
 	}
 	
 	@PostMapping("insert")
-	public ModelAndView setInsert(RequestDTO requestDTO, MultipartFile[] boardFiles) throws Exception {
+	public ModelAndView setInsert(RequestDTO requestDTO, @RequestParam("boardFile") MultipartFile[] boardFiles) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		int result = requestService.setInsert(requestDTO, boardFiles);
 		
