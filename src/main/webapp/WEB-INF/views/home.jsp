@@ -88,7 +88,7 @@
 					        		   <img class="recoImg" src="./resources/img/dummy.png">
 									</div>
 									<div id="infomation">
-										   <a href="#"><h3>${re.restName}</h3></a>
+										   <a href="#"><h3>${re.restName}</h3></a> <!-- 상세페이지 주소 변경 -->
 								           <h3>${re.starVal}</h3>
 								           <h4>${re.restAddress}</h4>
 									</div>
