@@ -50,12 +50,12 @@
 				<ul class="grid swipe-down" id="grid">
 				<c:forEach items="${starVal}" var="s" varStatus="status">
 					<c:forEach items="${s.files}" var="f">
-					<li><a id="sa${status.count}" href="./restaurants/select?restNum=${s.restNum}"><img src="./resources/img/dummy.png" alt="dummy">
+					<li><a id="sa${status.count}" href="./restaurants/select?restNum=${s.restNum}"><img class="reimg" src="./resources/img/dummy.png" alt="dummy">
 					<span id="res">
 					<h3>${s.restName} <span id="starVal">${s.starVal}</span></h3>
 					</span>
 					<span id="re" class="hide">
-					<c:forEach items="${s.categorysDTOs}" var="ca" begin="0" end="1">	
+					<c:forEach items="${s.categorysDTOs}" var="ca" begin="0" end="0">	
 					<h3>(${ca.categoryName})</h3>
 					</c:forEach>
 					</span> 
@@ -75,16 +75,111 @@
 			<div class="Explanation">
 					<h3>카테고리별 추천 식당</h3>
 				</div>
-			<ul class="grid swipe-down" id="grid3">
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-					<li><a href="#"><img src="./resources/img/dummy.png" alt="dummy"><h3>A fantastic title</h3></a></li>
-				</ul>
+				<!-- slide -->
+				<div id="slider-wrap">
+					    <ul id="slider">
+					        <li class="sliderli">
+					        		<div id="kinds">
+					        			<h3>한식</h3>
+					        		</div>
+					        		<c:forEach items="${reco1}" begin="0" end="2"  var="re">
+					        		
+					        		<div id="recommend">
+					        		   <img class="recoImg" src="./resources/img/dummy.png">
+									</div>
+									<div id="infomation">
+										   <a href="#"><h3>${re.restName}</h3></a>
+								           <h3>${re.starVal}</h3>
+								           <h4>${re.restAddress}</h4>
+									</div>
+					        		
+					        		</c:forEach>
+					        		
+					    		
+					        </li>
+					
+					        <li class="sliderli">
+					            <div id="kinds">
+					        			<h3>양식</h3>
+					        		</div>
+					        		<c:forEach items="${reco2}" begin="0" end="2"  var="re">
+					        		<div id="recommend">
+					        		   <img class="recoImg" src="./resources/img/dummy.png">
+									</div>
+									<div id="infomation">
+										   <a href="#"><h3>${re.restName}</h3></a>
+								           <h3>${re.starVal}</h3>
+								           <h4>${re.restAddress}</h4>
+									</div>
+										</c:forEach>
+					           
+					        </li>
+					
+					        <li class="sliderli">
+					         	 <div id="kinds">
+					        			<h3>일식</h3>
+					        		</div>
+					         		<c:forEach items="${reco3}" begin="0" end="2"  var="re">
+					        		<div id="recommend">
+					        		   <img class="recoImg" src="./resources/img/dummy.png">
+									</div>
+									<div id="infomation">
+										   <a href="#"><h3>${re.restName}</h3></a>
+								           <h3>${re.starVal}</h3>
+								           <h4>${re.restAddress}</h4>
+									</div>
+										</c:forEach>
+					           
+					        </li>
+					
+					        <li class="sliderli">
+					        	<div id="kinds">
+					        			<h3>중식</h3>
+					        		</div>
+					        		<c:forEach items="${reco4}" begin="0" end="2"  var="re">
+					        		<div id="recommend">
+					        		   <img class="recoImg" src="./resources/img/dummy.png">
+									</div>
+									<div id="infomation">
+										   <a href="#"><h3>${re.restName}</h3></a>
+								           <h3>${re.starVal}</h3>
+								           <h4>${re.restAddress}</h4>
+									</div>
+										</c:forEach>
+					           
+					           
+					        </li>
+					
+					        <li class="sliderli">
+					        	<div id="kinds">
+					        			<h3>아시아</h3>
+					        		</div>
+					        		<c:forEach items="${reco5}" begin="0" end="2"  var="re">
+					        		<div id="recommend">
+					        		   <img class="recoImg" src="./resources/img/dummy.png">
+									</div>
+									<div id="infomation">
+										   <a href="#"><h3>${re.restName}</h3></a>
+								           <h3>${re.starVal}</h3>
+								           <h4>${re.restAddress}</h4>
+									</div>
+										</c:forEach>
+					           
+					           
+					        </li>
+					    </ul>
+					
+					    <div class="slider-btns" id="next"><span>▶</span></div>
+					    <div class="slider-btns" id="previous"><span>◀</span></div>
+					
+					    <div id="slider-pagination-wrap">
+					        <ul>
+					        </ul>
+					    </div>
+					</div>
+				<!-- slide finish  -->
+				
+				
 			
 			</section>
 				
@@ -127,8 +222,11 @@
 						<div  class="title2">
 						<h3>제목 : <a href="${pageContext.request.contextPath}/community/select?num=${c.num}">${c.title}</a></h3> 
 						</div>
-						<div class="writer">
-						<h3>작정자 : ${c.writer}</h3>
+						<div  class="cdate">
+						<h3>${c.regDate}</h3>
+						</div>
+						<div  class="writer">
+						<h3>조회수 : ${c.hits}</h3>
 						</div>
 					</c:forEach>
 					
@@ -153,8 +251,8 @@
 		
 		
 			
-		 
-   			 <script src="./resources/js/nav.js"></script>
+		<script src="./resources/js/slide.js"></script>
+   	    <script src="./resources/js/nav.js"></script>
    			 <!-- /container -->
 		<script src="./resources/js/masonry.pkgd.min.js"></script>
 		<script src="./resources/js/imagesloaded.pkgd.min.js"></script>
@@ -170,10 +268,7 @@
 				viewportFactor : 0.4
 			} );
 			
-			new GridScrollFx( document.getElementById( 'grid3' ), {
-				viewportFactor : 0.4
-			} );
-			
+		
 			
 			$(window).scroll(function() {
 				            if ($(document).scrollTop() > 50) {

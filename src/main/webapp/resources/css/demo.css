@@ -48,6 +48,13 @@ input:focus{
 	
 } 
 
+.reimg{
+	width: auto;
+	height: auto;
+	max-height: 380px;
+	max-width: 300px;
+}
+
 .SearchSubmit{
 	background-color:#FABE00;
 	border-style : solid;
@@ -92,12 +99,37 @@ input:focus{
 	padding-left: 10px;
 }
 
+.cdate{
+	
+	float : right;
+	padding-right: 10px;
+	
+}
+
+.cdate > h3 {
+	
+	font-size: 15px;
+	text-align:right;
+	
+}
+
+	
+
 
 .title2{
 	float:left;
 	display:inline;
 	width: 50%;
 	padding-left: 10px;
+}
+
+.title2 > h3{
+	 width : 280px;
+	 text-overflow: ellipsis;
+	 white-space  : nowrap;
+	 overflow     : hidden;
+	 text-align:left;
+	 font-size: 15px; 
 }
 
 .title2 > h3 > a:link, a:visited{
@@ -109,18 +141,11 @@ input:focus{
 	text-decoration: none;
 }
 
+
 .writer{
-	float:right;
-	display:inline;
-	width: 50%;
-	padding-right: 10px;
-}
 
-
-.title2 > h3{
-	
-	text-align:left;
-	font-size: 15px;
+	float: right;
+	padding-right: 30px;
 }
 
 .writer  > h3{
@@ -128,6 +153,10 @@ input:focus{
 	font-size: 15px;
 	text-align:right;
 }
+
+
+
+
 
 body {
 	background: white;
@@ -275,6 +304,205 @@ section {
 	text-align: left;
 }
 
+
+/* slide */
+
+
+
+#slider{
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+
+#slider li{
+	list-style: none;
+	
+	
+}
+
+#recommend{
+	float: left;
+	padding-top: 20px;
+	padding-left: 30px;
+	
+}
+
+.recoImg{
+	width: auto;
+	height: auto;
+	max-width: 300px;
+	max-height: 300px;
+}
+
+ #infomation{
+ 	float:left;
+ 	padding-left: 15px;
+ 	padding-top: 100px;
+	
+} 
+
+#infomation > h4{
+	width: 100px;
+	text-overflow: ellipsis;
+	/* white-space  : nowrap; */ /* 줄바꿈 하지 않기 */
+	overflow     : hidden; 
+}
+
+#infomation > a{
+	color: #231815;
+}
+
+#infomation > a:link{
+	color: #231815; text-decoration: none;
+}
+
+#infomation > a:visited{
+	color: #231815; text-decoration: none;
+}
+
+#infomation > a:hover{
+	color: #231815; text-decoration: none;
+}
+
+#infomation > h3{
+	color: #FABE00;
+}
+
+
+#slider-wrap {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+#slider-wrap ul#slider {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#slider-wrap ul#slider li {
+    float: left;
+    position: relative;
+    width: 600px;
+    height: 400px;
+}
+
+#kinds {
+    float:left;
+    top: 20px;
+    left: 35px;
+}   
+
+#slider-wrap ul#slider li>div h3 {
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+#slider-wrap ul#slider li>div span {
+    font-size: 21px;
+}
+
+/* #slider-wrap ul#slider li img {
+    display: inline-block;
+    
+} */
+
+/*btns*/
+.slider-btns {
+    position: absolute;
+    width: 50px;
+    height: 60px;
+    top: 50%;
+    margin-top: -25px;
+    line-height: 57px;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+    -webkit-transition: all 0.1s ease;
+    -o-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+}
+
+.slider-btns:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#next {
+    right: -50px;
+    border-radius: 7px 0px 0px 7px;
+    color: #eee;
+}
+
+#previous {
+    left: -50px;
+    border-radius: 0px 7px 7px 7px;
+    color: #eee;
+}
+
+#slider-wrap.active #next {
+    right: 0px;
+}
+
+#slider-wrap.active #previous {
+    left: 0px;
+}
+
+/*bar*/
+#slider-pagination-wrap {
+    min-width: 20px;
+    margin-top: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 15px;
+    position: relative;
+    text-align: center;
+}
+
+#slider-pagination-wrap ul {
+    width: 100%;
+}
+
+#slider-pagination-wrap ul li {
+    margin: 0 4px;
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0.5;
+    position: relative;
+    top: 0;
+}
+
+#slider-pagination-wrap ul li.active {
+    width: 12px;
+    height: 12px;
+    top: 3px;
+    opacity: 1;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 0px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 0px;
+}
+
+/*ANIMATION*/
+#slider-wrap ul,
+#slider-pagination-wrap ul li {
+    -webkit-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+    -o-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+    transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+}
+
+
+/* slide finish */
+
 @media screen and (max-width: 25em) {
 
 	.codrops-icon span {
@@ -282,3 +510,5 @@ section {
 	}
 
 }
+
+

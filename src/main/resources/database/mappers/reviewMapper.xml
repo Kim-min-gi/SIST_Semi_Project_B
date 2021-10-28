@@ -12,6 +12,10 @@
  		VALUES (REVIEWFILES_SEQ.NEXTVAL, #{reviewNum}, #{fileName}, #{oriName})
  	</insert>
  	
+ 	<delete id="setReviewFileDelete" parameterType="ReviewFilesDTO">
+ 		DELETE REVIEWFILES WHERE REVIEWFILESNUM = #{reviewFilesNum}
+ 	</delete>
+ 	
  	<select id="getReviewCount" parameterType="ReviewDTO" resultType="Long">
  		SELECT COUNT(REVIEWNUM) FROM REVIEW WHERE RESTNUM = #{restNum}
  	</select>
@@ -41,8 +45,12 @@
  		SELECT * FROM
 		(SELECT ROWNUM RN, RV.* FROM
 			(SELECT * FROM REVIEW
-			WHERE RESTNUM = #{reviews.restNum}) 
-		RV ORDER BY REVIEWNUM DESC) RR LEFT OUTER JOIN 
+			WHERE RESTNUM = #{reviews.restNum}
+			ORDER BY 
+			<if test="filter == 'newest'"> REVIEWNUM DESC </if>
+			<if test="filter == 'oldest'"> REVIEWNUM ASC </if>
+			) RV) 
+			RR LEFT OUTER JOIN 
 		REVIEWFILES RF
 		USING (REVIEWNUM)
 		WHERE RN BETWEEN #{pager.startRow} AND #{pager.lastRow}
@@ -51,6 +59,12 @@
  	<select id="getRatingAvg" parameterType="ReviewDTO" resultType="Float">
  		SELECT AVG(RATING) FROM REVIEW WHERE RESTNUM = #{restNum}
  	</select>
+ 
+ 	<update id="setUpdate" parameterType="ReviewDTO">
+ 		UPDATE REVIEW
+ 		SET CONTENTS = #{contents}, RATING = #{rating}
+ 		WHERE REVIEWNUM = #{reviewNum}
+ 	</update>
  
  	<delete id="setDelete" parameterType="ReviewDTO">
  		DELETE FROM REVIEW WHERE REVIEWNUM = #{reviewNum}

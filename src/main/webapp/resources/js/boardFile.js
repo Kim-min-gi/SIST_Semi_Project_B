@@ -22,7 +22,7 @@ function setCount(fileSize) {
  
  
 //파일 추가
-$('#fileAdd').click(function() {
+$('#fileAdd').on('click', function() {
 	
 	if (fileCount < TOTLACOUNT) {
 		$('#fileAddArea').append(file);
@@ -40,3 +40,6 @@ $('#fileAddArea').on('click', '.del', function() {
 	fileCount--;
 	$(this).parent().parent().remove();
 });
+
+
+

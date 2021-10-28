@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.iu.s5.board.BoardFileDTO;
 import com.iu.s5.util.FileManager;
 import com.iu.s5.util.Pager;
 
@@ -30,7 +31,7 @@ public class ReviewService {
 		return reviewDAO.getRatingAvg(reviewDTO);
 	}
 	
-	public List<ReviewDTO> getReviewList(ReviewDTO reviewDTO, Pager pager) throws Exception {
+	public List<ReviewDTO> getReviewList(ReviewDTO reviewDTO, Pager pager, String filter) throws Exception {
 		long totalCount = reviewDAO.getReviewCount(reviewDTO);
 		
 		pager.setPerPage(3L);
@@ -41,12 +42,34 @@ public class ReviewService {
 		
 		map.put("reviews", reviewDTO);
 		map.put("pager", pager);
+		map.put("filter", filter);
 		
 		return reviewDAO.getReviewList(map);
 	}
 	
-	public int setUpdate(ReviewDTO reviewDTO) throws Exception {
-		return reviewDAO.setUpdate(reviewDTO);
+	public int setUpdate(ReviewDTO reviewDTO, MultipartFile[] boardFiles) throws Exception {
+		/* 글 내용 수정 */
+		int result = reviewDAO.setUpdate(reviewDTO);
+		
+		/* 파일 추가 */
+		String realPath = sContext.getRealPath("/resources/upload/review/");
+		File file = new File(realPath);
+		
+		for (MultipartFile mf : boardFiles) {
+			String fileName = fileManager.fileSave(mf, file);
+			
+			ReviewFilesDTO reviewFileDTO = new ReviewFilesDTO();
+			reviewFileDTO.setFileName(fileName);
+			reviewFileDTO.setOriName(mf.getOriginalFilename());
+			reviewFileDTO.setReviewNum(reviewDTO.getReviewNum());
+			
+			//파일 이름 공백 아닐 때만 db에 저장
+			if (mf.getOriginalFilename() != "") {
+				result = reviewDAO.setReviewFile(reviewFileDTO);
+			}
+		}
+		/* 파일 추가 끝 */
+		return result;
 	}
 	
 	public int setDelete(ReviewDTO reviewDTO) throws Exception {
@@ -72,6 +95,23 @@ public class ReviewService {
 				result = reviewDAO.setReviewFile(reviewFilesDTO);
 			}
 		}
+		return result;
+	}
+	
+	
+	
+	/* 리뷰 파일 삭제 */
+	public int setReviewFileDelete(List<ReviewFilesDTO> reviewFilesDTOs) throws Exception {
+		String realPath = sContext.getRealPath("/resources/upload/review/");
+		int result = 0;
+		
+		for (ReviewFilesDTO rf : reviewFilesDTOs) {
+			File file = new File(realPath, rf.getFileName());
+			fileManager.fileDelete(file);
+			
+			result = reviewDAO.setReviewFileDelete(rf);
+		}
+		
 		return result;
 	}
 }
