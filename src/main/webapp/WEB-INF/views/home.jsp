@@ -50,7 +50,7 @@
 				<ul class="grid swipe-down" id="grid">
 				<c:forEach items="${starVal}" var="s" varStatus="status">
 					<c:forEach items="${s.files}" var="f">
-					<li><a id="sa${status.count}" href="./restaurants/select?restNum=${s.restNum}"><img class="reimg" src="./resources/img/${f.fileName}" alt="dummy">
+					<li><a id="sa${status.count}" href="./restaurants/select?restNum=${s.restNum}"><img class="reimg" src="./resources/img/육장장이.jpg" alt="dummy">
 					<span id="res">
 					<h3>${s.restName} <span id="starVal">${s.starVal}</span></h3>
 					</span>
