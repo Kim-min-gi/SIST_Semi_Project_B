@@ -47,6 +47,9 @@ public class SelectController {
 			restaurantsDTO = selectService.getSelectRT(restaurantsDTO);
 			String category = selectService.getCategoryName(restaurantsDTO);
 			List<ReviewFilesDTO> images = selectService.getReviewFiles(restaurantsDTO);
+			for(int i=0;i<images.size();i++) {
+				System.out.println(images.get(i).getFileName());
+			}
 			
 			mv.addObject("dto", restaurantsDTO);
 			mv.addObject("category", category);

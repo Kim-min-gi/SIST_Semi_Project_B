@@ -7,9 +7,9 @@
   
  <mapper namespace="com.iu.s5.select.SelectDAO">
  
- 	<select id="getReviewFiles" parameterType="RestaurantsDTO" resultType="com.iu.s5.review.ReviewFilesDTO">
+ 	<select id="getReviewFiles" parameterType="RestaurantsDTO" resultType="ReviewFilesDTO">
  		select * from reviewfiles 
-   			 where reviewnum = 
+   			 where reviewnum in
 	       		 (select reviewnum from review 
 	       		 	where restNum = #{restNum}
 	       		 )
