@@ -49,10 +49,10 @@ input:focus{
 } 
 
 .reimg{
-	width: auto;
-	height: auto;
-	max-height: 380px;
-	max-width: 300px;
+	width: 340px;
+	height: 340px;
+	/* max-height: 380px;
+	max-width: 300px; */
 }
 
 .SearchSubmit{
