@@ -24,7 +24,7 @@ public class RestaurantsService {
 	public List<RestaurantsDTO> getSearchList(SearchsDTO searchsDTO,Pager pager) throws Exception{
 		
 		
-		pager.setPerPage(10L);
+		pager.setPerPage(8L);
 		pager.makeRow();
 		pager.makeNum(restaurantsDAO.getSearchCount(searchsDTO));
 		//map.put("pager", pager);
