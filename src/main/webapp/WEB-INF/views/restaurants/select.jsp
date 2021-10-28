@@ -24,14 +24,10 @@
 		<div id="slider-wrap">
 		    <ul id="slider">
 		    	
-		    	
-		    	
-	
-		    	
-		    	
-		        <li>
-		        	
-		            <img src="https://fakeimg.pl/350x200/960a96/000?text=11111">
+		        <li>	
+		            <c:forEach items="${imgs}" var="i">
+		            	<img src="../resources/upload/review/${i.fileName}"> 
+		            </c:forEach>
 		        </li>
 		
 		        <li>
@@ -271,9 +267,7 @@
 
 <script>
 	const mSession = "${member}"; //멤버 세션
-
 	console.log('mSession:'+mSession);
-
 	let restNum = "${dto.restNum}";
 	
 	$('.navi').addClass('affix');
