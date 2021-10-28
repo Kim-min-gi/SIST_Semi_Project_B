@@ -110,10 +110,11 @@
 			</div><!-- //bottom-left -->
 			
 			
-			
-			<div class="bottom-right">
-				<a class="btn btn-default" href="./insert">작성</a>
-			</div><!-- //bottom-right -->
+			<c:if test="${not empty member}">
+				<div class="bottom-right">
+					<a class="btn btn-default" href="./insert">작성</a>
+				</div><!-- //bottom-right -->
+			</c:if>
 		</div>
 		
 	</div>
