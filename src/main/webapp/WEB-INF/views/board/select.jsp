@@ -127,8 +127,8 @@
 				
 				<c:if test="${not empty member}">
 					<div class="comment-write">
-						<input type="hidden" id="comment-id" value="${dto.id}">
-						<div id="comment-writer" class="comment-writer">${dto.id}</div>
+						<input type="hidden" id="comment-id" value="${member.id}">
+						<div id="comment-writer" class="comment-writer">${member.id}</div>
 						<textarea id="comment-contents" class="comment-writebox" rows="2" cols="" placeholder="댓글을 작성해주세요."></textarea>
 					
 						<div class="comment-bottom">
