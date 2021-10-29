@@ -21,22 +21,15 @@
 <div class="container">
 	<div class="info-container">
 		<!-- 이미지 슬라이드 영역  -->
-		<div id="slider-wrap">
+		<div id="slider-wrap" class="slider-img">
 		    <ul id="slider">
-		    	
-		        <li>	
 		            <c:forEach items="${imgs}" var="i">
-		            	<img src="../resources/upload/review/${i.fileName}"> 
+		            	<li>
+		            		<div>
+				            	<img src="../resources/upload/review/${i.fileName}"> 
+		            		</div>
+		            	</li>
 		            </c:forEach>
-		        </li>
-		
-		        <li>
-		            <img src="https://fakeimg.pl/350x200/D27328/000?text=22222">
-		        </li>
-		
-		        <li>
-		            <img src="https://fakeimg.pl/350x200/FF607F/000?text=33333">
-		        </li>
 		
 		        
 		    </ul>
