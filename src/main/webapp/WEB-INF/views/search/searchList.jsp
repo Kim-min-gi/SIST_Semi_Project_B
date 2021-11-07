@@ -37,6 +37,11 @@
 		</div>
 		<hr>
 	<div class="searchinfo">
+		<c:if test="${empty map}">
+			<h3>연관된 데이터가 없습니다.</h3>
+		</c:if>
+	
+	
 		<ul>
 		<c:forEach items="${map}" var="map1">
 			<li>
@@ -85,6 +90,10 @@
 			<h4 class="cctitle" >제목 : <a href="${pageContext.request.contextPath}/community/select?num=${c.num}">${c.title}</a></h4>
 		</div>
 		</c:forEach>
+		
+		<c:if test="${empty community}">
+			<h3>연관된 데이터가 없습니다.</h3>
+		</c:if>
 		
 	</div>
 	
