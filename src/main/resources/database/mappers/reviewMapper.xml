@@ -46,8 +46,10 @@
 		(SELECT ROWNUM RN, RV.* FROM
 			(SELECT * FROM REVIEW
 			WHERE RESTNUM = #{reviews.restNum}
-			<if test="filter == 'newest'"> ORDER BY REVIEWNUM DESC</if>
-			<if test="filter == 'oldest'"> ORDER BY REVIEWNUM ASC</if>
+			<trim prefix="ORDER BY">
+				<if test='filter == "newest"'>REVIEWNUM DESC</if>
+				<if test='filter == "oldest"'>REVIEWNUM ASC</if>
+			</trim>
 			) RV) RR LEFT OUTER JOIN 
 		REVIEWFILES RF
 		USING (REVIEWNUM)
