@@ -7,6 +7,26 @@
   
  <mapper namespace="com.iu.s5.select.SelectDAO">
  
+	
+	<!-- 요청 테이블에서 승인된 식당 호출 --> 
+ 	<select id="getSelectAccepted" resultMap="getSelectAcceptedResult">
+ 		select 
+			R.restName, R.restPostcode, R.restAddress, R.restAddressDT, 
+			R.restAddressRF, R.restPhone, R.restCategory, R.restTime, R.holiday,
+			RF.fileName
+		from 
+		REQUEST R LEFT JOIN REQUESTFILES RF
+		on R.num = RF.num
+		WHERE R.requestAccept = 'Y';
+ 	</select>
+ 	<resultMap type="RestaurantsDTO" id="getSelectAcceptedResult">
+ 		
+ 	
+ 	</resultMap>
+ 	
+ 	
+ 	
+ 	
  	<select id="getReviewFiles" parameterType="RestaurantsDTO" resultType="ReviewFilesDTO">
  		select * from reviewfiles 
    			 where reviewnum in
